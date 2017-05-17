@@ -1,0 +1,18 @@
+{% extends "cbv/master.html" %}
+
+{% block content %}
+
+<h1>{{ conteudo.Titulo }}</h1>
+<h4>{{ conteudo.DataPublicacao|timesince }}</h4>
+<img src="{{MEDIA_URL}}{{conteudo.Topo}}">
+
+
+{% if user.is_authenticated %}
+    {{conteudo.Conteudo|safe}}
+{% else %}
+<h1> Não logado </h1>
+    {{conteudo.Detalhe}}
+{% endif %}
+
+
+{% endblock %}

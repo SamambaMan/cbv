@@ -1,0 +1,9 @@
+{% extends "cbv/master.html" %}
+
+{% block content %}
+<form method="POST" action="/cadastrocomplementar/">
+{% csrf_token %}
+{{ formulario.cpf }}
+</form>
+
+{% endblock %}

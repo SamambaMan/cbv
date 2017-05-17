@@ -1,0 +1,44 @@
+{% include "socialaccount/snippets/provider_list.html" with process="login" %}
+
+{{ sucesso }}
+<br>
+{{ formcadastrobasico.non_field_errors }}
+<form action="/cadastrarusuariobasico/" method="post">
+{% csrf_token %}
+    <table border>
+        <tr>
+            <td colspan="2">
+                {{ formcadastrobasico.firstname.errors }}
+                {{ formcadastrobasico.firstname }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                {{ formcadastrobasico.email.errors }}
+                {{ formcadastrobasico.email }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ formcadastrobasico.cpfpassaporte.errors }}
+                {{ formcadastrobasico.cpfpassaporte }}
+            </td>
+            <td>
+                {{ formcadastrobasico.unidadefederativa.errors }}
+                {{ formcadastrobasico.unidadefederativa }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ formcadastrobasico.password.errors }}
+                {{ formcadastrobasico.password }}
+            </td>
+            <td>
+                {{ formcadastrobasico.passwordconfirm.errors }}
+                {{ formcadastrobasico.passwordconfirm }}
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Cadastrar">
+</form>
+{% include "socialaccount/snippets/login_extra.html" %}
