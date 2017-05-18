@@ -56,11 +56,15 @@ class CadastroUsuarioBasicoForm(forms.Form):
         return data
 
     def clean(self):
+        from django.contrib.auth import password_validation
+
         pass1 = self.cleaned_data['password']
         pass2 = self.cleaned_data['passwordconfirm']
 
         if pass1 and pass1 != pass2:
             raise forms.ValidationError(u'As senhas não são idênticas.')
+
+        password_validation.validate_password(self.cleaned_data['password'])
 
         return self.cleaned_data
 
@@ -79,9 +83,15 @@ class LoginForm(forms.Form):
         required=True,
         widget=forms.PasswordInput(
             attrs={'placeholder': 'Senha'}))
-        
-    def clean(): 
-        pass #TODO: falta implementar
+
+    def clean(self):
+        from django.contrib.auth.models import User
+
+        usuarios = User.objects.filter(email=self.cleaned_data['email'])
+
+        if usuarios.count() == 0 or \
+            not usuarios[0].check_password(self.cleaned_data['password']):
+            raise forms.ValidationError(u"Email ou senha invalido")
 
 class CadastroComplementar(forms.ModelForm):
     def __init__(self, *args, **kwargs):

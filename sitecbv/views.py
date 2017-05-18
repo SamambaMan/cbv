@@ -1,24 +1,50 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseForbidden
-from .forms import CadastroUsuarioBasicoForm
+from .forms import CadastroUsuarioBasicoForm, LoginForm
 from django.contrib.auth.decorators import login_required
+from .decorators import obrigar_cadastro_complementar
 
+@obrigar_cadastro_complementar
 def index(request):
-    return render(request, 'cbv/index.html', {'formcadastrobasico': CadastroUsuarioBasicoForm()})
+    return render(request, 'cbv/index.html',
+        {'formcadastrobasico': CadastroUsuarioBasicoForm(),
+         'formlogin': LoginForm()})
 
 
 def cadastrousuariobasico(request):
     return render(
         request, 'cbv/cadastrobasico.html',
-        {'formcadastrobasico': CadastroUsuarioBasicoForm()})
+        {'formcadastrobasico': CadastroUsuarioBasicoForm(),
+         'formlogin': LoginForm()})
 
 
-def login(request):
+def efetuarlogin(request):
     from django.contrib.auth.models import User
+    from django.contrib.auth import login
+    from django.shortcuts import redirect
 
     if request.method == 'POST':
-        pass #TODO: falta implementar
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            usuario = User.objects.get(email=form.cleaned_data['email'])
+
+            login(request, usuario, backend='django.contrib.auth.backends.ModelBackend')
+
+            if not usuario.infosadicionaisusuario.cadastrocompleto:
+                return redirect('/cadastrocomplementar/')
+            else:
+                return redirect('/')
+
+        return render(request, 'cbv/cadastrobasico.html',
+                      {'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                       'formlogin': form})
+
+    return render(request, 'cbv/cadastrobasico.html',
+                  {'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                   'formlogin': LoginForm()})
+
+
 
 def cadastrarusuariobasico(request):
     from allauth.account.adapter import DefaultAccountAdapter
@@ -60,12 +86,12 @@ def cadastrarusuariobasico(request):
         return render(
             request,
             'cbv/cadastrobasico.html',
-            {'formcadastrobasico': form, 'sucesso': sucesso})
+            {'formcadastrobasico': form, 'formlogin':LoginForm(), 'sucesso': sucesso})
 
     else:
         return HttpResponseForbidden()
 
-
+@obrigar_cadastro_complementar
 def programa(request):
     from .models import Programa
     programas = Programa.objects.filter(Publicar=True)
@@ -81,6 +107,7 @@ def conteudospublicados():
     from .models import ConteudoExclusivo
     return ConteudoExclusivo.objects.filter(Publicar=True)
 
+@obrigar_cadastro_complementar
 def conteudoexclusivo(request):
     from .models import ConteudoExclusivo, CategoriaConteudoExclusivo
 
@@ -104,6 +131,7 @@ def buscarpublicacao(listabasica, termos):
     from django.db.models import Q
     return listabasica.filter(Q(Titulo__icontains=termos)|Q(Conteudo__icontains=termos))
 
+@obrigar_cadastro_complementar
 def categoriaconteudoexclusivo(request, categoria):
     from .models import ConteudoExclusivo, CategoriaConteudoExclusivo
     from .forms import FormBuscaSimples
@@ -124,7 +152,7 @@ def categoriaconteudoexclusivo(request, categoria):
                   'cbv/conteudoexclusivo/catconteudoexclusivo.html',
                   {'conteudos':conteudos, 'categoria':acategoria, 'form':form})
 
-
+@obrigar_cadastro_complementar
 def maisconteudoexclusivo(request):
     from .forms import FormBuscaSimples
 
@@ -144,6 +172,7 @@ def maisconteudoexclusivo(request):
                   'cbv/conteudoexclusivo/catconteudoexclusivo.html',
                   {'conteudos':conteudos, 'form':form})
 
+@obrigar_cadastro_complementar
 def detalheconteudoexclusivo(request, categoria, id):
     conteudos = conteudospublicados()
 

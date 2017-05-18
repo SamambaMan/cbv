@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from sitecbv.views import index, cadastrousuariobasico,\
                           cadastrarusuariobasico, programa, conteudoexclusivo,\
                           categoriaconteudoexclusivo, maisconteudoexclusivo,\
-                          detalheconteudoexclusivo, cadastrocomplementar
+                          detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin
 
 
 urlpatterns = [
@@ -34,8 +34,10 @@ urlpatterns = [
     url(r'^conteudoexclusivo/$', conteudoexclusivo),
     url(r'^conteudoexclusivo/mais/', maisconteudoexclusivo),
     url(r'^conteudoexclusivo/listas/(?P<categoria>[\w|-]+)/$$', categoriaconteudoexclusivo),
-    url(r'^conteudoexclusivo/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalheconteudoexclusivo),
+    url(r'^conteudoexclusivo/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$',
+        detalheconteudoexclusivo),
     url(r'^cadastrocomplementar/$', cadastrocomplementar),
+    url(r'^login/$', efetuarlogin),
 
 
     url(r'^tinymce/', include('tinymce.urls')),
