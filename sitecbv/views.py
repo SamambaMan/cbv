@@ -8,15 +8,14 @@ from .decorators import obrigar_cadastro_complementar
 @obrigar_cadastro_complementar
 def index(request):
     return render(request, 'cbv/index.html',
-        {'formcadastrobasico': CadastroUsuarioBasicoForm(),
-         'formlogin': LoginForm()})
+                  {'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                   'formlogin': LoginForm()})
 
 
 def cadastrousuariobasico(request):
-    return render(
-        request, 'cbv/cadastrobasico.html',
-        {'formcadastrobasico': CadastroUsuarioBasicoForm(),
-         'formlogin': LoginForm()})
+    return render(request, 'cbv/cadastrobasico.html',
+                  {'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                   'formlogin': LoginForm()})
 
 
 def efetuarlogin(request):
@@ -49,7 +48,6 @@ def efetuarlogin(request):
 def cadastrarusuariobasico(request):
     from allauth.account.adapter import DefaultAccountAdapter
     from django.db import transaction
-    from .models import InfosAdicionaisUsuario
     from django.contrib.auth import login
     from django.shortcuts import redirect
 
@@ -70,7 +68,7 @@ def cadastrarusuariobasico(request):
 
                 novo.save()
 
-                informacoes = InfosAdicionaisUsuario()
+                informacoes = novo.infosadicionaisusuario()
                 informacoes.user = novo
                 informacoes.ufed = form.cleaned_data['unidadefederativa']
                 informacoes.cpf = form.cleaned_data['cpfpassaporte']
@@ -133,7 +131,7 @@ def buscarpublicacao(listabasica, termos):
 
 @obrigar_cadastro_complementar
 def categoriaconteudoexclusivo(request, categoria):
-    from .models import ConteudoExclusivo, CategoriaConteudoExclusivo
+    from .models import CategoriaConteudoExclusivo
     from .forms import FormBuscaSimples
 
     acategoria = CategoriaConteudoExclusivo.objects.get(slug=categoria)
@@ -199,7 +197,7 @@ def obterformcomplementar(request):
         formulario = CadastroComplementar(instance=usuario.infosadicionaisusuario)
 
     print usuario.infosadicionaisusuario.cpf
-    
+
     formulario.fields["jogador_favorito"].queryset = jogadores
     formulario.fields["jogadora_favorita"].queryset = jogadoras
     formulario.fields["jogadores_secundario_masculinos"].queryset = jogadores
