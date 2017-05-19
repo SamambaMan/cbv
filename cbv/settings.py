@@ -35,7 +35,7 @@ SECRET_KEY = '7l0k$8)zy=avhtui5wtog!c*iik+a(xz*@ukyk6$0r5paq=^u_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cbv.felipeferreira.xyz','localhost']
 
 AUTHENTICATION_BACKENDS = (
     #'cbv.sitecbv.backends.Autenticacao',
@@ -155,7 +155,7 @@ WSGI_APPLICATION = 'cbv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'basecbv.sql',
+        'NAME': os.path.join(BASE_DIR, 'basecbv.sql'),
     }
 }
 
@@ -200,3 +200,9 @@ STATIC_ROOT = BASE_DIR + '/static/'
 
 MEDIA_ROOT = BASE_DIR + '/media/'
 MEDIA_URL = '/media/'
+
+
+STATICFILES_DIRS = (
+    MEDIA_ROOT,
+)
+
