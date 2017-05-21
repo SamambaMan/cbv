@@ -50,41 +50,46 @@ def cadastrarusuariobasico(request):
     from django.db import transaction
     from django.contrib.auth import login
     from django.shortcuts import redirect
-
-    sucesso = False
+    from django.core.exceptions import ValidationError
 
     if request.method == 'POST':
         form = CadastroUsuarioBasicoForm(request.POST)
 
         if form.is_valid():
-            with transaction.atomic():
-                adapt = DefaultAccountAdapter()
-                novo = adapt.new_user(request)
+            try:
+                with transaction.atomic():
+                    adapt = DefaultAccountAdapter()
+                    novo = adapt.new_user(request)
 
-                novo.first_name = form.cleaned_data['firstname']
-                novo.email = form.email = form.cleaned_data['email']
-                novo.set_password(form.cleaned_data['password'])
-                adapt.populate_username(request, novo)
+                    novo.first_name = form.cleaned_data['firstname']
+                    novo.email = form.email = form.cleaned_data['email']
+                    novo.set_password(form.cleaned_data['password'])
+                    adapt.populate_username(request, novo)
 
-                novo.save()
+                    novo.save()
 
-                informacoes = novo.infosadicionaisusuario()
-                informacoes.user = novo
-                informacoes.ufed = form.cleaned_data['unidadefederativa']
-                informacoes.cpf = form.cleaned_data['cpfpassaporte']
+                    informacoes = novo.infosadicionaisusuario
+                    informacoes.user = novo
+                    informacoes.ufed = form.cleaned_data['unidadefederativa']
+                    informacoes.cpf = form.cleaned_data['cpfpassaporte']
 
-                informacoes.save()
 
-                sucesso = True
+                    informacoes.save()
+            except ValidationError as error:
+                print error
+                return render(request,
+                              'cbv/cadastrobasico.html',
+                              {'formcadastrobasico': form,
+                               'formlogin':LoginForm(),
+                               'errors':error})
 
-                login(request, novo, backend='django.contrib.auth.backends.ModelBackend')
+            login(request, novo, backend='django.contrib.auth.backends.ModelBackend')
 
-                return redirect('/cadastrocomplementar/')
+            return redirect('/cadastrocomplementar/')
 
-        return render(
-            request,
-            'cbv/cadastrobasico.html',
-            {'formcadastrobasico': form, 'formlogin':LoginForm(), 'sucesso': sucesso})
+        return render(request,
+                      'cbv/cadastrobasico.html',
+                      {'formcadastrobasico': form, 'formlogin':LoginForm()})
 
     else:
         return HttpResponseForbidden()
@@ -192,7 +197,6 @@ def obterformcomplementar(request):
     timesf = Time.objects.filter(Sexo='F')
 
     if request.method == 'POST':
-        print "vim do post e completei"
         formulario = CadastroComplementar(request.POST, instance=usuario.infosadicionaisusuario)
     else:
         formulario = CadastroComplementar(instance=usuario.infosadicionaisusuario)
@@ -219,7 +223,7 @@ def cadastrocomplementar(request):
             informacoes = formulario.save()
 
             informacoes.cadastrocompleto = True
-            
+
             informacoes.save()
 
             return render(request, 'cbv/cadastrousuario/cadastrocompleto.html')

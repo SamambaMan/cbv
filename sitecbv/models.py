@@ -34,7 +34,7 @@ SUPERLIGA_CHOICE = (
 )
 
 UF_CHOICES = (
-    ('FO','Fora do Brasil'),
+    ('FO', u'Fora do Brasil'),
     ('AC', u'Acre'),
     ('AL', u'Alagoas'),
     ('AM', u'Amazonas'),
@@ -108,6 +108,17 @@ class InfosAdicionaisUsuario(models.Model):
     'Time', related_name="infos_times_secundarios_masculino", blank=True)
     times_secundarios_feminino = models.ManyToManyField(
     'Time', related_name="infos_times_secundarios_feminino", blank=True)
+
+    def clean(self):
+        from .snipets import validate_CPF
+        print 'tentando clean informacoes adicionais'
+        if self.ufed != "FO":
+            validate_CPF(self.cpf)
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        return super(InfosAdicionaisUsuario, self).save(*args, **kwargs)
+
 
 
 class Time(models.Model):

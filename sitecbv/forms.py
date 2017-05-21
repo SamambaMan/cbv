@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from django import forms
-from .models import InfosAdicionaisUsuario
+from .models import InfosAdicionaisUsuario, UF_CHOICES
 
 
 class FormBuscaSimples(forms.Form):
@@ -31,8 +31,7 @@ class CadastroUsuarioBasicoForm(forms.Form):
         label="UF",
         max_length=2,
         required=True,
-        widget=forms.TextInput(
-            attrs={'placeholder': 'UF'}))
+        widget=forms.Select(choices=UF_CHOICES))
     password = forms.CharField(
         label="Senha",
         max_length=16,
@@ -57,12 +56,16 @@ class CadastroUsuarioBasicoForm(forms.Form):
 
     def clean(self):
         from django.contrib.auth import password_validation
+        from .snipets import validate_CPF
 
         pass1 = self.cleaned_data['password']
         pass2 = self.cleaned_data['passwordconfirm']
 
         if pass1 and pass1 != pass2:
             raise forms.ValidationError(u'As senhas não são idênticas.')
+
+        if self.cleaned_data['unidadefederativa'] != "FO":
+            validate_CPF(self.cleaned_data['cpfpassaporte'])
 
         password_validation.validate_password(self.cleaned_data['password'])
 
@@ -96,7 +99,7 @@ class LoginForm(forms.Form):
 class CadastroComplementar(forms.ModelForm):
     class Meta:
         model = InfosAdicionaisUsuario
-        exclude = ['user']
+        exclude = ['user', 'tipodocumento']
 
 
     def __init__(self, *args, **kwargs):
@@ -104,7 +107,6 @@ class CadastroComplementar(forms.ModelForm):
         super(CadastroComplementar, self).__init__(*args, **kwargs)
 
         self.fields['cpf'].required = True
-        self.fields['tipodocumento'].required = True
         self.fields['ufed'].required = True
         self.fields['sexo'].required = True
         self.fields['celular'].required = True
@@ -114,9 +116,15 @@ class CadastroComplementar(forms.ModelForm):
                                                         code='nomatch')]
         self.fields['modalidade_favorita'].required = True
 
+
         for field_name in self.fields:
             field = self.fields.get(field_name)
             if field:
                 field.widget.attrs.update({
-                    'placeholder': field.help_text if field.help_text else field.label
+                    'placeholder': field.label
                 })
+
+    def clean(self):
+        from .snipets import validate_CPF
+        if self.fields['ufed'] != "FO":
+            validate_CPF(self.fields['cpf'])

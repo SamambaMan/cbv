@@ -3,11 +3,9 @@
 {% block content %} 
 {{ formulario.non_field_errors }}
 {{ formulario.errors }}
-{{ formulario.non_form_errors }}
 <form method="POST" action="/cadastrocomplementar/">
 {% csrf_token %} 
 {{ formulario.cpf }} {{ formulario.cpf.errors }}<br>
-{{ formulario.tipodocumento }} {{ formulario.tipodocumento.errors }}<br>
 {{ formulario.ufed }} {{ formulario.ufed.errors }}<br>
 {{ formulario.sexo }} {{ formulario.sexo.errors }}<br>
 {{ formulario.celular }} {{ formulario.celular.errors }}<br>
@@ -20,17 +18,58 @@
 {{ formulario.cidade }} {{ formulario.cidade.errors }}<br>
 {{ formulario.pais }} {{ formulario.pais.errors }}<br>
 {{ formulario.modalidade_favorita }} {{ formulario.modalidade_favorita.errors }}<br>
-{{ formulario.jogador_favorito }} {{ formulario.jogador_favorito.errors }}<br>
-{{ formulario.jogadora_favorita }} {{ formulario.jogadora_favorita.errors }}<br>
-{{ formulario.jogadores_secundario_masculinos }} {{ formulario.jogadores_secundario_masculinos.errors }}<br>
+<div id="jogadores" style="display:none;">
+{{ formulario.jogador_favorito.label }}:{{ formulario.jogador_favorito }} {{ formulario.jogador_favorito.errors }}
+{{ formulario.jogadora_favorita.label }}:{{ formulario.jogadora_favorita }} {{ formulario.jogadora_favorita.errors }}<br>
+<h2>{{ formulario.jogadores_secundario_masculinos.label }}</h2>
+{{ formulario.jogadores_secundario_masculinos }} {{ formulario.jogadores_secundario_masculinos.errors }}
+<h2>{{ formulario.jogadoras_secundarias_femininas.label }}</h2>
 {{ formulario.jogadoras_secundarias_femininas }} {{ formulario.jogadoras_secundarias_femininas.errors }}<br>
-{{ formulario.time_favorito_masculino }} {{ formulario.time_favorito_masculino.errors }}<br>
-{{ formulario.time_favorito_feminino }} {{ formulario.time_favorito_feminino.errors }}<br>
-{{ formulario.times_secundarios_masculino }} {{ formulario.times_secundarios_masculino.errors }}<br>
-{{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}<br>
+</div>
+
+<div id="times" style="display:none;">
+{{ formulario.time_favorito_masculino.label }}:{{ formulario.time_favorito_masculino }} {{ formulario.time_favorito_masculino.errors }}
+{{ formulario.time_favorito_feminino.label }}:{{ formulario.time_favorito_feminino }} {{ formulario.time_favorito_feminino.errors }}<br>
+<h2>{{ formulario.times_secundarios_masculino.label }}</h2>
+{{ formulario.times_secundarios_masculino }} {{ formulario.times_secundarios_masculino.errors }}
+<h2>{{ formulario.times_secundarios_feminino.label }}</h2>
+{{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}
+</div>
 
 <input type="submit" value="Completar Cadastro">
         
 </form> 
+<script type="text/javascript">
+$(document).ready(function() {
+    trocarModalidadeFavorita();
+    $('#id_modalidade_favorita').on('change', function (e) {
+        trocarModalidadeFavorita();
+    });
+});
+
+function trocarModalidadeFavorita() {
+    if($("#id_modalidade_favorita option:selected").val() == "VQ") {
+        $("#jogadores").hide();
+        $("#times").show();
+    }
+    else {
+        $("#jogadores").show();
+        $("#times").hide();
+    }
+}
+
+function trocarCpfPassaporte() {
+    if($('#id_ufed option:selected').val == "FO") {
+        $('#id_cpf').attr("placeholder","Passaporte");
+        $('#id_cpf').attr("pattern",/^[\d\w]+$/);
+        $('#id_tipodocumento').val("PAS");
+    }
+    else {
+        $('#id_cpf').attr("placeholder","CPF");
+        $('#id_cpf').attr("pattern",/^\d{11}+$/);
+        $('#id_tipodocumento').val("CPF");
+    }
+}
+</script>
  
 {% endblock %} 
