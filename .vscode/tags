@@ -1,0 +1,520 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../sitecbv/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_auto_20170510_2109.py	../sitecbv/migrations/0002_auto_20170510_2109.py	1;"	kind:file	line:1
+0003_auto_20170511_1354.py	../sitecbv/migrations/0003_auto_20170511_1354.py	1;"	kind:file	line:1
+0004_auto_20170511_1926.py	../sitecbv/migrations/0004_auto_20170511_1926.py	1;"	kind:file	line:1
+0005_auto_20170517_2024.py	../sitecbv/migrations/0005_auto_20170517_2024.py	1;"	kind:file	line:1
+0006_time_superliga.py	../sitecbv/migrations/0006_time_superliga.py	1;"	kind:file	line:1
+ACCOUNT_ADAPTER	../cbv/settings.py	/^ACCOUNT_ADAPTER = 'sitecbv.auth.AccountAdapter'$/;"	kind:variable	line:106
+ALLOWED_HOSTS	../cbv/settings.py	/^ALLOWED_HOSTS = ['cbv.felipeferreira.xyz','localhost']$/;"	kind:variable	line:38
+AUTHENTICATION_BACKENDS	../cbv/settings.py	/^AUTHENTICATION_BACKENDS = ($/;"	kind:variable	line:40
+AUTH_PASSWORD_VALIDATORS	../cbv/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:165
+AccountAdapter	../sitecbv/auth.py	/^class AccountAdapter(DefaultAccountAdapter):$/;"	kind:class	line:4
+Ativo	../sitecbv/models.py	/^    Ativo = models.BooleanField(default=False)$/;"	kind:variable	line:231
+Ativo	../sitecbv/models.py	/^    Ativo = models.BooleanField(default=False)$/;"	kind:variable	line:243
+Ativo	../sitecbv/models.py	/^    Ativo = models.BooleanField(default=False)$/;"	kind:variable	line:255
+Ativo	../sitecbv/models.py	/^    Ativo = models.BooleanField(default=False)$/;"	kind:variable	line:265
+Ativo	../sitecbv/models.py	/^    Ativo = models.BooleanField(default=False)$/;"	kind:variable	line:275
+Autenticacao	../sitecbv/backends.py	/^class Autenticacao(object):$/;"	kind:class	line:1
+BASE_DIR	../cbv/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:19
+BannerCensoDoVolei	../sitecbv/models.py	/^class BannerCensoDoVolei(models.Model):$/;"	kind:class	line:272
+BannerRedeDesconto	../sitecbv/models.py	/^class BannerRedeDesconto(models.Model):$/;"	kind:class	line:262
+CadastroComplementar	../sitecbv/forms.py	/^class CadastroComplementar(forms.ModelForm):$/;"	kind:class	line:96
+CadastroUsuarioBasicoForm	../sitecbv/forms.py	/^class CadastroUsuarioBasicoForm(forms.Form):$/;"	kind:class	line:11
+Categoria	../sitecbv/models.py	/^    Categoria = models.ForeignKey('CategoriaCensoDoVolei')$/;"	kind:variable	line:239
+Categoria	../sitecbv/models.py	/^    Categoria = models.ForeignKey('CategoriaConteudoExclusivo')$/;"	kind:variable	line:193
+Categoria	../sitecbv/models.py	/^    Categoria = models.ForeignKey('CategoriaExperiencia')$/;"	kind:variable	line:226
+Categoria	../sitecbv/models.py	/^    Categoria = models.ForeignKey('CategoriaRedeDeDesconto')$/;"	kind:variable	line:251
+Categoria	../sitecbv/models.py	/^class Categoria(models.Model):$/;"	kind:class	line:147
+CategoriaCensoDoVolei	../sitecbv/models.py	/^class CategoriaCensoDoVolei(Categoria):$/;"	kind:class	line:174
+CategoriaConteudoExclusivo	../sitecbv/models.py	/^class CategoriaConteudoExclusivo(Categoria):$/;"	kind:class	line:160
+CategoriaExperiencia	../sitecbv/models.py	/^class CategoriaExperiencia(Categoria):$/;"	kind:class	line:167
+CategoriaRedeDeDesconto	../sitecbv/models.py	/^class CategoriaRedeDeDesconto(Categoria):$/;"	kind:class	line:181
+CensoDoVolei	../sitecbv/models.py	/^class CensoDoVolei(Publicavel):$/;"	kind:class	line:238
+Conteudo	../sitecbv/models.py	/^    Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')$/;"	kind:variable	line:113
+Conteudo	../sitecbv/models.py	/^    Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')$/;"	kind:variable	line:133
+ConteudoExclusivo	../sitecbv/models.py	/^class ConteudoExclusivo(Publicavel):$/;"	kind:class	line:188
+ConteudoExclusivoAdmin	../sitecbv/admin.py	/^class ConteudoExclusivoAdmin(admin.ModelAdmin):$/;"	kind:class	line:34
+DATABASES	../cbv/settings.py	/^DATABASES = {$/;"	kind:variable	line:155
+DEBUG	../cbv/settings.py	/^DEBUG = True$/;"	kind:variable	line:36
+DEFAULT_FROM_EMAIL	../cbv/settings.py	/^DEFAULT_FROM_EMAIL = "felipe.gomes.ferreira@gmail.com"$/;"	kind:variable	line:77
+DataPublicacao	../sitecbv/models.py	/^    DataPublicacao = models.DateField($/;"	kind:variable	line:134
+Destaque	../sitecbv/models.py	/^    Destaque = models.BooleanField(default=False)$/;"	kind:variable	line:189
+Destaque	../sitecbv/models.py	/^    Destaque = models.BooleanField(default=False)$/;"	kind:variable	line:229
+Detalhe	../sitecbv/models.py	/^    Detalhe = models.CharField(max_length=50, blank=True, null=True)$/;"	kind:variable	line:129
+EMAIL_BACKEND	../cbv/settings.py	/^EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'$/;"	kind:variable	line:26
+EMAIL_HOST	../cbv/settings.py	/^EMAIL_HOST = 'smtp.gmail.com'$/;"	kind:variable	line:22
+EMAIL_HOST_PASSWORD	../cbv/settings.py	/^EMAIL_HOST_PASSWORD = 'clarissasimoneamor'$/;"	kind:variable	line:24
+EMAIL_HOST_USER	../cbv/settings.py	/^EMAIL_HOST_USER = 'felipe.gomes.ferreira@gmail.com'$/;"	kind:variable	line:23
+EMAIL_PORT	../cbv/settings.py	/^EMAIL_PORT = 587$/;"	kind:variable	line:25
+EMAIL_USE_TLS	../cbv/settings.py	/^EMAIL_USE_TLS = True$/;"	kind:variable	line:21
+Experiencia	../sitecbv/models.py	/^class Experiencia(Publicavel):$/;"	kind:class	line:225
+FormBuscaSimples	../sitecbv/forms.py	/^class FormBuscaSimples(forms.Form):$/;"	kind:class	line:7
+Foto	../sitecbv/models.py	/^    Foto = models.FileField(help_text="300x300 PNG ou JPG")$/;"	kind:variable	line:98
+INSTALLED_APPS	../cbv/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:48
+Imagem	../sitecbv/models.py	/^    Imagem = models.FileField(help_text="Alta Resolução, 16x9, PNG ou JPG")$/;"	kind:variable	line:264
+Imagem	../sitecbv/models.py	/^    Imagem = models.FileField(help_text="Alta Resolução, 16x9, PNG ou JPG")$/;"	kind:variable	line:274
+ImagemCarrossel	../sitecbv/models.py	/^    ImagemCarrossel = models.FileField($/;"	kind:variable	line:190
+ImagemCarrossel	../sitecbv/models.py	/^    ImagemCarrossel = models.FileField($/;"	kind:variable	line:227
+ImagemCarrossel	../sitecbv/models.py	/^    ImagemCarrossel = models.FileField($/;"	kind:variable	line:240
+ImagemCarrossel	../sitecbv/models.py	/^    ImagemCarrossel = models.FileField($/;"	kind:variable	line:252
+InfosAdicionaisUsuario	../sitecbv/models.py	/^class InfosAdicionaisUsuario(models.Model):$/;"	kind:class	line:37
+InfosAdicionaisUsuarioAdmin	../sitecbv/admin.py	/^class InfosAdicionaisUsuarioAdmin(admin.ModelAdmin):$/;"	kind:class	line:11
+Jogador	../sitecbv/models.py	/^class Jogador(models.Model):$/;"	kind:class	line:95
+JogadorAdmin	../sitecbv/admin.py	/^class JogadorAdmin(admin.ModelAdmin):$/;"	kind:class	line:50
+LANGUAGE_CODE	../cbv/settings.py	/^LANGUAGE_CODE = 'pt-br'$/;"	kind:variable	line:184
+LOGIN_REDIRECT_URL	../cbv/settings.py	/^LOGIN_REDIRECT_URL = '\/'$/;"	kind:variable	line:79
+Link	../sitecbv/models.py	/^    Link = models.CharField(max_length=1000)$/;"	kind:variable	line:230
+Link	../sitecbv/models.py	/^    Link = models.CharField(max_length=1000)$/;"	kind:variable	line:242
+Link	../sitecbv/models.py	/^    Link = models.CharField(max_length=1000)$/;"	kind:variable	line:254
+LoginForm	../sitecbv/forms.py	/^class LoginForm(forms.Form):$/;"	kind:class	line:72
+Logo	../sitecbv/models.py	/^    Logo = models.FileField(help_text="300x300 PNG ou JPG")$/;"	kind:variable	line:86
+MEDIA_ROOT	../cbv/settings.py	/^MEDIA_ROOT = BASE_DIR + '\/media\/'$/;"	kind:variable	line:201
+MEDIA_URL	../cbv/settings.py	/^MEDIA_URL = '\/media\/'$/;"	kind:variable	line:202
+MF_CHOICES	../sitecbv/models.py	/^MF_CHOICES = ($/;"	kind:variable	line:16
+MIDDLEWARE	../cbv/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:108
+MODALIDADE_CHOICES	../sitecbv/models.py	/^MODALIDADE_CHOICES = ($/;"	kind:variable	line:21
+Meta	../sitecbv/forms.py	/^    class Meta:$/;"	kind:class	line:107
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:105
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:143
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:151
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:162
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:169
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:176
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:183
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:195
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:233
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:245
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:257
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:267
+Meta	../sitecbv/models.py	/^    class Meta:$/;"	kind:class	line:277
+Migration	../sitecbv/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:11
+Migration	../sitecbv/migrations/0002_auto_20170510_2109.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../sitecbv/migrations/0003_auto_20170511_1354.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:9
+Migration	../sitecbv/migrations/0004_auto_20170511_1926.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:10
+Migration	../sitecbv/migrations/0005_auto_20170517_2024.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../sitecbv/migrations/0006_time_superliga.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Nome	../sitecbv/models.py	/^    Nome = models.CharField(max_length=15)$/;"	kind:variable	line:83
+Nome	../sitecbv/models.py	/^    Nome = models.CharField(max_length=15)$/;"	kind:variable	line:96
+Nome	../sitecbv/models.py	/^    Nome = models.CharField(max_length=50)$/;"	kind:variable	line:148
+Programa	../sitecbv/models.py	/^class Programa(models.Model):$/;"	kind:class	line:110
+ProgramaAdmin	../sitecbv/admin.py	/^class ProgramaAdmin(admin.ModelAdmin):$/;"	kind:class	line:6
+Publicar	../sitecbv/models.py	/^    Publicar = models.BooleanField(default=False)$/;"	kind:variable	line:114
+Publicar	../sitecbv/models.py	/^    Publicar = models.BooleanField(default=False)$/;"	kind:variable	line:136
+Publicavel	../sitecbv/models.py	/^class Publicavel(models.Model):$/;"	kind:class	line:127
+ROOT_URLCONF	../cbv/settings.py	/^ROOT_URLCONF = 'cbv.urls'$/;"	kind:variable	line:118
+RedeDeDesconto	../sitecbv/models.py	/^class RedeDeDesconto(Publicavel):$/;"	kind:class	line:250
+SEXO_CHOICES	../sitecbv/models.py	/^SEXO_CHOICES = ($/;"	kind:variable	line:10
+SITE_ID	../cbv/settings.py	/^SITE_ID = 1$/;"	kind:variable	line:75
+SOCIALACCOUNT_PROVIDERS	../cbv/settings.py	/^SOCIALACCOUNT_PROVIDERS = {$/;"	kind:variable	line:81
+STATICFILES_DIRS	../cbv/settings.py	/^STATICFILES_DIRS = ($/;"	kind:variable	line:205
+STATIC_ROOT	../cbv/settings.py	/^STATIC_ROOT = BASE_DIR + '\/static\/'$/;"	kind:variable	line:199
+STATIC_URL	../cbv/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:198
+SUPERLIGA_CHOICE	../sitecbv/models.py	/^SUPERLIGA_CHOICE = ($/;"	kind:variable	line:31
+Sexo	../sitecbv/models.py	/^    Sexo = models.CharField(max_length=1, choices=MF_CHOICES)$/;"	kind:variable	line:97
+Sexo	../sitecbv/models.py	/^    Sexo = models.CharField(max_length=1, default='M', choices=MF_CHOICES)$/;"	kind:variable	line:84
+SitecbvConfig	../sitecbv/apps.py	/^class SitecbvConfig(AppConfig):$/;"	kind:class	line:6
+Superliga	../sitecbv/models.py	/^    Superliga = models.CharField(max_length=2, default='SA', choices=SUPERLIGA_CHOICE)$/;"	kind:variable	line:85
+TEMPLATES	../cbv/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:120
+TIME_ZONE	../cbv/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:186
+TINYMCE_DEFAULT_CONFIG	../cbv/settings.py	/^TINYMCE_DEFAULT_CONFIG = {$/;"	kind:variable	line:65
+TIPO_DOCUMENTO_CHOICES	../sitecbv/models.py	/^TIPO_DOCUMENTO_CHOICES = ($/;"	kind:variable	line:26
+Thumb	../sitecbv/models.py	/^    Thumb = models.FileField($/;"	kind:variable	line:130
+Time	../sitecbv/models.py	/^class Time(models.Model):$/;"	kind:class	line:82
+TimeAdmin	../sitecbv/admin.py	/^class TimeAdmin(admin.ModelAdmin):$/;"	kind:class	line:45
+Titulo	../sitecbv/models.py	/^    Titulo = models.CharField(max_length=100)$/;"	kind:variable	line:273
+Titulo	../sitecbv/models.py	/^    Titulo = models.CharField(max_length=100, verbose_name="Título")$/;"	kind:variable	line:263
+Titulo	../sitecbv/models.py	/^    Titulo = models.CharField(max_length=50)$/;"	kind:variable	line:111
+Titulo	../sitecbv/models.py	/^    Titulo = models.CharField(max_length=50, verbose_name=u'Título')$/;"	kind:variable	line:128
+Topo	../sitecbv/models.py	/^    Topo = models.FileField(help_text=u"Alta Resolução, 16x9, PNG ou JPG")$/;"	kind:variable	line:112
+Topo	../sitecbv/models.py	/^    Topo = models.FileField(help_text=u"Alta Resolução, 16x9, PNG ou JPG")$/;"	kind:variable	line:132
+USE_I18N	../cbv/settings.py	/^USE_I18N = True$/;"	kind:variable	line:188
+USE_L10N	../cbv/settings.py	/^USE_L10N = True$/;"	kind:variable	line:190
+USE_TZ	../cbv/settings.py	/^USE_TZ = True$/;"	kind:variable	line:192
+WSGI_APPLICATION	../cbv/settings.py	/^WSGI_APPLICATION = 'cbv.wsgi.application'$/;"	kind:variable	line:137
+__init__	../sitecbv/forms.py	/^    def __init__(self, *args, **kwargs):$/;"	kind:member	line:97
+__init__.py	../cbv/__init__.py	1;"	kind:file	line:1
+__init__.py	../sitecbv/__init__.py	1;"	kind:file	line:1
+__init__.py	../sitecbv/migrations/__init__.py	1;"	kind:file	line:1
+__str__	../sitecbv/models.py	/^    def __str__(self):$/;"	kind:member	line:100
+__str__	../sitecbv/models.py	/^    def __str__(self):$/;"	kind:member	line:121
+__str__	../sitecbv/models.py	/^    def __str__(self):$/;"	kind:member	line:138
+__str__	../sitecbv/models.py	/^    def __str__(self):$/;"	kind:member	line:154
+__str__	../sitecbv/models.py	/^    def __str__(self):$/;"	kind:member	line:88
+abstract	../sitecbv/models.py	/^        abstract = True$/;"	kind:variable	line:144
+abstract	../sitecbv/models.py	/^        abstract = True$/;"	kind:variable	line:152
+admin.py	../sitecbv/admin.py	1;"	kind:file	line:1
+application	../cbv/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../sitecbv/apps.py	1;"	kind:file	line:1
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'CPF|Passaporte'}))$/;"	kind:variable	line:29
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'E-Mail'}))$/;"	kind:variable	line:23
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'E-Mail'}))$/;"	kind:variable	line:78
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'Nome'}))$/;"	kind:variable	line:17
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'Senha'}))$/;"	kind:variable	line:41
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'Senha'}))$/;"	kind:variable	line:85
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'UF'}))$/;"	kind:variable	line:35
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': u'Confirmação de Senha'}))$/;"	kind:variable	line:47
+attrs	../sitecbv/forms.py	/^        attrs={'placeholder': 'Pesquisar'}))$/;"	kind:variable	line:9
+auth.py	../sitecbv/auth.py	1;"	kind:file	line:1
+authenticate	../sitecbv/backends.py	/^    def authenticate(self, request, email, senha):$/;"	kind:member	line:2
+backends.py	../sitecbv/backends.py	1;"	kind:file	line:1
+bairro	../sitecbv/models.py	/^    bairro = models.CharField(max_length=100, blank=True, null=True)$/;"	kind:variable	line:56
+busca	../sitecbv/forms.py	/^    busca = forms.CharField(label="", required=False, max_length=50, widget=forms.TextInput($/;"	kind:variable	line:8
+buscarpublicacao	../sitecbv/views.py	/^def buscarpublicacao(listabasica, termos):$/;"	kind:function	line:128
+cadastrarusuariobasico	../sitecbv/views.py	/^def cadastrarusuariobasico(request):$/;"	kind:function	line:48
+cadastrocomplementar	../sitecbv/views.py	/^def cadastrocomplementar(request):$/;"	kind:function	line:214
+cadastrocompleto	../sitecbv/models.py	/^    cadastrocompleto = models.BooleanField($/;"	kind:variable	line:39
+cadastrousuariobasico	../sitecbv/views.py	/^def cadastrousuariobasico(request):$/;"	kind:function	line:15
+categoriaconteudoexclusivo	../sitecbv/views.py	/^def categoriaconteudoexclusivo(request, categoria):$/;"	kind:function	line:133
+celular	../sitecbv/models.py	/^    celular = models.CharField(max_length=11, blank=True, null=True)$/;"	kind:variable	line:48
+cep	../sitecbv/models.py	/^    cep = models.CharField(max_length=8, blank=True, null=True)$/;"	kind:variable	line:50
+cidade	../sitecbv/models.py	/^    cidade = models.CharField(max_length=100, blank=True, null=True)$/;"	kind:variable	line:57
+clean	../sitecbv/forms.py	/^    def clean(self):$/;"	kind:member	line:58
+clean	../sitecbv/forms.py	/^    def clean(self):$/;"	kind:member	line:87
+clean	../sitecbv/models.py	/^    def clean(self):$/;"	kind:member	line:116
+clean	../sitecbv/models.py	/^    def clean(self):$/;"	kind:member	line:199
+clean_email	../sitecbv/forms.py	/^    def clean_email(self):$/;"	kind:member	line:49
+complemento	../sitecbv/models.py	/^    complemento = models.CharField(max_length=100, blank=True, null=True)$/;"	kind:variable	line:55
+conteudoexclusivo	../sitecbv/views.py	/^def conteudoexclusivo(request):$/;"	kind:function	line:109
+conteudospublicados	../sitecbv/views.py	/^def conteudospublicados():$/;"	kind:function	line:104
+cpf	../sitecbv/models.py	/^    cpf = models.CharField(max_length=11, blank=True, null=True)$/;"	kind:variable	line:41
+cpfpassaporte	../sitecbv/forms.py	/^    cpfpassaporte = forms.CharField($/;"	kind:variable	line:24
+decorators.py	../sitecbv/decorators.py	1;"	kind:file	line:1
+default_app_config	../sitecbv/__init__.py	/^default_app_config = "sitecbv.apps.SitecbvConfig"/;"	kind:variable	line:1
+dependencies	../sitecbv/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:15
+dependencies	../sitecbv/migrations/0002_auto_20170510_2109.py	/^    dependencies = [$/;"	kind:variable	line:11
+dependencies	../sitecbv/migrations/0003_auto_20170511_1354.py	/^    dependencies = [$/;"	kind:variable	line:11
+dependencies	../sitecbv/migrations/0004_auto_20170511_1926.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../sitecbv/migrations/0005_auto_20170517_2024.py	/^    dependencies = [$/;"	kind:variable	line:10
+dependencies	../sitecbv/migrations/0006_time_superliga.py	/^    dependencies = [$/;"	kind:variable	line:10
+detalheconteudoexclusivo	../sitecbv/views.py	/^def detalheconteudoexclusivo(request, categoria, id):$/;"	kind:function	line:174
+efetuarlogin	../sitecbv/views.py	/^def efetuarlogin(request):$/;"	kind:function	line:21
+email	../sitecbv/forms.py	/^    email = forms.EmailField($/;"	kind:variable	line:18
+email	../sitecbv/forms.py	/^    email = forms.EmailField($/;"	kind:variable	line:73
+empty_value_display	../sitecbv/admin.py	/^    empty_value_display = '---'$/;"	kind:variable	line:12
+endereco	../sitecbv/models.py	/^    endereco = models.CharField($/;"	kind:variable	line:51
+exclude	../sitecbv/forms.py	/^        exclude = ['cadastrocompleto']$/;"	kind:variable	line:109
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='infos_jogador_favorito', to='sitecbv.Jogador'),$/;"	kind:variable	line:199
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='infos_jogadora_favorita', to='sitecbv.Jogador'),$/;"	kind:variable	line:204
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='infos_time_favorito_feminino', to='sitecbv.Time'),$/;"	kind:variable	line:219
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='infos_time_favorito_masculino', to='sitecbv.Time'),$/;"	kind:variable	line:224
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='infos_jogadoras_secundarias_femininas', to='sitecbv.Jogador'),$/;"	kind:variable	line:209
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='infos_jogadores_secundario_masculinos', to='sitecbv.Jogador'),$/;"	kind:variable	line:214
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='infos_times_secundarios_feminino', to='sitecbv.Time'),$/;"	kind:variable	line:229
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='infos_times_secundarios_masculino', to='sitecbv.Time'),$/;"	kind:variable	line:234
+field	../sitecbv/migrations/0001_initial.py	/^            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),$/;"	kind:variable	line:239
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='UF'),$/;"	kind:variable	line:108
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.CharField(max_length=100, verbose_name='T\\xedtulo'),$/;"	kind:variable	line:73
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.FileField(help_text='Alta Resolu\\xe7\\xe3o, 16x9, PNG ou JPG', upload_to=b''),$/;"	kind:variable	line:63
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.FileField(help_text='Alta Resolu\\xe7\\xe3o, 16x9, PNG ou JPG', upload_to=b''),$/;"	kind:variable	line:68
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='infos_time_favorito_feminino', to='sitecbv.Time'),$/;"	kind:variable	line:88
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='infos_time_favorito_masculino', to='sitecbv.Time'),$/;"	kind:variable	line:93
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.ManyToManyField(blank=True, related_name='infos_jogadoras_secundarias_femininas', to='sitecbv.Jogador'),$/;"	kind:variable	line:78
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.ManyToManyField(blank=True, related_name='infos_jogadores_secundario_masculinos', to='sitecbv.Jogador'),$/;"	kind:variable	line:83
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.ManyToManyField(blank=True, related_name='infos_times_secundarios_feminino', to='sitecbv.Time'),$/;"	kind:variable	line:98
+field	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            field=models.ManyToManyField(blank=True, related_name='infos_times_secundarios_masculino', to='sitecbv.Time'),$/;"	kind:variable	line:103
+field	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            field=models.BooleanField(default=False, verbose_name='Cadastro Completo'),$/;"	kind:variable	line:29
+field	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            field=models.CharField(blank=True, max_length=100, null=True, verbose_name='Endere\\xe7o'),$/;"	kind:variable	line:34
+field	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            field=models.CharField(blank=True, max_length=100, null=True, verbose_name='Pa\\xeds'),$/;"	kind:variable	line:44
+field	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            field=models.CharField(blank=True, max_length=15, null=True, verbose_name='N\\xfamero'),$/;"	kind:variable	line:39
+field	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            field=models.CharField(choices=[('CPF', 'CPF'), ('PAS', 'Passaporte')], default='CPF', max_length=3, verbose_name='Tipo de Documento'),$/;"	kind:variable	line:49
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=autoslug.fields.AutoSlugField(blank=True, editable=False, null=True, populate_from='Nome', unique=True),$/;"	kind:variable	line:20
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=autoslug.fields.AutoSlugField(blank=True, editable=False, null=True, populate_from='Nome', unique=True),$/;"	kind:variable	line:25
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=autoslug.fields.AutoSlugField(blank=True, editable=False, null=True, populate_from='Nome', unique=True),$/;"	kind:variable	line:30
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=autoslug.fields.AutoSlugField(blank=True, editable=False, null=True, populate_from='Nome', unique=True),$/;"	kind:variable	line:35
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.CharField(max_length=50, verbose_name='T\\xedtulo'),$/;"	kind:variable	line:105
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.CharField(max_length=50, verbose_name='T\\xedtulo'),$/;"	kind:variable	line:50
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.CharField(max_length=50, verbose_name='T\\xedtulo'),$/;"	kind:variable	line:70
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.CharField(max_length=50, verbose_name='T\\xedtulo'),$/;"	kind:variable	line:85
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.DateField(blank=True, null=True, verbose_name='Data de Publica\\xe7\\xe3o'),$/;"	kind:variable	line:100
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.DateField(blank=True, null=True, verbose_name='Data de Publica\\xe7\\xe3o'),$/;"	kind:variable	line:45
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.DateField(blank=True, null=True, verbose_name='Data de Publica\\xe7\\xe3o'),$/;"	kind:variable	line:60
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.DateField(blank=True, null=True, verbose_name='Data de Publica\\xe7\\xe3o'),$/;"	kind:variable	line:80
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=models.FileField(blank=True, help_text='Alta Resolu\\xe7\\xe3o, 16x9, PNG ou JPG', null=True, upload_to=b'', verbose_name='Imagem Carrossel'),$/;"	kind:variable	line:65
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=tinymce.models.HTMLField(blank=True, null=True, verbose_name='Conte\\xfado'),$/;"	kind:variable	line:40
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=tinymce.models.HTMLField(blank=True, null=True, verbose_name='Conte\\xfado'),$/;"	kind:variable	line:55
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=tinymce.models.HTMLField(blank=True, null=True, verbose_name='Conte\\xfado'),$/;"	kind:variable	line:75
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=tinymce.models.HTMLField(blank=True, null=True, verbose_name='Conte\\xfado'),$/;"	kind:variable	line:90
+field	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            field=tinymce.models.HTMLField(blank=True, null=True, verbose_name='Conte\\xfado'),$/;"	kind:variable	line:95
+field	../sitecbv/migrations/0005_auto_20170517_2024.py	/^            field=models.CharField(choices=[('M', 'Masculino'), ('F', 'Feminino')], default='M', max_length=1),$/;"	kind:variable	line:18
+field	../sitecbv/migrations/0005_auto_20170517_2024.py	/^            field=models.CharField(choices=[('M', 'Masculino'), ('F', 'Feminino')], max_length=1),$/;"	kind:variable	line:23
+field	../sitecbv/migrations/0006_time_superliga.py	/^            field=models.CharField(choices=[('SA', 'Super Liga A'), ('SB', 'Super Liga B')], default='SA', max_length=2),$/;"	kind:variable	line:18
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:100
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:119
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:140
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:161
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:170
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:190
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:22
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:31
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:40
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:50
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:60
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:70
+fields	../sitecbv/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:80
+fields	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            fields=[$/;"	kind:variable	line:18
+fieldsets	../sitecbv/admin.py	/^    fieldsets = ($/;"	kind:variable	line:38
+firstname	../sitecbv/forms.py	/^    firstname = forms.CharField($/;"	kind:variable	line:12
+forms.py	../sitecbv/forms.py	1;"	kind:file	line:1
+get_active	../sitecbv/admin.py	/^    def get_active(self, obj):$/;"	kind:member	line:28
+get_email	../sitecbv/admin.py	/^    def get_email(self, obj):$/;"	kind:member	line:18
+get_firstname	../sitecbv/admin.py	/^    def get_firstname(self, obj):$/;"	kind:member	line:23
+index	../sitecbv/views.py	/^def index(request):$/;"	kind:function	line:9
+initial	../sitecbv/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:13
+jogador_favorito	../sitecbv/models.py	/^    jogador_favorito = models.ForeignKey($/;"	kind:variable	line:63
+jogadora_favorita	../sitecbv/models.py	/^    jogadora_favorita = models.ForeignKey($/;"	kind:variable	line:65
+jogadoras_secundarias_femininas	../sitecbv/models.py	/^    jogadoras_secundarias_femininas = models.ManyToManyField($/;"	kind:variable	line:69
+jogadores_secundario_masculinos	../sitecbv/models.py	/^    jogadores_secundario_masculinos = models.ManyToManyField($/;"	kind:variable	line:67
+label	../sitecbv/forms.py	/^        label="CPF|Passaporte",$/;"	kind:variable	line:25
+label	../sitecbv/forms.py	/^        label="Confirmar Senha",$/;"	kind:variable	line:43
+label	../sitecbv/forms.py	/^        label="E-Mail",$/;"	kind:variable	line:19
+label	../sitecbv/forms.py	/^        label="E-Mail",$/;"	kind:variable	line:74
+label	../sitecbv/forms.py	/^        label="Nome",$/;"	kind:variable	line:13
+label	../sitecbv/forms.py	/^        label="Senha",$/;"	kind:variable	line:37
+label	../sitecbv/forms.py	/^        label="Senha",$/;"	kind:variable	line:81
+label	../sitecbv/forms.py	/^        label="UF",$/;"	kind:variable	line:31
+list_display	../sitecbv/admin.py	/^    list_display = ('Nome', 'Sexo')$/;"	kind:variable	line:51
+list_display	../sitecbv/admin.py	/^    list_display = ('Nome', 'Sexo', 'Superliga')$/;"	kind:variable	line:46
+list_display	../sitecbv/admin.py	/^    list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Destaque', 'Publicar',)$/;"	kind:variable	line:35
+list_display	../sitecbv/admin.py	/^    list_display = ['Titulo', 'Publicar']$/;"	kind:variable	line:7
+list_display	../sitecbv/admin.py	/^    list_display = ['get_email', 'get_firstname',$/;"	kind:variable	line:13
+list_filter	../sitecbv/admin.py	/^    list_filter = ('DataPublicacao', 'Destaque', 'Publicar', 'Categoria')$/;"	kind:variable	line:37
+list_filter	../sitecbv/admin.py	/^    list_filter = ('Publicar',)$/;"	kind:variable	line:8
+list_filter	../sitecbv/admin.py	/^    list_filter = ('Sexo', 'Superliga')$/;"	kind:variable	line:47
+list_filter	../sitecbv/admin.py	/^    list_filter = ('Sexo',)$/;"	kind:variable	line:52
+list_filter	../sitecbv/admin.py	/^    list_filter = ('user__is_active', 'cadastrocompleto')$/;"	kind:variable	line:16
+maisconteudoexclusivo	../sitecbv/views.py	/^def maisconteudoexclusivo(request):$/;"	kind:function	line:154
+manage.py	../manage.py	1;"	kind:file	line:1
+max_length	../sitecbv/forms.py	/^        max_length=100,$/;"	kind:variable	line:14
+max_length	../sitecbv/forms.py	/^        max_length=100,$/;"	kind:variable	line:20
+max_length	../sitecbv/forms.py	/^        max_length=100,$/;"	kind:variable	line:75
+max_length	../sitecbv/forms.py	/^        max_length=16,$/;"	kind:variable	line:26
+max_length	../sitecbv/forms.py	/^        max_length=16,$/;"	kind:variable	line:38
+max_length	../sitecbv/forms.py	/^        max_length=16,$/;"	kind:variable	line:44
+max_length	../sitecbv/forms.py	/^        max_length=16,$/;"	kind:variable	line:82
+max_length	../sitecbv/forms.py	/^        max_length=2,$/;"	kind:variable	line:32
+modalidade_favorita	../sitecbv/models.py	/^    modalidade_favorita = models.CharField($/;"	kind:variable	line:60
+model	../sitecbv/forms.py	/^        model = InfosAdicionaisUsuario$/;"	kind:variable	line:108
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:197
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:202
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:207
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:212
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:217
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:222
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:227
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:232
+model_name	../sitecbv/migrations/0001_initial.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:237
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='bannercensodovolei',$/;"	kind:variable	line:61
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='bannerrededesconto',$/;"	kind:variable	line:66
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='bannerrededesconto',$/;"	kind:variable	line:71
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:101
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:106
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:76
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:81
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:86
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:91
+model_name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:96
+model_name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:27
+model_name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:32
+model_name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:37
+model_name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:42
+model_name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            model_name='infosadicionaisusuario',$/;"	kind:variable	line:47
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='categoriacensodovolei',$/;"	kind:variable	line:18
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='categoriaconteudoexclusivo',$/;"	kind:variable	line:23
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='categoriaexperiencia',$/;"	kind:variable	line:28
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='categoriaredededesconto',$/;"	kind:variable	line:33
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='censodovolei',$/;"	kind:variable	line:38
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='censodovolei',$/;"	kind:variable	line:43
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='censodovolei',$/;"	kind:variable	line:48
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='conteudoexclusivo',$/;"	kind:variable	line:53
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='conteudoexclusivo',$/;"	kind:variable	line:58
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='conteudoexclusivo',$/;"	kind:variable	line:63
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='conteudoexclusivo',$/;"	kind:variable	line:68
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='experiencia',$/;"	kind:variable	line:73
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='experiencia',$/;"	kind:variable	line:78
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='experiencia',$/;"	kind:variable	line:83
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='programa',$/;"	kind:variable	line:88
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='redededesconto',$/;"	kind:variable	line:103
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='redededesconto',$/;"	kind:variable	line:93
+model_name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            model_name='redededesconto',$/;"	kind:variable	line:98
+model_name	../sitecbv/migrations/0005_auto_20170517_2024.py	/^            model_name='jogador',$/;"	kind:variable	line:21
+model_name	../sitecbv/migrations/0005_auto_20170517_2024.py	/^            model_name='time',$/;"	kind:variable	line:16
+model_name	../sitecbv/migrations/0006_time_superliga.py	/^            model_name='time',$/;"	kind:variable	line:16
+models.py	../sitecbv/models.py	1;"	kind:file	line:1
+name	../sitecbv/apps.py	/^    name = 'sitecbv'$/;"	kind:variable	line:7
+name	../sitecbv/migrations/0001_initial.py	/^            name='BannerCensoDoVolei',$/;"	kind:variable	line:21
+name	../sitecbv/migrations/0001_initial.py	/^            name='BannerRedeDesconto',$/;"	kind:variable	line:30
+name	../sitecbv/migrations/0001_initial.py	/^            name='CategoriaCensoDoVolei',$/;"	kind:variable	line:39
+name	../sitecbv/migrations/0001_initial.py	/^            name='CategoriaConteudoExclusivo',$/;"	kind:variable	line:49
+name	../sitecbv/migrations/0001_initial.py	/^            name='CategoriaExperiencia',$/;"	kind:variable	line:59
+name	../sitecbv/migrations/0001_initial.py	/^            name='CategoriaRedeDeDesconto',$/;"	kind:variable	line:69
+name	../sitecbv/migrations/0001_initial.py	/^            name='CensoDoVolei',$/;"	kind:variable	line:79
+name	../sitecbv/migrations/0001_initial.py	/^            name='ConteudoExclusivo',$/;"	kind:variable	line:99
+name	../sitecbv/migrations/0001_initial.py	/^            name='Experiencia',$/;"	kind:variable	line:118
+name	../sitecbv/migrations/0001_initial.py	/^            name='InfosAdicionaisUsuario',$/;"	kind:variable	line:139
+name	../sitecbv/migrations/0001_initial.py	/^            name='Jogador',$/;"	kind:variable	line:160
+name	../sitecbv/migrations/0001_initial.py	/^            name='RedeDeDesconto',$/;"	kind:variable	line:169
+name	../sitecbv/migrations/0001_initial.py	/^            name='Time',$/;"	kind:variable	line:189
+name	../sitecbv/migrations/0001_initial.py	/^            name='jogador_favorito',$/;"	kind:variable	line:198
+name	../sitecbv/migrations/0001_initial.py	/^            name='jogadora_favorita',$/;"	kind:variable	line:203
+name	../sitecbv/migrations/0001_initial.py	/^            name='jogadoras_secundarias_femininas',$/;"	kind:variable	line:208
+name	../sitecbv/migrations/0001_initial.py	/^            name='jogadores_secundario_masculinos',$/;"	kind:variable	line:213
+name	../sitecbv/migrations/0001_initial.py	/^            name='time_favorito_feminino',$/;"	kind:variable	line:218
+name	../sitecbv/migrations/0001_initial.py	/^            name='time_favorito_masculino',$/;"	kind:variable	line:223
+name	../sitecbv/migrations/0001_initial.py	/^            name='times_secundarios_feminino',$/;"	kind:variable	line:228
+name	../sitecbv/migrations/0001_initial.py	/^            name='times_secundarios_masculino',$/;"	kind:variable	line:233
+name	../sitecbv/migrations/0001_initial.py	/^            name='user',$/;"	kind:variable	line:238
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='Imagem',$/;"	kind:variable	line:62
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='Imagem',$/;"	kind:variable	line:67
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='Titulo',$/;"	kind:variable	line:72
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='bannercensodovolei',$/;"	kind:variable	line:17
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='bannerrededesconto',$/;"	kind:variable	line:21
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='categoriacensodovolei',$/;"	kind:variable	line:25
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='categoriaconteudoexclusivo',$/;"	kind:variable	line:29
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='categoriaexperiencia',$/;"	kind:variable	line:33
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='categoriaredededesconto',$/;"	kind:variable	line:37
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='censodovolei',$/;"	kind:variable	line:41
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='conteudoexclusivo',$/;"	kind:variable	line:45
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='experiencia',$/;"	kind:variable	line:49
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='jogador',$/;"	kind:variable	line:53
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='jogadoras_secundarias_femininas',$/;"	kind:variable	line:77
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='jogadores_secundario_masculinos',$/;"	kind:variable	line:82
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='redededesconto',$/;"	kind:variable	line:57
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='time_favorito_feminino',$/;"	kind:variable	line:87
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='time_favorito_masculino',$/;"	kind:variable	line:92
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='times_secundarios_feminino',$/;"	kind:variable	line:97
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='times_secundarios_masculino',$/;"	kind:variable	line:102
+name	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            name='ufed',$/;"	kind:variable	line:107
+name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            name='Programa',$/;"	kind:variable	line:17
+name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            name='cadastrocompleto',$/;"	kind:variable	line:28
+name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            name='endereco',$/;"	kind:variable	line:33
+name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            name='numero',$/;"	kind:variable	line:38
+name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            name='pais',$/;"	kind:variable	line:43
+name	../sitecbv/migrations/0003_auto_20170511_1354.py	/^            name='tipodocumento',$/;"	kind:variable	line:48
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Conteudo',$/;"	kind:variable	line:39
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Conteudo',$/;"	kind:variable	line:54
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Conteudo',$/;"	kind:variable	line:74
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Conteudo',$/;"	kind:variable	line:89
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Conteudo',$/;"	kind:variable	line:94
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='DataPublicacao',$/;"	kind:variable	line:44
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='DataPublicacao',$/;"	kind:variable	line:59
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='DataPublicacao',$/;"	kind:variable	line:79
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='DataPublicacao',$/;"	kind:variable	line:99
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='ImagemCarrossel',$/;"	kind:variable	line:64
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Titulo',$/;"	kind:variable	line:104
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Titulo',$/;"	kind:variable	line:49
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Titulo',$/;"	kind:variable	line:69
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='Titulo',$/;"	kind:variable	line:84
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='slug',$/;"	kind:variable	line:19
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='slug',$/;"	kind:variable	line:24
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='slug',$/;"	kind:variable	line:29
+name	../sitecbv/migrations/0004_auto_20170511_1926.py	/^            name='slug',$/;"	kind:variable	line:34
+name	../sitecbv/migrations/0005_auto_20170517_2024.py	/^            name='Sexo',$/;"	kind:variable	line:17
+name	../sitecbv/migrations/0005_auto_20170517_2024.py	/^            name='Sexo',$/;"	kind:variable	line:22
+name	../sitecbv/migrations/0006_time_superliga.py	/^            name='Superliga',$/;"	kind:variable	line:17
+numero	../sitecbv/models.py	/^    numero = models.CharField($/;"	kind:variable	line:53
+obrigar_cadastro_complementar	../sitecbv/decorators.py	/^def obrigar_cadastro_complementar(function):$/;"	kind:function	line:1
+obterformcomplementar	../sitecbv/views.py	/^def obterformcomplementar(request):$/;"	kind:function	line:183
+operations	../sitecbv/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:19
+operations	../sitecbv/migrations/0002_auto_20170510_2109.py	/^    operations = [$/;"	kind:variable	line:15
+operations	../sitecbv/migrations/0003_auto_20170511_1354.py	/^    operations = [$/;"	kind:variable	line:15
+operations	../sitecbv/migrations/0004_auto_20170511_1926.py	/^    operations = [$/;"	kind:variable	line:16
+operations	../sitecbv/migrations/0005_auto_20170517_2024.py	/^    operations = [$/;"	kind:variable	line:14
+operations	../sitecbv/migrations/0006_time_superliga.py	/^    operations = [$/;"	kind:variable	line:14
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:113
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:134
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:184
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:44
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:54
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:64
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:74
+options	../sitecbv/migrations/0001_initial.py	/^            options={$/;"	kind:variable	line:94
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Banner Censo do Volei', 'verbose_name_plural': 'Banneres Censo do Volei'},$/;"	kind:variable	line:18
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Banner Rede de Desconto', 'verbose_name_plural': 'Banneres Rede de Desconto'},$/;"	kind:variable	line:22
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Categoria Censo do Volei', 'verbose_name_plural': 'Categorias Censo do Volei'},$/;"	kind:variable	line:26
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Categoria Conte\\xfado Exclusivo', 'verbose_name_plural': 'Categorias Conte\\xfado Exclusivo'},$/;"	kind:variable	line:30
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Categoria Experi\\xeancia', 'verbose_name_plural': 'Categorias Experi\\xeancia'},$/;"	kind:variable	line:34
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Categoria Rede de Desconto', 'verbose_name_plural': 'Categorias Rede de Desconto'},$/;"	kind:variable	line:38
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Censo do Volei', 'verbose_name_plural': 'Censos do Volei'},$/;"	kind:variable	line:42
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Conte\\xfado Exclusivo', 'verbose_name_plural': 'Conte\\xfados Exclusivos'},$/;"	kind:variable	line:46
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Experi\\xeancia', 'verbose_name_plural': 'Experi\\xeancias'},$/;"	kind:variable	line:50
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Jogador', 'verbose_name_plural': 'Jogadores'},$/;"	kind:variable	line:54
+options	../sitecbv/migrations/0002_auto_20170510_2109.py	/^            options={'verbose_name': 'Rede de Desconto', 'verbose_name_plural': 'Redes de Desconto'},$/;"	kind:variable	line:58
+pais	../sitecbv/models.py	/^    pais = models.CharField(max_length=100, blank=True,$/;"	kind:variable	line:58
+password	../sitecbv/forms.py	/^    password = forms.CharField($/;"	kind:variable	line:36
+password	../sitecbv/forms.py	/^    password = forms.CharField($/;"	kind:variable	line:80
+passwordconfirm	../sitecbv/forms.py	/^    passwordconfirm = forms.CharField($/;"	kind:variable	line:42
+post_save_callback	../sitecbv/signals.py	/^def post_save_callback(sender, instance, **kwargs):$/;"	kind:function	line:6
+programa	../sitecbv/views.py	/^def programa(request):$/;"	kind:function	line:93
+readonly_fields	../sitecbv/admin.py	/^    readonly_fields = ('DataPublicacao',)$/;"	kind:variable	line:43
+ready	../sitecbv/apps.py	/^    def ready(self):$/;"	kind:member	line:9
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:15
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:21
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:27
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:33
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:39
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:45
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:76
+required	../sitecbv/forms.py	/^        required=True,$/;"	kind:variable	line:83
+save	../sitecbv/models.py	/^    def save(self, *args, **kwargs):$/;"	kind:member	line:213
+search_fields	../sitecbv/admin.py	/^    search_fields = ('Nome',)$/;"	kind:variable	line:48
+search_fields	../sitecbv/admin.py	/^    search_fields = ('Nome',)$/;"	kind:variable	line:53
+search_fields	../sitecbv/admin.py	/^    search_fields = ('Titulo', 'Conteudo',)$/;"	kind:variable	line:36
+search_fields	../sitecbv/admin.py	/^    search_fields = ('Titulo', 'Publicar')$/;"	kind:variable	line:9
+search_fields	../sitecbv/admin.py	/^    search_fields = ('user__email', 'user_first_name',)$/;"	kind:variable	line:15
+settings.py	../cbv/settings.py	1;"	kind:file	line:1
+sexo	../sitecbv/models.py	/^    sexo = models.CharField($/;"	kind:variable	line:46
+signals.py	../sitecbv/signals.py	1;"	kind:file	line:1
+slug	../sitecbv/models.py	/^    slug = AutoSlugField(populate_from='Nome', unique=True, blank=True, null=True)$/;"	kind:variable	line:149
+telefone	../sitecbv/models.py	/^    telefone = models.CharField(max_length=11, blank=True, null=True)$/;"	kind:variable	line:49
+tests.py	../sitecbv/tests.py	1;"	kind:file	line:1
+time_favorito_feminino	../sitecbv/models.py	/^    time_favorito_feminino = models.ForeignKey($/;"	kind:variable	line:74
+time_favorito_masculino	../sitecbv/models.py	/^    time_favorito_masculino = models.ForeignKey($/;"	kind:variable	line:72
+times_secundarios_feminino	../sitecbv/models.py	/^    times_secundarios_feminino = models.ManyToManyField($/;"	kind:variable	line:78
+times_secundarios_masculino	../sitecbv/models.py	/^    times_secundarios_masculino = models.ManyToManyField($/;"	kind:variable	line:76
+tipodocumento	../sitecbv/models.py	/^    tipodocumento = models.CharField($/;"	kind:variable	line:42
+ufed	../sitecbv/models.py	/^    ufed = models.CharField(max_length=50, blank=True,$/;"	kind:variable	line:44
+unidadefederativa	../sitecbv/forms.py	/^    unidadefederativa = forms.CharField($/;"	kind:variable	line:30
+urlpatterns	../cbv/urls.py	/^urlpatterns = [$/;"	kind:variable	line:27
+urls.py	../cbv/urls.py	1;"	kind:file	line:1
+user	../sitecbv/models.py	/^    user = models.OneToOneField(User, on_delete=models.CASCADE)$/;"	kind:variable	line:38
+verbose_name	../sitecbv/models.py	/^        verbose_name = "Banner Censo do Volei"$/;"	kind:variable	line:278
+verbose_name	../sitecbv/models.py	/^        verbose_name = "Banner Rede de Desconto"$/;"	kind:variable	line:268
+verbose_name	../sitecbv/models.py	/^        verbose_name = "Categoria Rede de Desconto"$/;"	kind:variable	line:184
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Categoria Censo do Volei"$/;"	kind:variable	line:177
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Categoria Conteúdo Exclusivo"$/;"	kind:variable	line:163
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Categoria Experiência"$/;"	kind:variable	line:170
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Censo do Volei"$/;"	kind:variable	line:246
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Conteúdo Exclusivo"$/;"	kind:variable	line:196
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Experiência"$/;"	kind:variable	line:234
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Jogador"$/;"	kind:variable	line:106
+verbose_name	../sitecbv/models.py	/^        verbose_name = u"Rede de Desconto"$/;"	kind:variable	line:258
+verbose_name	../sitecbv/models.py	/^        verbose_name='Imagem Carrossel')$/;"	kind:variable	line:192
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = "Banneres Censo do Volei"$/;"	kind:variable	line:279
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = "Banneres Rede de Desconto"$/;"	kind:variable	line:269
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = "Categorias Rede de Desconto"$/;"	kind:variable	line:185
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Categorias Censo do Volei"$/;"	kind:variable	line:178
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Categorias Conteúdo Exclusivo"$/;"	kind:variable	line:164
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Categorias Experiência"$/;"	kind:variable	line:171
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Censos do Volei"$/;"	kind:variable	line:247
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Conteúdos Exclusivos"$/;"	kind:variable	line:197
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Experiências"$/;"	kind:variable	line:235
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Jogadores"$/;"	kind:variable	line:107
+verbose_name_plural	../sitecbv/models.py	/^        verbose_name_plural = u"Redes de Desconto"$/;"	kind:variable	line:259
+views.py	../cbv/views.py	1;"	kind:file	line:1
+views.py	../sitecbv/views.py	1;"	kind:file	line:1
+widget	../sitecbv/forms.py	/^        widget=forms.PasswordInput($/;"	kind:variable	line:40
+widget	../sitecbv/forms.py	/^        widget=forms.PasswordInput($/;"	kind:variable	line:46
+widget	../sitecbv/forms.py	/^        widget=forms.PasswordInput($/;"	kind:variable	line:84
+widget	../sitecbv/forms.py	/^        widget=forms.TextInput($/;"	kind:variable	line:16
+widget	../sitecbv/forms.py	/^        widget=forms.TextInput($/;"	kind:variable	line:22
+widget	../sitecbv/forms.py	/^        widget=forms.TextInput($/;"	kind:variable	line:28
+widget	../sitecbv/forms.py	/^        widget=forms.TextInput($/;"	kind:variable	line:34
+widget	../sitecbv/forms.py	/^        widget=forms.TextInput($/;"	kind:variable	line:77
+wrap	../sitecbv/decorators.py	/^    def wrap(request, *args, **kwargs):$/;"	kind:function	line:2
+wsgi.py	../cbv/wsgi.py	1;"	kind:file	line:1

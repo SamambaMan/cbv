@@ -29,20 +29,51 @@ TIPO_DOCUMENTO_CHOICES = (
 )
 
 SUPERLIGA_CHOICE = (
-    ('SA','Super Liga A'),
-    ('SB','Super Liga B'),
+    ('SA', 'Super Liga A'),
+    ('SB', 'Super Liga B'),
 )
 
+UF_CHOICES = (
+    ('FO','Fora do Brasil'),
+    ('AC', u'Acre'),
+    ('AL', u'Alagoas'),
+    ('AM', u'Amazonas'),
+    ('AP', u'Amapá'),
+    ('BA', u'Bahia'),
+    ('CE', u'Ceará'),
+    ('DF', u'Distrito Federal'),
+    ('ES', u'Espírito Santo'),
+    ('GO', u'Goiás'),
+    ('MA', u'Maranhão'),
+    ('MG', u'Minas Gerais'),
+    ('MS', u'Mato Grosso do Sul'),
+    ('MT', u'Mato Grosso'),
+    ('PA', u'Pará'),
+    ('PB', u'Paraíba'),
+    ('PE', u'Pernambuco'),
+    ('PI', u'Piauí'),
+    ('PR', u'Paraná'),
+    ('RJ', u'Rio de Janeiro'),
+    ('RN', u'Rio Grande do Norte'),
+    ('RO', u'Rondônia'),
+    ('RR', u'Roraima'),
+    ('RS', u'Rio Grande do Sul'),
+    ('SC', u'Santa Catarina'),
+    ('SE', u'Sergipe'),
+    ('SP', u'São Paulo'),
+    ('TO', u'Tocantins'),
+)
 
 class InfosAdicionaisUsuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     cadastrocompleto = models.BooleanField(
         default=False, verbose_name='Cadastro Completo')
-    cpf = models.CharField(max_length=11, blank=True, null=True)
+    cpf = models.CharField(max_length=11, blank=True, null=True, help_text=u"Apenas números")
     tipodocumento = models.CharField(
-        max_length=3, default='CPF', choices=TIPO_DOCUMENTO_CHOICES, verbose_name='Tipo de Documento')
+        max_length=3, default='CPF',
+        choices=TIPO_DOCUMENTO_CHOICES, verbose_name='Tipo de Documento')
     ufed = models.CharField(max_length=50, blank=True,
-                            null=True, verbose_name="UF")
+                            null=True, verbose_name="UF", choices=UF_CHOICES)
     sexo = models.CharField(
         max_length=1, choices=SEXO_CHOICES, blank=True, null=True)
     celular = models.CharField(max_length=11, blank=True, null=True)
@@ -61,22 +92,22 @@ class InfosAdicionaisUsuario(models.Model):
         max_length=2, default='VQ', choices=MODALIDADE_CHOICES)
 
     jogador_favorito = models.ForeignKey(
-        'Jogador', blank=True, null=True, related_name="infos_jogador_favorito")
+    'Jogador', blank=True, null=True, related_name="infos_jogador_favorito")
     jogadora_favorita = models.ForeignKey(
-        'Jogador', blank=True, null=True, related_name="infos_jogadora_favorita")
+    'Jogador', blank=True, null=True, related_name="infos_jogadora_favorita")
     jogadores_secundario_masculinos = models.ManyToManyField(
-        'Jogador', related_name="infos_jogadores_secundario_masculinos", blank=True)
+    'Jogador', related_name="infos_jogadores_secundario_masculinos", blank=True)
     jogadoras_secundarias_femininas = models.ManyToManyField(
-        'Jogador', related_name="infos_jogadoras_secundarias_femininas", blank=True)
+    'Jogador', related_name="infos_jogadoras_secundarias_femininas", blank=True)
 
     time_favorito_masculino = models.ForeignKey(
-        'Time', related_name="infos_time_favorito_masculino", blank=True, null=True)
+    'Time', related_name="infos_time_favorito_masculino", blank=True, null=True)
     time_favorito_feminino = models.ForeignKey(
-        'Time', related_name="infos_time_favorito_feminino", blank=True, null=True)
+    'Time', related_name="infos_time_favorito_feminino", blank=True, null=True)
     times_secundarios_masculino = models.ManyToManyField(
-        'Time', related_name="infos_times_secundarios_masculino", blank=True)
+    'Time', related_name="infos_times_secundarios_masculino", blank=True)
     times_secundarios_feminino = models.ManyToManyField(
-        'Time', related_name="infos_times_secundarios_feminino", blank=True)
+    'Time', related_name="infos_times_secundarios_feminino", blank=True)
 
 
 class Time(models.Model):

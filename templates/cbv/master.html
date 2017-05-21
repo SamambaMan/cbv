@@ -15,6 +15,13 @@
 </head>
 
 <body>
+{% if user.is_authenticated %}
+<div style="float: right;text-align: right; color:red;">
+    Bem vindo <strong>{{ user.firstname }}</strong>
+    <br>
+    <a href="/logout/">Logout</a>
+</div>
+{% endif %}
 <div class="wide">
     <div class="container-fluid">
         <div class="row-fluid">
@@ -30,8 +37,6 @@
     </div>
 </div>
     {% block content %}{% endblock %}
-    <div class="container">
-    </div>
 </body>
 
 </html>

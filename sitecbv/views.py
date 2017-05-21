@@ -192,11 +192,10 @@ def obterformcomplementar(request):
     timesf = Time.objects.filter(Sexo='F')
 
     if request.method == 'POST':
+        print "vim do post e completei"
         formulario = CadastroComplementar(request.POST, instance=usuario.infosadicionaisusuario)
     else:
         formulario = CadastroComplementar(instance=usuario.infosadicionaisusuario)
-
-    print usuario.infosadicionaisusuario.cpf
 
     formulario.fields["jogador_favorito"].queryset = jogadores
     formulario.fields["jogadora_favorita"].queryset = jogadoras
@@ -214,6 +213,16 @@ def obterformcomplementar(request):
 def cadastrocomplementar(request):
 
     formulario = obterformcomplementar(request)
+
+    if request.method == 'POST':
+        if formulario.is_valid():
+            informacoes = formulario.save()
+
+            informacoes.cadastrocompleto = True
+            
+            informacoes.save()
+
+            return render(request, 'cbv/cadastrousuario/cadastrocompleto.html')
 
     return render(request,
                   'cbv/cadastrousuario/cadastrocomplementar.html',

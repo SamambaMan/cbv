@@ -1,9 +1,36 @@
 {% extends "cbv/master.html" %}
-
-{% block content %}
+ 
+{% block content %} 
+{{ formulario.non_field_errors }}
+{{ formulario.errors }}
+{{ formulario.non_form_errors }}
 <form method="POST" action="/cadastrocomplementar/">
-{% csrf_token %}
-{{ formulario.cpf }}
-</form>
+{% csrf_token %} 
+{{ formulario.cpf }} {{ formulario.cpf.errors }}<br>
+{{ formulario.tipodocumento }} {{ formulario.tipodocumento.errors }}<br>
+{{ formulario.ufed }} {{ formulario.ufed.errors }}<br>
+{{ formulario.sexo }} {{ formulario.sexo.errors }}<br>
+{{ formulario.celular }} {{ formulario.celular.errors }}<br>
+{{ formulario.telefone }} {{ formulario.telefone.errors }}<br>
+{{ formulario.cep }} {{ formulario.cep.errors }}<br>
+{{ formulario.endereco }} {{ formulario.endereco.errors }}<br>
+{{ formulario.numero }} {{ formulario.numero.errors }}<br>
+{{ formulario.complemento }} {{ formulario.complemento.errors }}<br>
+{{ formulario.bairro }} {{ formulario.bairro.errors }}<br>
+{{ formulario.cidade }} {{ formulario.cidade.errors }}<br>
+{{ formulario.pais }} {{ formulario.pais.errors }}<br>
+{{ formulario.modalidade_favorita }} {{ formulario.modalidade_favorita.errors }}<br>
+{{ formulario.jogador_favorito }} {{ formulario.jogador_favorito.errors }}<br>
+{{ formulario.jogadora_favorita }} {{ formulario.jogadora_favorita.errors }}<br>
+{{ formulario.jogadores_secundario_masculinos }} {{ formulario.jogadores_secundario_masculinos.errors }}<br>
+{{ formulario.jogadoras_secundarias_femininas }} {{ formulario.jogadoras_secundarias_femininas.errors }}<br>
+{{ formulario.time_favorito_masculino }} {{ formulario.time_favorito_masculino.errors }}<br>
+{{ formulario.time_favorito_feminino }} {{ formulario.time_favorito_feminino.errors }}<br>
+{{ formulario.times_secundarios_masculino }} {{ formulario.times_secundarios_masculino.errors }}<br>
+{{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}<br>
 
-{% endblock %}
+<input type="submit" value="Completar Cadastro">
+        
+</form> 
+ 
+{% endblock %} 

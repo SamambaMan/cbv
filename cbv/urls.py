@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import logout
 
 from sitecbv.views import index, cadastrousuariobasico,\
                           cadastrarusuariobasico, programa, conteudoexclusivo,\
@@ -38,6 +39,7 @@ urlpatterns = [
         detalheconteudoexclusivo),
     url(r'^cadastrocomplementar/$', cadastrocomplementar),
     url(r'^login/$', efetuarlogin),
+    url(r'^logout/$', logout, {'next_page': '/'}),
 
 
     url(r'^tinymce/', include('tinymce.urls')),

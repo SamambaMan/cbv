@@ -94,8 +94,25 @@ class LoginForm(forms.Form):
             raise forms.ValidationError(u"Email ou senha invalido")
 
 class CadastroComplementar(forms.ModelForm):
+    class Meta:
+        model = InfosAdicionaisUsuario
+        exclude = ['user']
+
+
     def __init__(self, *args, **kwargs):
+        from django.core.validators import RegexValidator
         super(CadastroComplementar, self).__init__(*args, **kwargs)
+
+        self.fields['cpf'].required = True
+        self.fields['tipodocumento'].required = True
+        self.fields['ufed'].required = True
+        self.fields['sexo'].required = True
+        self.fields['celular'].required = True
+        self.fields['telefone'].required = True
+        self.fields['cep'].validators = [RegexValidator(regex=r'^(\d{5}|\d{8})$',
+                                                        message=u'CEP deve conter 5 ou 8 dígitos',
+                                                        code='nomatch')]
+        self.fields['modalidade_favorita'].required = True
 
         for field_name in self.fields:
             field = self.fields.get(field_name)
@@ -103,7 +120,3 @@ class CadastroComplementar(forms.ModelForm):
                 field.widget.attrs.update({
                     'placeholder': field.help_text if field.help_text else field.label
                 })
-
-    class Meta:
-        model = InfosAdicionaisUsuario
-        exclude = ['cadastrocompleto']
