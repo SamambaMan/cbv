@@ -1,17 +1,9 @@
 {% extends "cbv/master.html" %}
 
 {% block content %}
-<table>
-    <tr>
-        {% for conteudo in conteudos_carrossel %}
-        <td>
-            <h3><a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">{{ conteudo.Titulo }}</a></h3>
-            <h4>{{ conteudo.Detalhe }}</h4>
-            <img src="{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}">
-        </td>
-        {% endfor %}
-    </tr>
-</table>
+<div class="row">
+    {% include 'cbv/carroussel_snippet.html' %}
+</div>
 
 <ul>
     {% for conteudo in conteudos_exibir %}
