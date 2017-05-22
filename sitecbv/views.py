@@ -181,13 +181,16 @@ def maisconteudoexclusivo(request):
 
 @obrigar_cadastro_complementar
 def detalheconteudoexclusivo(request, categoria, id):
+    from .forms import CadastroUsuarioBasicoForm, LoginForm
     conteudos = conteudospublicados()
 
     conteudo = conteudos.get(Categoria__slug=categoria, id=id)
 
     return render(request,
                   'cbv/conteudoexclusivo/detalheconteudoexclusivo.html',
-                  {'conteudo':conteudo})
+                  {'conteudo':conteudo,
+                   'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                   'formlogin': LoginForm()})
 
 def obterformcomplementar(request):
     from .forms import CadastroComplementar

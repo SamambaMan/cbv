@@ -10,8 +10,15 @@
 {% if user.is_authenticated %}
     {{conteudo.Conteudo|safe}}
 {% else %}
-<h1> Não logado </h1>
+<div class="row">
     {{conteudo.Detalhe}}
+</div>
+<div class="row">
+<h1> Para acessar o conteúdo completo faça seu login</h1>
+</div>
+<div class="row">
+    {% include 'cbv/formcadastrobasico_snippet.html' %}
+</div>
 {% endif %}
 
 
