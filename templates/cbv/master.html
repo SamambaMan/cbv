@@ -1,39 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt">
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="/static/cbv/img/favicon.ico">
+<title>CBV - Confederação Brasileira de Voleibol</title>
 
-    <title>Confederação Brasileira de Volei</title>
+<!-- Bootstrap core CSS -->
+<!--link href="dist/css/bootstrap.min.css" rel="stylesheet"-->
+<link href="/static/cbv/dist/css/bootstrap.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="/static/cbv/css/main.css" rel="stylesheet">
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="/static/cbv/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="/static/cbv/assets/js/ie-emulation-modes-warning.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!-- Custom styles for this template -->
+<link href="/static/cbv/dist/css/carousel.css" rel="stylesheet">
+<script src="/static/cbv/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script language="javascript">
+jQuery(function($){
+  $('.tabs-menu ul li a').click(function(){
+    var a = $(this);
+    var active_tab_class = 'active-tab-menu';
+    var the_tab = '.' + a.attr('data-tab');
+    
+    $('.tabs-menu ul li a').removeClass(active_tab_class);
+    a.addClass(active_tab_class);
+    
+    $('.tabs-content .tabs').css({
+      'display' : 'none'
+    });
+    
+    $(the_tab).show();
+    
+    return false;
+  });
+});
+</script>
 </head>
-
+<!-- NAVBAR
+================================================== -->
 <body>
-{% if user.is_authenticated %}
-<div style="float: right;text-align: right; color:red;">
-    Bem vindo <strong>{{ user.firstname }}</strong>
-    <br>
-    <a href="/logout/">Logout</a>
-</div>
-{% endif %}
-<div class="wide">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span24">
-                <div class="span6 ">
-                    <img class="logo" src="/static/cbv/img/logo.png">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    {% block content %}{% endblock %}
-</body>
+<div id="corpoSite"> 
 
+  <!--início topo site-->
+  <div id="topo"></div>
+  <div id="menuSite">
+    <div class="navbar-wrapper">
+      <nav class="navbar-right navbar-inverse">
+        <table width="100%">
+          <tr>
+            <td><div class="alinhaRedeSociais"> 
+                <!--  botão no menu  -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  <ul class="menuRedeSociais navbar-nav">
+                    <li>
+                      <table>
+                        <tr>
+                          <td><a href="https://pt-br.facebook.com/confederacaobrasileiradevoleibol/" target="_blank"><img src="/static/cbv/img/facebook.png" alt="Facebook" border=""></a></td>
+                          <td><a href="https://twitter.com/volei?lang=pt" target="_blank"><img src="/static/cbv/img/twitter.png" alt="Twitter" border=""></a></td>
+                          <td><a href="https://www.instagram.com/cbvolei/" target="_blank"><img src="/static/cbv/img/instagram.png" alt="Instagram" border=""></a></td>
+                          <td><a href="https://www.youtube.com/user/VoleiBrasil1" target="_blank"><img src="/static/cbv/img/youtube.png" alt="YouTube" border=""></a></td>
+                        </tr>
+                      </table>
+                    </li>
+                  </ul>
+                </div>
+              </div></td>
+          </tr>
+          <tr>
+            <td><div id="navbar" class="navbar-collapse collapse">
+                <ul class="menu nav navbar-nav">
+                  <li style="margin:-5px 0;"><a href="index.html"><img src="/static/cbv/img/btHome.png" alt="" border=""></a></li>
+                  <li><a href="programa.html">O PROGRAMA</a></li>
+                  <li><a href="contExclusivo.html">CONTEÚDO EXCLUSIVO</a></li>
+                  <li><a href="experiencia.html">EXPERIÊNCIA</a></li>
+                  <li><a href="redeDesconto.html">REDE DE DESCONTO</a></li>
+                  <li><a href="censoVolei.html">CENSO DO VÔLEI</a></li>
+                  <li><a href="faleConosco.html">FALE CONOSCO</a></li>
+                </ul>
+              </div></td>
+          </tr>
+        </table>
+      </nav>
+    </div>
+  </div>
+  <!--fim topo site-->
+
+
+  {% block content %}{% endblock %}
+  <!-- início footer -->
+  <div id="footer"><a href="http://2017.cbv.com.br/" target="_blank"><img src="/static/cbv/img/rodape.png" style="max-width:100%" alt="" border=""/></a></div>
+</div>
+
+<!-- Bootstrap core JavaScript
+        ================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script> 
+<script src="/static/cbv/dist/js/bootstrap.min.js"></script> 
+<!-- Just to make our placeholder images work. Don't actually copy the next line! --> 
+<script src="/static/cbv/assets/js/vendor/holder.min.js"></script> 
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+<script src="/static/cbv/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
 </html>

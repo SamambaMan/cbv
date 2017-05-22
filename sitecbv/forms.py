@@ -14,36 +14,36 @@ class CadastroUsuarioBasicoForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'Nome'}))
+            attrs={'placeholder': 'Nome', 'class':'box1'}))
     email = forms.EmailField(
         label="E-Mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail'}))
+            attrs={'placeholder': 'E-Mail', 'class':'box1'}))
     cpfpassaporte = forms.CharField(
         label="CPF|Passaporte",
         max_length=16,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'CPF|Passaporte'}))
+            attrs={'placeholder': 'CPF|Passaporte', 'class':'box1'}))
     unidadefederativa = forms.CharField(
         label="UF",
         max_length=2,
         required=True,
-        widget=forms.Select(choices=UF_CHOICES))
+        widget=forms.Select(choices=UF_CHOICES, attrs={'class':'box2'}))
     password = forms.CharField(
         label="Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha'}))
+            attrs={'placeholder': 'Senha', 'class':'box2'}))
     passwordconfirm = forms.CharField(
         label="Confirmar Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': u'Confirmação de Senha'}))
+            attrs={'placeholder': u'Confirmação de Senha', 'class':'box2'}))
 
     def clean_email(self):
         from django.contrib.auth.models import User
@@ -78,14 +78,14 @@ class LoginForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail'}))
+            attrs={'placeholder': 'E-Mail', 'class':'box1'}))
 
     password = forms.CharField(
         label="Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha'}))
+            attrs={'placeholder': 'Senha', 'class':'box1'}))
 
     def clean(self):
         from django.contrib.auth.models import User
@@ -124,7 +124,4 @@ class CadastroComplementar(forms.ModelForm):
                     'placeholder': field.label
                 })
 
-    def clean(self):
-        from .snipets import validate_CPF
-        if self.fields['ufed'] != "FO":
-            validate_CPF(self.fields['cpf'])
+

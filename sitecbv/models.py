@@ -110,10 +110,15 @@ class InfosAdicionaisUsuario(models.Model):
     'Time', related_name="infos_times_secundarios_feminino", blank=True)
 
     def clean(self):
+        from django.forms import ValidationError
         from .snipets import validate_CPF
         print 'tentando clean informacoes adicionais'
         if self.ufed != "FO":
             validate_CPF(self.cpf)
+
+        if self.id and \
+            InfosAdicionaisUsuario.objects.filter(cpf=self.cpf).exclude(id=self.id).count() > 0:
+            raise ValidationError(u"CPF informado já foi cadastrado por outro usuário")
 
     def save(self, *args, **kwargs):
         self.full_clean()
@@ -138,7 +143,7 @@ class Jogador(models.Model):
     Nome = models.CharField(max_length=15)
     Sexo = models.CharField(max_length=1, choices=MF_CHOICES)
     Foto = models.FileField(help_text="300x300 PNG ou JPG")
-    
+
     def __str__(self):
         if self:
             return self.Nome

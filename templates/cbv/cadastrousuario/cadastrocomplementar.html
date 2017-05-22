@@ -2,7 +2,6 @@
  
 {% block content %} 
 {{ formulario.non_field_errors }}
-{{ formulario.errors }}
 <form method="POST" action="/cadastrocomplementar/">
 {% csrf_token %} 
 {{ formulario.cpf }} {{ formulario.cpf.errors }}<br>

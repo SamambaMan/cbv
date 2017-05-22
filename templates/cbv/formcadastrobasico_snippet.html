@@ -1,55 +1,72 @@
 {% include "socialaccount/snippets/provider_list.html" with process="login" %}
 
-<br>
-{{formlogin.non_field_errors}}
-<form action="/login/" method="post">
-{% csrf_token %}
-<table> 
-    <tr><td>{{formlogin.email}}</td><td>{{formlogin.password}}</td></tr>
-</table>
-<input type="submit" value="Login">
-</form>
-
-
-
-{{ formcadastrobasico.non_field_errors }}
-{{ errors }}
-<form action="/cadastrarusuariobasico/" method="post">
-{% csrf_token %}
-    <table border>
-        <tr>
-            <td colspan="2">
-                {{ formcadastrobasico.firstname.errors }}
-                {{ formcadastrobasico.firstname }}
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                {{ formcadastrobasico.email.errors }}
-                {{ formcadastrobasico.email }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{ formcadastrobasico.cpfpassaporte.errors }}
-                {{ formcadastrobasico.cpfpassaporte }}
-            </td>
-            <td>
-                {{ formcadastrobasico.unidadefederativa.errors }}
-                {{ formcadastrobasico.unidadefederativa }}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{ formcadastrobasico.password.errors }}
-                {{ formcadastrobasico.password }}
-            </td>
-            <td>
-                {{ formcadastrobasico.passwordconfirm.errors }}
-                {{ formcadastrobasico.passwordconfirm }}
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="Cadastrar">
-</form>
-{% include "socialaccount/snippets/login_extra.html" %}
+          	<!--form cadastro-->
+            <div class="register-box">
+              <form name="cadastro" method="post" action="#" onsubmit="" style="width:100%;">
+                <div class="caixa"> <span class="register-box-title">JÁ SOU CADASTRADO</span>
+                <form action="/login/" method="post">
+                {% csrf_token %}
+                  <div align="left">
+                      {{formlogin.non_field_errors}}
+                  </div>
+                  <div align="left">
+                    {{formlogin.email}}
+                  </div>
+                  <div align="left">
+                    {{formlogin.password}}
+                  </div>
+                  <div>
+                    <button type="submit" class="botaoOk">OK</button>
+                  </div>
+                </form>
+                  <br>
+                  <div>
+                    {% include "socialaccount/snippets/login_extra.html" %}
+                    <button type="submit" class="botaoFace">Entrar com Facebook</button>
+                  </div>
+                  <div>
+                    <button type="submit" class="botaoEsqueciSenha">Esqueci minha senha</button>
+                  </div>
+                  <div style="height:10px;"></div>
+                  <div style="background-image: linear-gradient(to right, #1b416c, white, #1b416c); height:2px"></div>
+                  <br>
+                  <span class="register-box-title">AINDA NÃO SOU CADASTRADO</span><br>
+                  <span class="register-box-txt">Tenha acesso a todos os benefícios e<br>
+                  conteúdos exclusivos</span>
+                  <div style="height:10px;"></div>
+                  <form action="/cadastrarusuariobasico/" method="post">
+                  {% csrf_token %}
+                  <div align="left">
+                    {{ formcadastrobasico.non_field_errors }}
+                    {{ errors }}
+                  </div>
+                  <div align="left">
+                    {{ formcadastrobasico.firstname.errors }}
+                    {{ formcadastrobasico.firstname }}
+                  </div>
+                  <div align="left">
+                    {{ formcadastrobasico.email.errors }}
+                    {{ formcadastrobasico.email }}
+                  </div>
+                  <div>
+                    {{ formcadastrobasico.cpfpassaporte.errors }}
+                    {{ formcadastrobasico.cpfpassaporte }}
+                  </div>
+                  <div align="right">
+                    {{ formcadastrobasico.unidadefederativa.errors }}
+                    {{ formcadastrobasico.unidadefederativa }}
+                    
+                  </div>
+                  <div>
+                    {{ formcadastrobasico.password.errors }}
+                    {{ formcadastrobasico.password }}
+                  </div>
+                  <div>
+                    {{ formcadastrobasico.passwordconfirm.errors }}
+                    {{ formcadastrobasico.passwordconfirm }}
+                  </div>
+                  <div><button type="submit" class="botaoCadastrar">CADASTRAR</button></div>
+                  </form>
+                </div>
+              </form>
+            </div>

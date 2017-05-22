@@ -1,7 +1,22 @@
 {% extends "cbv/master.html" %}
 
 {% block content %}
-Bem vindo a Confederação Brasileira de Volei!
-{% include "cbv/formcadastrobasico_snippet.html" %}
+
+    <div class="row">
+      <div class="span9">
+        <div class="row">
+          <div class="span6"> 
+            
+          {% include 'cbv/carroussel_snippet.html' %}
+          <div class="span3">
+          	{% include "cbv/formcadastrobasico_snippet.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
 {% endblock %}

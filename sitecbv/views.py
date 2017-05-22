@@ -76,7 +76,6 @@ def cadastrarusuariobasico(request):
 
                     informacoes.save()
             except ValidationError as error:
-                print error
                 return render(request,
                               'cbv/cadastrobasico.html',
                               {'formcadastrobasico': form,
