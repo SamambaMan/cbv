@@ -1,5 +1,4 @@
 {% extends "cbv/master.html" %}
-{% load paging_extras %}
 
 {% block content %}
 <table>
@@ -15,8 +14,7 @@
 </table>
 
 <ul>
-    {% paginate conteudos_exibir from request as results %}
-    {% for conteudo in results.objects %}
+    {% for conteudo in conteudos_exibir %}
     <li style="border: 1px solid black;">
         <span>
                 <h2><a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/">{{ conteudo.Categoria.Nome }}</a></h2>
@@ -25,7 +23,6 @@
         </span>
     </li>
     {% endfor %}
-    {{ results.paging }}
 <ul>
     <h1><a href="/conteudoexclusivo/mais/">Mais Conteúdo</a></h1>
 {% endblock %}
