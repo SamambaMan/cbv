@@ -1,5 +1,13 @@
 {% extends "cbv/master.html" %}
 
+{% block extrameta %}
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{conteudo.Topo.url}}" />
+<meta property="og:description" content="{{conteudo.Conteudo|striptags|truncatewords:40}}" />
+{% endblock %}
+
+{% block title %}{{ conteudo.Titulo }} - CBV{% endblock %}
+
 {% block content %}
 
 <h1>{{ conteudo.Titulo }}</h1>
