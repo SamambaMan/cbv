@@ -7,9 +7,14 @@ from .decorators import obrigar_cadastro_complementar
 
 @obrigar_cadastro_complementar
 def index(request):
+    conteudos_carrossel = conteudospublicados().filter(
+        Destaque=True).order_by('-DataPublicacao')[:5]
+
+
     return render(request, 'cbv/index.html',
                   {'formcadastrobasico': CadastroUsuarioBasicoForm(),
-                   'formlogin': LoginForm()})
+                   'formlogin': LoginForm(),
+                   'conteudos_carrossel': conteudos_carrossel})
 
 
 def cadastrousuariobasico(request):
@@ -122,7 +127,7 @@ def conteudoexclusivo(request):
 
 
     conteudos_carrossel = conteudospublicados().filter(
-        Destaque=True).order_by('-DataPublicacao')
+        Destaque=True).order_by('-DataPublicacao')[:5]
 
 
     return render(request, 'cbv/conteudoexclusivo/conteudoexclusivo.html',
