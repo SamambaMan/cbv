@@ -1,19 +1,22 @@
-{% include "socialaccount/snippets/provider_list.html" with process="login" %}
-
-          	<!--form cadastro-->
+{% load socialaccount %}
+{% block extrascript %}
+  {% providers_media_js %}
+{% endblock%}
             <div class="register-box">
-              <form name="cadastro" method="post" action="#" onsubmit="" style="width:100%;">
-                <div class="caixa"> <span class="register-box-title">JÁ SOU CADASTRADO</span>
-                <form action="/login/" method="post">
+                <div class="caixa"> 
+                <span class="register-box-title">JÁ SOU CADASTRADO</span>
+                <form action="/login/" method="post" autocomplete="off">
                 {% csrf_token %}
                   <div align="left">
-                      {{formlogin.non_field_errors}}
+                    {{ formlogin.non_field_errors }}
                   </div>
                   <div align="left">
-                    {{formlogin.email}}
+                    {{ formlogin.email.errors }}
+                    {{ formlogin.email }}
                   </div>
                   <div align="left">
-                    {{formlogin.password}}
+                    {{ formlogin.password.errors }}
+                    {{ formlogin.password }}
                   </div>
                   <div>
                     <button type="submit" class="botaoOk">OK</button>
@@ -21,8 +24,9 @@
                 </form>
                   <br>
                   <div>
-                    {% include "socialaccount/snippets/login_extra.html" %}
-                    <button type="submit" class="botaoFace">Entrar com Facebook</button>
+                    <form action="{% provider_login_url "facebook" %}">
+                      <button type="submit" class="botaoFace">Entrar com Facebook</button>
+                    </form>
                   </div>
                   <div>
                     <button type="submit" class="botaoEsqueciSenha">Esqueci minha senha</button>
@@ -68,5 +72,4 @@
                   <div><button type="submit" class="botaoCadastrar">CADASTRAR</button></div>
                   </form>
                 </div>
-              </form>
             </div>

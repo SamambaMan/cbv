@@ -104,6 +104,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 ACCOUNT_ADAPTER = 'sitecbv.auth.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'sitecbv.auth.SocialAccountAdapter'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

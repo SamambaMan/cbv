@@ -102,8 +102,9 @@ jQuery(function($){
   </div>
   <!--fim topo site-->
 
-
+<div class="conteudoSite"> 
   {% block content %}{% endblock %}
+</div>
   <!-- início footer -->
   <div id="footer"><a href="http://2017.cbv.com.br/" target="_blank"><img src="/static/cbv/img/rodape.png" style="max-width:100%" alt="" border=""/></a></div>
 </div>
@@ -118,5 +119,6 @@ jQuery(function($){
 <script src="/static/cbv/assets/js/vendor/holder.min.js"></script> 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
 <script src="/static/cbv/assets/js/ie10-viewport-bug-workaround.js"></script>
+{% block extrascript%}{% endblock %}
 </body>
 </html>

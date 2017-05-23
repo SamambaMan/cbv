@@ -1,20 +1,102 @@
-{% extends "cbv/master.html" %}
-
-{% block content %}
-
+{% extends "cbv/master.html" %} 
+{% block content %} 
+{% if user.is_authenticated %}
+   {% include 'cbv/carroussel_snippet.html'%} {% else %}
+<div class="row">
+  <div class="span9">
     <div class="row">
-      <div class="span9">
-        <div class="row">
-          <div class="span6"> 
-            {% include 'cbv/carroussel_snippet.html' %}
+      <div class="span6">
+        {% include 'cbv/carroussel_snippet.html' %}
+      </div>
+      <div class="span3">
+        {% include "cbv/formcadastrobasico_snippet.html" %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<div style="height:100px;"></div>
+<div class="container marketing">
+  <!-- inicio colunas abaixo do carrossel -->
+  <div><span class="tituloBold">BENEFÍCIOS</span></div>
+  <div class="row">
+    <!--beneficio 1-->
+    <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/imgBeneficioEmail.png" alt="" border="0">
+      <p>Receba conteúdo por e-mail</p>
+    </div>
+
+    <!--beneficio 2-->
+    <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/imgBeneficioDesconto.png" alt="" border="0">
+      <p>Ganhe descontos em ingressos <br> em eventuais torneios</p>
+    </div>
+
+    <!--beneficio 3-->
+    <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/imgBeneficioExperiencias.png" alt="" border="0">
+      <p>Participe de ações e <br> experiências exclusivas</p>
+    </div>
+
+    <!--beneficio 4-->
+    <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/imgBeneficioTorcida.png" alt="" border="0">
+      <!--h2>Faça parte da torcida oficial <br> do Vôlei Brasil</h2-->
+      <p>Faça parte da torcida oficial <br> do Vôlei Brasil</p>
+      <!--p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p-->
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+<br>
+<br>
+
+<!--início torcidômetro-->
+<div class="container">
+  <div> <span class="tituloBold">TORC<span class="setaTocidometro">↑</span>DÔMETRO<br> EU SOU DO VÔLEI</span>
+  </div>
+  <div class="abasTorcidometro">
+    <div class="content">
+      <div class="tabs-content">
+        <!-- tabs-menu -->
+        <div class="tabs-menu clearfix">
+          <ul>
+            <li><a class="active-tab-menu" href="#" data-tab="tab1">MODALIDADE</a></li>
+            <li><a href="#" data-tab="tab2">SUPERLIGA</a></li>
+          </ul>
+        </div>
+        <!-- .tab1 -->
+        <div class="tab1 tabs first-tab">
+          <div class="row">
+            <!--modalidade 1-->
+            <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/bolaQuadra.png" alt="" border="0">
+              <p>Quadra<br> 57%
+              </p>
+            </div>
+            <!--modalidade 2-->
+            <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/bolaPraia.png" alt="" border="0">
+              <p>Praia<br> 13%
+              </p>
+            </div>
+            <!--modalidade 3-->
+            <div class="col-lg-4"> <img class="img-circle" src="/static/cbv/img/bolaAmbos.png" alt="" border="0">
+              <p>Ambos<br> 20%
+              </p>
+            </div>
           </div>
-          <div class="span3">
-          	{% include "cbv/formcadastrobasico_snippet.html" %}
+        </div>
+        <!-- .tab2 -->
+        <div class="tab2 tabs">
+          <div id="row">
+            <div id="torcidometroLeft"><img src="/static/cbv/img/torcidometro1.jpg" alt="" border=""></div>
+            <div id="torcidometroCenter"><img src="/static/cbv/img/imgTorcidometro.jpg" alt="" border=""></div>
+            <div id="torcidometroRight"><img src="/static/cbv/img/torcidometro2.jpg" alt="" border=""></div>
           </div>
         </div>
       </div>
+      <!-- .tabs -->
     </div>
-
+    <!-- .content -->
+  </div>
+</div>
 
 
 

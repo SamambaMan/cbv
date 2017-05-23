@@ -57,6 +57,7 @@ class CadastroUsuarioBasicoForm(forms.Form):
     def clean(self):
         from django.contrib.auth import password_validation
         from .snipets import validate_CPF
+        from .models import InfosAdicionaisUsuario
 
         pass1 = self.cleaned_data['password']
         pass2 = self.cleaned_data['passwordconfirm']
@@ -69,6 +70,9 @@ class CadastroUsuarioBasicoForm(forms.Form):
 
         password_validation.validate_password(self.cleaned_data['password'])
 
+        if InfosAdicionaisUsuario.objects.filter(cpf=self.cleaned_data['cpfpassaporte']).count() > 0:
+            raise forms.ValidationError(u'Já existe um CPF/Passaporte cadastrado com esse número.')
+
         return self.cleaned_data
 
 
@@ -78,23 +82,25 @@ class LoginForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail', 'class':'box1'}))
+            attrs={'placeholder': 'E-Mail', 'class':'box1', 'autocomplete':'off'}))
 
     password = forms.CharField(
         label="Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha', 'class':'box1'}))
+            attrs={'placeholder': 'Senha', 'class':'box1', 'autocomplete':'off'}))
 
     def clean(self):
         from django.contrib.auth.models import User
 
-        usuarios = User.objects.filter(email=self.cleaned_data['email'])
+        if self.is_valid():
 
-        if usuarios.count() == 0 or \
-            not usuarios[0].check_password(self.cleaned_data['password']):
-            raise forms.ValidationError(u"Email ou senha invalido")
+            usuarios = User.objects.filter(email=self.cleaned_data['email'])
+
+            if usuarios.count() == 0 or \
+                not usuarios[0].check_password(self.cleaned_data['password']):
+                raise forms.ValidationError(u"Email ou senha invalido")
 
 class CadastroComplementar(forms.ModelForm):
     class Meta:

@@ -35,10 +35,8 @@ def efetuarlogin(request):
 
             login(request, usuario, backend='django.contrib.auth.backends.ModelBackend')
 
-            if not usuario.infosadicionaisusuario.cadastrocompleto:
-                return redirect('/cadastrocomplementar/')
-            else:
-                return redirect('/')
+            return redirect('/')
+
 
         return render(request, 'cbv/cadastrobasico.html',
                       {'formcadastrobasico': CadastroUsuarioBasicoForm(),
