@@ -35,7 +35,7 @@ SECRET_KEY = '7l0k$8)zy=avhtui5wtog!c*iik+a(xz*@ukyk6$0r5paq=^u_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cbv.felipeferreira.xyz','localhost']
+ALLOWED_HOSTS = ['cbv.felipeferreira.xyz','localhost','cbv.globality.com.br']
 
 AUTHENTICATION_BACKENDS = (
     #'cbv.sitecbv.backends.Autenticacao',
