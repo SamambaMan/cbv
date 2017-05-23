@@ -1,11 +1,18 @@
 <!-- início Carrossel   ================================================== -->
-<div id="{% if user.is_authenticated %}myCarousel{% else %}myCarouselNaoLogada{% endif %}" class="carousel slide" data-ride="carousel">
+{% load set_var %}
+{% set carroussel = ""%}
+{% if user.is_authenticated %}
+    {% set carroussel = "myCarousel"%}
+{% else %}
+    {% set carroussel = "myCarouselNaoLogada"%}
+{% endif %}
+<div id="" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         {% for conteudo in conteudos_carrossel %} {% if forloop.counter == 1 %}
-        <li data-target="#{% if user.is_authenticated %}myCarousel{% else %}myCarouselNaoLogada{% endif %}" data-slide-to="1" class="active"></li>
+        <li data-target="#{{ carroussel }}" data-slide-to="1" class="active"></li>
         {% else %}
-        <li data-target="#{% if user.is_authenticated %}myCarousel{% else %}myCarouselNaoLogada{% endif %}" data-slide-to="{{ forloop.counter }}"></li>
+        <li data-target="#{{ carroussel }}" data-slide-to="{{ forloop.counter }}"></li>
         {% endif %} {% endfor %}
     </ol>
     <div class="carousel-inner" role="listbox">
@@ -23,7 +30,7 @@
         </div>
         {% endfor %}
     </div>
-    <a class="left carousel-control" href="#myCarouselNaoLogada" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-    <a class="right carousel-control" href="#myCarouselNaoLogada" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+    <a class="left carousel-control" href="#{{ carroussel }}" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+    <a class="right carousel-control" href="#{{ carroussel }}" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
 </div>
 <!-- fim carrossel -->
