@@ -1,7 +1,8 @@
 {% extends "cbv/master.html" %} 
 {% block content %} 
 {% if user.is_authenticated %}
-   {% include 'cbv/carroussel_snippet.html'%} {% else %}
+   {% include 'cbv/carroussel_snippet.html'%} 
+{% else %}
 <div class="row">
   <div class="span9">
     <div class="row">
