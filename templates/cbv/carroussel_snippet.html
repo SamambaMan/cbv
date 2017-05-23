@@ -3,9 +3,9 @@
     <!-- Indicators -->
     <ol class="carousel-indicators">
         {% for conteudo in conteudos_carrossel %} {% if forloop.counter == 1 %}
-        <li data-target="#myCarouselNaoLogada" data-slide-to="1" class="active"></li>
+        <li data-target="#{% if user.is_authenticated %}myCarousel{% else %}myCarouselNaoLogada{% endif %}" data-slide-to="1" class="active"></li>
         {% else %}
-        <li data-target="#myCarouselNaoLogada" data-slide-to="{{ forloop.counter }}"></li>
+        <li data-target="#{% if user.is_authenticated %}myCarousel{% else %}myCarouselNaoLogada{% endif %}" data-slide-to="{{ forloop.counter }}"></li>
         {% endif %} {% endfor %}
     </ol>
     <div class="carousel-inner" role="listbox">
