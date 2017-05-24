@@ -1,0 +1,341 @@
+@charset "utf-8";
+/* CSS Document */
+
+#corpoSite{
+	width:100%;
+	height:100%;
+	text-align:center;
+}
+#conteudoSite{
+	width:80%;
+	margin:0 auto;
+}
+#topo{
+	background:url(../img/cabecalho.png) no-repeat;
+	width:100%;
+	height:220px;
+}
+.alinhaRedeSociais{
+	float:right;
+	margin-right:16px;
+}
+.menuRedeSociais{
+	list-style:none;
+}
+.menuRedeSociais a{
+	color:#FFF;	
+	font-family:MyriadPro-Cond;
+}
+.menuRedeSociais a:hover{
+	color:#FFF;
+}
+#menuSite{
+	float:right;
+	width:100%;
+}
+.menu{
+	display: inline;
+	list-style:none;
+	color:#FFF;
+	font-family:MyriadPro-Cond;
+	letter-spacing: 0.7px;
+}
+.menu a{
+	color:#FFF;
+	font-family:MyriadPro-Cond;
+}
+.menu a:hover{
+	color:#FFF;
+	font-family:MyriadPro-Cond;
+	text-decoration:underline;
+}
+.tituloBold{
+	font-family:Nexa Bold;
+	font-size:30px;
+	color:#1E4370;
+}
+.tituloLight{
+	font-family:Nexa Light;
+	font-size:30px;
+	color:#1E4370;
+}
+.setaTocidometro{
+	font-weight:bold;
+	font-size:36px;
+}
+/*início torcidômetro abas*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 1.5;
+}
+body {
+  background: #fff;
+}
+a:focus {
+  outline: none;
+}
+.content {
+  margin: 30px;
+}
+.clearfix:after {
+  content: '.';
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.tabs-content {
+  background: #fff;
+  font-family: sans-serif;
+  width:auto;
+}
+.tabs-menu {
+  background: #0C3F6E;
+  width:253px;
+  border:#0C3F6E 1px solid;
+}
+.tabs-menu ul {
+   list-style: none;
+}
+.tabs-menu ul li {
+  float: left;
+}
+.tabs-menu ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.tabs-menu ul li a:hover {
+	text-decoration:underline;
+}
+.tabs-menu ul li a.active-tab-menu {
+  background: #eee;
+  color: #000;
+  text-decoration:underline;
+}
+.tabs {
+  display: none;
+  padding: 30px;
+}
+.first-tab {
+  display: block;
+}
+/*fim abas torcidômetro*/
+#torcidometroLeft{
+	float:left;
+}
+#torcidometroCenter{
+	float:left;
+}
+#torcidometroRight{
+	float:left;
+}
+/*form não logado*/
+.caixa {
+	    background: #1b416c;
+	    border-radius: 5px;
+	}
+.box1 {
+	    background: #ffffff;
+	    margin-bottom: 2%;
+	    font-size: 16px;
+	    text-align: left;
+	    color: #666666;
+	    padding: 6px 16px;
+	    border-radius: 5px;
+	}	
+.register-box {
+	display: inline-block;
+	width: 300px;
+	vertical-align: top;
+    margin:-10px 36px 0 0;
+    text-align: center;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	.register-box {
+		display: inline-block;
+		width:auto;
+		vertical-align: top;
+		margin:0 -10px 0 0;
+		text-align: center;
+	}
+}
+@media (max-width: 767px) {
+	.register-box {
+		display: inline-block;
+		width:auto;
+		vertical-align: top;
+		margin:0 -10px 0 0;
+		text-align: center;
+	}
+}
+@media (max-width: 480px) {
+	.register-box {
+		display: inline-block;
+		width:auto;
+		vertical-align: top;
+		margin:0 0 0 23px;
+		text-align: center;
+	}
+}
+	.register-box-title {
+		color: #FFF;
+		font-family: Nexa Light;
+    	font-size: 20px;
+    	margin-bottom: 25px;
+	}
+	.register-box-txt {
+		color: #FFF;
+		font-family: Nexa Light;
+    	font-size: 11px;
+		margin:-10px 0 0 0;
+	}
+	.caixa {
+	    margin-top: 3%;
+	    background: #1b416c;
+	    padding: 8px 8px 8px 8px;
+	    border-radius: 5px;
+	}
+	.box1 {
+	    background: #ffffff;
+	    margin-bottom: 2%;
+	    font-size: 12px;
+	    text-align: left;
+	    color: #666666;
+	    padding: 6px 0 0 6px;
+	    border-radius: 5px;
+		width:283px;
+	}
+	.box2 {
+	    background: #ffffff;
+	    margin-bottom: 2%;
+	    font-size: 12px;
+	    text-align: left;
+	    color: #666666;
+	    padding: 6px 0 0 6px;
+	    border-radius: 5px;
+		width:140px;
+	}
+	.botaoOk {
+	    overflow: hidden;
+	    float: right;
+	    margin-top: 3%;
+	    padding:1px 4px 1px 4px !important;
+	    font-size: 17px !important;
+	    background-color: #32a457;
+	    color: #ffffff;
+	    border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+	    border:none;
+	    cursor: pointer;
+		font-family: Nexa Light;
+	}
+	.botaoCadastrar {
+	    overflow: hidden;
+	    float: center;
+	    margin-top: 3%;
+	    padding: 7px 9px 8px !important;
+	    font-size: 17px !important;
+	    background-color: #32a457;
+	    color: #ffffff;
+	    border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+	    border:none;
+	    cursor: pointer;
+	    margin-left: 40px;
+	    margin-right: 40px;
+		font-family: Nexa Light;
+	}
+	.botaoFace {
+	    overflow: hidden;
+	    float: center;
+	    margin-top: 3%;
+	    padding: 5px 15px 3px 11px !important;
+	    font-size: 14px !important;
+	    background-color: #3B5A9D;
+	    color: #ffffff;
+	    border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+	    border:none;
+	    cursor: pointer;
+	    margin-left: 40px;
+	    margin-right: 40px;
+		font-family: Nexa Light;
+	}
+	.botaoEsqueciSenha {
+	    overflow: hidden;
+	    float: center;
+	    margin-top: 3%;
+	    font-size: 14px !important;
+	    background-color: #1b416c;
+	    color: #ffffff;
+	    border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -webkit-border-radius: 5px;
+	    border:none;
+	    cursor: pointer;
+	    margin-left: -35px;
+		font-family: Nexa Light;
+		letter-spacing:1px;
+	}
+.erroList{
+	font-family: Nexa Light;
+	letter-spacing:1px;
+	color:#FFF;
+	background-color:#0D2035;
+}
+.erroList ul{
+	list-style:inside;
+}
+/*importacao fontes*/
+@font-face {
+      font-family: MyriadPro-Cond;
+      src: url("../fonte/MyriadPro-Cond.otf") format("opentype");
+}
+@font-face {
+      font-family: Nexa Bold;
+      src: url("../fonte/Nexa Bold.otf") format("opentype");
+}
+@font-face {
+      font-family: Nexa Light;
+      src: url("../fonte/Nexa Light.otf") format("opentype");
+}
+/*fim importacao fontes*/
+#footer{
+	width:100%;
+	margin:0 0 -40px 0;
+}	
+.space{
+	height:50px;
+}
+#myCarouselNaoLogada{
+	float:left;
+	width:74%;
+}
+@media (max-width: 767px) {
+	#myCarouselNaoLogada{
+	float:left;
+	width:100%;
+	margin:0 0 0 20px;
+	}	
+}
+@media (max-width: 480px) {
+	#myCarouselNaoLogada{
+	float:left;
+	width:100%;
+	margin:0 0 0 20px;	
+	}
+}
