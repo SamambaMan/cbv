@@ -26,7 +26,7 @@ class CadastroUsuarioBasicoForm(forms.Form):
         max_length=16,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'CPF|Passaporte', 'class':'box1'}))
+            attrs={'placeholder': 'CPF|Passaporte', 'class':'box2'}))
     unidadefederativa = forms.CharField(
         label="UF",
         max_length=2,

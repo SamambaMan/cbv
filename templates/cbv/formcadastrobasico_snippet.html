@@ -40,32 +40,25 @@
                   <div style="height:10px;"></div>
                   <form action="/cadastrarusuariobasico/" method="post">
                   {% csrf_token %}
+                  {{ formcadastrobasico.non_field_errors }}
+                  {{ errors }}
+                  {{ formcadastrobasico.firstname.errors }}
                   <div align="left">
-                    {{ formcadastrobasico.non_field_errors }}
-                    {{ errors }}
-                  </div>
-                  <div align="left">
-                    {{ formcadastrobasico.firstname.errors }}
                     {{ formcadastrobasico.firstname }}
                   </div>
+                  {{ formcadastrobasico.email.errors }}
                   <div align="left">
-                    {{ formcadastrobasico.email.errors }}
                     {{ formcadastrobasico.email }}
                   </div>
+                  {{ formcadastrobasico.cpfpassaporte.errors }}
                   <div>
-                    {{ formcadastrobasico.cpfpassaporte.errors }}
                     {{ formcadastrobasico.cpfpassaporte }}
-                  </div>
-                  <div align="right">
                     {{ formcadastrobasico.unidadefederativa.errors }}
                     {{ formcadastrobasico.unidadefederativa }}
-                    
                   </div>
+                  {{ formcadastrobasico.password.errors }}
                   <div>
-                    {{ formcadastrobasico.password.errors }}
                     {{ formcadastrobasico.password }}
-                  </div>
-                  <div>
                     {{ formcadastrobasico.passwordconfirm.errors }}
                     {{ formcadastrobasico.passwordconfirm }}
                   </div>
