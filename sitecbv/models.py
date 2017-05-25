@@ -77,9 +77,9 @@ class InfosAdicionaisUsuario(models.Model):
     nascimento = models.DateField(blank=True, null=True)
     sexo = models.CharField(
         max_length=1, choices=SEXO_CHOICES, blank=True, null=True)
-    celular = models.CharField(max_length=11, blank=True, null=True)
-    telefone = models.CharField(max_length=11, blank=True, null=True)
-    cep = models.CharField(max_length=8, blank=True, null=True)
+    celular = models.CharField(max_length=15, blank=True, null=True)
+    telefone = models.CharField(max_length=15, blank=True, null=True)
+    cep = models.CharField(max_length=9, blank=True, null=True)
     endereco = models.CharField(
         max_length=100, blank=True, null=True, verbose_name=u'Endereço')
     numero = models.CharField(

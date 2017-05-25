@@ -11,11 +11,11 @@
             <div class="row">
                 <div><img src="{{ MEDIA_URL }}{{ programa.Topo }}" class="imgPrincipal" alt="" border=""></div>
             </div>
-            <div class="row">
+            <div class="row" style="text-align:left;">
                 {{ programa.Conteudo|safe }}
             </div>
         </div>
-
-        {% include 'cbv/marketing.html' %}
     {% endif %}
+    <div class="space"></div>
+    {% include 'cbv/marketing.html' %}
 {% endblock %}
