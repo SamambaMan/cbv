@@ -1,0 +1,26 @@
+{% extends "cbv/master.html" %}
+
+{% block content %}
+
+
+<h1>Mais Experiências</h1>
+
+<form method="POST" action="/experiencias/mais/">
+
+{% csrf_token %}
+{{ form.busca }}
+<input type="submit" value="Pesquisar">
+</form>
+
+<ul>
+    {% for conteudo in conteudos %}
+    <li style="border: 1px solid black;">
+        <span>
+                <h3><a href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">{{ conteudo.Titulo }}</a></h3>
+                <h4>{{ conteudo.Detalhe }}</h4>
+        </span>
+    </li>
+    {% endfor %}
+<ul>
+
+{% endblock %}

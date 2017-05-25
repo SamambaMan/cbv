@@ -1,0 +1,26 @@
+{% extends "cbv/master.html" %}
+
+{% block content %}
+<div class="row">
+    {% include 'cbv/carroussel_snippet.html' %}
+</div>
+
+<ul>
+    {% for conteudo in conteudos_exibir %}
+    <li style="border: 1px solid black;">
+        <span>
+                <h3><a href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">{{ conteudo.Titulo }}</a></h3>
+                <h4>{{ conteudo.Detalhe }}</h4>
+                <h4>
+                    {% if conteudo.Ativo %}
+                        <a href="{{conteudo.Link}}">Conferir Experiencia</a>
+                    {% else %}
+                        Experiencia Finalizada
+                    {% endif %}
+                </h4>
+        </span>
+    </li>
+    {% endfor %}
+<ul>
+    <h1><a href="/experiencias/mais/">Mais Experiências</a></h1>
+{% endblock %}

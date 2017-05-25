@@ -1,5 +1,6 @@
 <!-- início Carrossel   ================================================== -->
 {% load set_var %}
+{% load tags %}
 {% set carroussel = ""%}
 {% if user.is_authenticated %}
     {% set carroussel = "myCarousel"%}
@@ -23,7 +24,7 @@
                 <div class="carousel-caption">
                     <h1>{{ conteudo.Titulo }}</h1>
                     <p>{{ conteudo.Detalhe }}</p>
-                    <p><a class="btn btn-lg btn-primary" href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/"
+                    <p><a class="btn btn-lg btn-primary" href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/"
                             role="button">Ver mais</a></p>
                 </div>
             </div>

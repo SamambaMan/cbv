@@ -1,14 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseForbidden
-from .forms import CadastroUsuarioBasicoForm, LoginForm
 from django.contrib.auth.decorators import login_required
 from .decorators import obrigar_cadastro_complementar
 
 @obrigar_cadastro_complementar
 def index(request):
+    from .forms import CadastroUsuarioBasicoForm, LoginForm
     conteudos_carrossel = conteudospublicados().filter(
-        Destaque=True).order_by('-DataPublicacao')[:5]
+        Destaque=True)[:5]
 
 
     return render(request, 'cbv/index.html',
@@ -18,6 +18,7 @@ def index(request):
 
 
 def cadastrousuariobasico(request):
+    from .forms import CadastroUsuarioBasicoForm, LoginForm
     return render(request, 'cbv/cadastrobasico.html',
                   {'formcadastrobasico': CadastroUsuarioBasicoForm(),
                    'formlogin': LoginForm()})
@@ -27,6 +28,7 @@ def efetuarlogin(request):
     from django.contrib.auth.models import User
     from django.contrib.auth import login
     from django.shortcuts import redirect
+    from .forms import LoginForm, CadastroUsuarioBasicoForm
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -54,6 +56,7 @@ def cadastrarusuariobasico(request):
     from django.contrib.auth import login
     from django.shortcuts import redirect
     from django.core.exceptions import ValidationError
+    from .forms import CadastroUsuarioBasicoForm, LoginForm
 
     if request.method == 'POST':
         form = CadastroUsuarioBasicoForm(request.POST)
@@ -110,7 +113,7 @@ def programa(request):
 
 def conteudospublicados():
     from .models import ConteudoExclusivo
-    return ConteudoExclusivo.objects.filter(Publicar=True)
+    return ConteudoExclusivo.objects.filter(Publicar=True).order_by('-DataPublicacao')
 
 @obrigar_cadastro_complementar
 def conteudoexclusivo(request):
@@ -238,3 +241,56 @@ def cadastrocomplementar(request):
                   {'formulario':formulario})
 
 
+
+############ Experiencias ##############
+
+def experienciaspublicadas():
+    from .models import Experiencia
+    return Experiencia.objects.filter(Publicar=True).order_by('-DataPublicacao')
+
+@obrigar_cadastro_complementar
+def experiencias(request):
+    from .models import Experiencia
+
+    experiencias_exibir = experienciaspublicadas()[:6]
+
+    experiencias_carrossel = experienciaspublicadas().filter(Destaque=True)[:5]
+
+    return render(request, 'cbv/experiencias/experiencias.html',
+                  {'conteudos_exibir': experiencias_exibir,
+                   'conteudos_carrossel': experiencias_carrossel})
+
+@obrigar_cadastro_complementar
+def maisexperiencias(request):
+    from .forms import FormBuscaSimples
+
+    form = FormBuscaSimples()
+
+    conteudos = experienciaspublicadas()
+
+    if request.method == 'POST':
+        form = FormBuscaSimples(request.POST)
+        form.is_valid()
+
+        termos = form.cleaned_data['busca']
+
+        conteudos = buscarpublicacao(conteudos, termos)
+
+    return render(request,
+                  'cbv/experiencias/catexperiencias.html',
+                  {'conteudos':conteudos, 'form':form})
+
+@obrigar_cadastro_complementar
+def detalheexperiencias(request, categoria, id):
+    from .forms import CadastroUsuarioBasicoForm, LoginForm
+    conteudos = experienciaspublicadas()
+
+    conteudo = conteudos.get(Categoria__slug=categoria, id=id)
+
+    return render(request,
+                  'cbv/experiencias/detalheexperiencias.html',
+                  {'conteudo':conteudo,
+                   'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                   'formlogin': LoginForm()})
+
+############ Fim Experiencias ###########

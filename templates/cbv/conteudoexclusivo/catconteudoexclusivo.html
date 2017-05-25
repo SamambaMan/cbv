@@ -11,7 +11,7 @@
 {% if categoria %}
 <form method="POST" action="/conteudoexclusivo/listas/{{ categoria.slug }}/">
 {% else %}
-<form method="POST" action="/conteudoexclusivo/mais">
+<form method="POST" action="/conteudoexclusivo/mais/">
 {% endif %}
 
 {% csrf_token %}

@@ -42,6 +42,17 @@ class ConteudoExclusivoAdmin(admin.ModelAdmin):
     )
     readonly_fields = ('DataPublicacao',)
 
+class ExperienciaAdmin(admin.ModelAdmin):
+    list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Destaque', 'Publicar', 'Ativo')
+    search_fields = ('Titulo', 'Conteudo',)
+    list_filter = ('DataPublicacao', 'Destaque', 'Publicar', 'Ativo', 'Categoria')
+    fieldsets = (
+        ('Geral', {'fields':('Titulo', 'Link', 'Detalhe', 'Categoria', 'DataPublicacao', 'Ativo')}),
+        ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
+        (u'Publicação', {'fields':('Conteudo', 'Destaque', 'Publicar',)}),
+    )
+    readonly_fields = ('DataPublicacao',)
+
 class TimeAdmin(admin.ModelAdmin):
     list_display = ('Nome', 'Sexo', 'Superliga')
     list_filter = ('Sexo', 'Superliga')
@@ -60,7 +71,7 @@ admin.site.register(CategoriaExperiencia)
 admin.site.register(CategoriaCensoDoVolei)
 admin.site.register(CategoriaRedeDeDesconto)
 admin.site.register(ConteudoExclusivo, ConteudoExclusivoAdmin)
-admin.site.register(Experiencia)
+admin.site.register(Experiencia, ExperienciaAdmin)
 admin.site.register(CensoDoVolei)
 admin.site.register(RedeDeDesconto)
 admin.site.register(BannerRedeDesconto)

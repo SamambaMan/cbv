@@ -53,6 +53,7 @@
 	font-family:Nexa Bold;
 	font-size:30px;
 	color:#1E4370;
+	padding-bottom:30px;
 }
 .tituloLight{
 	font-family:Nexa Light;
@@ -302,14 +303,18 @@ a:focus {
 		font-family: Nexa Light;
 		letter-spacing:1px;
 	}
-.erroList{
+.errorList{
 	font-family: Nexa Light;
 	letter-spacing:1px;
 	color:#FFF;
 	background-color:#0D2035;
 }
-.erroList ul{
+.errorList ul{
 	list-style:inside;
+}
+.bordaBox{
+	border:1px solid #CCC;
+	border-radius:10px;
 }
 /*importacao fontes*/
 @font-face {

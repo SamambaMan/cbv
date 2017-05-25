@@ -1,0 +1,43 @@
+{% extends "cbv/master.html" %}
+
+{% block extrameta %}
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{conteudo.Topo.url}}" />
+<meta property="og:description" content="{{conteudo.Conteudo|striptags|truncatewords:40}}" />
+{% endblock %}
+
+{% block title %}{{ conteudo.Titulo }} - CBV{% endblock %}
+
+{% block content %}
+
+<h1>{{ conteudo.Titulo }}</h1>
+<h4>{{ conteudo.DataPublicacao|timesince }}</h4>
+<img src="{{MEDIA_URL}}{{conteudo.Topo}}">
+
+
+{% if user.is_authenticated %}
+    {{conteudo.Conteudo|safe}}
+    <h4>
+        {% if conteudo.Ativo %}
+            <a href="{{conteudo.Link}}">Conferir Experiencia</a>
+        {% else %}
+            Experiencia Finalizada
+        {% endif %}
+    </h4>
+{% else %}
+<div class="row">
+    {{conteudo.Detalhe}}
+</div>
+<div class="row">
+    {{conteudo.Conteudo|safe|truncatewords:40}}
+</div>
+<div class="row">
+<h1> Para acessar o conteúdo completo faça seu login</h1>
+</div>
+<div class="row">
+    {% include 'cbv/formcadastrobasico_snippet.html' %}
+</div>
+{% endif %}
+
+
+{% endblock %}
