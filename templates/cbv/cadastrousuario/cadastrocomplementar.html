@@ -1,111 +1,157 @@
-{% extends "cbv/master.html" %}
- 
-{% block content %} 
+{% extends "cbv/master.html" %} {% block content %}
 
 <div class="space"></div>
-          <div class="tituloBold">COMPLETE SEU CADASTRO</div>
-          <div class="container">
-              {{ formulario.non_field_errors }}
-              <div class="row">
-                <form method="POST" action="/cadastrocomplementar/"> 
-                    {% csrf_token %}      
-                    <div class="col-lg-5 bordaBox" style="border-right:none;">
-                        <span class="tituloLight">Cadastro Básico</span>
-                        <div class="form-group alinhaCamposLeft">
-                            <label for="cpf">CPF | Passaporte:<span class="required">*</span></label>
-                            {{ formulario.cpf }} {{ formulario.cpf.errors }}
-                        </div>
-                        <div class="form-group alinhaCamposLeft">
-                            <label for="nome">Nome:<span class="required">*</span></label>
-                            {{ formulario.firstname }} {{ formulario.firstname.errors }}
-                        </div>
-                        <div class="form-group alinhaCamposLeft">
-                            <label for="dataNascimento">Data de nascimento:<span class="required">*</span></label>
-                            {{ formulario.nascimento }} {{ formulario.nascimento.errors }}
-                        </div>
-                        <div class="form-group alinhaCamposLeft">
-                        </div>
-                        <div class="form-group alinhaCamposLeft">
-                        </div>
-                        <div class="form-group alinhaCamposLeft">
-                        </div>
-                        <div class="form-group alinhaCamposLeft">
-                        </div>
+<div class="tituloBold">COMPLETE SEU CADASTRO</div>
+<div class="container">
+    {{ formulario.non_field_errors }}
+    <div class="row">
+        <form method="POST" action="/cadastrocomplementar/">
+            {% csrf_token %}
+            <div class="col-lg-5 bordaBox" style="border-right:none;">
+                <span class="tituloLight">Cadastro Básico</span>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="cpf">CPF | Passaporte:<span class="required">*</span></label> 
+                    {{ formulario.cpf }} {{ formulario.cpf.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="nome">Nome:<span class="required">*</span></label> 
+                    {{ formulario.firstname }} {{ formulario.firstname.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="dataNascimento">Data de nascimento:<span class="required">*</span></label> 
+                    {{ formulario.nascimento }} {{ formulario.nascimento.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="sexo">Sexo:<span class="required">*</span></label>
+                    {{ formulario.sexo }} {{ formulario.sexo.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="celular">Celular:</label> 
+                    {{ formulario.celular }} {{ formulario.celular.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="idade">Telefone</label> 
+                    {{ formulario.telefone }} {{ formulario.telefone.errors }}
+                </div>
+            </div>
+            <div class="col-lg-4 bordaBox">
+                <span class="tituloLight">Endereço</span>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="cep">CEP:</label> 
+                    {{ formulario.cep }} {{ formulario.cep.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="endereco">Endereço:</label> 
+                    {{ formulario.endereco }} {{ formulario.endereco.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="numero">Número:</label> 
+                    {{ formulario.numero }} {{ formulario.numero.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="complemento">Complemento</label> 
+                    {{ formulario.complemento }} {{ formulario.complemento.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="bairro">Bairro:</label> 
+                    {{ formulario.bairro }} {{ formulario.bairro.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="cidade">Cidade</label> 
+                    {{ formulario.cidade }} {{ formulario.cidade.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="estado">Estado:</label> 
+                    {{ formulario.ufed }} {{ formulario.ufed.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                    <label for="pais">País</label> 
+                    {{ formulario.pais }} {{ formulario.pais.errors }}
+                </div>
+            </div>
+            <div class="col-lg-4 bordaBox" style="border-left:none;">
+                <span class="tituloLight">Times</span>
+                <div class="form-group alinhaCamposLeft">
+                    {{ formulario.modalidade_favorita }} {{ formulario.modalidade_favorita.errors }}
+                </div>
+                <div id="jogadores" style="display:none;">
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="atletaVoleiPraiaFeminino">Qual atleta de Vôlei de Praia feminino você torce?<span class="required">*</span></label>
+                        {{ formulario.jogadora_favorita }} {{ formulario.jogadora_favorita.errors }}
                     </div>
-                
-              
-
-
-
-
-
-{{ formulario.ufed }} {{ formulario.ufed.errors }}<br>
-{{ formulario.sexo }} {{ formulario.sexo.errors }}<br>
-{{ formulario.celular }} {{ formulario.celular.errors }}<br>
-{{ formulario.telefone }} {{ formulario.telefone.errors }}<br>
-{{ formulario.cep }} {{ formulario.cep.errors }}<br>
-{{ formulario.endereco }} {{ formulario.endereco.errors }}<br>
-{{ formulario.numero }} {{ formulario.numero.errors }}<br>
-{{ formulario.complemento }} {{ formulario.complemento.errors }}<br>
-{{ formulario.bairro }} {{ formulario.bairro.errors }}<br>
-{{ formulario.cidade }} {{ formulario.cidade.errors }}<br>
-{{ formulario.pais }} {{ formulario.pais.errors }}<br>
-{{ formulario.modalidade_favorita }} {{ formulario.modalidade_favorita.errors }}<br>
-<div id="jogadores" style="display:none;">
-{{ formulario.jogador_favorito.label }}:{{ formulario.jogador_favorito }} {{ formulario.jogador_favorito.errors }}
-{{ formulario.jogadora_favorita.label }}:{{ formulario.jogadora_favorita }} {{ formulario.jogadora_favorita.errors }}<br>
-<h2>{{ formulario.jogadores_secundario_masculinos.label }}</h2>
-{{ formulario.jogadores_secundario_masculinos }} {{ formulario.jogadores_secundario_masculinos.errors }}
-<h2>{{ formulario.jogadoras_secundarias_femininas.label }}</h2>
-{{ formulario.jogadoras_secundarias_femininas }} {{ formulario.jogadoras_secundarias_femininas.errors }}<br>
-</div>
-
-<div id="times" style="display:none;">
-{{ formulario.time_favorito_masculino.label }}:{{ formulario.time_favorito_masculino }} {{ formulario.time_favorito_masculino.errors }}
-{{ formulario.time_favorito_feminino.label }}:{{ formulario.time_favorito_feminino }} {{ formulario.time_favorito_feminino.errors }}<br>
-<h2>{{ formulario.times_secundarios_masculino.label }}</h2>
-{{ formulario.times_secundarios_masculino }} {{ formulario.times_secundarios_masculino.errors }}
-<h2>{{ formulario.times_secundarios_feminino.label }}</h2>
-{{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}
-</div>
-
-<input type="submit" value="{% if formulario.instance.cadastrocompleto %}Alterar Informações{% else %}Completar Cadastro{% endif %}">
-        
-  </form>
-</div>
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="atletaVoleiPraiaMasculino">Qual atleta de Vôlei de Praia masculino você torce?<span class="required">*</span></label>
+                        {{ formulario.jogador_favorito }} {{ formulario.jogador_favorito.errors }}
+                    </div>
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="outroClubeMasculino">Você torce para mais alguma atleta de Vôlei de Praia Feminino?<span class="required">*</span></label>
+                        {{ formulario.jogadoras_secundarias_femininas }} {{ formulario.jogadoras_secundarias_femininas.errors }}
+                    </div>
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="outroClubeMasculino">Você torce para mais algum atleta de Vôlei de Praia Masculino?<span class="required">*</span></label>
+                        {{ formulario.jogadores_secundario_masculinos }} {{ formulario.jogadores_secundario_masculinos.errors }}
+                    </div>
+                </div>
+                <div id="times" style="display:none;">
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="clubeFeminino">Qual clube feminino você torce?<span class="required">*</span></label>
+                        {{ formulario.time_favorito_feminino }} {{ formulario.time_favorito_feminino.errors }}
+                    </div>
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="clubeMasculino">Qual clube masculino você torce?<span class="required">*</span></label>
+                        {{ formulario.time_favorito_masculino }} {{ formulario.time_favorito_masculino.errors }}
+                    </div>
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="outroClubeFeminino">Você torce por algum outro clube feminino?<span class="required">*</span></label>
+                        {{ formulario.times_secundarios_masculino }} {{ formulario.times_secundarios_masculino.errors }}
+                    </div>
+                    <div class="form-group alinhaCamposLeft">
+                        <label for="outroClubeMasculino">Você torce por algum outro clube masculino?<span class="required">*</span></label>
+                        {{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <input type="submit" 
+                    class="botaoCadastrar" 
+                    value="{% if formulario.instance.cadastrocompleto %}Alterar Informações{% else %}Completar Cadastro{% endif %}">
+            </div>
+        </form>
+    </div>
 </div>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    trocarModalidadeFavorita();
-    $('#id_modalidade_favorita').on('change', function (e) {
+    $(document).ready(function () {
         trocarModalidadeFavorita();
+        $('#id_modalidade_favorita').on('change', function (e) {
+            trocarModalidadeFavorita();
+        });
     });
-});
 
-function trocarModalidadeFavorita() {
-    if($("#id_modalidade_favorita option:selected").val() == "VQ") {
-        $("#jogadores").hide();
-        $("#times").show();
+    function trocarModalidadeFavorita() {
+        if ($("#id_modalidade_favorita option:selected").val() == "VQ") {
+            $("#jogadores").hide();
+            $("#times").show();
+        }
+        else {
+            $("#jogadores").show();
+            $("#times").hide();
+        }
     }
-    else {
-        $("#jogadores").show();
-        $("#times").hide();
-    }
-}
 
-function trocarCpfPassaporte() {
-    if($('#id_ufed option:selected').val == "FO") {
-        $('#id_cpf').attr("placeholder","Passaporte");
-        $('#id_cpf').attr("pattern",/^[\d\w]+$/);
-        $('#id_tipodocumento').val("PAS");
+    function trocarCpfPassaporte() {
+        if ($('#id_ufed option:selected').val == "FO") {
+            $('#id_cpf').attr("placeholder", "Passaporte");
+            $('#id_cpf').attr("pattern", /^[\d\w]+$/);
+            $('#id_tipodocumento').val("PAS");
+        }
+        else {
+            $('#id_cpf').attr("placeholder", "CPF");
+            $('#id_cpf').attr("pattern", /^\d{11}+$/);
+            $('#id_tipodocumento').val("CPF");
+        }
     }
-    else {
-        $('#id_cpf').attr("placeholder","CPF");
-        $('#id_cpf').attr("pattern",/^\d{11}+$/);
-        $('#id_tipodocumento').val("CPF");
-    }
-}
+
 </script>
- 
-{% endblock %} 
+
+{% endblock %}

@@ -134,22 +134,39 @@ class CadastroComplementar(forms.ModelForm):
 
         super(CadastroComplementar, self).__init__(*args, **kwargs)
 
+        attrs_telefone = {
+            'onKeyDown': 'Mascara(this,Celular)',
+            'onKeyPress': 'Mascara(this,Celular);',
+            'onKeyUp': 'Mascara(this,Celular)',
+            'maxlength': '15',
+        }
+
         self.fields['email'].disabled = True
         self.fields['cpf'].required = True
         self.fields['ufed'].required = True
         self.fields['sexo'].required = True
-        self.fields['celular'].required = True
-        self.fields['telefone'].required = True
+        self.fields['celular'].widget.attrs.update(attrs_telefone)
+        self.fields['telefone'].widget.attrs.update(attrs_telefone)
+
+        self.fields['nascimento'].input_formats = ['%d/%m/%Y']
         self.fields['nascimento'].widget.attrs.update({
             'onKeyDown': 'Mascara(this,Data)',
             'onKeyPress': 'Mascara(this,Data);',
             'onKeyUp': 'Mascara(this,Data)',
             'maxlength': '10',
         })
-        self.fields['nascimento'].input_formats = ['%d/%m/%Y']
-        self.fields['cep'].validators = [RegexValidator(regex=r'^(\d{5}|\d{8})$',
-                                                        message=u'CEP deve conter 5 ou 8 dígitos',
-                                                        code='nomatch')]
+
+        self.fields['cep'].validators = [RegexValidator(
+            regex=r'^(\d{5}|\d{5}-\d{3})$',
+            message=u'CEP no formato 00000 ou 00000-000',
+            code='nomatch')]
+        self.fields['cep'].widget.attrs.update({
+            'onKeyDown': 'Mascara(this,Cep)',
+            'onKeyPress': 'Mascara(this,Cep);',
+            'onKeyUp': 'Mascara(this,Cep)',
+            'maxlength': '9',
+        })
+
         self.fields['modalidade_favorita'].required = True
 
 

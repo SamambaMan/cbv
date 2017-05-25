@@ -60,6 +60,35 @@
 	font-size:30px;
 	color:#1E4370;
 }
+.subTitulo{
+	font-family:Nexa Light;
+	font-weight:bold;
+	font-size:15px;
+	color:#666;
+	padding-bottom:30px;
+}
+.imgPrincipal{
+	max-width:100%;
+}
+.fundoPesquisa{
+	background:#CCC;
+	border-radius:10px;
+}
+.inputPesquisa{
+	background:#fff;
+	border:none;
+	max-width:100%;
+	width:100%;
+	border:1px #FFF solid;
+	border-radius:10px;
+	margin:5px 0;
+}
+.imgFooter{
+	max-width:100%;
+}
+.formataThumbnail{
+	padding:0 0 0 20px;
+}
 .setaTocidometro{
 	font-weight:bold;
 	font-size:36px;
