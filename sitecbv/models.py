@@ -74,6 +74,7 @@ class InfosAdicionaisUsuario(models.Model):
         choices=TIPO_DOCUMENTO_CHOICES, verbose_name='Tipo de Documento')
     ufed = models.CharField(max_length=50, blank=True,
                             null=True, verbose_name="UF", choices=UF_CHOICES)
+    nascimento = models.DateField(blank=True, null=True)
     sexo = models.CharField(
         max_length=1, choices=SEXO_CHOICES, blank=True, null=True)
     celular = models.CharField(max_length=11, blank=True, null=True)
@@ -92,22 +93,22 @@ class InfosAdicionaisUsuario(models.Model):
         max_length=2, default='VQ', choices=MODALIDADE_CHOICES)
 
     jogador_favorito = models.ForeignKey(
-    'Jogador', blank=True, null=True, related_name="infos_jogador_favorito")
+        'Jogador', blank=True, null=True, related_name="infos_jogador_favorito")
     jogadora_favorita = models.ForeignKey(
-    'Jogador', blank=True, null=True, related_name="infos_jogadora_favorita")
+        'Jogador', blank=True, null=True, related_name="infos_jogadora_favorita")
     jogadores_secundario_masculinos = models.ManyToManyField(
-    'Jogador', related_name="infos_jogadores_secundario_masculinos", blank=True)
+        'Jogador', related_name="infos_jogadores_secundario_masculinos", blank=True)
     jogadoras_secundarias_femininas = models.ManyToManyField(
-    'Jogador', related_name="infos_jogadoras_secundarias_femininas", blank=True)
+        'Jogador', related_name="infos_jogadoras_secundarias_femininas", blank=True)
 
     time_favorito_masculino = models.ForeignKey(
-    'Time', related_name="infos_time_favorito_masculino", blank=True, null=True)
+        'Time', related_name="infos_time_favorito_masculino", blank=True, null=True)
     time_favorito_feminino = models.ForeignKey(
-    'Time', related_name="infos_time_favorito_feminino", blank=True, null=True)
+        'Time', related_name="infos_time_favorito_feminino", blank=True, null=True)
     times_secundarios_masculino = models.ManyToManyField(
-    'Time', related_name="infos_times_secundarios_masculino", blank=True)
+        'Time', related_name="infos_times_secundarios_masculino", blank=True)
     times_secundarios_feminino = models.ManyToManyField(
-    'Time', related_name="infos_times_secundarios_feminino", blank=True)
+        'Time', related_name="infos_times_secundarios_feminino", blank=True)
 
     def clean(self):
         from django.forms import ValidationError
@@ -190,6 +191,17 @@ class Publicavel(models.Model):
     class Meta:
         abstract = True
 
+    def save(self, *args, **kwargs):
+        from datetime import datetime
+        if self.Publicar:
+            if self.id:
+                conteudoanterior = self.__class__.objects.get(id=self.id)
+                if not conteudoanterior.Publicar:
+                    self.DataPublicacao = datetime.now()
+            self.DataPublicacao = datetime.now()
+
+        super(Publicavel, self).save(*args, **kwargs)
+
 
 class Categoria(models.Model):
     Nome = models.CharField(max_length=50)
@@ -257,24 +269,13 @@ class ConteudoExclusivo(Publicavel):
                 Imagem de Topo,
                 Conteúdo""")
 
-    def save(self, *args, **kwargs):
-        from datetime import datetime
-        if self.Publicar:
-            if self.id:
-                conteudoanterior = ConteudoExclusivo.objects.get(id=self.id)
-                if not conteudoanterior.Publicar:
-                    self.DataPublicacao = datetime.now()
-            self.DataPublicacao = datetime.now()
-
-        super(ConteudoExclusivo, self).save(*args, **kwargs)
-
 
 class Experiencia(Publicavel):
     Categoria = models.ForeignKey('CategoriaExperiencia')
-    ImagemCarrossel = models.FileField(
+    ImagemCarrossel = models.FileField(verbose_name=u'Imagem Carrossel',
         blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
     Destaque = models.BooleanField(default=False)
-    Link = models.CharField(max_length=1000)
+    Link = models.CharField(max_length=1000, verbose_name=u'Link Externo')
     Ativo = models.BooleanField(default=False)
 
     class Meta:

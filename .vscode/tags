@@ -158,7 +158,7 @@ abstract	../sitecbv/models.py	/^        abstract = True$/;"	kind:variable	line:1
 admin.py	../sitecbv/admin.py	1;"	kind:file	line:1
 application	../cbv/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
 apps.py	../sitecbv/apps.py	1;"	kind:file	line:1
-attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'CPF|Passaporte', 'class':'box1'}))$/;"	kind:variable	line:29
+attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'CPF|Passaporte', 'class':'box2'}))$/;"	kind:variable	line:29
 attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'E-Mail', 'class':'box1', 'autocomplete':'off'}))$/;"	kind:variable	line:85
 attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'E-Mail', 'class':'box1'}))$/;"	kind:variable	line:23
 attrs	../sitecbv/forms.py	/^            attrs={'placeholder': 'Nome', 'class':'box1'}))$/;"	kind:variable	line:17

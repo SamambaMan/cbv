@@ -22,22 +22,31 @@ from django.contrib.auth.views import logout
 from sitecbv.views import index, cadastrousuariobasico,\
                           cadastrarusuariobasico, programa, conteudoexclusivo,\
                           categoriaconteudoexclusivo, maisconteudoexclusivo,\
-                          detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin
+                          detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin,\
+                          experiencias, maisexperiencias, detalheexperiencias
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^$', index),
-    url(r'^cadastrarusuariobasico/', cadastrarusuariobasico),
-    url(r'^cadastrousuariobasico/', cadastrousuariobasico),
+    # Programa
     url(r'^programa/', programa),
+    # Conteudo Exclusivo
     url(r'^conteudoexclusivo/$', conteudoexclusivo),
-    url(r'^conteudoexclusivo/mais/', maisconteudoexclusivo),
+    url(r'^conteudoexclusivo/mais/$', maisconteudoexclusivo),
     url(r'^conteudoexclusivo/listas/(?P<categoria>[\w|-]+)/$$', categoriaconteudoexclusivo),
     url(r'^conteudoexclusivo/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$',
         detalheconteudoexclusivo),
+    #Experiencias
+    url(r'^experiencias/$', experiencias),
+    url(r'^experiencias/mais/$', maisexperiencias),
+    url(r'^experiencias/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalheexperiencias),
+    # Cadastro de Usuario
+    url(r'^cadastrarusuariobasico/', cadastrarusuariobasico),
+    url(r'^cadastrousuariobasico/', cadastrousuariobasico),
     url(r'^cadastrocomplementar/$', cadastrocomplementar),
+    # Login
     url(r'^login/$', efetuarlogin),
     url(r'^logout/$', logout, {'next_page': '/'}),
 

@@ -103,6 +103,20 @@ class LoginForm(forms.Form):
                 raise forms.ValidationError(u"Email ou senha invalido")
 
 class CadastroComplementar(forms.ModelForm):
+    firstname = forms.CharField(
+        label="Nome",
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={'placeholder': 'Nome'}))
+
+    email = forms.EmailField(
+        label="E-Mail",
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={'placeholder': 'E-Mail'}))
+
     class Meta:
         model = InfosAdicionaisUsuario
         exclude = ['user', 'tipodocumento']
@@ -110,13 +124,29 @@ class CadastroComplementar(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         from django.core.validators import RegexValidator
+
+        instance = kwargs.get('instance', None)
+
+        kwargs.update(initial={
+            'firstname': instance.user.first_name,
+            'email': instance.user.email,
+        })
+
         super(CadastroComplementar, self).__init__(*args, **kwargs)
 
+        self.fields['email'].disabled = True
         self.fields['cpf'].required = True
         self.fields['ufed'].required = True
         self.fields['sexo'].required = True
         self.fields['celular'].required = True
         self.fields['telefone'].required = True
+        self.fields['nascimento'].widget.attrs.update({
+            'onKeyDown': 'Mascara(this,Data)',
+            'onKeyPress': 'Mascara(this,Data);',
+            'onKeyUp': 'Mascara(this,Data)',
+            'maxlength': '10',
+        })
+        self.fields['nascimento'].input_formats = ['%d/%m/%Y']
         self.fields['cep'].validators = [RegexValidator(regex=r'^(\d{5}|\d{8})$',
                                                         message=u'CEP deve conter 5 ou 8 dígitos',
                                                         code='nomatch')]
@@ -127,7 +157,11 @@ class CadastroComplementar(forms.ModelForm):
             field = self.fields.get(field_name)
             if field:
                 field.widget.attrs.update({
-                    'placeholder': field.label
+                    'placeholder': field.label,
+                    'class': 'form-control',
                 })
+
+        if self.instance and self.instance.cadastrocompleto:
+            self.fields['cpf'].disabled = self.fields['ufed'].disabled = True
 
 

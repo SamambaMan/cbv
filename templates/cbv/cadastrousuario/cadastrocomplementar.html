@@ -1,10 +1,44 @@
 {% extends "cbv/master.html" %}
  
 {% block content %} 
-{{ formulario.non_field_errors }}
-<form method="POST" action="/cadastrocomplementar/">
-{% csrf_token %} 
-{{ formulario.cpf }} {{ formulario.cpf.errors }}<br>
+
+<div class="space"></div>
+          <div class="tituloBold">COMPLETE SEU CADASTRO</div>
+          <div class="container">
+              {{ formulario.non_field_errors }}
+              <div class="row">
+                <form method="POST" action="/cadastrocomplementar/"> 
+                    {% csrf_token %}      
+                    <div class="col-lg-5 bordaBox" style="border-right:none;">
+                        <span class="tituloLight">Cadastro Básico</span>
+                        <div class="form-group alinhaCamposLeft">
+                            <label for="cpf">CPF | Passaporte:<span class="required">*</span></label>
+                            {{ formulario.cpf }} {{ formulario.cpf.errors }}
+                        </div>
+                        <div class="form-group alinhaCamposLeft">
+                            <label for="nome">Nome:<span class="required">*</span></label>
+                            {{ formulario.firstname }} {{ formulario.firstname.errors }}
+                        </div>
+                        <div class="form-group alinhaCamposLeft">
+                            <label for="dataNascimento">Data de nascimento:<span class="required">*</span></label>
+                            {{ formulario.nascimento }} {{ formulario.nascimento.errors }}
+                        </div>
+                        <div class="form-group alinhaCamposLeft">
+                        </div>
+                        <div class="form-group alinhaCamposLeft">
+                        </div>
+                        <div class="form-group alinhaCamposLeft">
+                        </div>
+                        <div class="form-group alinhaCamposLeft">
+                        </div>
+                    </div>
+                
+              
+
+
+
+
+
 {{ formulario.ufed }} {{ formulario.ufed.errors }}<br>
 {{ formulario.sexo }} {{ formulario.sexo.errors }}<br>
 {{ formulario.celular }} {{ formulario.celular.errors }}<br>
@@ -35,9 +69,12 @@
 {{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}
 </div>
 
-<input type="submit" value="Completar Cadastro">
+<input type="submit" value="{% if formulario.instance.cadastrocompleto %}Alterar Informações{% else %}Completar Cadastro{% endif %}">
         
-</form> 
+  </form>
+</div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function() {
     trocarModalidadeFavorita();
