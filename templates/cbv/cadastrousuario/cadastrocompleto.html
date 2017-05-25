@@ -1,5 +1,14 @@
 {% extends "cbv/master.html" %}
- 
+{% block extrameta %}
+    <meta http-equiv="refresh" content="5; url=/" />
+{% endblock%}
 {% block content %} 
-<h1>Cadastro completado com sucesso! Aproveiten o <a href="/">nosso site</a></h1>
+    <div class="space"></div>
+    <div class="container">
+        <div class="row">
+            <div>
+                <a href="/"><img src="/static/cbv/img/imgCadSucesso.png" alt="" border=""></a>
+            </div>
+        </div>
+    </div>
 {% endblock %} 
