@@ -2,10 +2,20 @@
 
 {% block content %}
     {% if programa %}
-        <h1>{{ programa.Titulo }}</h1>
-        <img src="{{ MEDIA_URL }}{{ programa.Topo }}">
-        <div>
-        {{ programa.Conteudo|safe }}
+
+    <div class="space"></div>
+        <div class="tituloBold">{{ programa.Titulo }}</div>
+
+        <!--imagem programa-->
+        <div class="container">
+            <div class="row">
+                <div><img src="{{ MEDIA_URL }}{{ programa.Topo }}" class="imgPrincipal" alt="" border=""></div>
+            </div>
+            <div class="row">
+                {{ programa.Conteudo|safe }}
+            </div>
         </div>
+
+        {% include 'cbv/marketing.html' %}
     {% endif %}
 {% endblock %}
