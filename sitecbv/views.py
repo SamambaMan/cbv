@@ -118,6 +118,7 @@ def conteudospublicados():
 @obrigar_cadastro_complementar
 def conteudoexclusivo(request):
     from .models import ConteudoExclusivo, CategoriaConteudoExclusivo
+    from .forms import FormBuscaSimples
 
     conteudos_exibir = []
     for categoria in CategoriaConteudoExclusivo.objects.all():
@@ -133,7 +134,7 @@ def conteudoexclusivo(request):
 
     return render(request, 'cbv/conteudoexclusivo/conteudoexclusivo.html',
                   {'conteudos_exibir': conteudos_exibir,
-                   'conteudos_carrossel': conteudos_carrossel})
+                   'conteudos_carrossel': conteudos_carrossel, 'form': FormBuscaSimples()})
 
 def buscarpublicacao(listabasica, termos):
     from django.db.models import Q
