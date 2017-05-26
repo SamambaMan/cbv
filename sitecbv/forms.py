@@ -6,7 +6,10 @@ from .models import InfosAdicionaisUsuario, UF_CHOICES
 
 class FormBuscaSimples(forms.Form):
     busca = forms.CharField(label="", required=False, max_length=50, widget=forms.TextInput(
-        attrs={'placeholder': 'Pesquisar'}))
+        attrs={'placeholder': 'Pesquisar',
+               'class':'inputPesquisa',
+               'placeholder':'O que você está procurando?'}))
+
 
 class CadastroUsuarioBasicoForm(forms.Form):
     firstname = forms.CharField(

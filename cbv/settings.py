@@ -103,6 +103,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_EMAIL_VERIFICATION = ("none")
+EMAIL_CONFIRMATION_SIGNUP = False
 ACCOUNT_ADAPTER = 'sitecbv.auth.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'sitecbv.auth.SocialAccountAdapter'
 

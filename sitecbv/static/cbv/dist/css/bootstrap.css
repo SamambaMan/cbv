@@ -3175,7 +3175,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
+  background-color: #32a457;
   border-color: #4cae4c;
 }
 .btn-success:focus,
@@ -3403,7 +3403,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 .btn-link {
   font-weight: normal;
-  color: #337ab7;
+  color: #fff;
   border-radius: 0;
 }
 .btn-link,

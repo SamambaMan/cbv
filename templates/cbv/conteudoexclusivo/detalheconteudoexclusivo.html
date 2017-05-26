@@ -10,27 +10,34 @@
 
 {% block content %}
 
-<h1>{{ conteudo.Titulo }}</h1>
-<h4>{{ conteudo.DataPublicacao|timesince }}</h4>
-<img src="{{MEDIA_URL}}{{conteudo.Topo}}">
+<div class="space"></div>
+    <div class="tituloBold">{{ conteudo.Titulo }}</div>
 
+    <!--imagem programa-->
+    <div class="container">
+        <div class="row">
+            <div><img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border=""></div>
+        </div>
+    
+        <div class="space"></div>
+        
+        {% if user.is_authenticated %}
+        <div class="row" style="text-align:left;">
+            {{conteudo.Conteudo|safe}}
+        </div>
+        {% else %}
+        <div class="row" style="text-align:left;">
+            {{conteudo.Conteudo|safe|truncatewords:40}}
+        </div>
+        <div class="row">
+        <h1> Para acessar o conteúdo completo faça seu login</h1>
+        </div>
+        <div class="row">
+            {% include 'cbv/formcadastrobasico_snippet.html' %}
+        </div>
+        {% endif %}
 
-{% if user.is_authenticated %}
-    {{conteudo.Conteudo|safe}}
-{% else %}
-<div class="row">
-    {{conteudo.Detalhe}}
-</div>
-<div class="row">
-    {{conteudo.Conteudo|safe|truncatewords:40}}
-</div>
-<div class="row">
-<h1> Para acessar o conteúdo completo faça seu login</h1>
-</div>
-<div class="row">
-    {% include 'cbv/formcadastrobasico_snippet.html' %}
-</div>
-{% endif %}
+    </div>
 
 
 {% endblock %}

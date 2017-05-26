@@ -2,36 +2,59 @@
 
 {% block content %}
 
+
+<div class="space"></div>
 {% if categoria %}
-    <h1>{{ categoria.Nome }}</h1>
+    <div class="tituloBold">{{ categoria.Nome }}</div>
 {% else %}
-    <h1>Mais Conteúdo Exclusivo</h1>
+    <div class="tituloBold">Histórico</div>
 {% endif %}
 
-{% if categoria %}
-<form method="POST" action="/conteudoexclusivo/listas/{{ categoria.slug }}/">
-{% else %}
-<form method="POST" action="/conteudoexclusivo/mais/">
-{% endif %}
+<div class="container">
+    <div class="row">
 
-{% csrf_token %}
-{{ form.busca }}
-<input type="submit" value="Pesquisar">
-</form>
+        {% if categoria %}
+        <form method="POST" action="/conteudoexclusivo/listas/{{ categoria.slug }}/">
+        {% else %}
+        <form method="POST" action="/conteudoexclusivo/mais/">
+        {% endif %}
+
+        {% csrf_token %}
+            <div class="col-xs-12 col-lg-12 backgroundPesquisa">
+            <div class="col-xs-10 col-lg-6">
+                    {{ form.busca }}
+            </div>
+            <div class="col-xs-2 col-lg-1" align="left">
+                <input type="image" src="/static/cbv/img/lupa.png" />
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 
-<ul>
-    {% for conteudo in conteudos %}
-    <li style="border: 1px solid black;">
-        <span>
-                {% if not categoria %}
-                <h2><a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}">{{ conteudo.Categoria.Nome }}</a></h2>
-                {% endif %}
-                <h3><a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">{{ conteudo.Titulo }}</a></h3>
-                <h4>{{ conteudo.Detalhe }}</h4>
-        </span>
-    </li>
-    {% endfor %}
-<ul>
+<div class="space"></div>
+<div class="row"> 
+<div class="col-lg-1"></div>
+<div class="col-lg-10"> 
+{% for conteudo in conteudos %}
+    <div class="col-sm-5">
+        <div class="media">
+        <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" class="pull-left">
+            <img src="/static/cbv/img/contExclusivo/thumbnail/img1.png" class="media-object" alt="">
+        </a>
+        <div class="media-body" align="left">
+            <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
+            <h5>{{ conteudo.Detalhe }}</h5>
+            <a type="button" 
+                href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                class="btn btn-success">Saiba Mais</a>
+        </div>
+        </div>
+        <div class="space"></div>
+    </div>
+{% endfor %}
+</div>
+</div>
 
 {% endblock %}

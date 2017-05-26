@@ -67,10 +67,37 @@
 	color:#666;
 	padding-bottom:30px;
 }
+.tituloBoldSaibaMais{
+	font-family:Nexa Bold;
+	font-size:30px;
+	color:#1E4370;
+	float:left;
+}
+.tituloLightSaibaMais{
+	font-family:Nexa Light;
+	font-size:25px;
+	color:#1E4370;
+	float:left;
+}
+.subTituloSaibaMais{
+	font-family:Nexa Light;
+	font-weight:bold;
+	font-size:15px;
+	color:#666;
+	float:left;
+	padding-bottom:20px;
+}
+.tituloCategoria{
+	font-family:Nexa Bold;
+	font-size:20px;
+	color:#1E4370;
+	border-left:2px solid #1E4370;
+	text-align:left;
+}
 .imgPrincipal{
 	max-width:100%;
 }
-.fundoPesquisa{
+.backgroundPesquisa{
 	background:#CCC;
 	border-radius:10px;
 }
@@ -85,9 +112,6 @@
 }
 .imgFooter{
 	max-width:100%;
-}
-.formataThumbnail{
-	padding:0 0 0 20px;
 }
 .setaTocidometro{
 	font-weight:bold;
@@ -266,71 +290,6 @@ a:focus {
 	    border-radius: 5px;
 		width:100%;
 		height:32px;
-	}
-	.botaoOk {
-	    overflow: hidden;
-	    float: right;
-	    margin-top: 3%;
-	    padding:1px 4px 1px 4px !important;
-	    font-size: 17px !important;
-	    background-color: #32a457;
-	    color: #ffffff;
-	    border-radius: 5px;
-	    -moz-border-radius: 5px;
-	    -webkit-border-radius: 5px;
-	    border:none;
-	    cursor: pointer;
-		font-family: Nexa Light;
-	}
-	.botaoCadastrar {
-	    overflow: hidden;
-	    float: center;
-	    margin-top: 3%;
-	    padding: 7px 9px 8px !important;
-	    font-size: 17px !important;
-	    background-color: #32a457;
-	    color: #ffffff;
-	    border-radius: 5px;
-	    -moz-border-radius: 5px;
-	    -webkit-border-radius: 5px;
-	    border:none;
-	    cursor: pointer;
-	    margin-left: 40px;
-	    margin-right: 40px;
-		font-family: Nexa Light;
-	}
-	.botaoFace {
-	    overflow: hidden;
-	    float: center;
-	    margin-top: 3%;
-	    padding: 5px 15px 3px 11px !important;
-	    font-size: 14px !important;
-	    background-color: #3B5A9D;
-	    color: #ffffff;
-	    border-radius: 5px;
-	    -moz-border-radius: 5px;
-	    -webkit-border-radius: 5px;
-	    border:none;
-	    cursor: pointer;
-	    margin-left: 40px;
-	    margin-right: 40px;
-		font-family: Nexa Light;
-	}
-	.botaoEsqueciSenha {
-	    overflow: hidden;
-	    float: center;
-	    margin-top: 3%;
-	    font-size: 14px !important;
-	    background-color: #1b416c;
-	    color: #ffffff;
-	    border-radius: 5px;
-	    -moz-border-radius: 5px;
-	    -webkit-border-radius: 5px;
-	    border:none;
-	    cursor: pointer;
-	    margin-left: -35px;
-		font-family: Nexa Light;
-		letter-spacing:1px;
 	}
 .errorList{
 	font-family: Nexa Light;
