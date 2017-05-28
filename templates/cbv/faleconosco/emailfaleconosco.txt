@@ -1,0 +1,6 @@
+Contato CBV
+
+Nome: {{ nome }} 
+E-Mail: {{ email }} 
+Mensagem:
+{{ mensagem }}

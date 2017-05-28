@@ -23,7 +23,8 @@ from sitecbv.views import index, cadastrousuariobasico,\
                           cadastrarusuariobasico, programa, conteudoexclusivo,\
                           categoriaconteudoexclusivo, maisconteudoexclusivo,\
                           detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin,\
-                          experiencias, maisexperiencias, detalheexperiencias, complementarendereco
+                          experiencias, maisexperiencias, detalheexperiencias, rededescontos,\
+                          complementarendereco, detalherededescontos, faleconosco
 
 
 urlpatterns = [
@@ -44,6 +45,10 @@ urlpatterns = [
     url(r'^experiencias/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalheexperiencias),
     url(r'^complementarendereco/$', complementarendereco),
 
+    #Experiencias
+    url(r'^rededescontos/$', rededescontos),
+    url(r'^rededescontos/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalherededescontos),
+
     # Cadastro de Usuario
     url(r'^cadastrarusuariobasico/', cadastrarusuariobasico),
     url(r'^cadastrousuariobasico/', cadastrousuariobasico),
@@ -51,6 +56,10 @@ urlpatterns = [
     # Login
     url(r'^login/$', efetuarlogin),
     url(r'^logout/$', logout, {'next_page': '/'}),
+
+    #Fale Conosco
+    url(r'^faleconosco/$', faleconosco),
+
 
 
     url(r'^tinymce/', include('tinymce.urls')),

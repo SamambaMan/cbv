@@ -138,7 +138,7 @@ def conteudoexclusivo(request):
 
 def buscarpublicacao(listabasica, termos):
     from django.db.models import Q
-    return listabasica.filter(Q(Titulo__icontains=termos)|Q(Conteudo__icontains=termos))
+    return listabasica.filter(Q(Titulo__icontains=termos)|Q(Conteudo__icontains=termos)|Q(Detalhe__icontains=termos))
 
 @obrigar_cadastro_complementar
 def categoriaconteudoexclusivo(request, categoria):
@@ -256,12 +256,21 @@ def experiencias(request):
 
     experiencias_exibir = experienciaspublicadas()[:6]
 
+    form = FormBuscaSimples()
+    if request.method == 'POST':
+        form = FormBuscaSimples(request.POST)
+        form.is_valid()
+
+        termos = form.cleaned_data['busca']
+
+        experiencias_exibir = buscarpublicacao(experiencias_exibir, termos)
+
     experiencias_carrossel = experienciaspublicadas().filter(Destaque=True)[:5]
 
     return render(request, 'cbv/experiencias/experiencias.html',
                   {'conteudos_exibir': experiencias_exibir,
                    'conteudos_carrossel': experiencias_carrossel,
-                   'form': FormBuscaSimples()})
+                   'form': form})
 
 @obrigar_cadastro_complementar
 def maisexperiencias(request):
@@ -337,4 +346,84 @@ def complementarendereco(request):
 
 ############ Fim Experiencias ###########
 
+
+############ Rede de Descontos ###########
+
+def rededescontopublicados():
+    from .models import RedeDeDesconto
+    return RedeDeDesconto.objects.filter(Publicar=True).order_by('-DataPublicacao')
+
+def rededescontos(request):
+    from .forms import FormBuscaSimples
+    from .models import BannerRedeDesconto
+
+    form = FormBuscaSimples()
+
+    conteudos = rededescontopublicados()
+
+    bannerrede = BannerRedeDesconto.objects.filter(Ativo=True).first()
+
+    if request.method == 'POST':
+        form = FormBuscaSimples(request.POST)
+        form.is_valid()
+
+        termos = form.cleaned_data['busca']
+
+        conteudos = buscarpublicacao(conteudos, termos)
+
+    return render(request,
+                  'cbv/rededescontos/rededescontos.html',
+                  {'conteudos': conteudos,
+                   'bannerrede': bannerrede,
+                   'form': form})
+
+def detalherededescontos(request, categoria, id):
+    from django.shortcuts import get_object_or_404, redirect
+    from .models import RedeDeDesconto
+
+    rede = get_object_or_404(RedeDeDesconto, id=id, Ativo=True)
+
+    return redirect(rede.Link)
+
+############ Fim Rede de Descontos ###########
+
+############ Fale Conosco ###########
+
+def faleconosco(request):
+    from django.template.loader import get_template
+    from django.core.mail import EmailMultiAlternatives
+    from django.conf import settings
+    from .forms import FaleConoscoForm
+
+    form = FaleConoscoForm()
+
+    if request.method == 'POST':
+        form = FaleConoscoForm(request.POST)
+        if form.is_valid():
+            corpo = {'nome': form.cleaned_data['nome'],
+                     'email': form.cleaned_data['email'],
+                     'mensagem': form.cleaned_data['mensagem'],}
+
+            html = get_template('cbv/faleconosco/emailfaleconosco.html')
+            text = get_template('cbv/faleconosco/emailfaleconosco.txt')
+
+            print settings.CONTATOS, settings.EMAIL_HOST_USER
+            subject, from_email, to = 'Contato CBV', settings.EMAIL_HOST_USER, settings.CONTATOS
+            html_content = html.render(corpo)
+            text_content = text.render(corpo)
+
+            msg = EmailMultiAlternatives(subject,
+                                         text_content,
+                                         from_email=from_email,
+                                         bcc=to)
+
+            msg.attach_alternative(html_content, "text/html")
+
+            msg.send()
+
+            return render(request, 'cbv/faleconosco/enviosucesso.html')
+
+    return render(request, 'cbv/faleconosco/faleconosco.html', {'form': form})
+
+############ Fim Fale Conosco ###########
 

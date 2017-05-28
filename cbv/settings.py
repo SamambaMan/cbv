@@ -26,6 +26,8 @@ EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
+CONTATOS = ['felipe.gomes.ferreira@gmail.com', 'mauricio.sellis@globality.com.br', 'felipe.silva@globality.com.br']
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 

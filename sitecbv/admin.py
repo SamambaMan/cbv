@@ -3,6 +3,24 @@ from django.contrib import admin
 from django import forms
 from sitecbv.models import *
 
+
+class BannerRedeDescontoAdmin(admin.ModelAdmin):
+    list_display = ['Titulo', 'Ativo']
+    list_filter = ('Ativo',)
+    search_fields = ('Titulo',)
+
+class RedeDeDescontoAdmin(admin.ModelAdmin):
+    list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Publicar', 'Ativo')
+    search_fields = ('Titulo', 'Conteudo',)
+    list_filter = ('DataPublicacao', 'Publicar', 'Ativo', 'Categoria')
+    fieldsets = (
+        ('Geral', {'fields':('Titulo', 'Subtitulo', 'Link', 'Detalhe',
+                             'Categoria', 'DataPublicacao', 'Ativo')}),
+        ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
+        (u'Publicação', {'fields':('Conteudo', 'Publicar',)}),
+    )
+    readonly_fields = ('DataPublicacao',)
+
 class ProgramaAdmin(admin.ModelAdmin):
     list_display = ['Titulo', 'Publicar']
     list_filter = ('Publicar',)
@@ -74,8 +92,8 @@ admin.site.register(CategoriaRedeDeDesconto)
 admin.site.register(ConteudoExclusivo, ConteudoExclusivoAdmin)
 admin.site.register(Experiencia, ExperienciaAdmin)
 admin.site.register(CensoDoVolei)
-admin.site.register(RedeDeDesconto)
-admin.site.register(BannerRedeDesconto)
+admin.site.register(RedeDeDesconto, RedeDeDescontoAdmin)
+admin.site.register(BannerRedeDesconto, BannerRedeDescontoAdmin)
 admin.site.register(BannerCensoDoVolei)
 admin.site.register(Programa, ProgramaAdmin)
 admin.site.site_header = u'Confederação Brasileira de Volei'
