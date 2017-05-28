@@ -310,18 +310,39 @@ class RedeDeDesconto(Publicavel):
 
 class BannerRedeDesconto(models.Model):
     Titulo = models.CharField(max_length=100, verbose_name="Título")
-    Imagem = models.FileField(help_text="Alta Resolução, 16x9, PNG ou JPG")
+    Imagem = models.FileField(blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
     Ativo = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Banner Rede de Desconto"
         verbose_name_plural = "Banneres Rede de Desconto"
 
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.Ativo and BannerRedeDesconto.objects.filter(Ativo=True).exclude(id=self.id).count() > 0:
+            raise ValidationError(u"Já existe outro Banner Ativo")
+
+    def __str__(self):
+        if self.Titulo:
+            return self.Titulo
+        return ""
+
 
 class BannerCensoDoVolei(models.Model):
     Titulo = models.CharField(max_length=100)
-    Imagem = models.FileField(help_text="Alta Resolução, 16x9, PNG ou JPG")
+    Imagem = models.FileField(blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
     Ativo = models.BooleanField(default=False)
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.Ativo and BannerCensoDoVolei.objects.filter(Ativo=True).exclude(id=self.id).count() > 0:
+            raise ValidationError(u"Já existe outro Banner Ativo")
+
+    def __str__(self):
+        if self.Titulo:
+            return self.Titulo
+        return ""
+
 
     class Meta:
         verbose_name = "Banner Censo do Volei"

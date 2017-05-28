@@ -1,0 +1,35 @@
+{% extends "cbv/master.html" %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12">
+          <div class="col-xs-12 col-lg-4"></div>
+          <div class="col-xs-12 col-lg-5">
+            <form  method="post" action="/faleconosco/" onsubmit="">
+              {% csrf_token %}
+              <div class="caixa">
+                <span class="register-box-title">FALE CONOSCO</span>
+                <div class="form-group alinhaCamposLeft">
+                  {{ form.nome }}
+                  {{ form.nome.errors }}
+                </div>
+                <div class="form-group alinhaCamposLeft">
+                  {{ form.email }}
+                  {{ form.email.errors }}
+                </div>
+                <div class="paddingBottom">
+                  {{ form.mensagem }}
+                  {{ form.mensagem.errors }}
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-success" 
+                    data-toggle="modal" data-target="#myModal">ENVIAR</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -225,3 +225,22 @@ class FormComplementarEndereco(forms.ModelForm):
                     'class': 'form-control',
                 })
 
+class FaleConoscoForm(forms.Form):
+    nome = forms.CharField(
+        label="Nome",
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={'placeholder': 'Nome', 'class':'form-control'}))
+    email = forms.EmailField(
+        label="E-Mail",
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={'placeholder': 'E-Mail', 'class':'form-control'}))
+    mensagem = forms.CharField(
+        label="Mensagem",
+        max_length=4000,
+        required=True,
+        widget=forms.Textarea(
+            attrs={'placeholder': 'Mensagem', 'class':'form-control'}))
