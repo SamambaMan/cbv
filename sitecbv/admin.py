@@ -36,7 +36,7 @@ class ConteudoExclusivoAdmin(admin.ModelAdmin):
     search_fields = ('Titulo', 'Conteudo',)
     list_filter = ('DataPublicacao', 'Destaque', 'Publicar', 'Categoria')
     fieldsets = (
-        ('Geral', {'fields':('Titulo', 'Detalhe', 'Categoria', 'DataPublicacao',)}),
+        ('Geral', {'fields':('Titulo', 'Subtitulo', 'Detalhe', 'Categoria', 'DataPublicacao',)}),
         ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
         (u'Publicação', {'fields':('Conteudo', 'Destaque', 'Publicar',)}),
     )
@@ -47,7 +47,8 @@ class ExperienciaAdmin(admin.ModelAdmin):
     search_fields = ('Titulo', 'Conteudo',)
     list_filter = ('DataPublicacao', 'Destaque', 'Publicar', 'Ativo', 'Categoria')
     fieldsets = (
-        ('Geral', {'fields':('Titulo', 'Link', 'Detalhe', 'Categoria', 'DataPublicacao', 'Ativo')}),
+        ('Geral', {'fields':('Titulo', 'Subtitulo', 'Link', 'Detalhe',
+                             'Categoria', 'DataPublicacao', 'Ativo')}),
         ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
         (u'Publicação', {'fields':('Conteudo', 'Destaque', 'Publicar',)}),
     )

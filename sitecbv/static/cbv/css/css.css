@@ -110,9 +110,22 @@
 	border-radius:10px;
 	margin:5px 0;
 }
+.paddingBottom{
+	padding-bottom:30px;
+}
+.letraVerde{
+	color:#32A457;
+}
+.semBorda{
+	border:none;
+}
+.escondeDiv{
+	display:none;
+}
 .imgFooter{
 	max-width:100%;
 }
+
 .setaTocidometro{
 	font-weight:bold;
 	font-size:36px;

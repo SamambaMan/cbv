@@ -252,6 +252,7 @@ def experienciaspublicadas():
 @obrigar_cadastro_complementar
 def experiencias(request):
     from .models import Experiencia
+    from .forms import FormBuscaSimples
 
     experiencias_exibir = experienciaspublicadas()[:6]
 
@@ -259,7 +260,8 @@ def experiencias(request):
 
     return render(request, 'cbv/experiencias/experiencias.html',
                   {'conteudos_exibir': experiencias_exibir,
-                   'conteudos_carrossel': experiencias_carrossel})
+                   'conteudos_carrossel': experiencias_carrossel,
+                   'form': FormBuscaSimples()})
 
 @obrigar_cadastro_complementar
 def maisexperiencias(request):
@@ -292,6 +294,47 @@ def detalheexperiencias(request, categoria, id):
                   'cbv/experiencias/detalheexperiencias.html',
                   {'conteudo':conteudo,
                    'formcadastrobasico': CadastroUsuarioBasicoForm(),
-                   'formlogin': LoginForm()})
+                   'formlogin': LoginForm(),
+                   'enderecocompleto': estariaenderecocompleto(request)})
+
+def estariaenderecocompleto(request):
+    return request.user.is_authenticated \
+        and request.user.infosadicionaisusuario.cep\
+        and request.user.infosadicionaisusuario.endereco\
+        and request.user.infosadicionaisusuario.numero\
+        and request.user.infosadicionaisusuario.bairro\
+        and request.user.infosadicionaisusuario.cidade\
+        and request.user.infosadicionaisusuario.pais\
+        and request.user.infosadicionaisusuario.ufed
+
+def obterformcomplementarendereco(request):
+    from .forms import FormComplementarEndereco
+
+    usuario = request.user
+
+    if request.method == 'POST':
+        formulario = FormComplementarEndereco(request.POST, instance=usuario.infosadicionaisusuario)
+    else:
+        formulario = FormComplementarEndereco(instance=usuario.infosadicionaisusuario)
+
+    return formulario
+
+def complementarendereco(request):
+    formulario = obterformcomplementarendereco(request)
+
+    if request.method == 'POST':
+        if formulario.is_valid():
+            formulario.save()
+
+            return render(request, 'cbv/cadastrousuario/complementarconcluido.html')
+
+    return render(request,
+                  'cbv/cadastrousuario/complementarendereco.html',
+                  {'formulario':formulario})
+
+
+
 
 ############ Fim Experiencias ###########
+
+

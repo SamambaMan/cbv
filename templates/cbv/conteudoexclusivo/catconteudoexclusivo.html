@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <div class="space"></div>
 {% if categoria %}
     <div class="tituloBold">{{ categoria.Nome }}</div>
@@ -41,7 +40,7 @@
     <div class="col-sm-5">
         <div class="media">
         <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" class="pull-left">
-            <img src="/static/cbv/img/contExclusivo/thumbnail/img1.png" class="media-object" alt="">
+            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object" alt="">
         </a>
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>

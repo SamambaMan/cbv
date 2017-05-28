@@ -185,3 +185,43 @@ class CadastroComplementar(forms.ModelForm):
             self.fields['cpf'].disabled = self.fields['ufed'].disabled = True
 
 
+class FormComplementarEndereco(forms.ModelForm):
+    class Meta:
+        model = InfosAdicionaisUsuario
+        fields = ['cep', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'pais', 'ufed']
+
+
+    def __init__(self, *args, **kwargs):
+        from django.core.validators import RegexValidator
+
+        super(FormComplementarEndereco, self).__init__(*args, **kwargs)
+
+        self.fields['ufed'].required = True
+        self.fields['ufed'].disabled = True
+
+        self.fields['cep'].required = True
+        self.fields['endereco'].required = True
+        self.fields['numero'].required = True
+        self.fields['bairro'].required = True
+        self.fields['cidade'].required = True
+        self.fields['pais'].required = True
+
+        self.fields['cep'].validators = [RegexValidator(
+            regex=r'^(\d{5}|\d{5}-\d{3})$',
+            message=u'CEP no formato 00000 ou 00000-000',
+            code='nomatch')]
+        self.fields['cep'].widget.attrs.update({
+            'onKeyDown': 'Mascara(this,Cep)',
+            'onKeyPress': 'Mascara(this,Cep);',
+            'onKeyUp': 'Mascara(this,Cep)',
+            'maxlength': '9',
+        })
+
+        for field_name in self.fields:
+            field = self.fields.get(field_name)
+            if field:
+                field.widget.attrs.update({
+                    'placeholder': field.label,
+                    'class': 'form-control',
+                })
+
