@@ -2,25 +2,50 @@
 
 {% block content %}
 
+<div class="space"></div>
+<div class="tituloBold">Histórico</div>
 
-<h1>Mais Experiências</h1>
+<div class="container">
+    <div class="row">
 
-<form method="POST" action="/experiencias/mais/">
+        <form method="POST" action="/experiencias/mais/">
 
-{% csrf_token %}
-{{ form.busca }}
-<input type="submit" value="Pesquisar">
-</form>
+        {% csrf_token %}
+            <div class="col-xs-12 col-lg-12 backgroundPesquisa">
+            <div class="col-xs-10 col-lg-6">
+                    {{ form.busca }}
+            </div>
+            <div class="col-xs-2 col-lg-1" align="left">
+                <input type="image" src="/static/cbv/img/lupa.png" />
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-<ul>
-    {% for conteudo in conteudos %}
-    <li style="border: 1px solid black;">
-        <span>
-                <h3><a href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">{{ conteudo.Titulo }}</a></h3>
-                <h4>{{ conteudo.Detalhe }}</h4>
-        </span>
-    </li>
-    {% endfor %}
-<ul>
+
+<div class="space"></div>
+<div class="row"> 
+<div class="col-lg-1"></div>
+<div class="col-lg-10"> 
+{% for conteudo in conteudos %}
+    <div class="col-sm-5">
+        <div class="media">
+        <a href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" class="pull-left">
+            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object" alt="">
+        </a>
+        <div class="media-body" align="left">
+            <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
+            <h5>{{ conteudo.Detalhe }}</h5>
+            <a type="button" 
+                href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                class="btn btn-success">Saiba Mais</a>
+        </div>
+        </div>
+        <div class="space"></div>
+    </div>
+{% endfor %}
+</div>
+</div>
 
 {% endblock %}

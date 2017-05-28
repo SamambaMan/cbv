@@ -23,7 +23,7 @@ from sitecbv.views import index, cadastrousuariobasico,\
                           cadastrarusuariobasico, programa, conteudoexclusivo,\
                           categoriaconteudoexclusivo, maisconteudoexclusivo,\
                           detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin,\
-                          experiencias, maisexperiencias, detalheexperiencias
+                          experiencias, maisexperiencias, detalheexperiencias, complementarendereco
 
 
 urlpatterns = [
@@ -42,6 +42,8 @@ urlpatterns = [
     url(r'^experiencias/$', experiencias),
     url(r'^experiencias/mais/$', maisexperiencias),
     url(r'^experiencias/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalheexperiencias),
+    url(r'^complementarendereco/$', complementarendereco),
+
     # Cadastro de Usuario
     url(r'^cadastrarusuariobasico/', cadastrarusuariobasico),
     url(r'^cadastrousuariobasico/', cadastrousuariobasico),

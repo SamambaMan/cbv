@@ -2,15 +2,19 @@
 
 {% block content %}
 
-<div class="row">
-    {% include 'cbv/carroussel_snippet.html' %}
-</div>
-
 <div class="space"></div>
+{% if bannerrede %}
+    <div class="tituloBold">{{ bannerrede.Titulo }}</div>
+{% else %}
+    
+{% endif %}
+
 
 <div class="container">
     <div class="row">
-        <form name="pesquisa" method="post" action="/experiencias/mais/">
+
+        <form method="POST" action="/experiencias/mais/">
+
         {% csrf_token %}
             <div class="col-xs-12 col-lg-12 backgroundPesquisa">
             <div class="col-xs-10 col-lg-6">
@@ -24,11 +28,12 @@
     </div>
 </div>
 
+
 <div class="space"></div>
 <div class="row"> 
 <div class="col-lg-1"></div>
 <div class="col-lg-10"> 
-{% for conteudo in conteudos_exibir %}
+{% for conteudo in conteudos %}
     <div class="col-sm-5">
         <div class="media">
         <a href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" class="pull-left">
@@ -48,10 +53,4 @@
 </div>
 </div>
 
-<div class="space"></div>
-<div align="center">
-    <a type="button" href="/experiencias/mais/" class="btn btn-success">
-    MAIS ANTIGAS</a>
-</div>
-<div class="space"></div>
 {% endblock %}

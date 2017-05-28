@@ -10,34 +10,67 @@
 
 {% block content %}
 
+
 <div class="space"></div>
-    <div class="tituloBold">{{ conteudo.Titulo }}</div>
+          <div class="container">
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-xs-12 col-lg-12">
+		          <div class="tituloBoldSaibaMais">{{ conteudo.Titulo }}</div>
+                </div>
+                <div class="col-xs-12 col-lg-12">
+        		  <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo }}</div>
+                </div>
+                <div class="col-xs-12 col-lg-2">
+                  <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|timesince }}</div>
+                </div>
+			  </div>
+          </div>               
 
-    <!--imagem programa-->
-    <div class="container">
-        <div class="row">
-            <div><img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border=""></div>
-        </div>
-    
-        <div class="space"></div>
-        
-        {% if user.is_authenticated %}
-        <div class="row" style="text-align:left;">
-            {{conteudo.Conteudo|safe}}
-        </div>
-        {% else %}
-        <div class="row" style="text-align:left;">
-            {{conteudo.Conteudo|safe|truncatewords:40}}
-        </div>
-        <div class="row">
-        <h1> Para acessar o conteúdo completo faça seu login</h1>
-        </div>
-        <div class="row">
-            {% include 'cbv/formcadastrobasico_snippet.html' %}
-        </div>
-        {% endif %}
-
-    </div>
+          <!--imagem programa-->
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border="">
+                    </div>
+                  <div class="col-lg-1"></div>
+                  <div class="col-xs-12 col-lg-5">
+                    <div class="alinhaCamposLeft">
+                      {% include 'cbv/social_snippet.html' %}
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="space"></div>
+          
+           <!--bloco de texto-->
+           <div class="container">
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-xs-12 col-lg-10">
+                  {% if user.is_authenticated %}
+                    <div class="row" style="text-align:left;">
+                        {{conteudo.Conteudo|safe}}
+                    </div>
+                    {% else %}
+                    <div class="row" style="text-align:left;">
+                        {{conteudo.Conteudo|safe|truncatewords:40}}
+                    </div>
+                    <div class="row">
+                    <h1> Para acessar o conteúdo completo faça seu login</h1>
+                    </div>
+                    <div class="row">
+                        {% include 'cbv/formcadastrobasico_snippet.html' %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                  <div class="alinhaCamposLeft">
+                    <a href="javascript:window.history.go(-1)"><img src="/static/cbv/img/btVoltar.png" alt="" border=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 {% endblock %}
