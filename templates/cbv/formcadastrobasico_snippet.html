@@ -24,6 +24,9 @@
                 </form>
                   <br>
                   <div>
+                    <form action="{% url "password_reset_recover" %}">
+                      <button type="submit" class="botaoFace">Esqueci minha Senha</button>
+                    </form>
                     <form action="{% provider_login_url "facebook" %}">
                       <button type="submit" class="botaoFace">Entrar com Facebook</button>
                     </form>

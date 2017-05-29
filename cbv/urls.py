@@ -60,6 +60,9 @@ urlpatterns = [
     #Fale Conosco
     url(r'^faleconosco/$', faleconosco),
 
+    #Esqueci minha senha
+    url(r'^passwordreset/', include('password_reset.urls')),
+
 
 
     url(r'^tinymce/', include('tinymce.urls')),

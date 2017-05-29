@@ -1,0 +1,46 @@
+{% extends "cbv/master.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Recuperar Senha" %}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12">
+          <div class="col-xs-12 col-lg-4"></div>
+          <div class="col-xs-12 col-lg-5">
+			<div class="caixa">
+			{% if invalid %}
+				{% url "password_reset_recover" as recovery_url %}
+				<span class="register-box-title">{% blocktrans %}Sorry, this password reset link is invalid. You can still <a href="{{ recovery_url }}">request a new one</a>.{% endblocktrans %}</span>
+			{% else %}
+
+			<form method="post" action="{% url "password_reset_reset" token %}">
+				{% csrf_token %}
+				<span class="register-box-title">Alterar Senha</span>
+				<div class="form-group alinhaCamposLeft">
+					{{ form.password1 }}
+					{{ form.password1.errors }}
+				</div>
+				<div class="form-group alinhaCamposLeft">
+					{{ form.password2 }}
+					{{ form.password2.errors }}
+				</div>
+				<p><input type="submit" value="Recuperar Senha"></p>
+			</form>
+			{% endif %}
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+	{% if not invalid %}
+	<script type="text/javascript">
+		document.getElementById('id_password1').setAttribute('placeholder','Senha');
+		document.getElementById('id_password1').setAttribute('class','form-control');
+		document.getElementById('id_password2').setAttribute('placeholder','Confirmação');
+		document.getElementById('id_password2').setAttribute('class','form-control');
+	</script>
+	{% endif %}
+{% endblock %}
