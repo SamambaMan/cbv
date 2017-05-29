@@ -407,7 +407,6 @@ def faleconosco(request):
             html = get_template('cbv/faleconosco/emailfaleconosco.html')
             text = get_template('cbv/faleconosco/emailfaleconosco.txt')
 
-            print settings.CONTATOS, settings.EMAIL_HOST_USER
             subject, from_email, to = 'Contato CBV', settings.EMAIL_HOST_USER, settings.CONTATOS
             html_content = html.render(corpo)
             text_content = text.render(corpo)

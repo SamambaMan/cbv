@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'tinymce',
     'cbv',
     'sitecbv',
+    'password_reset',
 ]
 
 TINYMCE_DEFAULT_CONFIG = {

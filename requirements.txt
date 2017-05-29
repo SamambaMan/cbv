@@ -6,6 +6,7 @@ Django==1.11.1
 django-allauth==0.31.0
 django-autoslug==1.9.3
 django-paging==0.2.5
+django-password-reset==0.9
 django-templatetag-sugar==1.0
 django-tinymce==2.6.0
 isort==4.2.5

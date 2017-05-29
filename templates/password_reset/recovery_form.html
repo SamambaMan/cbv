@@ -1,0 +1,31 @@
+{% extends "cbv/master.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Recuperar Senha" %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-lg-12">
+          <div class="col-xs-12 col-lg-4"></div>
+          <div class="col-xs-12 col-lg-5">
+			<div class="caixa">
+			<form method="post" action="{{ url }}">
+				{% csrf_token %}
+				<span class="register-box-title">Recuperar Senha</span>
+				<div class="form-group alinhaCamposLeft">
+					{{ form.username_or_email }}
+					{{ form.username_or_email.errors }}
+				</div>
+				<p><input type="submit" value="Recuperar Senha"></p>
+			</form>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+	<script type="text/javascript">
+		document.getElementById('id_username_or_email').setAttribute('placeholder','E-Mail');
+		document.getElementById('id_username_or_email').setAttribute('class','form-control');
+	</script>
+{% endblock %}
