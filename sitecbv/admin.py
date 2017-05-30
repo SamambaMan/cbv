@@ -21,6 +21,18 @@ class RedeDeDescontoAdmin(admin.ModelAdmin):
     )
     readonly_fields = ('DataPublicacao',)
 
+class CensoDoVoleiAdmin(admin.ModelAdmin):
+    list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Publicar', 'Ativo')
+    search_fields = ('Titulo', 'Conteudo',)
+    list_filter = ('DataPublicacao', 'Publicar', 'Ativo', 'Categoria')
+    fieldsets = (
+        ('Geral', {'fields':('Titulo', 'Subtitulo', 'Link', 'Detalhe',
+                             'Categoria', 'DataPublicacao', 'Ativo')}),
+        ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
+        (u'Publicação', {'fields':('Conteudo', 'Publicar',)}),
+    )
+    readonly_fields = ('DataPublicacao',)
+
 class ProgramaAdmin(admin.ModelAdmin):
     list_display = ['Titulo', 'Publicar']
     list_filter = ('Publicar',)
@@ -91,7 +103,7 @@ admin.site.register(CategoriaCensoDoVolei)
 admin.site.register(CategoriaRedeDeDesconto)
 admin.site.register(ConteudoExclusivo, ConteudoExclusivoAdmin)
 admin.site.register(Experiencia, ExperienciaAdmin)
-admin.site.register(CensoDoVolei)
+admin.site.register(CensoDoVolei, CensoDoVoleiAdmin)
 admin.site.register(RedeDeDesconto, RedeDeDescontoAdmin)
 admin.site.register(BannerRedeDesconto, BannerRedeDescontoAdmin)
 admin.site.register(BannerCensoDoVolei)
