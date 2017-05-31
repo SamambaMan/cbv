@@ -150,6 +150,14 @@
 	font-weight:bold;
 	font-size:36px;
 }
+.tamanhoFixo1{
+	width: 180px;
+	height: 200px;
+}
+.tamanhoFixo2{
+	width: 257px;
+	height: 200px;
+}
 /*início torcidômetro abas*/
 * {
   margin: 0;
