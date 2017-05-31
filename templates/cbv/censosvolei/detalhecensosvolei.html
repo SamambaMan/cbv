@@ -1,0 +1,122 @@
+{% extends "cbv/master.html" %}
+
+{% block extrameta %}
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{conteudo.Topo.url}}" />
+<meta property="og:description" content="{{conteudo.Conteudo|striptags|truncatewords:40}}" />
+{% endblock %}
+
+{% block title %}{{ conteudo.Titulo }} - CBV{% endblock %}
+
+{% block content %}
+
+
+<div class="space"></div>
+          <div class="container">
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-xs-12 col-lg-12">
+		          <div class="tituloBoldSaibaMais">{{ conteudo.Titulo }}</div>
+                </div>
+                <div class="col-xs-12 col-lg-12">
+        		  <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo }}</div>
+                </div>
+                <div class="col-xs-12 col-lg-2">
+                  <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|timesince }}</div>
+                </div>
+			  </div>
+          </div>               
+
+          <!--imagem programa-->
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border="">
+                    </div>
+                  <div class="col-lg-1"></div>
+                  <div class="col-xs-12 col-lg-5">
+                    <div class="alinhaCamposLeft">
+                      {% include 'cbv/social_snippet.html' %}
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="space"></div>
+          
+           <!--bloco de texto-->
+           <div class="container">
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-xs-12 col-lg-10">
+                  {% if user.is_authenticated %}
+                    <div class="row" style="text-align:left;">
+                           {{conteudo.Conteudo|safe}}
+                            <h4>
+                                {% if conteudo.Ativo %}
+                                    {% if enderecocompleto %}
+                                        <a type="button" class="btn btn-success" 
+                                            href="{{conteudo.Link}}" target="blank">PARTICIPAR</a>
+                                    {% else %}
+                                        <button type="button" class="btn btn-success" 
+                                        data-toggle="modal" data-target="#myModal">PARTICIPAR</button>                                      
+                                        <a id="linkexperiencia" type="button" class="btn btn-success" style="display:none;" 
+                                            href="{{conteudo.Link}}" target="blank">PARTICIPAR</a>
+                                    {% endif%}
+                                
+                                    
+                                {% endif %}
+                            </h4>
+                    </div>
+                    {% else %}
+                    <div class="row" style="text-align:left;">
+                        {{conteudo.Conteudo|safe|truncatewords:40}}
+                    </div>
+                    <div class="row">
+                    <h1> Para acessar o conteúdo completo faça seu login</h1>
+                    </div>
+                    <div class="row">
+                        {% include 'cbv/formcadastrobasico_snippet.html' %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                  <div class="alinhaCamposLeft">
+                    <a href="javascript:window.history.go(-1)"><img src="/static/cbv/img/btVoltar.png" alt="" border=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        <!-- modal cadastro complementar -->
+            <div id="myModal" class="modal fade" style="height:100%" role="dialog">
+          <div class="modal-dialog modal-lg modalFullScreen">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="tituloLight">COMPLETE SEU CADASTRO</div>
+              </div>
+              <div class="modal-body">
+                <iframe class="embed-responsive-item configIframe"></iframe>
+              </div>
+          </div>
+          </div>
+            </div>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('#myModal').on('shown.bs.modal',function(){
+                $(this).find('iframe').attr('src','/complementarendereco/')
+            })
+        });
+        
+        function fecharsucesso(){
+            $('#myModal').modal('hide');
+            document.getElementById("linkexperiencia").click();
+            location.reload();
+        }
+
+        </script>
+
+{% endblock %}

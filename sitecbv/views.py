@@ -387,6 +387,71 @@ def detalherededescontos(request, categoria, id):
 
 ############ Fim Rede de Descontos ###########
 
+
+############ Censo do Volei ###########
+
+def censosvoleipublicados():
+    from .models import CensoDoVolei
+    return CensoDoVolei.objects.filter(Publicar=True).order_by('-DataPublicacao')
+
+def censosvolei(request, ativo=None):
+    from .models import BannerCensoDoVolei
+
+    banner = BannerCensoDoVolei.objects.filter(Ativo=True).first()
+
+    carrossel = censosvoleipublicados().filter(Destaque=True)[:5]
+
+    censosvoleiativos = censosvoleipublicados().filter(Ativo=True)[:3]
+
+    censosvoleiinativos = censosvoleipublicados().filter(Ativo=False)[:3]
+
+    if ativo:
+        censosvoleiinativos = []
+        censosvoleiativos = censosvoleipublicados().filter(Ativo=True)
+
+    return render(request,
+                  'cbv/censosvolei/censosvolei.html',
+                  {'banner': banner,
+                   'censosvoleiativos': censosvoleiativos,
+                   'censosvoleiinativos': censosvoleiinativos,
+                   'conteudos_carrossel': carrossel,
+                   'ativo': ativo})
+
+def censosvoleiinativos(request, ativo):
+    from .forms import FormBuscaSimples
+
+    form = FormBuscaSimples()
+
+    conteudos = censosvoleipublicados().filter(Ativo=False)
+
+    if request.method == 'POST':
+        form = FormBuscaSimples(request.POST)
+        form.is_valid()
+
+        termos = form.cleaned_data['busca']
+
+        conteudos = buscarpublicacao(conteudos, termos)
+
+    return render(request,
+                  'cbv/censosvolei/censosvoleiinativos.html',
+                  {'conteudos':conteudos, 'form':form})
+
+@obrigar_cadastro_complementar
+def detalhecensovolei(request, categoria, id):
+    from .forms import CadastroUsuarioBasicoForm, LoginForm
+    conteudos = censosvoleipublicados()
+
+    conteudo = conteudos.get(Categoria__slug=categoria, id=id)
+
+    return render(request,
+                  'cbv/censosvolei/detalhecensosvolei.html',
+                  {'conteudo':conteudo,
+                   'formcadastrobasico': CadastroUsuarioBasicoForm(),
+                   'formlogin': LoginForm(),
+                   'enderecocompleto': estariaenderecocompleto(request)})
+
+############ Fim Censo do Volei ###########
+
 ############ Fale Conosco ###########
 
 def faleconosco(request):
