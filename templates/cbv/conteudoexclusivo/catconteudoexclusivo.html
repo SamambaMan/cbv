@@ -39,9 +39,7 @@
 {% for conteudo in conteudos %}
     <div class="col-sm-5">
         <div class="media">
-        <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" class="pull-left">
-            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object" alt="">
-        </a>
+            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1" alt="">
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
             <h5>{{ conteudo.Detalhe }}</h5>
