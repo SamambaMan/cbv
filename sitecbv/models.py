@@ -289,6 +289,7 @@ class CensoDoVolei(Publicavel):
     ImagemCarrossel = models.FileField(
         blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
     Link = models.CharField(max_length=1000)
+    Destaque = models.BooleanField(default=False)
     Ativo = models.BooleanField(default=False)
 
     class Meta:
@@ -330,7 +331,7 @@ class BannerRedeDesconto(models.Model):
 
 class BannerCensoDoVolei(models.Model):
     Titulo = models.CharField(max_length=100)
-    Imagem = models.FileField(blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
+    Subtitulo = models.CharField(max_length=100, blank=True, null=True)
     Ativo = models.BooleanField(default=False)
 
     def clean(self):

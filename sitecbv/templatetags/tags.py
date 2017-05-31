@@ -9,5 +9,7 @@ def contexto(value):
         return 'conteudoexclusivo'
     if value.__class__.__name__ == 'Experiencia':
         return 'experiencias'
+    if value.__class__.__name__ == 'CensoDoVolei':
+        return 'censosvolei'
     return None
 

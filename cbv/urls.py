@@ -24,7 +24,8 @@ from sitecbv.views import index, cadastrousuariobasico,\
                           categoriaconteudoexclusivo, maisconteudoexclusivo,\
                           detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin,\
                           experiencias, maisexperiencias, detalheexperiencias, rededescontos,\
-                          complementarendereco, detalherededescontos, faleconosco
+                          complementarendereco, detalherededescontos, faleconosco, censosvolei,\
+                          censosvoleiinativos, detalhecensovolei
 
 
 urlpatterns = [
@@ -48,6 +49,12 @@ urlpatterns = [
     #Experiencias
     url(r'^rededescontos/$', rededescontos),
     url(r'^rededescontos/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalherededescontos),
+
+    # Censo do Volei
+    url(r'^censosvolei/$', censosvolei),
+    url(r'^censosvolei/mais/(?P<ativo>(ativos))/$', censosvolei),
+    url(r'^censosvolei/mais/(?P<ativo>(inativos))/$', censosvoleiinativos),
+    url(r'^censosvolei/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalhecensovolei),
 
     # Cadastro de Usuario
     url(r'^cadastrarusuariobasico/', cadastrarusuariobasico),

@@ -9,6 +9,12 @@ class BannerRedeDescontoAdmin(admin.ModelAdmin):
     list_filter = ('Ativo',)
     search_fields = ('Titulo',)
 
+class BannerCensoDoVoleiAdmin(admin.ModelAdmin):
+    list_display = ['Titulo', 'Ativo']
+    list_filter = ('Ativo',)
+    search_fields = ('Titulo',)
+
+
 class RedeDeDescontoAdmin(admin.ModelAdmin):
     list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Publicar', 'Ativo')
     search_fields = ('Titulo', 'Conteudo',)
@@ -22,14 +28,14 @@ class RedeDeDescontoAdmin(admin.ModelAdmin):
     readonly_fields = ('DataPublicacao',)
 
 class CensoDoVoleiAdmin(admin.ModelAdmin):
-    list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Publicar', 'Ativo')
+    list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Destaque', 'Publicar', 'Ativo')
     search_fields = ('Titulo', 'Conteudo',)
     list_filter = ('DataPublicacao', 'Publicar', 'Ativo', 'Categoria')
     fieldsets = (
         ('Geral', {'fields':('Titulo', 'Subtitulo', 'Link', 'Detalhe',
                              'Categoria', 'DataPublicacao', 'Ativo')}),
         ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
-        (u'Publicação', {'fields':('Conteudo', 'Publicar',)}),
+        (u'Publicação', {'fields':('Conteudo', 'Destaque', 'Publicar',)}),
     )
     readonly_fields = ('DataPublicacao',)
 
@@ -106,7 +112,7 @@ admin.site.register(Experiencia, ExperienciaAdmin)
 admin.site.register(CensoDoVolei, CensoDoVoleiAdmin)
 admin.site.register(RedeDeDesconto, RedeDeDescontoAdmin)
 admin.site.register(BannerRedeDesconto, BannerRedeDescontoAdmin)
-admin.site.register(BannerCensoDoVolei)
+admin.site.register(BannerCensoDoVolei, BannerCensoDoVoleiAdmin)
 admin.site.register(Programa, ProgramaAdmin)
 admin.site.site_header = u'Confederação Brasileira de Volei'
 
