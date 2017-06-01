@@ -133,21 +133,25 @@
             $("#jogadores").hide();
             $("#times").show();
         }
-        else {
+        else if($("#id_modalidade_favorita option:selected").val() == "VP") {
             $("#jogadores").show();
             $("#times").hide();
+        }
+        else {
+            $("#jogadores").show();
+            $("#times").show();
         }
     }
 
     function trocarCpfPassaporte() {
         if ($('#id_ufed option:selected').val == "FO") {
             $('#id_cpf').attr("placeholder", "Passaporte");
-            $('#id_cpf').attr("pattern", /^[\d\w]+$/);
+            $('#id_cpf').attr("pattern", "^[\\d\\w]+$");
             $('#id_tipodocumento').val("PAS");
         }
         else {
             $('#id_cpf').attr("placeholder", "CPF");
-            $('#id_cpf').attr("pattern", /^\d{11}+$/);
+            $('#id_cpf').attr("pattern", "^\\d{11}+$");
             $('#id_tipodocumento').val("CPF");
         }
     }

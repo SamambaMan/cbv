@@ -213,7 +213,8 @@ cadastrocompleto	../sitecbv/models.py	/^    cadastrocompleto = models.BooleanFie
 cadastrousuariobasico	../sitecbv/views.py	/^def cadastrousuariobasico(request):$/;"	kind:function	line:20
 categoriaconteudoexclusivo	../sitecbv/views.py	/^def categoriaconteudoexclusivo(request, categoria):$/;"	kind:function	line:144
 celular	../sitecbv/models.py	/^    celular = models.CharField(max_length=15, blank=True, null=True)$/;"	kind:variable	line:80
-censosvolei	../sitecbv/views.py	/^def censosvolei(request):$/;"	kind:function	line:397
+censosvolei	../sitecbv/views.py	/^def censosvolei(request, ativo=None):$/;"	kind:function	line:397
+censosvoleiinativos	../sitecbv/views.py	/^def censosvoleiinativos(request, ativo):$/;"	kind:function	line:420
 censosvoleipublicados	../sitecbv/views.py	/^def censosvoleipublicados():$/;"	kind:function	line:393
 cep	../sitecbv/models.py	/^    cep = models.CharField(max_length=9, blank=True, null=True)$/;"	kind:variable	line:82
 cidade	../sitecbv/models.py	/^    cidade = models.CharField(max_length=100, blank=True, null=True)$/;"	kind:variable	line:89
@@ -247,6 +248,7 @@ dependencies	../sitecbv/migrations/0010_auto_20170528_1422.py	/^    dependencies
 dependencies	../sitecbv/migrations/0011_auto_20170528_1438.py	/^    dependencies = [$/;"	kind:variable	line:10
 dependencies	../sitecbv/migrations/0012_censodovolei_destaque.py	/^    dependencies = [$/;"	kind:variable	line:10
 dependencies	../sitecbv/migrations/0013_auto_20170530_2101.py	/^    dependencies = [$/;"	kind:variable	line:10
+detalhecensovolei	../sitecbv/views.py	/^def detalhecensovolei(request, categoria, id):$/;"	kind:function	line:440
 detalheconteudoexclusivo	../sitecbv/views.py	/^def detalheconteudoexclusivo(request, categoria, id):$/;"	kind:function	line:185
 detalheexperiencias	../sitecbv/views.py	/^def detalheexperiencias(request, categoria, id):$/;"	kind:function	line:296
 detalherededescontos	../sitecbv/views.py	/^def detalherededescontos(request, categoria, id):$/;"	kind:function	line:380
@@ -262,7 +264,7 @@ estariaenderecocompleto	../sitecbv/views.py	/^def estariaenderecocompleto(reques
 exclude	../sitecbv/forms.py	/^        exclude = ['user', 'tipodocumento']$/;"	kind:variable	line:125
 experiencias	../sitecbv/views.py	/^def experiencias(request):$/;"	kind:function	line:253
 experienciaspublicadas	../sitecbv/views.py	/^def experienciaspublicadas():$/;"	kind:function	line:248
-faleconosco	../sitecbv/views.py	/^def faleconosco(request):$/;"	kind:function	line:419
+faleconosco	../sitecbv/views.py	/^def faleconosco(request):$/;"	kind:function	line:457
 field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='infos_jogador_favorito', to='sitecbv.Jogador'),$/;"	kind:variable	line:199
 field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='infos_jogadora_favorita', to='sitecbv.Jogador'),$/;"	kind:variable	line:204
 field	../sitecbv/migrations/0001_initial.py	/^            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='infos_time_favorito_feminino', to='sitecbv.Time'),$/;"	kind:variable	line:219
@@ -659,7 +661,7 @@ times_secundarios_masculino	../sitecbv/models.py	/^    times_secundarios_masculi
 tipodocumento	../sitecbv/models.py	/^    tipodocumento = models.CharField($/;"	kind:variable	line:72
 ufed	../sitecbv/models.py	/^    ufed = models.CharField(max_length=50, blank=True,$/;"	kind:variable	line:75
 unidadefederativa	../sitecbv/forms.py	/^    unidadefederativa = forms.CharField($/;"	kind:variable	line:33
-urlpatterns	../cbv/urls.py	/^urlpatterns = [$/;"	kind:variable	line:30
+urlpatterns	../cbv/urls.py	/^urlpatterns = [$/;"	kind:variable	line:31
 urls.py	../cbv/urls.py	1;"	kind:file	line:1
 user	../sitecbv/models.py	/^    user = models.OneToOneField(User, on_delete=models.CASCADE)$/;"	kind:variable	line:68
 validate_CPF	../sitecbv/snipets.py	/^def validate_CPF(value):$/;"	kind:function	line:18

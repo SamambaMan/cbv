@@ -21,6 +21,7 @@ MF_CHOICES = (
 MODALIDADE_CHOICES = (
     ('VQ', u'Volei de Quadra'),
     ('VP', u'Volei de Praia'),
+    ('AM', u'Ambos'),
 )
 
 TIPO_DOCUMENTO_CHOICES = (
