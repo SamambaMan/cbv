@@ -172,8 +172,7 @@ class CadastroComplementar(forms.ModelForm):
         exclude = ['user', 'tipodocumento']
 
     def clean(self):
-        from django.forms import ValidationError
-        cleaned_data = super(CadastroComplementar, self).clean()
+        super(CadastroComplementar, self).clean()
 
         if self.cleaned_data['modalidade_favorita'] == 'VQ':
             if not self.cleaned_data['time_favorito_masculino']\

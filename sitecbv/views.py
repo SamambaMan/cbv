@@ -5,20 +5,39 @@ from django.contrib.auth.decorators import login_required
 from .decorators import obrigar_cadastro_complementar
 
 
-def torcidometroTimes():
+def torcidometro_times():
     from django.db.models import F, Count
-    from .models import Time, InfosAdicionaisUsuario
+    from .models import Time
 
-    containfos = InfosAdicionaisUsuario.objects.exclude(time_favorito_masculino__isnull=True)\
-                .exclude(time_favorito_feminino__isnull=True)\
-                .count()
+    todos_times = Time.objects.filter()
 
-    somatimes = Time.objects.annotate(qtd_masculino=Count('infos_time_favorito_masculino'))
+    somatimes = todos_times.annotate(qtd_masculino=Count('infos_time_favorito_masculino'))
     somatimes = somatimes.annotate(qtd_feminino=Count('infos_time_favorito_feminino'))
     somatimes = somatimes.annotate(soma=F('qtd_masculino') + F('qtd_feminino')).order_by('-soma')
-    somatimes = somatimes.annotate(percentual=(F('soma') * containfos)/100)
+
+    valortotal = 0
+    for atual in somatimes.values_list('soma'):
+        valortotal = valortotal + atual[0]
+
+    if valortotal != 0:
+        somatimes = somatimes.annotate(percentual=(F('soma') * 100)/valortotal)
+    else:
+        somatimes = somatimes.annotate(percentual=0)
 
     return somatimes[:10]
+
+def torcidometro_modalidades():
+    from .models import InfosAdicionaisUsuario
+    qtd_quadra = InfosAdicionaisUsuario.objects.filter(modalidade_favorita='VQ').count()
+    qtd_praia = InfosAdicionaisUsuario.objects.filter(modalidade_favorita='VP').count()
+    qtd_ambos = InfosAdicionaisUsuario.objects.filter(modalidade_favorita='AM').count()
+    total = qtd_quadra + qtd_praia + qtd_ambos
+
+    qtd_quadra = qtd_quadra * 100 / total
+    qtd_praia = qtd_praia * 100 / total
+    qtd_ambos = qtd_ambos * 100 / total
+
+    return {'quadra': qtd_quadra, 'praia': qtd_praia, 'ambos': qtd_ambos}
 
 @obrigar_cadastro_complementar
 def index(request):
@@ -30,7 +49,9 @@ def index(request):
     return render(request, 'cbv/index.html',
                   {'formcadastrobasico': CadastroUsuarioBasicoForm(),
                    'formlogin': LoginForm(),
-                   'conteudos_carrossel': conteudos_carrossel})
+                   'conteudos_carrossel': conteudos_carrossel,
+                   'torc_mod': torcidometro_modalidades(),
+                   'torc_times': torcidometro_times()})
 
 
 def cadastrousuariobasico(request):
