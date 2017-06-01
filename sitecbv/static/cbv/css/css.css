@@ -85,6 +85,11 @@
 	background-color:#1E4370;
 	color:#fff;
 }
+.classificacaoTorcidometro{
+	font-family:Nexa Bold;
+	font-size:30px;
+	color:#1E4370;
+}
 .naoHaresultadoBusca{
 	font-style:italic;
 	font-family:Nexa Bold;
@@ -146,6 +151,9 @@
 .imgFooter{
 	max-width:100%;
 }
+.maximoTamanho{
+	max-width:100%;
+}
 .setaTocidometro{
 	font-weight:bold;
 	font-size:36px;
@@ -157,6 +165,13 @@
 .tamanhoFixo2{
 	width: 257px;
 	height: 200px;
+}
+.fundoInput{
+	background-color: #E4E4E4;
+	border: none;
+}
+.tablePadding{
+	padding:0 0 10px 10px;
 }
 /*início torcidômetro abas*/
 * {
@@ -220,7 +235,7 @@ a:focus {
 }
 .tabs {
   display: none;
-  padding: 30px;
+  padding:30px 0;
 }
 .first-tab {
   display: block;
