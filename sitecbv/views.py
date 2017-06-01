@@ -4,6 +4,22 @@ from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from .decorators import obrigar_cadastro_complementar
 
+
+def torcidometroTimes():
+    from django.db.models import F, Count
+    from .models import Time, InfosAdicionaisUsuario
+
+    containfos = InfosAdicionaisUsuario.objects.exclude(time_favorito_masculino__isnull=True)\
+                .exclude(time_favorito_feminino__isnull=True)\
+                .count()
+
+    somatimes = Time.objects.annotate(qtd_masculino=Count('infos_time_favorito_masculino'))
+    somatimes = somatimes.annotate(qtd_feminino=Count('infos_time_favorito_feminino'))
+    somatimes = somatimes.annotate(soma=F('qtd_masculino') + F('qtd_feminino')).order_by('-soma')
+    somatimes = somatimes.annotate(percentual=(F('soma') * containfos)/100)
+
+    return somatimes[:10]
+
 @obrigar_cadastro_complementar
 def index(request):
     from .forms import CadastroUsuarioBasicoForm, LoginForm

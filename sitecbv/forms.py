@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from django import forms
+from django.forms import SelectMultiple, Select
 from .models import InfosAdicionaisUsuario, UF_CHOICES
 
 
@@ -105,6 +106,48 @@ class LoginForm(forms.Form):
                 not usuarios[0].check_password(self.cleaned_data['password']):
                 raise forms.ValidationError(u"Email ou senha invalido")
 
+def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
+    from django.utils.html import format_html, escape
+    from django.utils.encoding import smart_unicode
+    from django.utils.safestring import mark_safe
+    from django.forms.utils import flatatt
+    from .models import SUPERLIGA_CHOICE
+
+    extraattrs = {'name':name,}
+    if multiple:
+        extraattrs.update({'multiple':'multiple'})
+
+    if value is None:
+        value = ''
+    final_attrs = self.build_attrs(attrs, extraattrs)
+    output = [format_html('<select{0} class="form-control">', flatatt(final_attrs))]
+
+    grupo_inicial = ""
+    for option in self.choices.queryset.order_by('Nome').order_by('Superliga'):
+        if unicode(option.Superliga) != grupo_inicial:
+            if grupo_inicial != "":
+                output.append(u'</optgroup>')
+
+            output.append('<optgroup label = "%s">' % escape(smart_unicode(dict(SUPERLIGA_CHOICE)[option.Superliga])))
+            grupo_inicial = option.Superliga
+
+        option_value = smart_unicode(option.id)
+        option_label = smart_unicode(option.Nome)
+        output.append(u'<option value="%s">%s</option>' % (escape(option_value), escape(option_label)))
+
+    output.append(u'</optgroup>')
+    output.append(u'</select>')
+    return mark_safe('\n'.join(output))
+
+
+class GroupedMultipleSelectTime(SelectMultiple):
+    def render(self, name, value, attrs=None, choices=()):
+        return rendergroupedselect(self, True, name, value, attrs, choices)
+
+class GroupedSelectTime(Select):
+    def render(self, name, value, attrs=None, choices=()):
+        return rendergroupedselect(self, False, name, value, attrs, choices)
+
 class CadastroComplementar(forms.ModelForm):
     firstname = forms.CharField(
         label="Nome",
@@ -150,6 +193,12 @@ class CadastroComplementar(forms.ModelForm):
         self.fields['sexo'].required = True
         self.fields['celular'].widget.attrs.update(attrs_telefone)
         self.fields['telefone'].widget.attrs.update(attrs_telefone)
+
+        self.fields['times_secundarios_masculino'].widget = GroupedMultipleSelectTime()
+        self.fields['times_secundarios_feminino'].widget = GroupedMultipleSelectTime()
+        self.fields['time_favorito_masculino'].widget = GroupedSelectTime()
+        self.fields['time_favorito_feminino'].widget = GroupedSelectTime()
+
 
         self.fields['nascimento'].input_formats = ['%d/%m/%Y']
         self.fields['nascimento'].widget.attrs.update({
