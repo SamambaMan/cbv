@@ -123,6 +123,10 @@ def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
     output = [format_html('<select{0} class="form-control">', flatatt(final_attrs))]
 
     grupo_inicial = ""
+
+    if not multiple:
+        output.append('<option value="">--------</option>')
+
     for option in self.choices.queryset.order_by('Nome').order_by('Superliga'):
         if unicode(option.Superliga) != grupo_inicial:
             if grupo_inicial != "":
@@ -166,6 +170,26 @@ class CadastroComplementar(forms.ModelForm):
     class Meta:
         model = InfosAdicionaisUsuario
         exclude = ['user', 'tipodocumento']
+
+    def clean(self):
+        from django.forms import ValidationError
+        cleaned_data = super(CadastroComplementar, self).clean()
+
+        if self.cleaned_data['modalidade_favorita'] == 'VQ':
+            if not self.cleaned_data['time_favorito_masculino']\
+                or not self.cleaned_data['time_favorito_feminino']:
+                self.add_error('modalidade_favorita', "Selecione um time favorito masculino e um time favorito feminino")
+        elif self.cleaned_data['modalidade_favorita'] == 'VP':
+            if not self.cleaned_data['jogador_favorito']\
+                or not self.cleaned_data['jogadora_favorita'] is None:
+                self.add_error('modalidade_favorita', "Escolha um jogador e uma jogadora favoritos")
+        else:
+            if not self.cleaned_data['jogador_favorito']\
+                or not self.cleaned_data['jogadora_favorita']\
+                or not self.cleaned_data['time_favorito_masculino']\
+                or not self.cleaned_data['time_favorito_feminino']:
+                self.add_error('modalidade_favorita', "Escolha seus jogadores e times favoritos")
+
 
 
     def __init__(self, *args, **kwargs):
