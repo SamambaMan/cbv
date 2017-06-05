@@ -19,16 +19,16 @@
                     {{ formlogin.password }}
                   </div>
                   <div>
-                    <button type="submit" class="botaoOk">OK</button>
+                    <button type="submit" class="btn btn-success">OK</button>
                   </div>
                 </form>
                   <br>
                   <div>
                     <form action="{% url "password_reset_recover" %}">
-                      <button type="submit" class="botaoFace">Esqueci minha Senha</button>
+                      <button type="submit" class="btn btn-success">Esqueci minha Senha</button>
                     </form>
                     <form action="{% provider_login_url "facebook" %}">
-                      <button type="submit" class="botaoFace">Entrar com Facebook</button>
+                      <button type="submit" class="btn btn-primary">Entrar com Facebook</button>
                     </form>
                   </div>
                   <div style="height:10px;"></div>
@@ -62,7 +62,7 @@
                     {{ formcadastrobasico.passwordconfirm.errors }}
                     {{ formcadastrobasico.passwordconfirm }}
                   </div>
-                  <div><button type="submit" class="botaoCadastrar">CADASTRAR</button></div>
+                  <div><button type="submit" class="btn btn-success">CADASTRAR</button></div>
                   </form>
                 </div>
             </div>
