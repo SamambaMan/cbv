@@ -159,7 +159,7 @@ class Jogador(models.Model):
 
 class Programa(models.Model):
     Titulo = models.CharField(max_length=50)
-    Topo = models.FileField(help_text=u"Alta Resolução, 16x9, PNG ou JPG")
+    Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG")
     Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')
     Publicar = models.BooleanField(default=False)
 
@@ -179,8 +179,8 @@ class Publicavel(models.Model):
     Subtitulo = models.CharField(max_length=140, verbose_name=u'Subtítulo')
     Detalhe = models.CharField(max_length=50, blank=True, null=True)
     Thumb = models.FileField(
-        help_text=u"Alta Resolução, 16x9, PNG ou JPG", blank=True, null=True)
-    Topo = models.FileField(help_text=u"Alta Resolução, 16x9, PNG ou JPG")
+        help_text=u"170x200 px, PNG ou JPG", blank=True, null=True)
+    Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG")
     Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')
     DataPublicacao = models.DateField(
         blank=True, null=True, verbose_name=u'Data de Publicação')
@@ -250,7 +250,7 @@ class CategoriaRedeDeDesconto(Categoria):
 class ConteudoExclusivo(Publicavel):
     Destaque = models.BooleanField(default=False)
     ImagemCarrossel = models.FileField(
-        blank=True, null=True, help_text=u"Alta Resolução, 16x9, PNG ou JPG",
+        blank=True, null=True, help_text=u"678x226 px, PNG ou JPG",
         verbose_name='Imagem Carrossel')
     Categoria = models.ForeignKey('CategoriaConteudoExclusivo')
 
@@ -276,7 +276,7 @@ class ConteudoExclusivo(Publicavel):
 class Experiencia(Publicavel):
     Categoria = models.ForeignKey('CategoriaExperiencia')
     ImagemCarrossel = models.FileField(verbose_name=u'Imagem Carrossel',
-        blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
+        blank=True, null=True, help_text="678x226 px, PNG ou JPG")
     Destaque = models.BooleanField(default=False)
     Link = models.CharField(max_length=1000, verbose_name=u'Link Externo')
     Ativo = models.BooleanField(default=False)
@@ -289,7 +289,7 @@ class Experiencia(Publicavel):
 class CensoDoVolei(Publicavel):
     Categoria = models.ForeignKey('CategoriaCensoDoVolei')
     ImagemCarrossel = models.FileField(
-        blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
+        blank=True, null=True, help_text="678x226 px, PNG ou JPG")
     Link = models.CharField(max_length=1000)
     Destaque = models.BooleanField(default=False)
     Ativo = models.BooleanField(default=False)
@@ -302,9 +302,13 @@ class CensoDoVolei(Publicavel):
 class RedeDeDesconto(Publicavel):
     Categoria = models.ForeignKey('CategoriaRedeDeDesconto')
     ImagemCarrossel = models.FileField(
-        blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
+        blank=True, null=True, help_text="678x226 px, PNG ou JPG")
     Link = models.CharField(max_length=1000)
     Ativo = models.BooleanField(default=False)
+
+    def __init__(self, *args, **kwargs):
+        super(RedeDeDesconto, self).__init__(*args, **kwargs)
+        self.Thumb.help_text = "247x200 px, PNG ou JPG"
 
     class Meta:
         verbose_name = u"Rede de Desconto"
@@ -313,7 +317,7 @@ class RedeDeDesconto(Publicavel):
 
 class BannerRedeDesconto(models.Model):
     Titulo = models.CharField(max_length=100, verbose_name="Título")
-    Imagem = models.FileField(blank=True, null=True, help_text="Alta Resolução, 16x9, PNG ou JPG")
+    Imagem = models.FileField(blank=True, null=True, help_text="908x302 px, PNG ou JPG")
     Ativo = models.BooleanField(default=False)
 
     class Meta:
