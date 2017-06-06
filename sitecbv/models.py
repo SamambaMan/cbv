@@ -133,6 +133,7 @@ class Time(models.Model):
     Sexo = models.CharField(max_length=1, default='M', choices=MF_CHOICES)
     Superliga = models.CharField(max_length=2, default='SA', choices=SUPERLIGA_CHOICE)
     Logo = models.FileField(help_text="300x300 PNG ou JPG")
+    Link = models.CharField(max_length=1000, default="#")
 
     def __str__(self):
         if self:

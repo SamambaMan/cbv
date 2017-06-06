@@ -6404,6 +6404,7 @@ button.close {
 .carousel-control .icon-next:before {
   content: '\203a';
 }
+/*adaptacoes layout carrossel 02-06-2017
 .carousel-indicators {
   position: absolute;
   bottom: 10px;
@@ -6411,7 +6412,7 @@ button.close {
   z-index: 15;
   width: 60%;
   padding-left: 0;
-  margin-left: -30%;
+  margin-left: -56%;
   text-align: center;
   list-style: none;
 }
@@ -6423,16 +6424,19 @@ button.close {
   text-indent: -999px;
   cursor: pointer;
   background-color: #000 \9;
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #fff;
+  background-color: #999;
+  border: 1px solid #999;
   border-radius: 10px;
 }
 .carousel-indicators .active {
   width: 12px;
   height: 12px;
   margin: 0;
-  background-color: #fff;
-}
+  background-color: #666;
+}*/
+
+/*adaptacoes layout carrossel 02-06-2017
+--OLD--
 .carousel-caption {
   position: absolute;
   right: 15%;
@@ -6445,6 +6449,7 @@ button.close {
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
 }
+*/
 .carousel-caption .btn {
   text-shadow: none;
 }

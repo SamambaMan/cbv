@@ -177,7 +177,9 @@ class CadastroComplementar(forms.ModelForm):
         if self.cleaned_data['modalidade_favorita'] == 'VQ':
             if not self.cleaned_data['time_favorito_masculino']\
                 or not self.cleaned_data['time_favorito_feminino']:
-                self.add_error('modalidade_favorita', "Selecione um time favorito masculino e um time favorito feminino")
+                self.add_error(
+                    'modalidade_favorita',
+                    "Selecione um time favorito masculino e um time favorito feminino")
         elif self.cleaned_data['modalidade_favorita'] == 'VP':
             if not self.cleaned_data['jogador_favorito']\
                 or not self.cleaned_data['jogadora_favorita']:

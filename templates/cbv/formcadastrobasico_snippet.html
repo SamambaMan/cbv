@@ -7,14 +7,14 @@
                 <span class="register-box-title">JÁ SOU CADASTRADO</span>
                 <form action="/login/" method="post" autocomplete="off">
                 {% csrf_token %}
-                  <div align="left">
+                  <div>
                     {{ formlogin.non_field_errors }}
                   </div>
-                  <div align="left">
+                  <div>
                     {{ formlogin.email.errors }}
                     {{ formlogin.email }}
                   </div>
-                  <div align="left">
+                  <div>
                     {{ formlogin.password.errors }}
                     {{ formlogin.password }}
                   </div>
@@ -24,12 +24,16 @@
                 </form>
                   <br>
                   <div>
-                    <form action="{% url "password_reset_recover" %}">
-                      <button type="submit" class="btn btn-link">Esqueci minha Senha</button>
-                    </form>
-                    <form action="{% provider_login_url "facebook" %}">
-                      <button type="submit" class="btn btn-primary">Entrar com Facebook</button>
-                    </form>
+                    <div>
+                      <form action="{% provider_login_url "facebook" %}">
+                        <button type="submit" class="btn btn-primary">Entrar com Facebook</button>
+                      </form>
+                    </div>
+                    <div>
+                      <form action="{% url "password_reset_recover" %}">
+                        <button type="submit" class="btn btn-link">Esqueci minha Senha</button>
+                      </form>
+                    </div>
                   </div>
                   <div style="height:10px;"></div>
                   <div style="background-image: linear-gradient(to right, #1b416c, white, #1b416c); height:2px"></div>
@@ -43,11 +47,11 @@
                   {{ formcadastrobasico.non_field_errors }}
                   {{ errors }}
                   {{ formcadastrobasico.firstname.errors }}
-                  <div align="left">
+                  <div>
                     {{ formcadastrobasico.firstname }}
                   </div>
                   {{ formcadastrobasico.email.errors }}
-                  <div align="left">
+                  <div>
                     {{ formcadastrobasico.email }}
                   </div>
                   {{ formcadastrobasico.cpfpassaporte.errors }}

@@ -75,8 +75,9 @@
                     <tr>
                       <td class="classificacaoTorcidometro tablePadding alinhaCamposCenter">{{ forloop.counter }}º</td>
                       <td class="tablePadding alinhaCamposCenter">
-                        <!--<img src="{{ MEDIA_URL}}{{torc.Logo}}">-->
-                        {{torc.Nome}}
+                        <a href="{{ torc.Link }}" target="blank">
+                          <img src="{{ MEDIA_URL}}{{torc.Logo}}" class="tamanhoFixo3">
+                        </a>
                       </td>
                       <td class="tituloLight tablePadding alinhaCamposCenter">{{ torc.percentual }}%</td>
                     </tr>
@@ -101,8 +102,9 @@
                     <tr>
                       <td class="classificacaoTorcidometro tablePadding alinhaCamposCenter">{{ forloop.counter|add:"5" }}º</td>
                       <td class="tablePadding alinhaCamposCenter">
-                        <!--<img src="{{ MEDIA_URL}}{{torc.Logo}}">-->
-                        {{torc.Nome}}
+                        <a href="{{ torc.Link }}" target="blank">
+                          <img src="{{ MEDIA_URL}}{{torc.Logo}}" class="tamanhoFixo3">
+                        </a>
                       </td>
                       <td class="tituloLight tablePadding alinhaCamposCenter">{{ torc.percentual }}%</td>
                     </tr>
