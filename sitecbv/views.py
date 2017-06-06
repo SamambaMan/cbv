@@ -171,7 +171,9 @@ def conteudoexclusivo(request):
 
     return render(request, 'cbv/conteudoexclusivo/conteudoexclusivo.html',
                   {'conteudos_exibir': conteudos_exibir,
-                   'conteudos_carrossel': conteudos_carrossel, 'form': FormBuscaSimples()})
+                   'conteudos_carrossel': conteudos_carrossel, 
+                   'mostrarcompleto': True,
+                   'form': FormBuscaSimples()})
 
 def buscarpublicacao(listabasica, termos):
     from django.db.models import Q
@@ -307,6 +309,7 @@ def experiencias(request):
     return render(request, 'cbv/experiencias/experiencias.html',
                   {'conteudos_exibir': experiencias_exibir,
                    'conteudos_carrossel': experiencias_carrossel,
+                   'mostrarcompleto': True,
                    'form': form})
 
 @obrigar_cadastro_complementar
