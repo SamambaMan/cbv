@@ -2,7 +2,7 @@
 {% load set_var %}
 {% load tags %}
 {% set carroussel = ""%}
-{% if user.is_authenticated %}
+{% if user.is_authenticated or mostrarcompleto%}
     {% set carroussel = "myCarousel"%}
 {% else %}
     {% set carroussel = "myCarouselNaoLogada"%}
