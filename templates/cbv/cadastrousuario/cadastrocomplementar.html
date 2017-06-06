@@ -3,12 +3,12 @@
 <div class="space"></div>
 <div class="tituloBold">COMPLETE SEU CADASTRO</div>
 <div class="container">
-    {{ formulario.non_field_errors }}
     <div class="row">
         <form method="POST" action="/cadastrocomplementar/">
             {% csrf_token %}
             <div class="col-lg-5 bordaBox" style="border-right:none;">
                 <span class="tituloLight">Cadastro Básico</span>
+                {{ formulario.non_field_errors }}
                 <div class="form-group alinhaCamposLeft">
                     <label for="cpf">CPF | Passaporte:<span class="required">*</span></label> 
                     {{ formulario.cpf }} {{ formulario.cpf.errors }}
@@ -84,11 +84,11 @@
                         {{ formulario.jogador_favorito }} {{ formulario.jogador_favorito.errors }}
                     </div>
                     <div class="form-group alinhaCamposLeft">
-                        <label for="outroClubeMasculino">Você torce para mais alguma atleta de Vôlei de Praia Feminino?<span class="required">*</span></label>
+                        <label for="outroClubeMasculino">Você torce para mais alguma atleta de Vôlei de Praia Feminino?</label>
                         {{ formulario.jogadoras_secundarias_femininas }} {{ formulario.jogadoras_secundarias_femininas.errors }}
                     </div>
                     <div class="form-group alinhaCamposLeft">
-                        <label for="outroClubeMasculino">Você torce para mais algum atleta de Vôlei de Praia Masculino?<span class="required">*</span></label>
+                        <label for="outroClubeMasculino">Você torce para mais algum atleta de Vôlei de Praia Masculino?</label>
                         {{ formulario.jogadores_secundario_masculinos }} {{ formulario.jogadores_secundario_masculinos.errors }}
                     </div>
                 </div>
@@ -102,11 +102,11 @@
                         {{ formulario.time_favorito_masculino }} {{ formulario.time_favorito_masculino.errors }}
                     </div>
                     <div class="form-group alinhaCamposLeft">
-                        <label for="outroClubeFeminino">Você torce por algum outro clube feminino?<span class="required">*</span></label>
+                        <label for="outroClubeFeminino">Você torce por algum outro clube feminino?</label>
                         {{ formulario.times_secundarios_masculino }} {{ formulario.times_secundarios_masculino.errors }}
                     </div>
                     <div class="form-group alinhaCamposLeft">
-                        <label for="outroClubeMasculino">Você torce por algum outro clube masculino?<span class="required">*</span></label>
+                        <label for="outroClubeMasculino">Você torce por algum outro clube masculino?</label>
                         {{ formulario.times_secundarios_feminino }} {{ formulario.times_secundarios_feminino.errors }}
                     </div>
                 </div>
