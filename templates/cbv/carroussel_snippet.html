@@ -22,10 +22,10 @@
             <img class="first-slide" src="{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}" alt="Slideslide">
             <div class="container">
                 <div class="carousel-caption2 fundoCinzaCarrossel">
-                    <h1 class="fonteAzul">{{ conteudo.Titulo }}</h1>
-                    <p class="fonteCinza">{{ conteudo.Detalhe }}</p>
-                    <p><a class="btn btn-lg btn-primary" href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/"
-                            role="button">Ver mais</a></p>
+                    <a href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
+                        <h1 class="fonteAzul">{{ conteudo.Titulo }}</h1>
+                        <p class="fonteCinza">{{ conteudo.Detalhe }}</p>
+                    </a>
                 </div>
             </div>
         </div>
