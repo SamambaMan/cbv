@@ -2,36 +2,22 @@
 
 {% block content %}
 
-<div class="row">
-    {% include 'cbv/carroussel_snippet.html' %}
-</div>
+<div class="space"></div>
+
+{% include 'cbv/carroussel_snippet.html' %}
 
 <div class="space"></div>
+
+<div class="tituloBold">CONHEÇA E PARTICIPE DAS EXPERIÊNCIAS</div>
 
 <div class="container">
-    <div class="row">
-        <form name="pesquisa" method="post" action="/experiencias/mais/">
-        {% csrf_token %}
-            <div class="col-xs-12 col-lg-12 backgroundPesquisa">
-            <div class="col-xs-10 col-lg-6">
-                    {{ form.busca }}
-            </div>
-            <div class="col-xs-2 col-lg-1" align="left">
-                <input type="image" src="/static/cbv/img/lupa.png" />
-            </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="space"></div>
-<div class="row"> 
-<div class="col-lg-1"></div>
-<div class="col-lg-10"> 
+<div class="row">      
+<div class="col-xs-12 col-lg-12 alinhaCamposCenter">
+<div class="col-xs-12 col-lg-2"></div>
 {% for conteudo in conteudos_exibir %}
-    <div class="col-sm-5">
+    <div class="col-xs-12 col-lg-4 paddingBottom">
         <div class="media">
-            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1" alt="">
+            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
             <h5>{{ conteudo.Detalhe }}</h5>
@@ -42,7 +28,9 @@
         </div>
         <div class="space"></div>
     </div>
+    {% cycle '' '' '<div class="col-xs-12 col-lg-2"></div>' %}
 {% endfor %}
+</div>
 </div>
 </div>
 
