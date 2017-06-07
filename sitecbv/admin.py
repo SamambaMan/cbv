@@ -14,6 +14,11 @@ class BannerCensoDoVoleiAdmin(admin.ModelAdmin):
     list_filter = ('Ativo',)
     search_fields = ('Titulo',)
 
+class BannerExperienciaAdmin(admin.ModelAdmin):
+    list_display = ['Titulo', 'Ativo']
+    list_filter = ('Ativo',)
+    search_fields = ('Titulo', 'Subtitulo')
+
 
 class RedeDeDescontoAdmin(admin.ModelAdmin):
     list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Publicar', 'Ativo')
@@ -114,5 +119,6 @@ admin.site.register(RedeDeDesconto, RedeDeDescontoAdmin)
 admin.site.register(BannerRedeDesconto, BannerRedeDescontoAdmin)
 admin.site.register(BannerCensoDoVolei, BannerCensoDoVoleiAdmin)
 admin.site.register(Programa, ProgramaAdmin)
+admin.site.register(BannerExperiencia, BannerExperienciaAdmin)
 admin.site.site_header = u'Confederação Brasileira de Volei'
 

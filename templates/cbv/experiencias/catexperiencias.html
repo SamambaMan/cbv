@@ -9,10 +9,9 @@
     <div class="row">
 
         <form method="POST" action="/experiencias/mais/">
-
         {% csrf_token %}
-            <div class="col-xs-12 col-lg-12 backgroundPesquisa">
-            <div class="col-xs-10 col-lg-6">
+        <div class="col-xs-12 col-lg-12 ">
+          <div class="col-xs-10 col-lg-6 backgroundPesquisa"> 
                     {{ form.busca }}
             </div>
             <div class="col-xs-2 col-lg-1" align="left">

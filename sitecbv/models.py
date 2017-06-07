@@ -285,6 +285,20 @@ class Experiencia(Publicavel):
         verbose_name = u"Experiência"
         verbose_name_plural = u"Experiências"
 
+class BannerExperiencia(models.Model):
+    Titulo = models.CharField(max_length=50)
+    Subtitulo = models.CharField(max_length=100)
+    Ativo = models.BooleanField()
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.Ativo and BannerExperiencia.objects.filter(Ativo=True).exclude(id=self.id).count() > 0:
+            raise ValidationError(u"Já existe outro Banner Ativo")
+
+    def __str__(self):
+        if self.Titulo:
+            return self.Titulo
+        return ""
 
 class CensoDoVolei(Publicavel):
     Categoria = models.ForeignKey('CategoriaCensoDoVolei')
