@@ -290,10 +290,12 @@ def experienciaspublicadas():
 
 @obrigar_cadastro_complementar
 def experiencias(request):
-    from .models import Experiencia
+    from .models import BannerExperiencia
     from .forms import FormBuscaSimples
 
     experiencias_exibir = experienciaspublicadas()[:6]
+
+    bannerexperiencia = BannerExperiencia.objects.filter(Ativo=True).first()
 
     form = FormBuscaSimples()
     if request.method == 'POST':
@@ -310,6 +312,7 @@ def experiencias(request):
                   {'conteudos_exibir': experiencias_exibir,
                    'conteudos_carrossel': experiencias_carrossel,
                    'mostrarcompleto': True,
+                   'banner': bannerexperiencia,
                    'form': form})
 
 @obrigar_cadastro_complementar

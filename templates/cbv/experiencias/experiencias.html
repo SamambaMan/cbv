@@ -1,9 +1,10 @@
 {% extends "cbv/master.html" %}
 
 {% block content %}
-
 <div class="space"></div>
-
+<div class="tituloBold">{{ banner.Titulo|upper }}</div>
+<div class="subTitulo">{{ banner.Subtitulo }}</div>
+<div class="space"></div>
 {% include 'cbv/carroussel_snippet.html' %}
 
 <div class="space"></div>
