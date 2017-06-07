@@ -48,6 +48,11 @@
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
             <h5>{{ conteudo.Detalhe }}</h5>
+            {% if conteudo.Selo %}
+                <div class="alinhaCamposCenter alturaImgSelo"><img src="{{ MEDIA_URL}}{{ conteudo.Selo }}" alt="" border=""></div>
+            {% else %}
+                <div class="alinhaCamposCenter alturaImgSelo"><img src="/static/cbv/img/selo.png" alt="" border=""></div>
+            {% endif %}
             {% if conteudo.Ativo %}
             <a type="button" 
                 href="/rededescontos/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 

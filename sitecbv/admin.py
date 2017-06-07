@@ -22,7 +22,7 @@ class RedeDeDescontoAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Geral', {'fields':('Titulo', 'Subtitulo', 'Link', 'Detalhe',
                              'Categoria', 'DataPublicacao', 'Ativo')}),
-        ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo',)}),
+        ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo', 'Selo')}),
         (u'Publicação', {'fields':('Conteudo', 'Publicar',)}),
     )
     readonly_fields = ('DataPublicacao',)

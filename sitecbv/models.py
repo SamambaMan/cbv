@@ -303,6 +303,7 @@ class RedeDeDesconto(Publicavel):
     Categoria = models.ForeignKey('CategoriaRedeDeDesconto')
     ImagemCarrossel = models.FileField(
         blank=True, null=True, help_text="678x226 px, PNG ou JPG")
+    Selo = models.FileField(blank=True, null=True)
     Link = models.CharField(max_length=1000)
     Ativo = models.BooleanField(default=False)
 
