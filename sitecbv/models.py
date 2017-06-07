@@ -176,11 +176,11 @@ class Programa(models.Model):
 
 class Publicavel(models.Model):
     Titulo = models.CharField(max_length=50, verbose_name=u'Título')
-    Subtitulo = models.CharField(max_length=140, verbose_name=u'Subtítulo')
+    Subtitulo = models.CharField(max_length=140, verbose_name=u'Subtítulo', null=True, blank=True)
     Detalhe = models.CharField(max_length=50, blank=True, null=True)
     Thumb = models.FileField(
         help_text=u"170x200 px, PNG ou JPG", blank=True, null=True)
-    Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG")
+    Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG", blank=True, null=True)
     Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')
     DataPublicacao = models.DateField(
         blank=True, null=True, verbose_name=u'Data de Publicação')
@@ -351,6 +351,19 @@ class RedeDeDesconto(Publicavel):
     class Meta:
         verbose_name = u"Rede de Desconto"
         verbose_name_plural = u"Redes de Desconto"
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.Publicar and (\
+                    not self.Titulo\
+                    or not self.Subtitulo\
+                    or not self.Link\
+                    or not self.Detalhe\
+                    or not self.Categoria\
+                    or not self.Thumb\
+                    or not self.Selo):
+            raise ValidationError(u"Para publicar um conteúdo todos os campos são obrigatórios")
+                    
 
 
 class BannerRedeDesconto(models.Model):

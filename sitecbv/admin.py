@@ -22,13 +22,13 @@ class BannerExperienciaAdmin(admin.ModelAdmin):
 
 class RedeDeDescontoAdmin(admin.ModelAdmin):
     list_display = ('Titulo', 'Categoria', 'DataPublicacao', 'Publicar', 'Ativo')
-    search_fields = ('Titulo', 'Conteudo',)
+    search_fields = ('Titulo', 'Conteudo', 'Detalhe')
     list_filter = ('DataPublicacao', 'Publicar', 'Ativo', 'Categoria')
     fieldsets = (
         ('Geral', {'fields':('Titulo', 'Subtitulo', 'Link', 'Detalhe',
                              'Categoria', 'DataPublicacao', 'Ativo')}),
-        ('Imagens', {'fields':('Thumb', 'ImagemCarrossel', 'Topo', 'Selo')}),
-        (u'Publicação', {'fields':('Conteudo', 'Publicar',)}),
+        ('Imagens', {'fields':('Thumb', 'Selo')}),
+        (u'Publicação', {'fields':('Publicar',)}),
     )
     readonly_fields = ('DataPublicacao',)
 
