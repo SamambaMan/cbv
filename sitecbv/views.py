@@ -154,7 +154,7 @@ def conteudospublicados():
 
 @obrigar_cadastro_complementar
 def conteudoexclusivo(request):
-    from .models import ConteudoExclusivo, CategoriaConteudoExclusivo
+    from .models import ConteudoExclusivo, CategoriaConteudoExclusivo, BannerConteudoExclusivo
     from .forms import FormBuscaSimples
 
     conteudos_exibir = []
@@ -168,11 +168,14 @@ def conteudoexclusivo(request):
     conteudos_carrossel = conteudospublicados().filter(
         Destaque=True).order_by('-DataPublicacao')[:5]
 
+    bannerconteudo = BannerConteudoExclusivo.objects.filter(Ativo=True).first()
+
 
     return render(request, 'cbv/conteudoexclusivo/conteudoexclusivo.html',
                   {'conteudos_exibir': conteudos_exibir,
                    'conteudos_carrossel': conteudos_carrossel, 
                    'mostrarcompleto': True,
+                   'banner': bannerconteudo,
                    'form': FormBuscaSimples()})
 
 def buscarpublicacao(listabasica, termos):

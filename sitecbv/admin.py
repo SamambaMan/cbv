@@ -120,5 +120,6 @@ admin.site.register(BannerRedeDesconto, BannerRedeDescontoAdmin)
 admin.site.register(BannerCensoDoVolei, BannerCensoDoVoleiAdmin)
 admin.site.register(Programa, ProgramaAdmin)
 admin.site.register(BannerExperiencia, BannerExperienciaAdmin)
+admin.site.register(BannerConteudoExclusivo, BannerExperienciaAdmin)
 admin.site.site_header = u'Confederação Brasileira de Volei'
 
