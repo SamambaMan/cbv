@@ -249,7 +249,7 @@ class CadastroComplementar(forms.ModelForm):
 
         for field_name in self.fields:
             field = self.fields.get(field_name)
-            if field:
+            if field and field_name != "receberinformacoesprograma":
                 field.widget.attrs.update({
                     'placeholder': field.label,
                     'class': 'form-control',

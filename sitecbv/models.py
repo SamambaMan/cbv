@@ -111,6 +111,8 @@ class InfosAdicionaisUsuario(models.Model):
     times_secundarios_feminino = models.ManyToManyField(
         'Time', related_name="infos_times_secundarios_feminino", blank=True)
 
+    receberinformacoesprograma = models.BooleanField(default=True)
+
     def clean(self):
         from django.forms import ValidationError
         from .snipets import validate_CPF
@@ -363,7 +365,7 @@ class RedeDeDesconto(Publicavel):
                     or not self.Thumb\
                     or not self.Selo):
             raise ValidationError(u"Para publicar um conteúdo todos os campos são obrigatórios")
-                    
+
 
 
 class BannerRedeDesconto(models.Model):
