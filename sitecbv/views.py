@@ -22,7 +22,7 @@ def torcidometro_times():
     if valortotal != 0:
         somatimes = somatimes.annotate(percentual=(F('soma') * 100)/valortotal)
     else:
-        somatimes = somatimes.annotate(percentual=0)
+        somatimes = somatimes.annotate(percentual=F('soma'))
 
     return somatimes[:10]
 
