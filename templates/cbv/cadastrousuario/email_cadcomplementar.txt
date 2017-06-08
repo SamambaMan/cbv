@@ -1,0 +1,4 @@
+Olá, {{nome}}!
+Você completou o seu cadastro no site da Confederação Brasileira de Vôlei!
+
+Acesse {{endereco}} para conferir nosso conteúdo!<br>

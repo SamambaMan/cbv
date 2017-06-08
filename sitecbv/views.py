@@ -264,6 +264,31 @@ def obterformcomplementar(request):
 
     return formulario
 
+def enviaremailcadastrocomplementar(request):
+    from django.template.loader import get_template
+    from django.core.mail import EmailMultiAlternatives
+    from django.conf import settings
+
+    corpo = {'nome': request.user.first_name,
+             'endereco': settings.ENDERECO}
+
+    html = get_template('cbv/cadastrousuario/email_cadcomplementar.html')
+    text = get_template('cbv/cadastrousuario/email_cadcomplementar.txt')
+
+    subject, from_email, to = 'Bem Vindo CBV', settings.EMAIL_HOST_USER, [request.user.email]
+    html_content = html.render(corpo)
+    text_content = text.render(corpo)
+
+    msg = EmailMultiAlternatives(subject,
+                                 text_content,
+                                 from_email=from_email,
+                                 to=to)
+
+    msg.attach_alternative(html_content, "text/html")
+
+    msg.send()
+
+
 @login_required
 def cadastrocomplementar(request):
 
@@ -276,6 +301,8 @@ def cadastrocomplementar(request):
             informacoes.cadastrocompleto = True
 
             informacoes.save()
+
+            enviaremailcadastrocomplementar(request)
 
             return render(request, 'cbv/cadastrousuario/cadastrocompleto.html')
 
@@ -461,6 +488,7 @@ def censosvolei(request, ativo=None):
                    'censosvoleiativos': censosvoleiativos,
                    'censosvoleiinativos': censosvoleiinativos,
                    'conteudos_carrossel': carrossel,
+                   'mostrarcompleto': True,
                    'ativo': ativo})
 
 def censosvoleiinativos(request, ativo):

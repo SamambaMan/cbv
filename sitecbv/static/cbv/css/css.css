@@ -244,6 +244,12 @@ a:focus {
 .first-tab {
   display: block;
 }
+.backgroundPrograma{
+	text-align:left;
+	background:url(../img/bannerPrograma/banner1Programa.png);
+	padding:40px;
+	color:#FFF;
+}
 /*fim abas torcidômetro*/
 /*------------------------------------*/
 /*form não logado*/
