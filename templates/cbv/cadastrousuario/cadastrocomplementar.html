@@ -112,6 +112,12 @@
                 </div>
             </div>
             <div class="col-lg-12">
+                <div class="checkbox">
+                    <label>
+                        {{ formulario.receberinformacoesprograma}} Quero receber informações do Programa por e-mail
+                    </label>
+                </div>
+                
                 <input type="submit" 
                     class="btn btn-success" 
                     value="{% if formulario.instance.cadastrocompleto %}Alterar Informações{% else %}Completar Cadastro{% endif %}">

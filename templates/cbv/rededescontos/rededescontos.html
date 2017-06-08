@@ -53,19 +53,21 @@
             <h5>{{ conteudo.Detalhe }}</h5>
             {% if conteudo.Selo %}
                 <div class="alinhaCamposCenter alturaImgSelo">
-                    <img src="{{ MEDIA_URL}}{{ conteudo.Selo }}" alt="" border="">
+                    <img src="{{ MEDIA_URL}}{{ conteudo.Selo }}" alt="" border="" class="tamanhoFixo4">
                 </div>
             {% else %}
                 <div class="alinhaCamposCenter alturaImgSelo">
-                    <img src="/static/cbv/img/selo.png" alt="" border="">
+                    <img src="/static/cbv/img/selo.png" alt="" class="tamanhoFixo4" border="">
                 </div>
             {% endif %}
+            <div class="alturaBtParticipe">
             {% if conteudo.Ativo %}
             <a type="button" 
                 href="/rededescontos/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
                 class="btn btn-success larguraCemPorCento"
-                target="blank">Saiba Mais</a>
+                target="blank">APROVEITE</a>
             {% endif %}
+            </div>
         </div>
         </div>
     </div>
