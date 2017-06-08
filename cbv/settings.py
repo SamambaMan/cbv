@@ -25,7 +25,6 @@ EMAIL_HOST_PASSWORD = 'clarissasimoneamor'
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-
 CONTATOS = ['felipe.gomes.ferreira@gmail.com', 'mauricio.sellis@globality.com.br', 'felipe.silva@globality.com.br']
 
 # Quick-start development settings - unsuitable for production
@@ -37,7 +36,7 @@ SECRET_KEY = '7l0k$8)zy=avhtui5wtog!c*iik+a(xz*@ukyk6$0r5paq=^u_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cbv.felipeferreira.xyz','localhost']
+ALLOWED_HOSTS = ['cbv.felipeferreira.xyz', 'localhost']
 
 AUTHENTICATION_BACKENDS = (
     #'cbv.sitecbv.backends.Autenticacao',
@@ -46,6 +45,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Application definition
+
+ENDERECO = 'http://localhost:8000'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

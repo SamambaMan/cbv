@@ -1,0 +1,63 @@
+{% extends "cbv/master.html" %}
+
+{% block content %}
+
+<div class="space"></div>
+<div class="tituloBold">{{ banner.Titulo|upper }}</div>
+<div class="subTitulo">{{ banner.Subtitulo }}</div>
+<div class="space"></div>
+
+{% include 'cbv/carroussel_snippet.html' %}
+
+<div class="space"></div>
+
+<div class="container">
+    <div class="row">
+        <form name="pesquisa" method="post" action="/conteudoexclusivo/mais/">
+        {% csrf_token %}
+        <div class="col-xs-12 col-lg-12 ">
+          <div class="col-xs-10 col-lg-6 backgroundPesquisa"> 
+                    {{ form.busca }}
+            </div>
+            <div class="col-xs-2 col-lg-1" align="left">
+                <input type="image" src="/static/cbv/img/lupa.png" />
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="space"></div>
+<div class="container">
+<div class="row"> 
+<div class="col-lg-1"></div>
+<div class="col-xs-12 col-lg-12">
+{% for conteudo in conteudos_exibir %}
+    <div class="col-xs-12 col-lg-6 paddingBottom">
+        <div class="tituloCategoria">
+            <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/" 
+                class="tituloCategoria">{{ conteudo.Categoria.Nome }}</a>
+        </div>
+        <div class="media">
+            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1">
+        <div class="media-body" align="left">
+            <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
+            <h5>{{ conteudo.Detalhe }}</h5>
+            <a type="button" 
+                href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                class="btn btn-success">Saiba Mais</a>
+        </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+</div>
+<div class="space"></div>
+<div align="center">
+    <a type="button" href="/conteudoexclusivo/mais/" class="btn btn-success">
+    MAIS CONTEÚDOS</a>
+</div>
+<div class="space"></div>
+
+{% endblock %}
