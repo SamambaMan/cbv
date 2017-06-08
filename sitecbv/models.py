@@ -179,7 +179,7 @@ class Programa(models.Model):
 class Publicavel(models.Model):
     Titulo = models.CharField(max_length=50, verbose_name=u'Título')
     Subtitulo = models.CharField(max_length=140, verbose_name=u'Subtítulo', null=True, blank=True)
-    Detalhe = models.CharField(max_length=50, blank=True, null=True)
+    Detalhe = models.CharField(max_length=140, blank=True, null=True)
     Thumb = models.FileField(
         help_text=u"170x200 px, PNG ou JPG", blank=True, null=True)
     Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG", blank=True, null=True)

@@ -42,7 +42,7 @@
 <div class="space"></div>
 <div class="container">
 <div class="row"> 
-<div class="col-xs-12 col-lg-12 alinhaCamposCenter">
+<div class="col-xs-12 col-lg-11 alinhaCamposCenter">
 <div class="col-xs-12 col-lg-2"></div>
 {% for conteudo in conteudos %}
     <div class="col-xs-12 col-lg-4 paddingBottom fundoCinzaClaro">
@@ -50,7 +50,7 @@
             <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
         <div class="media-body" align="left">
             <h3 class="media-heading tituloLightPequeno alinhaCamposCenter">{{ conteudo.Titulo }}</h3>
-            <h5>{{ conteudo.Detalhe }}</h5>
+            <div class="alturaDescricaoDesconto"><h5>{{ conteudo.Detalhe }}</h5></div>
             {% if conteudo.Selo %}
                 <div class="alinhaCamposCenter alturaImgSelo">
                     <img src="{{ MEDIA_URL}}{{ conteudo.Selo }}" alt="" border="" class="tamanhoFixo4">
