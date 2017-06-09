@@ -113,6 +113,10 @@ def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
     from django.forms.utils import flatatt
     from .models import SUPERLIGA_CHOICE
 
+    if not isinstance(value, list):
+        value = [value]
+    value = map(str, value)
+
     extraattrs = {'name':name,}
     if multiple:
         extraattrs.update({'multiple':'multiple'})
@@ -137,7 +141,11 @@ def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
 
         option_value = smart_unicode(option.id)
         option_label = smart_unicode(option.Nome)
-        output.append(u'<option value="%s">%s</option>' % (escape(option_value), escape(option_label)))
+        selected = ""
+        
+        if option_value in value:
+            selected = "selected"
+        output.append(u'<option value="%s" %s>%s</option>' % (escape(option_value), selected, escape(option_label)))
 
     output.append(u'</optgroup>')
     output.append(u'</select>')
@@ -167,9 +175,30 @@ class CadastroComplementar(forms.ModelForm):
         widget=forms.TextInput(
             attrs={'placeholder': 'E-Mail'}))
 
+    senhaantiga = forms.CharField(
+        label="Senha Antiga",
+        max_length=16,
+        required=False,
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Senha'}))
+
+    senhanova = forms.CharField(
+        label="Senha Nova",
+        max_length=16,
+        required=False,
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Senha'}))
+    
+    confirmacaosenha = forms.CharField(
+        label="Confirmacao de Senha",
+        max_length=16,
+        required=False,
+        widget=forms.PasswordInput(
+            attrs={'placeholder': 'Senha'}))
+
     class Meta:
         model = InfosAdicionaisUsuario
-        exclude = ['user', 'tipodocumento']
+        exclude = ['user', 'tipodocumento', 'cadastrocompleto']
 
     def clean(self):
         super(CadastroComplementar, self).clean()
@@ -190,9 +219,17 @@ class CadastroComplementar(forms.ModelForm):
                 or not self.cleaned_data['time_favorito_masculino']\
                 or not self.cleaned_data['time_favorito_feminino']:
                 self.add_error('modalidade_favorita', "Escolha seus jogadores e times favoritos")
+        
+        if self.cleaned_data['senhaantiga']:
+            if not self.instance.user.check_password(self.cleaned_data['senhaantiga']):
+                self.add_error('senhaantiga', u'Senha antiga inválida')
+            else:
+                if not self.cleaned_data['senhanova']:
+                    self.add_error('senhanova', u'Informe uma senha nova')
+                elif self.cleaned_data['senhanova'] != self.cleaned_data['confirmacaosenha']:
+                    self.add_error('senhanova', u'As senhas informadas não conferem')
 
-
-
+        
     def __init__(self, *args, **kwargs):
         from django.core.validators import RegexValidator
 

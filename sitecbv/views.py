@@ -22,7 +22,7 @@ def torcidometro_times():
     if valortotal != 0:
         somatimes = somatimes.annotate(percentual=(F('soma') * 100)/valortotal)
     else:
-        somatimes = somatimes.annotate(percentual=0)
+        somatimes = somatimes.annotate(percentual=F('soma'))
 
     return somatimes[:10]
 
@@ -291,18 +291,29 @@ def enviaremailcadastrocomplementar(request):
 
 @login_required
 def cadastrocomplementar(request):
+    from .models import InfosAdicionaisUsuario
+    from django.contrib.auth import login
+    from django.contrib.auth.models import User
 
     formulario = obterformcomplementar(request)
 
     if request.method == 'POST':
         if formulario.is_valid():
+
+            antigo = InfosAdicionaisUsuario.objects.get(id=formulario.instance.id).cadastrocompleto
+
             informacoes = formulario.save()
 
-            informacoes.cadastrocompleto = True
+            if formulario.cleaned_data['senhanova']:
+                usuario = User.objects.get(id=request.user.id)
+                usuario.set_password(formulario.cleaned_data['senhanova'])
+                usuario.save()
+                login(request, usuario, backend='django.contrib.auth.backends.ModelBackend')
 
-            informacoes.save()
-
-            enviaremailcadastrocomplementar(request)
+            if not antigo:
+                informacoes.cadastrocompleto = True
+                informacoes.save()
+                enviaremailcadastrocomplementar(request)
 
             return render(request, 'cbv/cadastrousuario/cadastrocompleto.html')
 

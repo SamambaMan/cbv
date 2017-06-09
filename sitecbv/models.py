@@ -116,7 +116,6 @@ class InfosAdicionaisUsuario(models.Model):
     def clean(self):
         from django.forms import ValidationError
         from .snipets import validate_CPF
-        print 'tentando clean informacoes adicionais'
         if self.ufed != "FO":
             validate_CPF(self.cpf)
 
