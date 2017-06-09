@@ -438,17 +438,17 @@ def rededescontopublicados():
     return RedeDeDesconto.objects.filter(Publicar=True).order_by('-DataPublicacao')
 
 def rededescontos(request):
-    from .forms import FormBuscaSimples
+    from .forms import FormBuscaDesconto
     from .models import BannerRedeDesconto
 
-    form = FormBuscaSimples()
+    form = FormBuscaDesconto()
 
     conteudos = rededescontopublicados()
 
     bannerrede = BannerRedeDesconto.objects.filter(Ativo=True).first()
 
     if request.method == 'POST':
-        form = FormBuscaSimples(request.POST)
+        form = FormBuscaDesconto(request.POST)
         form.is_valid()
 
         termos = form.cleaned_data['busca']
