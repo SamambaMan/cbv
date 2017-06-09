@@ -34,9 +34,15 @@
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
             <h5>{{ conteudo.Detalhe }}</h5>
+            {% if conteudo.Ativo %}
             <a type="button" 
                 href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
                 class="btn btn-success">Saiba Mais</a>
+            {% else %}
+                <a type="button" 
+                href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                class="btn btn-default letraVerde">Veja como foi</a>
+            {% endif %}
         </div>
         </div>
         <div class="space"></div>

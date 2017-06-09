@@ -15,7 +15,6 @@ class FormBuscaDesconto(FormBuscaSimples):
 
     def __init__(self, *args, **kwargs):
         super(FormBuscaDesconto, self).__init__(*args, **kwargs)
-
         self.fields['busca'].widget.attrs.update({'placeholder':'O que você quer comprar com seu desconto?'})
 
 
