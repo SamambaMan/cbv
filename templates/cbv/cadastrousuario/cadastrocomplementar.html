@@ -111,6 +111,32 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xs-12 col-lg-12 paddingBottom"></div>
+            <div class="col-xs-12 col-lg-12 paddingBottom">
+                <div class="col-xs-12 col-lg-1">
+                <button type="button" 
+                    class="btn btn-toggle btn-primary alinhaCamposLeft" 
+                    data-element="#divAlterarSenha">Trocar senha</button>
+                </div>
+                <div class="col-xs-12 col-lg-12"></div>
+                <div id="divAlterarSenha" class="col-xs-12 col-lg-12 escondeDiv">
+                <div class="col-xs-12 col-lg-4 form-group alinhaCamposLeft">
+                    <label for="senhaAntiga">Senha antiga:</label>
+                    {{formulario.senhaantiga}}
+                    {{formulario.senhaantiga.errors}}
+                </div>
+                <div class="col-xs-12 col-lg-4 form-group alinhaCamposLeft">
+                    <label for="novaSenha">Nova senha:</label>
+                    {{formulario.senhanova}}
+                    {{formulario.senhanova.errors}}
+                </div>
+                <div class="col-xs-12 col-lg-4 form-group alinhaCamposLeft">
+                    <label for="confirmaSenha">Confirmar senha:</label>
+                    {{formulario.confirmacaosenha}}
+                </div>
+                </div>
+            </div>
+
             <div class="col-lg-12">
                 <div class="checkbox">
                     <label>
@@ -162,6 +188,16 @@
         }
     }
 
+</script>
+
+<script language="javascript">
+$(function(){
+        $(".btn-toggle").click(function(e){
+            e.preventDefault();
+            el = $(this).data('element');
+            $(el).toggle();
+        });
+    });
 </script>
 
 {% endblock %}

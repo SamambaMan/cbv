@@ -9,10 +9,9 @@
         <!--imagem programa-->
         <div class="container">
             <div class="row">
-                <div><img src="{{ MEDIA_URL }}{{ programa.Topo }}" class="imgPrincipal" alt="" border=""></div>
-            </div>
-            <div class="row" style="text-align:left;">
+                <div class="col-xs-12 col-lg-12" style="text-align:left;background:url({{ MEDIA_URL }}{{ programa.Topo }});padding:40px;background-repeat:no-repeat;background-size:100% 100%;" >
                 {{ programa.Conteudo|safe }}
+                </div>
             </div>
         </div>
     {% endif %}
