@@ -6,8 +6,9 @@
     <div class="row">
         <form method="POST" action="/cadastrocomplementar/">
             {% csrf_token %}
-            <div class="col-lg-5 bordaBox" style="border-right:none;">
-                <span class="tituloLight">Cadastro Básico</span>
+            <div class="col-lg-1"></div>
+          <div class="col-lg-9">
+            <div class="col-xs-12 col-lg-6">
                 {{ formulario.non_field_errors }}
                 <div class="form-group alinhaCamposLeft">
                     <label for="cpf">CPF | Passaporte:<span class="required">*</span></label> 
@@ -33,9 +34,6 @@
                     <label for="idade">Telefone</label> 
                     {{ formulario.telefone }} {{ formulario.telefone.errors }}
                 </div>
-            </div>
-            <div class="col-lg-4 bordaBox">
-                <span class="tituloLight">Endereço</span>
                 <div class="form-group alinhaCamposLeft">
                     <label for="cep">CEP:</label> 
                     {{ formulario.cep }} {{ formulario.cep.errors }}
@@ -56,6 +54,8 @@
                     <label for="bairro">Bairro:</label> 
                     {{ formulario.bairro }} {{ formulario.bairro.errors }}
                 </div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
                 <div class="form-group alinhaCamposLeft">
                     <label for="cidade">Cidade</label> 
                     {{ formulario.cidade }} {{ formulario.cidade.errors }}
@@ -68,9 +68,6 @@
                     <label for="pais">País</label> 
                     {{ formulario.pais }} {{ formulario.pais.errors }}
                 </div>
-            </div>
-            <div class="col-lg-4 bordaBox" style="border-left:none;">
-                <span class="tituloLight">Times</span>
                 <div class="form-group alinhaCamposLeft">
                     {{ formulario.modalidade_favorita }} {{ formulario.modalidade_favorita.errors }}
                 </div>
@@ -116,7 +113,7 @@
                 <div class="col-xs-12 col-lg-1">
                 <button type="button" 
                     class="btn btn-toggle btn-primary alinhaCamposLeft" 
-                    data-element="#divAlterarSenha">Trocar senha</button>
+                    data-element="#divAlterarSenha">TROCAR SENHA</button>
                 </div>
                 <div class="col-xs-12 col-lg-12"></div>
                 <div id="divAlterarSenha" class="col-xs-12 col-lg-12 escondeDiv">
@@ -146,7 +143,7 @@
                 
                 <input type="submit" 
                     class="btn btn-success" 
-                    value="{% if formulario.instance.cadastrocompleto %}Alterar Informações{% else %}Completar Cadastro{% endif %}">
+                    value="{% if formulario.instance.cadastrocompleto %}ALTERAR INFORMAÇÕES{% else %}COMPLETAR CADASTRO{% endif %}">
             </div>
         </form>
     </div>
