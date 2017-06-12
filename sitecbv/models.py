@@ -368,7 +368,8 @@ class RedeDeDesconto(Publicavel):
 
 
 class BannerRedeDesconto(models.Model):
-    Titulo = models.CharField(max_length=100, verbose_name="Título")
+    Titulo = models.CharField(max_length=100, verbose_name=u"Título")
+    Subtitulo = models.CharField(max_length=100, verbose_name=u"Subtítulo", default="")
     Imagem = models.FileField(blank=True, null=True, help_text="908x302 px, PNG ou JPG")
     Ativo = models.BooleanField(default=False)
 

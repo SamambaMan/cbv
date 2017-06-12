@@ -4,9 +4,9 @@
 
 <div class="space"></div>
 {% if categoria %}
-    <div class="tituloBold">{{ categoria.Nome }}</div>
+    <div class="tituloBold">{{ categoria.Nome|upper }}</div>
 {% else %}
-    <div class="tituloBold">Histórico</div>
+    <div class="tituloBold">HISTÓRICO</div>
 {% endif %}
 
 <div class="container">
