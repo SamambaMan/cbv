@@ -40,14 +40,17 @@
 {% for conteudo in conteudos %}
           <div class="col-xs-12 col-lg-6 paddingBottom">
             <div class="media">
+		<a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
                 <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" 
-                class="media-object pull-left tamanhoFixo1" alt="">
+                class="media-object pull-left tamanhoFixo1" alt=""></a>
               <div class="media-body" align="left">
+		<a style="color:#5a5a5a" href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
                 <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
                 <h5>{{ conteudo.Detalhe }}</h5>
+		</a>
                 <a type="button" 
-                    href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
-                    class="btn btn-success">Saiba Mais</a>
+                    href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/" 
+                    class="btn btn-success">{{ conteudo.Categoria.Nome }}</a>
               </div>
             </div>
             <div class="space"></div>
