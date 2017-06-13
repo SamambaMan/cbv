@@ -319,7 +319,8 @@ def cadastrocomplementar(request):
 
     return render(request,
                   'cbv/cadastrousuario/cadastrocomplementar.html',
-                  {'formulario':formulario})
+                  {'formulario':formulario,
+                   'completo':request.user.infosadicionaisusuario.cadastrocompleto})
 
 
 
@@ -437,6 +438,7 @@ def rededescontopublicados():
     from .models import RedeDeDesconto
     return RedeDeDesconto.objects.filter(Publicar=True).order_by('-DataPublicacao')
 
+@obrigar_cadastro_complementar
 def rededescontos(request):
     from .forms import FormBuscaDesconto
     from .models import BannerRedeDesconto
@@ -461,6 +463,7 @@ def rededescontos(request):
                    'bannerrede': bannerrede,
                    'form': form})
 
+@obrigar_cadastro_complementar
 def detalherededescontos(request, categoria, id):
     from django.shortcuts import get_object_or_404, redirect
     from .models import RedeDeDesconto
@@ -478,6 +481,7 @@ def censosvoleipublicados():
     from .models import CensoDoVolei
     return CensoDoVolei.objects.filter(Publicar=True).order_by('-DataPublicacao')
 
+@obrigar_cadastro_complementar
 def censosvolei(request, ativo=None):
     from .models import BannerCensoDoVolei
 
