@@ -225,15 +225,20 @@ class CadastroComplementar(forms.ModelForm):
                 or not self.cleaned_data['time_favorito_masculino']\
                 or not self.cleaned_data['time_favorito_feminino']:
                 self.add_error('modalidade_favorita', "Escolha seus jogadores e times favoritos")
+
+	if self.cleaned_data['senhaantiga'] or self.cleaned_data['senhanova'] or self.cleaned_data['confirmacaosenha']\
+	   and ( not self.cleaned_data['senhaantiga'] or not self.cleaned_data['senhanova'] or not self.cleaned_data['confirmacaosenha']):
+	    self.add_error('senhaantiga',u'Informe todos os campos obrigatórios')
+        else:
         
-        if self.cleaned_data['senhaantiga']:
-            if not self.instance.user.check_password(self.cleaned_data['senhaantiga']):
-                self.add_error('senhaantiga', u'Senha antiga inválida')
-            else:
-                if not self.cleaned_data['senhanova']:
-                    self.add_error('senhanova', u'Informe uma senha nova')
-                elif self.cleaned_data['senhanova'] != self.cleaned_data['confirmacaosenha']:
-                    self.add_error('senhanova', u'As senhas informadas não conferem')
+            if self.cleaned_data['senhaantiga']:
+                if not self.instance.user.check_password(self.cleaned_data['senhaantiga']):
+                    self.add_error('senhaantiga', u'Senha antiga inválida')
+                else:
+                    if not self.cleaned_data['senhanova']:
+                        self.add_error('senhanova', u'Informe uma senha nova')
+                    elif self.cleaned_data['senhanova'] != self.cleaned_data['confirmacaosenha']:
+                        self.add_error('senhanova', u'As senhas informadas não conferem')
 
         
     def __init__(self, *args, **kwargs):

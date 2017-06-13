@@ -160,6 +160,7 @@ class Jogador(models.Model):
 
 class Programa(models.Model):
     Titulo = models.CharField(max_length=50)
+    Subtitulo = models.CharField(max_length=100, default="")
     Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG")
     Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')
     Publicar = models.BooleanField(default=False)

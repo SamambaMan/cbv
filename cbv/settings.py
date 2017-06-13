@@ -37,7 +37,6 @@ SECRET_KEY = '7l0k$8)zy=avhtui5wtog!c*iik+a(xz*@ukyk6$0r5paq=^u_'
 DEBUG = True
 
 ALLOWED_HOSTS = ['cbv.felipeferreira.xyz','localhost','cbv.globality.com.br']
-ALLOWED_HOSTS = ['cbv.felipeferreira.xyz', 'localhost']
 
 AUTHENTICATION_BACKENDS = (
     #'cbv.sitecbv.backends.Autenticacao',
@@ -47,7 +46,7 @@ AUTHENTICATION_BACKENDS = (
 
 # Application definition
 
-ENDERECO = 'http://cbv.felipeferreira.xyz'
+ENDERECO = 'http://cbv.globality.com.br'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

@@ -1,5 +1,7 @@
 {% extends "cbv/master.html" %} 
 {% block content %} 
+
+<div class="space"></div>
 {% if user.is_authenticated %}
    {% include 'cbv/carroussel_snippet_index.html'%} 
 {% else %}
