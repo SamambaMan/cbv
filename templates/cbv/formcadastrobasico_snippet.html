@@ -25,7 +25,7 @@
                   <div>
                     <div style="padding-top:5px;">
                       <form action="{% provider_login_url "facebook" %}">
-                        <button type="submit" class="btn btn-primary">ENTRAR COM FACEBOOK</button>
+                        <button type="submit" class="btn btn-primary">Entrar com Facebook</button>
                       </form>
                     </div>
                     <div>
@@ -40,7 +40,6 @@
                   <span class="register-box-title">AINDA NÃO SOU CADASTRADO</span><br>
                   <span class="register-box-txt">Tenha acesso a todos os benefícios e<br>
                   conteúdos exclusivos</span>
-                  <div style="height:10px;"></div>
                   <form action="/cadastrarusuariobasico/" method="post">
                   {% csrf_token %}
                   {{ formcadastrobasico.non_field_errors }}
@@ -69,7 +68,7 @@
                   </form>
                   <div style="padding-top:5px;">
                       <form action="{% provider_login_url "facebook" %}">
-                        <button type="submit" class="btn btn-primary">CADASTRAR COM FACEBOOK</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar com Facebook</button>
                       </form>
                     </div>
                 </div>

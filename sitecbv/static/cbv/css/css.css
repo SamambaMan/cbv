@@ -437,7 +437,14 @@ a:focus {
 }
 #myCarouselNaoLogada {
 	float:left;
-	width:74%;
+	width:75%;
+}
+@media (min-width: 1024px) {
+ #myCarouselNaoLogada {
+ float:left;
+ width:65%;
+ margin:0 0 0 15px;
+}
 }
 @media (max-width: 767px) {
  #myCarouselNaoLogada {
@@ -453,15 +460,6 @@ a:focus {
  margin:0 0 0 15px;
 }
 }
-
-
-
-
-
-
-
-
-	
 /*customização carrossel - index logada e não logada- fundo cinza lateral*/
 .fonteBrancaLogadaNaoLogada {
 	color:#fff;
@@ -692,9 +690,6 @@ a:focus {
  background-color: #666;
 }
 }
-
-
-
 
 /*customização carrossel fundo cinza lateral*/
 .fonteAzul {
