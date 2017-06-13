@@ -1,12 +1,12 @@
 {% extends "cbv/master.html" %} 
 {% block content %} 
 {% if user.is_authenticated %}
-   {% include 'cbv/carroussel_snippet.html'%} 
+   {% include 'cbv/carroussel_snippet_index.html'%} 
 {% else %}
   <div class="span9">
     <div class="row" style="width:100%;">
       <div class="span6" >
-        {% include 'cbv/carroussel_snippet.html' %}
+        {% include 'cbv/carroussel_snippet_index.html' %}
       </div>
       <div class="span3">
         {% include "cbv/formcadastrobasico_snippet.html" %}
@@ -31,13 +31,13 @@
           <!-- tabs-menu -->
           <div class="tabs-menu clearfix">
             <ul>
-              <li><a class="active-tab-menu" href="#" data-tab="tab1">MODALIDADE</a></li>
-              <li><a href="#" data-tab="tab2">SUPERLIGA</a></li>
+              <li><a class="active-tab-menu" href="#" data-tab="tab2">SUPERLIGA</a></li>
+              <li><a href="#" data-tab="tab1">MODALIDADE</a></li>
             </ul>
           </div>
           
           <!-- .tab1 - torcidômetro -->
-          <div class="tab1 tabs first-tab">
+          <div class="tab1 tabs">
             <div class="row"> 
               <div class="col-xs-12 col-lg-12">
               
@@ -64,7 +64,7 @@
           </div>
           
           <!-- .tab2 - Torcidômetro-->
-          <div class="tab2 tabs">
+          <div class="tab2 tabs  first-tab">
             <div id="row">
               <div class="col-lg-12">
               

@@ -7,9 +7,9 @@ from .models import InfosAdicionaisUsuario, UF_CHOICES
 
 class FormBuscaSimples(forms.Form):
     busca = forms.CharField(label="", required=False, max_length=50, widget=forms.TextInput(
-        attrs={'placeholder': 'Pesquisar',
-               'class':'inputPesquisa',
-               'placeholder':'O que você está procurando?'}))
+        attrs={'class':'inputPesquisa',
+               'placeholder':'O que você está procurando?',
+               'type':'txt'}))
 
 class FormBuscaDesconto(FormBuscaSimples):
 
@@ -348,16 +348,16 @@ class FaleConoscoForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'Nome', 'class':'form-control'}))
+            attrs={'class':'form-control'}))
     email = forms.EmailField(
         label="E-Mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail', 'class':'form-control'}))
+            attrs={'class':'form-control'}))
     mensagem = forms.CharField(
         label="Mensagem",
         max_length=4000,
         required=True,
         widget=forms.Textarea(
-            attrs={'placeholder': 'Mensagem', 'class':'form-control'}))
+            attrs={'class':'form-control'}))
