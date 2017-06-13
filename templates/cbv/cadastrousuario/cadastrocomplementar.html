@@ -1,7 +1,9 @@
 {% extends "cbv/master.html" %} {% block content %}
 
 <div class="space"></div>
-<div class="tituloBold">COMPLETE SEU CADASTRO</div>
+<div class="tituloBold">
+    {% if completo %}MINHA CONTA{% else %}COMPLETE SEU CADASTRO{% endif %}
+</div>
 <div class="container">
     <div class="row">
         <form method="POST" action="/cadastrocomplementar/">
