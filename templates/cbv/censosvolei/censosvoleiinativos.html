@@ -11,14 +11,14 @@
         <form method="POST" action="/censosvolei/mais/inativos/">
 
         {% csrf_token %}
-            <div class="col-xs-12 col-lg-12 backgroundPesquisa">
-            <div class="col-xs-10 col-lg-6">
+        <div class="col-xs-12 col-lg-12 ">
+          <div class="col-xs-10 col-lg-6 backgroundPesquisa"> 
+            <div class="col-xs-10 col-lg-11 backgroundPesquisa"> 
                     {{ form.busca }}
             </div>
-            <div class="col-xs-2 col-lg-1" align="left">
-                <input type="image" src="/static/cbv/img/lupa.png" />
-            </div>
-            </div>
+            <div class="col-xs-2 col-lg-1" align="left" style="padding-top:4px;"> <a href="#"><img src="/static/cbv/img/lupa.png" alt="" border=""></a> </div>
+          </div>
+        </div>
         </form>
     </div>
 </div>
