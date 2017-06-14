@@ -19,7 +19,7 @@
 		          <div class="tituloBoldSaibaMais">{{ conteudo.Titulo }}</div>
                 </div>
                 <div class="col-xs-12 col-lg-12">
-        		  <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo }}</div>
+        		  <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo|default_if_none:"" }}</div>
                 </div>
                 <div class="col-xs-12 col-lg-2">
                   <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|date:"F, Y" }}</div>

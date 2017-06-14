@@ -24,7 +24,7 @@
                 <div class="carousel-caption fundoCinzaCarrossel">
                     <a href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
                         <h1 class="fonteAzul">{{ conteudo.Titulo }}</h1>
-                        <p class="fonteCinza">{{ conteudo.Detalhe }}</p>
+                        <p class="fonteCinza">{{ conteudo.Detalhe|default_if_none:"" }}</p>
                     </a>
                 </div>
             </div>

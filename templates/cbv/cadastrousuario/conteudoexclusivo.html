@@ -4,7 +4,7 @@
 
 <div class="space"></div>
 <div class="tituloBold">{{ banner.Titulo|upper }}</div>
-<div class="subTitulo">{{ banner.Subtitulo }}</div>
+<div class="subTitulo">{{ banner.Subtitulo|default_if_none:"" }}</div>
 <div class="space"></div>
 
 {% include 'cbv/carroussel_snippet.html' %}
@@ -41,7 +41,7 @@
             <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1">
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-            <h5>{{ conteudo.Detalhe }}</h5>
+            <h5>{{ conteudo.Detalhe|default_if_none:"" }}</h5>
             <a type="button" 
                 href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
                 class="btn btn-success">SAIBA MAIS</a>

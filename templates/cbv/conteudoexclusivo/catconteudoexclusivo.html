@@ -46,7 +46,7 @@
               <div class="media-body" align="left">
 		<a style="color:#5a5a5a" href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
                 <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-                <h5>{{ conteudo.Detalhe }}</h5>
+                <h5>{{ conteudo.Detalhe|default_if_none:"" }}</h5>
 		</a>
                 <a type="button" 
                     href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/" 
