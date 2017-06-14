@@ -1,5 +1,5 @@
 {% extends "cbv/master.html" %}
-
+{% load i18n %}
 {% block extrameta %}
 <meta property="og:type" content="website" />
 <meta property="og:image" content="{{conteudo.Topo.url}}" />
@@ -22,7 +22,7 @@
         		  <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo }}</div>
                 </div>
                 <div class="col-xs-12 col-lg-2">
-                  <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|timesince }}</div>
+                  <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|date:"F, Y" }}</div>
                 </div>
 			  </div>
           </div>               

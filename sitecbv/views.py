@@ -482,7 +482,7 @@ def censosvoleipublicados():
     return CensoDoVolei.objects.filter(Publicar=True).order_by('-DataPublicacao')
 
 @obrigar_cadastro_complementar
-def censosvolei(request, ativo=None):
+def censosvolei(request):
     from .models import BannerCensoDoVolei
 
     banner = BannerCensoDoVolei.objects.filter(Ativo=True).first()
@@ -493,25 +493,21 @@ def censosvolei(request, ativo=None):
 
     censosvoleiinativos = censosvoleipublicados().filter(Ativo=False)[:3]
 
-    if ativo:
-        censosvoleiinativos = []
-        censosvoleiativos = censosvoleipublicados().filter(Ativo=True)
-
     return render(request,
                   'cbv/censosvolei/censosvolei.html',
                   {'banner': banner,
                    'censosvoleiativos': censosvoleiativos,
                    'censosvoleiinativos': censosvoleiinativos,
                    'conteudos_carrossel': carrossel,
-                   'mostrarcompleto': True,
-                   'ativo': ativo})
+                   'mostrarcompleto': True})
 
-def censosvoleiinativos(request, ativo):
+@obrigar_cadastro_complementar
+def maiscensosvolei(request, ativo):
     from .forms import FormBuscaSimples
 
     form = FormBuscaSimples()
 
-    conteudos = censosvoleipublicados().filter(Ativo=False)
+    conteudos = censosvoleipublicados().filter(Ativo=ativo == "ativos")
 
     if request.method == 'POST':
         form = FormBuscaSimples(request.POST)
@@ -522,8 +518,10 @@ def censosvoleiinativos(request, ativo):
         conteudos = buscarpublicacao(conteudos, termos)
 
     return render(request,
-                  'cbv/censosvolei/censosvoleiinativos.html',
-                  {'conteudos':conteudos, 'form':form})
+                  'cbv/censosvolei/catcensosvolei.html',
+                  {'conteudos':conteudos,
+                   'form':form,
+                   'ativo':ativo})
 
 @obrigar_cadastro_complementar
 def detalhecensovolei(request, categoria, id):

@@ -3,19 +3,12 @@
 {% block content %}
 
 <div class="space"></div>
-{% if categoria %}
-    <div class="tituloBold">{{ categoria.Nome }}</div>
-{% else %}
-    <div class="tituloBold">Histórico</div>
-{% endif %}
+<div class="tituloBold">HISTÓRICO</div>
 
 <div class="container">
     <div class="row">
-        {% if categoria %}
-        <form method="POST" action="/conteudoexclusivo/listas/{{ categoria.slug }}/">
-        {% else %}
-        <form method="POST" action="/conteudoexclusivo/mais/">
-        {% endif %}
+
+        <form method="POST" action="/censosvolei/mais/{{ ativo }}/">
 
         {% csrf_token %}
         <div class="col-xs-12 col-lg-12 ">
@@ -32,24 +25,28 @@
 
 
 <div class="space"></div>
-<div class="row"> 
-<div class="col-lg-1"></div>
-<div class="col-lg-10"> 
+<div class="container">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-xs-12 col-lg-12">
 {% for conteudo in conteudos %}
-    <div class="col-sm-5">
-        <div class="media">
-            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1" alt="">
-        <div class="media-body" align="left">
-            <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-            <h5>{{ conteudo.Detalhe }}</h5>
-            <a type="button" 
-                href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
-                class="btn btn-success">SAIBA MAIS</a>
-        </div>
-        </div>
-        <div class="space"></div>
-    </div>
+          <div class="col-xs-12 col-lg-6 paddingBottom">
+            <div class="media">
+		<a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
+                <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" 
+                class="media-object pull-left tamanhoFixo2" alt=""></a>
+              <div class="media-body" align="left">
+		        <a style="color:#5a5a5a" 
+                    href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
+                <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
+                <h5>{{ conteudo.Detalhe }}</h5>
+		        </a>
+              </div>
+            </div>
+            <div class="space"></div>
+          </div>
 {% endfor %}
+</div>
 </div>
 </div>
 

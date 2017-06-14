@@ -24,29 +24,24 @@
 
 <div class="space"></div>
 <div class="container">
-<div class="row"> 
-<div class="col-lg-1"></div>
-<div class="col-lg-10"> 
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-xs-12 col-lg-12">
 {% for conteudo in conteudos %}
-    <div class="col-sm-5">
-        <div class="media">
-            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
-        <div class="media-body" align="left">
-            <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-            <h4>{{ conteudo.Detalhe }}</h4>
-            {% if conteudo.Ativo %}
-            <a type="button" 
-                href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
-                class="btn btn-success">SAIBA MAIS</a>
-            {% else %}
-                <a type="button" 
-                href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
-                class="btn btn-default letraVerde">VEJA COMO FOI</a>
-            {% endif %}
-        </div>
-        </div>
-        <div class="space"></div>
-    </div>
+          <div class="col-xs-12 col-lg-6 paddingBottom">
+            <div class="media">
+		<a href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
+                <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" 
+                class="media-object pull-left tamanhoFixo2" alt=""></a>
+              <div class="media-body" align="left">
+		        <a style="color:#5a5a5a" href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
+                <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
+                <h5>{{ conteudo.Detalhe }}</h5>
+		        </a>
+              </div>
+            </div>
+            <div class="space"></div>
+          </div>
 {% endfor %}
 </div>
 </div>
