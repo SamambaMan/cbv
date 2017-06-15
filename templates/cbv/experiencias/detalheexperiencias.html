@@ -10,38 +10,37 @@
 
 {% block content %}
 
+        <div class="space"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-xs-12 col-lg-11">
+          <div class="tituloBoldSaibaMais">{{ conteudo.Titulo }}</div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-xs-12 col-lg-11">
+          <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo|default_if_none:"" }}</div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-xs-12 col-lg-11">
+          <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|date:"F, Y" }}</div>
+        </div>
+      </div>
+    </div>
 
-<div class="space"></div>
-          <div class="container">
-              <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-xs-12 col-lg-12">
-		          <div class="tituloBoldSaibaMais">{{ conteudo.Titulo }}</div>
-                </div>
-                <div class="col-xs-12 col-lg-12">
-        		  <div class="tituloLightSaibaMais">{{ conteudo.Subtitulo|default_if_none:"" }}</div>
-                </div>
-                <div class="col-xs-12 col-lg-2">
-                  <div class="subTituloSaibaMais">{{ conteudo.DataPublicacao|date:"F, Y" }}</div>
-                </div>
-			  </div>
-          </div>               
 
-          <!--imagem programa-->
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12">
-                      <img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border="">
-                    </div>
-                  <div class="col-lg-1"></div>
-                  <div class="col-xs-12 col-lg-5">
-                    <div class="alinhaCamposLeft">
-                      {% include 'cbv/social_snippet.html' %}
-                    </div>
-                  </div>
-              </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12"><img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border=""></div>
+        <div class="col-lg-1"></div>
+        <div class="col-xs-12 col-lg-5">
+          <div class="alinhaCamposLeft"> 
+              {% include 'cbv/social_snippet.html' %}
           </div>
-          <div class="space"></div>
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>  
           
            <!--bloco de texto-->
            <div class="container">
@@ -80,9 +79,7 @@
                     {% endif %}
                 </div>
                 <div class="col-xs-12 col-lg-3">
-                  <div class="alinhaCamposLeft">
-                    <a href="javascript:window.history.go(-1)"><img src="/static/cbv/img/btVoltar.png" alt="" border=""></a>
-                  </div>
+                  <div> <a href="javascript:window.history.go(-1)"><img src="/static/cbv/img/btVoltar.png" alt="" border=""></a> </div>
                 </div>
               </div>
             </div>

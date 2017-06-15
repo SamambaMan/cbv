@@ -21,10 +21,23 @@
         <div class="item {% if forloop.counter == 1 %}active{% endif %} "> 
             <img class="first-slide" src="{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}" alt="First slide">
             <div class="container">
-                <div class="carousel-captionIndex2">
+                <div class="carousel-captionIndex">
                 <a href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
-                <h1 class="fonteBrancaLogadaNaoLogada">{{ conteudo.Titulo }}</h1>
-                <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
+                {% if user.is_authenticated or mostrarcompleto%}
+                <div class="tamanhoTitBanner">
+                    <h1 class="fonteBrancaLogadaNaoLogada">{{ conteudo.Titulo }}</h1>
+                </div>
+                <div class="tamanhoTxtBanner">
+                    <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
+                </div>
+                {% else %}
+                    <div class="tamanhoTitBanner">
+                        <h1 class="fonteBrancaLogadaNaoLogada">{{ conteudo.Titulo }}</h1>
+                    </div>
+                    <div class="tamanhoTxtBanner">
+                        <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
+                    </div>
+                {% endif %}
                 </a>
                 </div>
             </div>

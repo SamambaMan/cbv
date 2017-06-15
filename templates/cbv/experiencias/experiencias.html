@@ -12,16 +12,16 @@
 <div class="tituloBold">CONHEÇA E PARTICIPE DAS EXPERIÊNCIAS</div>
 
 <div class="container">
-<div class="row">      
-<div class="col-xs-12 col-lg-12 alinhaCamposCenter">
-<div class="col-xs-12 col-lg-2"></div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-11">
+          <div class="col-xs-12 col-lg-2"></div>
 {% for conteudo in conteudos_exibir %}
-    <div class="col-xs-12 col-lg-4 paddingBottom">
-        <div class="media">
-            <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
+<div class="col-xs-12 col-lg-4 paddingBottom">
+    <div class="media">
+        <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
         <div class="media-body" align="left">
             <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-            <h4>{{ conteudo.Detalhe|default_if_none:"" }}</h4>
+            <div class="alturaDescricaoDesconto"><h5>O teste consiste em apoiar o corpo em dois pontos afastados de uma distância conhecida a...</h5></div>
             {% if conteudo.Ativo %}
             <a type="button" 
                 href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
@@ -32,9 +32,8 @@
                 class="btn btn-default letraVerde">VEJA COMO FOI</a>
             {% endif %}
         </div>
-        </div>
-        <div class="space"></div>
     </div>
+</div>
     {% cycle '' '' '<div class="col-xs-12 col-lg-2"></div>' %}
 {% endfor %}
 </div>
