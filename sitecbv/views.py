@@ -588,4 +588,3 @@ def consultacpf(request, cpf):
     usuario = get_object_or_404(InfosAdicionaisUsuario, cpf=cpf)
 
     return  JsonResponse([{'ativo': usuario.user.is_active and usuario.cadastrocompleto}], safe=False)
-

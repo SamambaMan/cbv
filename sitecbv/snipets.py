@@ -4,7 +4,7 @@ from django.forms import ValidationError
 
 error_messages = {
     'invalid': u"Número de CPF inválido",
-    'digits_only': u"Informe apenas números",
+    'digits_only': u"Informe apenas números do CPF",
     'max_digits': u"Informe um CPF com 11 números",
 }
 
