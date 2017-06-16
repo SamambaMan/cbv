@@ -578,3 +578,14 @@ def faleconosco(request):
 
 ############ Fim Fale Conosco ###########
 
+##### consulta de cpf ####
+
+def consultacpf(request, cpf):
+    from .models import InfosAdicionaisUsuario
+    from django.shortcuts import get_object_or_404
+    from django.http import JsonResponse
+
+    usuario = get_object_or_404(InfosAdicionaisUsuario, cpf=cpf)
+
+    return  JsonResponse([{'ativo': usuario.user.is_active and usuario.cadastrocompleto}], safe=False)
+

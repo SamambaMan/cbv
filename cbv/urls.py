@@ -25,7 +25,7 @@ from sitecbv.views import index, cadastrousuariobasico,\
                           detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin,\
                           experiencias, maisexperiencias, detalheexperiencias, rededescontos,\
                           complementarendereco, detalherededescontos, faleconosco, censosvolei,\
-                          maiscensosvolei, detalhecensovolei
+                          maiscensosvolei, detalhecensovolei, consultacpf
 
 
 urlpatterns = [
@@ -69,6 +69,10 @@ urlpatterns = [
 
     #Esqueci minha senha
     url(r'^passwordreset/', include('password_reset.urls')),
+
+
+    #API
+    url(r'^api/consultacpf/(?P<cpf>\w+)/$', consultacpf),
 
 
 
