@@ -133,7 +133,7 @@ class Time(models.Model):
     Nome = models.CharField(max_length=15)
     Sexo = models.CharField(max_length=1, default='M', choices=MF_CHOICES)
     Superliga = models.CharField(max_length=2, default='SA', choices=SUPERLIGA_CHOICE)
-    Logo = models.FileField(help_text="300x300 PNG ou JPG")
+    Logo = models.FileField(help_text="55x45px PNG ou JPG")
     Link = models.CharField(max_length=1000, default="#")
 
     def __str__(self):
@@ -182,7 +182,7 @@ class Publicavel(models.Model):
     Detalhe = models.CharField(max_length=140, blank=True, null=True)
     Thumb = models.FileField(
         help_text=u"170x200 px, PNG ou JPG", blank=True, null=True)
-    Topo = models.FileField(help_text=u"908x302 px, PNG ou JPG", blank=True, null=True)
+    Topo = models.FileField(help_text=u"945 x 365 px, PNG ou JPG", blank=True, null=True)
     Conteudo = HTMLField(blank=True, null=True, verbose_name=u'Conteúdo')
     DataPublicacao = models.DateField(
         blank=True, null=True, verbose_name=u'Data de Publicação')

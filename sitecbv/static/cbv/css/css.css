@@ -220,6 +220,8 @@
 	padding-left:3px;
 }
 .imgPrincipal {
+	width:945px;
+	height:365px;
 	max-width:100%;
 }
 .backgroundPesquisa {
@@ -592,15 +594,51 @@ a:focus {
 	color:#fff;
 	font-family:MyriadPro-Cond;
 	font-weight:bold;
-	font-size:2.5em;
-	text-shadow:none;
+	font-size:33px;
+	text-shadow: black 0.1em 0.1em 0.2em
+}
+.fonteBrancaLogadaNaoLogada a{
+	color:#fff;
+	font-family:MyriadPro-Cond;
+	font-weight:bold;
+	font-size:33px;
+	text-shadow: black 0.1em 0.1em 0.2em
+	text-decoration:none;
+}
+.fonteBrancaLogadaNaoLogada a:hover{
+	color:#fff;
+	font-family:MyriadPro-Cond;
+	font-weight:bold;
+	font-size:33px;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
 }
 .fonteBrancaTxt {
 	font-family:MyriadPro-Cond;
-	font-size:1.5em;
+	font-size:20px;
 	font-weight:bold;
 	color:#fff;
-	text-shadow:none;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
+	padding-top:10px;
+}
+.fonteBrancaTxt a {
+	font-family:MyriadPro-Cond;
+	font-size:20px;
+	font-weight:bold;
+	color:#fff;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
+	padding-top:10px;
+}
+.fonteBrancaTxt a:hover{
+	font-family:MyriadPro-Cond;
+	font-size:20px;
+	font-weight:bold;
+	color:#fff;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
+	padding-top:10px;
 }
 .tamanhoTitBanner{
 	width:600px;
