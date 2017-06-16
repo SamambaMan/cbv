@@ -159,8 +159,7 @@ def conteudoexclusivo(request):
 
     conteudos_exibir = []
     for categoria in CategoriaConteudoExclusivo.objects.all():
-        conteudos = conteudospublicados().filter(
-            Destaque=True, Categoria=categoria).order_by('-DataPublicacao')
+        conteudos = conteudospublicados().filter(Categoria=categoria).order_by('-DataPublicacao')
         if conteudos.count() > 0:
             conteudos_exibir.append(conteudos[0])
 

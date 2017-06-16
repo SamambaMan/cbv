@@ -2,7 +2,6 @@
 {% block content %} 
 
 <div class="space"></div>
-<div class="container">
 {% if user.is_authenticated %}
    {% include 'cbv/carroussel_snippet_index.html'%} 
 {% else %}
@@ -17,7 +16,6 @@
     </div>
   </div>
 {% endif %}
-</div>
 <div style="height:100px;"></div>
 {% include 'cbv/marketing.html' %}
 <!-- /.container -->
