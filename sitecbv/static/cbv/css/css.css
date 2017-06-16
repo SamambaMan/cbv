@@ -175,7 +175,7 @@
 	font-family:MyriadPro-Cond;
 	font-size:25px;
 	color:#1E4370;
-	float:left;
+	float:left !important;
 }
 .tituloLightPequeno {
 	font-family:MyriadPro-Cond;
@@ -261,6 +261,9 @@
 }
 .alturaDescricaoDesconto {
 	height:80px;
+}
+.alturaTituloDesconto {
+	height:50px;
 }
 .alturaDescricaoContExclusivo {
 	height:130px;

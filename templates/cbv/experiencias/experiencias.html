@@ -21,8 +21,8 @@
     <div class="media">
         <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
         <div class="media-body" align="left">
-            <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-            <div class="alturaDescricaoDesconto"><h5>O teste consiste em apoiar o corpo em dois pontos afastados de uma distância conhecida a...</h5></div>
+                <h3 class="media-heading alturaTituloDesconto">{{ conteudo.Titulo }}</h3>
+                <div class="alturaDescricaoDesconto"><h5>{{ conteudo.Detalhe }}</h5></div>
             {% if conteudo.Ativo %}
             <a type="button" 
                 href="/experiencias/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
