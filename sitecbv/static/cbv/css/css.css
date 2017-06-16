@@ -267,7 +267,7 @@ a:focus {
 }
 .tabs-menu {
 	background: #0C3F6E;
-	width:235px;
+	width:245px;
 	border:#0C3F6E 1px solid;
 	border-radius:5px;
 }
@@ -276,6 +276,7 @@ a:focus {
 }
 .tabs-menu ul li {
 	float: left;
+	width:50%;
 }
 .tabs-menu ul li a {
 	display: block;
