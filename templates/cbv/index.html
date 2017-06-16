@@ -2,11 +2,12 @@
 {% block content %} 
 
 <div class="space"></div>
+<div class="container">
 {% if user.is_authenticated %}
    {% include 'cbv/carroussel_snippet_index.html'%} 
 {% else %}
+  <div class="row">
   <div class="span9">
-    <div class="row" style="width:100%;">
       <div class="span6" >
         {% include 'cbv/carroussel_snippet_index.html' %}
       </div>
@@ -16,7 +17,7 @@
     </div>
   </div>
 {% endif %}
-
+</div>
 <div style="height:100px;"></div>
 {% include 'cbv/marketing.html' %}
 <!-- /.container -->

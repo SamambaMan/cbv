@@ -9,7 +9,7 @@
 {% endif %}
 <div id="{{ carroussel }}" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicatorsIndex">
+    <ol class="carousel-indicators">
         {% for conteudo in conteudos_carrossel %} {% if forloop.counter == 1 %}
         <li data-target="#{{ carroussel }}" data-slide-to="1" class="active"></li>
         {% else %}

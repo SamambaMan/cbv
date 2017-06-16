@@ -74,52 +74,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="corpoSite"> 
 
   <!--início topo site-->
-  <div id="topo"></div>
-    <div class="navbar-wrapper">
-      <nav class="navbar-right navbar-inverse">
-        <table width="100%">
-          <tr>
-            <td>
-              <div class="alinhaRedeSociais"> 
-                <!--  botão no menu  -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                  <ul class="menuRedeSociais navbar-nav">
-                    <li>
-                      <table>
-                        <tr>
-                          {% if user.is_authenticated %}
+  <div id="topo">
+    <div class="col-xs-12 col-lg-11">
+      <div class="navbar-wrapper">
+        <nav class="navbar-right navbar-inverse">
+          <table width="100%">
+            <tr>
+              <td><div class="alinhaRedeSociais"> 
+                  <!--  botão no menu  -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <ul class="menuRedeSociais navbar-nav">
+                      <li>
+                        <table>
+                          <tr>
+                            {% if user.is_authenticated %}
                             <td><a href="/cadastrocomplementar/">{{user.first_name|truncatewords:1}}</a></td>
                             <td>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</td>
                             <td><a href="/logout/">SAIR</a></td>
                           {% endif %}
-                          <td><a href="https://pt-br.facebook.com/confederacaobrasileiradevoleibol/" target="_blank"><img src="/static/cbv/img/facebook.png" alt="Facebook" border=""></a></td>
+                            <td><a href="https://pt-br.facebook.com/confederacaobrasileiradevoleibol/" target="_blank"><img src="/static/cbv/img/facebook.png" alt="Facebook" border=""></a></td>
                           <td><a href="https://twitter.com/volei?lang=pt" target="_blank"><img src="/static/cbv/img/twitter.png" alt="Twitter" border=""></a></td>
                           <td><a href="https://www.instagram.com/cbvolei/" target="_blank"><img src="/static/cbv/img/instagram.png" alt="Instagram" border=""></a></td>
                           <td><a href="https://www.youtube.com/user/VoleiBrasil1" target="_blank"><img src="/static/cbv/img/youtube.png" alt="YouTube" border=""></a></td>
-                        </tr>
-                      </table>
-                    </li>
-                  </ul>
-                </div>
-              </div></td>
-          </tr>
-          <tr>
-            <td><div id="navbar" class="navbar-collapse collapse">
-                <ul class="menu nav navbar-nav">
+                          </tr>
+                        </table>
+                      </li>
+                    </ul>
+                  </div>
+                </div></td>
+            </tr>
+            <tr>
+              <td><div id="navbar" class="navbar-collapse collapse">
+                  <ul class="menu nav navbar-nav">
                   <li><a href="/">HOME</a></li>
                   <li><a href="/programa/">O PROGRAMA</a></li>
                   <li><a href="/conteudoexclusivo/">CONTEÚDO EXCLUSIVO</a></li>
                   <li><a href="/experiencias/">EXPERIÊNCIA</a></li>
                   <li><a href="/rededescontos/">REDE DE DESCONTO</a></li>
                   <li><a href="/censosvolei/">CENSO DO VÔLEI</a></li>
+                  <li><a href="/cadastrocomplementar/">MINHA CONTA</a></li>
                   <li><a href="/faleconosco/">FALE CONOSCO</a></li>
-                </ul>
-              </div></td>
-          </tr>
-        </table>
-      </nav>
+                  </ul>
+                </div></td>
+            </tr>
+          </table>
+        </nav>
+      </div>
     </div>
+  </div>
   <!--fim topo site-->
 
 <div class="conteudoSite"> 
