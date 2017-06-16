@@ -17,6 +17,12 @@ class FormBuscaDesconto(FormBuscaSimples):
         super(FormBuscaDesconto, self).__init__(*args, **kwargs)
         self.fields['busca'].widget.attrs.update({'placeholder':'O que você quer comprar com seu desconto?'})
 
+def validate(password):
+    import string
+    letters = set(string.ascii_letters)
+    digits = set(string.digits)
+    pwd = set(password)
+    return not (pwd.isdisjoint(letters) or pwd.isdisjoint(digits))
 
 class CadastroUsuarioBasicoForm(forms.Form):
     firstname = forms.CharField(
@@ -64,10 +70,11 @@ class CadastroUsuarioBasicoForm(forms.Form):
 
         return data
 
+
     def clean(self):
-        from django.contrib.auth import password_validation
         from .snipets import validate_CPF
         from .models import InfosAdicionaisUsuario
+        import string
 
         pass1 = self.cleaned_data['password']
         pass2 = self.cleaned_data['passwordconfirm']
@@ -78,7 +85,15 @@ class CadastroUsuarioBasicoForm(forms.Form):
         if self.cleaned_data['unidadefederativa'] != "FO":
             validate_CPF(self.cleaned_data['cpfpassaporte'])
 
-        password_validation.validate_password(self.cleaned_data['password'])
+        letters = set(string.ascii_letters)
+        digits = set(string.digits)
+        pwd = set(self.cleaned_data['password'])
+
+        if not self.cleaned_data['password'] or len(self.cleaned_data['password']) < 8:
+            raise forms.ValidationError(u"A senha deve conter pelo menos 8 caracteres")
+
+        if not validate(self.cleaned_data['password']):
+            raise forms.ValidationError(u"A senha deve conter letras e números")
 
         if InfosAdicionaisUsuario.objects.filter(cpf=self.cleaned_data['cpfpassaporte']).count() > 0:
             raise forms.ValidationError(u'Já existe um CPF/Passaporte cadastrado com esse número.')
