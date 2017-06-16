@@ -268,6 +268,9 @@
 .alturaDescricaoContExclusivo {
 	height:130px;
 }
+.fonteMyriad{
+	font-family: MyriadPro-Cond;
+}
 .maximoTamanho {
 	max-width:100%;
 }
@@ -386,7 +389,9 @@ a:focus {
 /*------------------------------------*/
 /*form não logado*/
 .caixa {
+	margin-top: 3%;
 	background: #1b416c;
+	padding: 8px 8px 24px 8px;
 	border-radius: 5px;
 }
 .box1 {
@@ -443,14 +448,14 @@ a:focus {
 }
 .register-box-title {
 	color: #FFF;
-	font-family: MyriadPro-Cond;
+	font-family: Nexa Light;
 	font-size: 15px;
 	margin-bottom: 25px;
 }
 .register-box-txt {
 	color: #FFF;
 	font-family: MyriadPro-Cond;
-	font-size: 11px;
+	font-size: 14px;
 	margin:-10px 0 0 0;
 }
 .caixa {
@@ -522,7 +527,7 @@ a:focus {
 /*fim importacao fontes*/
 #footer {
 	width:100%;
-	margin:0 0 -40px 0;
+/*	margin:0 0 -40px 0;*/
 }
 .imgFooter {
 	max-width:100%;

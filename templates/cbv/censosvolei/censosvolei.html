@@ -23,9 +23,9 @@
           <div class="col-xs-12 col-lg-4 paddingBottom">
             <div class="media">
                 <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1" alt="">
-              <div class="media-body" align="left">
+              <div class="media-body fonteMyriad" align="left">
                 <h3 class="media-heading">{{conteudo.Titulo}}</h3>
-                <h5>{{conteudo.Detalhe|default_if_none:""}}</h5>
+                <h4>{{conteudo.Detalhe|default_if_none:""}}</h4>
                 <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" type="button" class="btn btn-success">SAIBA MAIS</a>
               </div>
             </div>
@@ -52,9 +52,9 @@
           <div class="col-xs-12 col-lg-4 paddingBottom">
             <div class="media">
                 <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1" alt="">
-              <div class="media-body" align="left">
+              <div class="media-body fonteMyriad" align="left">
                 <h3 class="media-heading">{{conteudo.Titulo}}</h3>
-                <h5>{{conteudo.Detalhe|default_if_none:""}}</h5>
+                <h4>{{conteudo.Detalhe|default_if_none:""}}</h4>
                 <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
                     type="button" class="btn btn-default letraVerde">VEJA COMO FOI</a>
               </div>

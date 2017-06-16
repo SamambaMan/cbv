@@ -34,11 +34,11 @@
             <div class="media">
                 <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" 
                 class="media-object pull-left tamanhoFixo1" alt="">
-              <div class="media-body" align="left">
+              <div class="media-body fonteMyriad" align="left">
 		        <a style="color:#5a5a5a" 
                     href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
                 <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-                <h5>{{ conteudo.Detalhe|default_if_none:"" }}</h5>
+                <h4>{{ conteudo.Detalhe|default_if_none:"" }}</h4>
 		        </a>
               </div>
             </div>

@@ -51,7 +51,8 @@
             <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
         <div class="media-body" align="left">
             <h3 class="media-heading tituloLightPequeno alinhaCamposCenter">{{ conteudo.Titulo }}</h3>
-            <div class="alturaDescricaoDesconto"><h5>{{ conteudo.Detalhe|default_if_none:"" }}</h5></div>
+            <div class="alturaDescricaoDesconto">
+                <h5>{{ conteudo.Detalhe|default_if_none:"" }}</h5></div>
             {% if conteudo.Selo %}
                 <div class="alinhaCamposCenter alturaImgSelo">
                     <img src="{{ MEDIA_URL}}{{ conteudo.Selo }}" alt="" border="" class="tamanhoFixo4">
