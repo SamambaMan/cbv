@@ -130,7 +130,7 @@ class InfosAdicionaisUsuario(models.Model):
 
 
 class Time(models.Model):
-    Nome = models.CharField(max_length=15)
+    Nome = models.CharField(max_length=30)
     Sexo = models.CharField(max_length=1, default='M', choices=MF_CHOICES)
     Superliga = models.CharField(max_length=2, default='SA', choices=SUPERLIGA_CHOICE)
     Logo = models.FileField(help_text="55x45px PNG ou JPG")
@@ -144,7 +144,7 @@ class Time(models.Model):
 
 
 class Jogador(models.Model):
-    Nome = models.CharField(max_length=15)
+    Nome = models.CharField(max_length=30)
     Sexo = models.CharField(max_length=1, choices=MF_CHOICES)
     Foto = models.FileField(help_text="300x300 PNG ou JPG")
 
