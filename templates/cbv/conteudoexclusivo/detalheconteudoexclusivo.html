@@ -2,7 +2,9 @@
 
 {% block extrameta %}
 <meta property="og:type" content="website" />
+{% if conteudo.Topo %}
 <meta property="og:image" content="{{conteudo.Topo.url}}" />
+{% endif %}
 <meta property="og:description" content="{{conteudo.Conteudo|striptags|truncatewords:40}}" />
 {% endblock %}
 
@@ -31,7 +33,10 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-12"><img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border=""></div>
+        <div class="col-lg-12">
+          {% if conteudo.Topo %}
+          <img src="{{ MEDIA_URL }}{{ conteudo.Topo }}" class="imgPrincipal" alt="" border="">{% endif %}
+          </div>
         <div class="col-lg-1"></div>
         <div class="col-xs-12 col-lg-5">
           <div class="alinhaCamposLeft"> 
