@@ -146,7 +146,7 @@ class Time(models.Model):
 class Jogador(models.Model):
     Nome = models.CharField(max_length=35)
     Sexo = models.CharField(max_length=1, choices=MF_CHOICES)
-    Foto = models.FileField(help_text="300x300 PNG ou JPG")
+    Foto = models.FileField(help_text="300x300 PNG ou JPG", null=True, blank=True,)
 
     def __str__(self):
         if self:
@@ -252,7 +252,7 @@ class CategoriaRedeDeDesconto(Categoria):
 class ConteudoExclusivo(Publicavel):
     Destaque = models.BooleanField(default=False)
     ImagemCarrossel = models.FileField(
-        blank=True, null=True, help_text=u"678x226 px, PNG ou JPG",
+        blank=True, null=True, help_text=u"912x500 px, PNG ou JPG",
         verbose_name='Imagem Carrossel')
     Categoria = models.ForeignKey('CategoriaConteudoExclusivo')
 
@@ -278,7 +278,7 @@ class ConteudoExclusivo(Publicavel):
 class Experiencia(Publicavel):
     Categoria = models.ForeignKey('CategoriaExperiencia')
     ImagemCarrossel = models.FileField(verbose_name=u'Imagem Carrossel',
-        blank=True, null=True, help_text="678x226 px, PNG ou JPG")
+        blank=True, null=True, help_text="912x500 px, PNG ou JPG")
     Destaque = models.BooleanField(default=False)
     Link = models.CharField(max_length=1000, verbose_name=u'Link Externo')
     Ativo = models.BooleanField(default=False)
@@ -289,7 +289,7 @@ class Experiencia(Publicavel):
 
 class BannerExperiencia(models.Model):
     Titulo = models.CharField(max_length=50)
-    Subtitulo = models.CharField(max_length=100)
+    Subtitulo = models.CharField(max_length=100, null=True, blank=True,)
     Ativo = models.BooleanField()
 
     class Meta:
@@ -308,7 +308,7 @@ class BannerExperiencia(models.Model):
 
 class BannerConteudoExclusivo(models.Model):
     Titulo = models.CharField(max_length=50)
-    Subtitulo = models.CharField(max_length=100)
+    Subtitulo = models.CharField(max_length=100, null=True, blank=True,)
     Ativo = models.BooleanField()
 
     class Meta:
@@ -328,7 +328,7 @@ class BannerConteudoExclusivo(models.Model):
 class CensoDoVolei(Publicavel):
     Categoria = models.ForeignKey('CategoriaCensoDoVolei')
     ImagemCarrossel = models.FileField(
-        blank=True, null=True, help_text="678x226 px, PNG ou JPG")
+        blank=True, null=True, help_text="912x500 px, PNG ou JPG")
     Link = models.CharField(max_length=1000)
     Destaque = models.BooleanField(default=False)
     Ativo = models.BooleanField(default=False)
@@ -341,7 +341,7 @@ class CensoDoVolei(Publicavel):
 class RedeDeDesconto(Publicavel):
     Categoria = models.ForeignKey('CategoriaRedeDeDesconto')
     ImagemCarrossel = models.FileField(
-        blank=True, null=True, help_text="678x226 px, PNG ou JPG")
+        blank=True, null=True, help_text="912x500 px, PNG ou JPG")
     Selo = models.FileField(blank=True, null=True, help_text="53x53 px, PNG ou JPG")
     Link = models.CharField(max_length=1000)
     Ativo = models.BooleanField(default=False)
@@ -370,7 +370,7 @@ class RedeDeDesconto(Publicavel):
 
 class BannerRedeDesconto(models.Model):
     Titulo = models.CharField(max_length=100, verbose_name=u"Título")
-    Subtitulo = models.CharField(max_length=100, verbose_name=u"Subtítulo", default="")
+    Subtitulo = models.CharField(max_length=100, verbose_name=u"Subtítulo", null=True, blank=True, default="")
     Imagem = models.FileField(blank=True, null=True, help_text="908x302 px, PNG ou JPG")
     Ativo = models.BooleanField(default=False)
 

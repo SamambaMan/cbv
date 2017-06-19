@@ -112,7 +112,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-lg-12 paddingBottom"></div>
-            <div class="col-xs-12 col-lg-12 paddingBottom">
+            <div class="col-xs-12 col-lg-12 paddingBottom" 
+                {% if not formulario.instance.cadastrocompleto %}style="display:none !important;" {% endif %}>
                 <div class="col-xs-12 col-lg-1">
                 <button type="button" 
                     class="btn btn-toggle btn-primary alinhaCamposLeft" 
