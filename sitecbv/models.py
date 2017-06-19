@@ -342,13 +342,13 @@ class RedeDeDesconto(Publicavel):
     Categoria = models.ForeignKey('CategoriaRedeDeDesconto')
     ImagemCarrossel = models.FileField(
         blank=True, null=True, help_text="678x226 px, PNG ou JPG")
-    Selo = models.FileField(blank=True, null=True, help_text="300x300 px, PNG ou JPG")
+    Selo = models.FileField(blank=True, null=True, help_text="53x53 px, PNG ou JPG")
     Link = models.CharField(max_length=1000)
     Ativo = models.BooleanField(default=False)
 
     def __init__(self, *args, **kwargs):
         super(RedeDeDesconto, self).__init__(*args, **kwargs)
-        self.Thumb.help_text = "247x200 px, PNG ou JPG"
+        self._meta.get_field('Thumb').help_text = "257x200 px, PNG ou JPG"
 
     class Meta:
         verbose_name = u"Rede de Desconto"
