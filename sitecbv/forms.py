@@ -318,8 +318,8 @@ class CadastroComplementar(forms.ModelForm):
                     'class': 'form-control',
                 })
 
-        if self.instance and self.instance.cadastrocompleto:
-            self.fields['cpf'].disabled = self.fields['ufed'].disabled = True
+        #if self.instance and self.instance.cadastrocompleto:
+        #    self.fields['cpf'].disabled = self.fields['ufed'].disabled = True
 
 
 class FormComplementarEndereco(forms.ModelForm):
