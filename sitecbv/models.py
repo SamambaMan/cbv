@@ -135,6 +135,7 @@ class Time(models.Model):
     Superliga = models.CharField(max_length=2, default='SA', choices=SUPERLIGA_CHOICE)
     Logo = models.FileField(help_text="55x45px PNG ou JPG")
     Link = models.CharField(max_length=1000, default="#")
+    Nenhum = models.BooleanField(default=False)
 
     def __str__(self):
         if self:
@@ -147,6 +148,7 @@ class Jogador(models.Model):
     Nome = models.CharField(max_length=35)
     Sexo = models.CharField(max_length=1, choices=MF_CHOICES)
     Foto = models.FileField(help_text="300x300 PNG ou JPG", null=True, blank=True,)
+    Nenhum = models.BooleanField(default=False)
 
     def __str__(self):
         if self:

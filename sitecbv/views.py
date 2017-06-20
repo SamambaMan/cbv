@@ -9,7 +9,7 @@ def torcidometro_times():
     from django.db.models import F, Count
     from .models import Time
 
-    todos_times = Time.objects.filter()
+    todos_times = Time.objects.filter().exclude(Nenhum=True)
 
     somatimes = todos_times.annotate(qtd_masculino=Count('infos_time_favorito_masculino'))
     somatimes = somatimes.annotate(qtd_feminino=Count('infos_time_favorito_feminino'))
@@ -241,8 +241,8 @@ def obterformcomplementar(request):
 
     usuario = request.user
 
-    jogadores = Jogador.objects.filter(Sexo='M')
-    jogadoras = Jogador.objects.filter(Sexo='F')
+    jogadores = Jogador.objects.filter(Sexo='M').order_by('-Nenhum')
+    jogadoras = Jogador.objects.filter(Sexo='F').order_by('-Nenhum')
     timesm = Time.objects.filter(Sexo='M')
     timesf = Time.objects.filter(Sexo='F')
 
@@ -253,13 +253,13 @@ def obterformcomplementar(request):
 
     formulario.fields["jogador_favorito"].queryset = jogadores
     formulario.fields["jogadora_favorita"].queryset = jogadoras
-    formulario.fields["jogadores_secundario_masculinos"].queryset = jogadores
-    formulario.fields["jogadoras_secundarias_femininas"].queryset = jogadoras
+    formulario.fields["jogadores_secundario_masculinos"].queryset = jogadores.exclude(Nenhum=True)
+    formulario.fields["jogadoras_secundarias_femininas"].queryset = jogadoras.exclude(Nenhum=True)
 
     formulario.fields["time_favorito_masculino"].queryset = timesm
     formulario.fields["time_favorito_feminino"].queryset = timesf
-    formulario.fields["times_secundarios_masculino"].queryset = timesm
-    formulario.fields["times_secundarios_feminino"].queryset = timesf
+    formulario.fields["times_secundarios_masculino"].queryset = timesm.exclude(Nenhum=True)
+    formulario.fields["times_secundarios_feminino"].queryset = timesf.exclude(Nenhum=True)
 
     return formulario
 
@@ -333,8 +333,12 @@ def experienciaspublicadas():
 def experiencias(request):
     from .models import BannerExperiencia
     from .forms import FormBuscaSimples
+    from itertools import chain
 
-    experiencias_exibir = experienciaspublicadas()[:6]
+    experiencias_ativas = experienciaspublicadas().filter(Ativo=True)[:3]
+    experiencias_inativas = experienciaspublicadas().filter(Ativo=False)[:3]
+
+    experiencias_exibir = list(chain(experiencias_ativas, experiencias_inativas))
 
     bannerexperiencia = BannerExperiencia.objects.filter(Ativo=True).first()
 

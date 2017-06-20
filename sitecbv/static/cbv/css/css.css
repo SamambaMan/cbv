@@ -661,33 +661,35 @@ a:focus {
 }
 .fundoBannerTransparente{
 	background-image:url(../img/fundoTransparenteCarrossel.png);
-	width:1085px;
+	/*width:1085px;*/
+	width:100%;
 	height:120px;
 	padding:0 0 0 30px;
-	margin:-5px 0 0 -20px;
+	margin:-5px 0;
 }
  @media (min-width: 1200px) {
 .carousel-captionIndex {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+/* padding: 170px 10px 0 10px;*/
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
  .carousel-captionIndex2 {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 /*.carousel-indicatorsIndex {
  position: absolute;
@@ -723,25 +725,25 @@ a:focus {
 .carousel-captionIndex {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  padding-bottom: 20px;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 .carousel-captionIndex2 {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 /*.carousel-indicatorsIndex {
  position: absolute;
@@ -777,24 +779,24 @@ a:focus {
 .carousel-captionIndex {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 .carousel-captionIndex2 {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 /*.carousel-indicatorsIndex {
  position: absolute;
@@ -830,24 +832,24 @@ a:focus {
 .carousel-captionIndex {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 .carousel-captionIndex2 {
  position: absolute;
  z-index: 10;
- padding: 170px 10px 0 10px;
+ padding: 170px 0;
  color: #fff;
  text-align: left;
  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
  height:20%;
  width:100%;
- margin:200px 0 0 -15px;
+ margin:200px 0;
 }
 /*.carousel-indicatorsIndex {
  position: absolute;

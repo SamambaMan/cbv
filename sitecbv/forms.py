@@ -152,8 +152,8 @@ def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
     if not multiple:
         output.append('<option value="">--------</option>')
 
-    for option in self.choices.queryset.order_by('Nome').order_by('Superliga'):
-        if unicode(option.Superliga) != grupo_inicial:
+    for option in self.choices.queryset.order_by('-Nenhum', 'Superliga', 'Nome'):
+        if unicode(option.Superliga) != grupo_inicial and not option.Nenhum:
             if grupo_inicial != "":
                 output.append(u'</optgroup>')
 
