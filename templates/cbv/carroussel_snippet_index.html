@@ -21,30 +21,32 @@
         <div class="item {% if forloop.counter == 1 %}active{% endif %} "> 
             <img class="first-slide" src="{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}" alt="First slide">
             <div class="container">
-                <div class="carousel-captionIndex">                
-                {% if user.is_authenticated or mostrarcompleto%}
-                <div class="tamanhoTitBanner">
-                    <h1 class="fonteBrancaLogadaNaoLogada">
-                        <a  href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
-                            {{ conteudo.Titulo }}
-                        </a>
-                    </h1>
-                </div>
-                <div class="tamanhoTxtBanner">
-                    <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
-                </div>
-                {% else %}
+                <div class="carousel-captionIndex">             
+                    <div class="fundoBannerTransparente">   
+                    {% if user.is_authenticated or mostrarcompleto%}
                     <div class="tamanhoTitBanner">
                         <h1 class="fonteBrancaLogadaNaoLogada">
-                        <a href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
-                            {{ conteudo.Titulo }}
-                        </a>
+                            <a  href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
+                                {{ conteudo.Titulo }}
+                            </a>
                         </h1>
                     </div>
                     <div class="tamanhoTxtBanner">
                         <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
                     </div>
-                {% endif %}
+                    {% else %}
+                        <div class="tamanhoTitBanner">
+                            <h1 class="fonteBrancaLogadaNaoLogada">
+                            <a href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
+                                {{ conteudo.Titulo }}
+                            </a>
+                            </h1>
+                        </div>
+                        <div class="tamanhoTxtBanner">
+                            <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
+                        </div>
+                    {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

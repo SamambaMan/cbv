@@ -13,7 +13,8 @@
 }
 
 #topo {
-	height: 220px;
+	height: 16vw;
+	max-height: 412px;
 	background:url(../img/cabecalho.png) no-repeat;
 	background-position: -130px 0;
 }
@@ -254,7 +255,7 @@
 	width:100%;
 }
 .alturaImgSelo {
-	height:54px;
+	height:60px;
 }
 .alturaBtParticipe {
 	height:46px;
@@ -271,6 +272,10 @@
 .fonteMyriad{
 	font-family: MyriadPro-Cond;
 }
+.fonteMyriadTexto{
+	font-family: MyriadPro-Cond;
+	font-size:17px;
+}
 .maximoTamanho {
 	max-width:100%;
 }
@@ -283,7 +288,7 @@
 	height: 200px;
 }
 .tamanhoFixo2 {
-	width: 257px;
+	width: 230px;
 	height: 200px;
 }
 .tamanhoFixo3 {
@@ -524,8 +529,8 @@ a:focus {
 }
 /*fim importacao fontes*/
 #footer {
-	width:100%;
-/*	margin:0 0 -40px 0;*/
+	max-width:100%;
+	/*margin:0 0 -40px 0;*/
 }
 .imgFooter {
 	max-width:100%;
@@ -597,14 +602,13 @@ a:focus {
 }
 /*customização carrossel - index logada e não logada- fundo cinza lateral*/
 .fonteBrancaLogadaNaoLogada {
-	color:#fff;
+	color:#fff !important;
 	font-family:MyriadPro-Cond;
 	font-weight:bold;
 	font-size:33px;
-	text-shadow: black 0.1em 0.1em 0.2em
-}
+	text-shadow: black 0.1em 0.1em 0.2em;}
 .fonteBrancaLogadaNaoLogada a{
-	color:#fff;
+	color:#fff !important;
 	font-family:MyriadPro-Cond;
 	font-weight:bold;
 	font-size:33px;
@@ -612,7 +616,7 @@ a:focus {
 	text-decoration:none;
 }
 .fonteBrancaLogadaNaoLogada a:hover{
-	color:#fff;
+	color:#fff !important;
 	font-family:MyriadPro-Cond;
 	font-weight:bold;
 	font-size:33px;
@@ -623,7 +627,7 @@ a:focus {
 	font-family:MyriadPro-Cond;
 	font-size:20px;
 	font-weight:bold;
-	color:#fff;
+	color:#fff !important;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
 	padding-top:10px;
@@ -633,7 +637,7 @@ a:focus {
 	font-family:MyriadPro-Cond;
 	font-size:20px;
 	font-weight:bold;
-	color:#fff;
+	color:#fff !important;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
 	padding-top:10px;
@@ -642,7 +646,7 @@ a:focus {
 	font-family:MyriadPro-Cond;
 	font-size:20px;
 	font-weight:bold;
-	color:#fff;
+	color:#fff !important;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
 	padding-top:10px;
@@ -654,6 +658,23 @@ a:focus {
 .tamanhoTxtBanner{
 	width:600px;
 	height:35px;
+}
+/*.fundoBannerTransparente{
+	color:#FFF !important;
+	opacity: 0.3;
+	background: linear-gradient(transparent, white, white, white, white, white, transparent);
+	float:left;
+	width:936px;
+	height:100px;
+	padding:0 0 0 10px;
+	margin:-15px 0 0 -10px;
+}*/
+.fundoBannerTransparente{
+	background-image:url(../img/fundoTransparenteCarrossel.png);
+	width:946px;
+	height:120px;
+	padding:0 0 0 30px;
+	margin:-5px 0 0 -20px;
 }
  @media (min-width: 1200px) {
 .carousel-captionIndex {
