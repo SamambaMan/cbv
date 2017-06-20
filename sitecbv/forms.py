@@ -241,7 +241,7 @@ class CadastroComplementar(forms.ModelForm):
                 or not self.cleaned_data['time_favorito_feminino']:
                 self.add_error('modalidade_favorita', "Escolha seus jogadores e times favoritos")
 
-	if self.cleaned_data['senhaantiga'] or self.cleaned_data['senhanova'] or self.cleaned_data['confirmacaosenha']\
+	if (self.cleaned_data['senhaantiga'] or self.cleaned_data['senhanova'] or self.cleaned_data['confirmacaosenha'])\
 	   and ( not self.cleaned_data['senhaantiga'] or not self.cleaned_data['senhanova'] or not self.cleaned_data['confirmacaosenha']):
 	    self.add_error('senhaantiga',u'Informe todos os campos obrigatórios')
         else:

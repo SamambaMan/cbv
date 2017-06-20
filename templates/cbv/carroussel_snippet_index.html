@@ -20,7 +20,6 @@
         {% for conteudo in conteudos_carrossel %}
         <div class="item {% if forloop.counter == 1 %}active{% endif %} "> 
             <img class="first-slide" src="{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}" alt="First slide">
-            <div class="container">
                 <div class="carousel-captionIndex">             
                     <div class="fundoBannerTransparente">   
                     {% if user.is_authenticated or mostrarcompleto%}
@@ -48,7 +47,6 @@
                     {% endif %}
                     </div>
                 </div>
-            </div>
         </div>
         {% endfor %}
     </div>
