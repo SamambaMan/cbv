@@ -205,4 +205,32 @@ $(function(){
     });
 </script>
 
+{% if sucesso %}
+<div id="msgSucesso" style="display:none;">
+   {% if completado %}
+   <p class="fonteMyriadMsgSucesso">Cadastro Completado<br>com sucesso!</p>
+   <script type="text/javascript">
+    $(document).ready(function() { 
+        $("#msgSucesso").on("dialogclose", function(event, ui) {
+            alert('fechei');
+            window.location="../";
+        });
+    });
+   </script>
+   {% else%}
+   <p class="fonteMyriadMsgSucesso">Dados alterados com sucesso!</p>
+   {% if senhaalterada %}
+   <p class="fonteMyriadMsgSucesso">Sua senha foi atualizada!</p>
+   {% endif %}
+   {% endif %}
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#msgSucesso').modal('show');
+});
+</script>
+{% endif %}
+
+
+
 {% endblock %}

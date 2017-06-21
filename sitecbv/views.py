@@ -293,8 +293,11 @@ def cadastrocomplementar(request):
     from .models import InfosAdicionaisUsuario
     from django.contrib.auth import login
     from django.contrib.auth.models import User
+    from django.shortcuts import redirect
 
     formulario = obterformcomplementar(request)
+    completado = False
+    senhaalterada = False
 
     if request.method == 'POST':
         if formulario.is_valid():
@@ -308,13 +311,25 @@ def cadastrocomplementar(request):
                 usuario.set_password(formulario.cleaned_data['senhanova'])
                 usuario.save()
                 login(request, usuario, backend='django.contrib.auth.backends.ModelBackend')
+                senhaalterada = True
+
 
             if not antigo:
                 informacoes.cadastrocompleto = True
                 informacoes.save()
                 enviaremailcadastrocomplementar(request)
+                completado = True
 
-            return render(request, 'cbv/cadastrousuario/cadastrocompleto.html')
+            if completado:
+                return redirect('/')
+
+            return render(request,
+                  'cbv/cadastrousuario/cadastrocomplementar.html',
+                  {'formulario':formulario,
+                   'completo':request.user.infosadicionaisusuario.cadastrocompleto,
+                   'sucesso': True,
+                   'completado': completado,
+                   'senhaalterada': senhaalterada})
 
     return render(request,
                   'cbv/cadastrousuario/cadastrocomplementar.html',
@@ -366,7 +381,7 @@ def maisexperiencias(request):
 
     form = FormBuscaSimples()
 
-    conteudos = experienciaspublicadas()
+    conteudos = experienciaspublicadas().order_by('-Ativo')
 
     if request.method == 'POST':
         form = FormBuscaSimples(request.POST)
@@ -575,7 +590,8 @@ def faleconosco(request):
 
             msg.send()
 
-            return render(request, 'cbv/faleconosco/enviosucesso.html')
+            return render(request, 'cbv/faleconosco/faleconosco.html',
+                          {'form': FaleConoscoForm(), 'enviado': True})
 
     return render(request, 'cbv/faleconosco/faleconosco.html', {'form': form})
 

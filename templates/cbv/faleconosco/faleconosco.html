@@ -33,5 +33,16 @@
         </div>
       </div>
 
+{% if enviado %}
+<div id="msgSucesso" style="display:none;">
+   <p class="fonteMyriadMsgSucesso">Mensagem enviada<br>com sucesso!</p>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#msgSucesso').modal('show');
+});
+</script>
+{% endif %}
+
 
 {% endblock %}

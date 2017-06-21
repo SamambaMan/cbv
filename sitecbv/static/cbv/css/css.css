@@ -13,7 +13,6 @@
 }
 
 #topo {
-	height: 16vw;
 	max-height: 412px;
 	background:url(../img/cabecalho.png) no-repeat;
 	background-position: -130px 0;
@@ -21,6 +20,7 @@
 
 @media (min-width: 992px) {
 	#topo {
+		height: 18vw;
 		background-size: cover;
 	}
 }
@@ -275,6 +275,11 @@
 .fonteMyriadTexto{
 	font-family: MyriadPro-Cond;
 	font-size:17px;
+}
+.fonteMyriadMsgSucesso{
+	font-family: MyriadPro-Cond;
+	font-size:30px;
+	color:#1E4370;
 }
 .maximoTamanho {
 	max-width:100%;
