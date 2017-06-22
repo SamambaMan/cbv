@@ -1,4 +1,10 @@
-{% extends "cbv/master.html" %} {% block content %}
+{% extends "cbv/master.html" %} 
+
+{% block extrahead %}
+<link rel="stylesheet" href="/static/cbv/css/jquery.modal.css" type="text/css" media="screen" />
+{% endblock %}
+
+{% block content %}
 
 <div class="space"></div>
 <div class="tituloBold">
@@ -230,7 +236,8 @@ $(document).ready(function() {
 });
 </script>
 {% endif %}
+{% endblock %}
 
-
-
+{% block extrascript %}
+<script src="/static/cbv/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}

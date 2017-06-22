@@ -24,7 +24,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!--link href="dist/css/bootstrap.min.css" rel="stylesheet"-->
 <link href="/static/cbv/dist/css/bootstrap.css" rel="stylesheet">
 <link href="/static/cbv/css/css.css" rel="stylesheet">
-<link rel="stylesheet" href="/static/cbv/css/jquery.modal.css" type="text/css" media="screen" />
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <link href="/static/cbv/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -32,7 +31,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <script src="/static/cbv/assets/js/ie-emulation-modes-warning.js"></script>
-
+{% block extrahead %}
+{% endblock %}
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -170,6 +170,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   ga('send', 'pageview');
 
 </script>
-<script src="/static/cbv/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
