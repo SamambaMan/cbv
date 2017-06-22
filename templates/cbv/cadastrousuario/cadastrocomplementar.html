@@ -123,7 +123,7 @@
                 {% if not formulario.instance.cadastrocompleto %}style="display:none !important;" {% endif %}>
                 <div class="col-xs-12 col-lg-1">
                 <button type="button" 
-                    class="btn btn-toggle btn-primary alinhaCamposLeft" 
+                    class="btn btn-toggle btn-primary alinhaCamposLeft fonteMyriadGr" 
                     data-element="#divAlterarSenha">TROCAR SENHA</button>
                 </div>
                 <div class="col-xs-12 col-lg-12"></div>
@@ -153,8 +153,8 @@
                 </div>
                 
                 <input type="submit" 
-                    class="btn btn-success" 
-                    value="{% if formulario.instance.cadastrocompleto %}ALTERAR INFORMAÇÕES{% else %}COMPLETAR CADASTRO{% endif %}">
+                    class="btn btn-success fonteMyriadGr" 
+                    value="{% if formulario.instance.cadastrocompleto %}ALTERAR INFORMAÇÕES{% else %}ENVIAR{% endif %}">
             </div>
         </form>
     </div>
