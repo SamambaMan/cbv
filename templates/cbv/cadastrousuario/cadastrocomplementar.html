@@ -2,6 +2,7 @@
 
 {% block extrahead %}
 <link rel="stylesheet" href="/static/cbv/css/jquery.modal.css" type="text/css" media="screen" />
+
 {% endblock %}
 
 {% block content %}
@@ -236,8 +237,33 @@ $(document).ready(function() {
 });
 </script>
 {% endif %}
+
+<script type="text/javascript">
+$(document).ready(function() {
+    correios.init( 'Ysqrr7aQzeyNmHJ2o84RZKceFhXHGoCE', '7LOXZO7s3qgJBYWgIeL49J4i6wjyItZI95cKyIEM5664YOSO' );
+
+    $('#id_cep').blur(function() {
+
+        if($('#id_endereco').val() == ""){
+            $.ajax({
+                url: "https://webmaniabr.com/api/1/cep/" +
+                    $('#id_cep').val() + 
+                    "/?app_key=Ysqrr7aQzeyNmHJ2o84RZKceFhXHGoCE&app_secret=7LOXZO7s3qgJBYWgIeL49J4i6wjyItZI95cKyIEM5664YOSO",
+                context: document.body
+                }).success(function(data) {
+                    $('#id_endereco').val(data.endereco);
+                    $('#id_bairro').val(data.bairro);
+                    $('#id_cidade').val(data.cidade);
+                    $('#id_ufed').val(data.uf);
+            });
+        }
+    });
+});
+</script>
 {% endblock %}
 
 {% block extrascript %}
 <script src="/static/cbv/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/cbv/js/jquery.correios.min.js"></script>
+
 {% endblock %}

@@ -51,7 +51,7 @@
   width: 30px;
   height: 30px;
   text-indent: -9999px;
-  background:url(/static/cbv/img/btFecharModalSucesso.png) no-repeat 0 0;
+  background:url(../img/btFecharModalSucesso.png) no-repeat 0 0;
 }
 
 .modal-spinner {

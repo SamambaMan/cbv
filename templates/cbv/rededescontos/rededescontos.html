@@ -20,7 +20,6 @@
     <div class="tituloBold">REDE DE DESCONTOS</div>
 {% endif %}
 </div>
-<div class="space"></div>
 
 <div class="container">
     <div class="row">
@@ -52,7 +51,7 @@
             <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
         <div class="media-body" align="left">
             <h3 class="media-heading tituloLightPequeno alinhaCamposCenter">{{ conteudo.Titulo }}</h3>
-            <div class="alturaDescricaoDesconto">
+            <div class="alturaDescricaoRedeDeDesconto">
                 <h5>{{ conteudo.Detalhe|default_if_none:"" }}</h5></div>
             {% if conteudo.Selo %}
                 <div class="alinhaCamposCenter alturaImgSelo">

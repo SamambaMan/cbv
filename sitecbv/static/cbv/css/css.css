@@ -152,7 +152,7 @@
 	font-family:Nexa Bold;
 	font-size:30px;
 	color:#1E4370;
-	padding-bottom:30px;
+	padding-bottom:10px;
 }
 .tituloLight {
 	font-family:MyriadPro-Cond;
@@ -200,10 +200,11 @@
 }
 .fundoCinzaClaro {
 	background-color:#F5F5F5;
+	padding-top:10px;
 }
 .subTituloSaibaMais {
 	font-family:MyriadPro-Cond;
-	font-weight:bold;
+	/*font-weight:bold;*/
 	font-size:15px;
 	color:#666;
 	float:left;
@@ -226,18 +227,17 @@
 	max-width:100%;
 }
 .backgroundPesquisa {
-	background:#CCC;
-	border-radius:10px;
+	background:#E0E0E0;
+	/*border-radius:10px;*/
 }
 .inputPesquisa {
-	background:#CCC;
+	background:#E0E0E0;
 	border:none;
 	max-width:100%;
 	width:100%;
-	/*border:1px #FFF solid;
-	border-radius:10px;*/
 	margin:5px 0;
-	font-size:16px;
+	font-size:20px;
+	font-family:MyriadPro-Cond;
 }
 .paddingBottom {
 	padding-bottom:30px;
@@ -262,15 +262,41 @@
 }
 .alturaDescricaoDesconto {
 	height:80px;
+	width:70%;
+	text-align:justify;
+}
+.alturaDescricaoCensoVolei{
+	height:80px;
+	width:87%;
+	text-align:justify;
+}
+.alturaDescricaoRedeDeDesconto {
+	height:80px;
+	text-align:justify;
+}
+.alturaDescricaoExperiencia {
+	height:80px;
+	text-align:justify;
 }
 .alturaTituloDesconto {
 	height:50px;
+	padding-top:10px;
 }
 .alturaDescricaoContExclusivo {
 	height:130px;
+	width:70%;
+	text-align:justify;
 }
 .fonteMyriad{
 	font-family: MyriadPro-Cond;
+}
+.fonteMyriadGr{
+	font-family: MyriadPro-Cond;
+	font-size:20px;
+}
+.fonteMyriadBold{
+	font-family: MyriadPro-Cond;
+	font-weight:bold;
 }
 .fonteMyriadTexto{
 	font-family: MyriadPro-Cond;
@@ -312,13 +338,14 @@
 	padding:0 0 10px 10px;
 }
 .btMaior{
-	padding:15px;
+	padding:5px 15px 5px 15px;
 }
 .corLink{
 	color: #666;
 	text-decoration:underline;
 	font-family:MyriadPro-Cond;
 	font-size:20px;
+	margin-left:-10px;
 }
 /*início torcidômetro abas*/
 * {
@@ -357,6 +384,7 @@ a:focus {
 	width:245px;
 	border:#0C3F6E 1px solid;
 	border-radius:5px;
+	font-family:MyriadPro-Cond;
 }
 .tabs-menu ul {
 	list-style: none;
@@ -372,7 +400,7 @@ a:focus {
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	color: #666;
-	font-size:14px;
+	font-size:20px;
 }
 .tabs-menu ul li a:hover {
 	text-decoration:underline;
@@ -380,7 +408,7 @@ a:focus {
 .tabs-menu ul li a.active-tab-menu {
 	background: #225388;
 	color: #FFF;
-	font-size:14px;
+	font-size:20px;
 }
 .tabs {
 	display: none;
@@ -608,22 +636,27 @@ a:focus {
 /*customização carrossel - index logada e não logada- fundo cinza lateral*/
 .fonteBrancaLogadaNaoLogada {
 	color:#fff !important;
-	font-family:MyriadPro-Cond;
-	font-weight:bold;
+	/*font-family:MyriadPro-Cond;*/
+	font-family:Nexa Bold;
+	/*font-weight:bold;*/
 	font-size:33px;
-	text-shadow: black 0.1em 0.1em 0.2em;}
+	text-shadow: black 0.1em 0.1em 0.2em;
+	padding-top:15px;
+}
 .fonteBrancaLogadaNaoLogada a{
 	color:#fff !important;
-	font-family:MyriadPro-Cond;
-	font-weight:bold;
+	/*font-family:MyriadPro-Cond;*/
+	font-family:Nexa Bold;
+	/*font-weight:bold;*/
 	font-size:33px;
 	text-shadow: black 0.1em 0.1em 0.2em
 	text-decoration:none;
 }
 .fonteBrancaLogadaNaoLogada a:hover{
 	color:#fff !important;
-	font-family:MyriadPro-Cond;
-	font-weight:bold;
+	/*font-family:MyriadPro-Cond;*/
+	font-family:Nexa Bold;
+	/*font-weight:bold;*/
 	font-size:33px;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
@@ -631,46 +664,75 @@ a:focus {
 .fonteBrancaTxt {
 	font-family:MyriadPro-Cond;
 	font-size:20px;
-	font-weight:bold;
+	/*font-weight:bold;*/
 	color:#fff !important;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
-	padding-top:10px;
+	padding-top:30px;
 	letter-spacing:1px;
+	line-height:100%;
 }
 .fonteBrancaTxt a {
 	font-family:MyriadPro-Cond;
 	font-size:20px;
-	font-weight:bold;
+	/*font-weight:bold;*/
 	color:#fff !important;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
-	padding-top:10px;
+	line-height:100%;
 }
 .fonteBrancaTxt a:hover{
 	font-family:MyriadPro-Cond;
 	font-size:20px;
-	font-weight:bold;
+	/*font-weight:bold;*/
 	color:#fff !important;
 	text-shadow: black 0.1em 0.1em 0.2em;
 	text-decoration:none;
-	padding-top:10px;
+	line-height:100%;
+}
+.fonteBrancaTxtNaoLogada {
+	font-family:MyriadPro-Cond;
+	font-size:20px;
+	/*font-weight:bold;*/
+	color:#fff !important;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
+	padding-top:48px;
+	letter-spacing:1px;
+	line-height:100%;
+}
+.fonteBrancaTxtNaoLogada a {
+	font-family:MyriadPro-Cond;
+	font-size:20px;
+	/*font-weight:bold;*/
+	color:#fff !important;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
+	line-height:100%;
+}
+.fonteBrancaTxtNaoLogada a:hover{
+	font-family:MyriadPro-Cond;
+	font-size:20px;
+	/*font-weight:bold;*/
+	color:#fff !important;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	text-decoration:none;
+	line-height:100%;
 }
 .tamanhoTitBanner{
-	width:600px;
+	width:100%;
 	height:35px;
 }
 .tamanhoTxtBanner{
-	width:600px;
+	width:100%;
 	height:35px;
 }
 .fundoBannerTransparente{
 	background-image:url(../img/fundoTransparenteCarrossel.png);
-	/*width:1085px;*/
 	width:100%;
-	height:120px;
+	height:150px;
 	padding:0 0 0 30px;
-	margin:-5px 0;
+	margin:-50px 0;
 }
  @media (min-width: 1200px) {
 .carousel-captionIndex {
@@ -890,15 +952,16 @@ a:focus {
 /*customização carrossel fundo cinza lateral*/
 .fonteAzul {
 	color:#1E4370;
-	font-family:MyriadPro-Cond;
-	font-weight:bold;
+	/*font-family:MyriadPro-Cond;*/
+	font-family:Nexa Bold;
+	/*font-weight:bold;*/
 	font-size:2.5em;
 	text-shadow:none;
 }
 .fonteCinza {
 	font-family:MyriadPro-Cond;
 	font-size:1.5em;
-	font-weight:bold;
+	/*font-weight:bold;*/
 	color:#333;
 	text-shadow:none;
 }
