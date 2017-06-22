@@ -43,9 +43,9 @@
     </div>
     
 
-    {% if censosvoleiinativos%}
+    {% if censosvoleiinativos.count > 0  %}
     <div class="tituloBold  paddingBottom">CONFIRA OS RESULTADOS</div>
-    {% endif %}
+    
     <!--thumbs-->
     <div class="container">
       <div class="row">
@@ -74,5 +74,6 @@
         <div class="space"></div>
       </div>
     </div>
+    {% endif %}
 
 {% endblock %}
