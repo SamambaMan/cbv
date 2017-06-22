@@ -334,7 +334,6 @@ class FormComplementarEndereco(forms.ModelForm):
         super(FormComplementarEndereco, self).__init__(*args, **kwargs)
 
         self.fields['ufed'].required = True
-        self.fields['ufed'].disabled = True
 
         self.fields['cep'].required = True
         self.fields['endereco'].required = True
