@@ -335,7 +335,6 @@ body {
 .alturaDescricaoContExclusivo {
 	width:70%;
 	height: 130px;
-	text-align:justify;
 }
 .fonteMyriad{
 	font-family: MyriadPro-Cond;
@@ -596,24 +595,6 @@ a:focus {
 	text-align:justify;
 }
 /*importacao fontes*/
-
-/*
-
-REMOVER SE FUNCIONAR O ARQUIVO FONTS
-
-@font-face {
- font-family: MyriadPro-Cond;
- src: url("../fonte/MyriadPro-Cond.otf") format("opentype");
-}
-@font-face {
- font-family: Nexa Bold;
- src: url("../fonte/Nexa Bold.otf") format("opentype");
-}
-@font-face {
- font-family: Nexa Light;
- src: url("../fonte/Nexa Light.otf") format("opentype");
-}*/
-/*fim importacao fontes*/
 
 #footer {
 	position: relative;
@@ -1051,7 +1032,8 @@ REMOVER SE FUNCIONAR O ARQUIVO FONTS
 }
 
 @media (max-width:767px) {
-	.carousel .item {
+
+	.carousel.carousel-cbv .item {
 		height: 435px;
 	}
 
@@ -1625,3 +1607,8 @@ REMOVER SE FUNCIONAR O ARQUIVO FONTS
     font-size: 1.5em;
 }
 
+/* media body cbv */
+
+.media-body-cbv {
+
+}
