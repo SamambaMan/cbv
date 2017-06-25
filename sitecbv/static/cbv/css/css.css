@@ -1,8 +1,48 @@
 @charset "utf-8";
+
 /* CSS Document */
+
+/* Myriad */
+@font-face {
+  font-family: 'MyriadPro-Cond';
+  src: url('../fonte/MyriadPro-Cond.eot');
+  src: url('../fonte/MyriadPro-Cond.woff2') format('woff2'),
+       url('../fonte/MyriadPro-Cond.woff') format('woff'),
+       url('../fonte/MyriadPro-Cond.ttf') format('truetype'),
+       url('../fonte/MyriadPro-Cond.svg#MyriadPro-Cond') format('svg'),
+       url('../fonte/MyriadPro-Cond.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* NEXA */
+@font-face {
+  font-family: 'Nexa Bold';
+  src: url('../fonte/NexaBold.eot');
+  src: url('../fonte/NexaBold.woff2') format('woff2'),
+       url('../fonte/NexaBold.woff') format('woff'),
+       url('../fonte/NexaBold.ttf') format('truetype'),
+       url('../fonte/NexaBold.svg#NexaBold') format('svg'),
+       url('../fonte/NexaBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nexa Light';
+  src: url('../fonte/NexaLight.eot');
+  src: url('../fonte/NexaLight.woff2') format('woff2'),
+       url('../fonte/NexaLight.woff') format('woff'),
+       url('../fonte/NexaLight.ttf') format('truetype'),
+       url('../fonte/NexaLight.svg#NexaLight') format('svg'),
+       url('../fonte/NexaLight.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
 	background-color: #153054;
+	font-family: 'MyriadPro-Cond';
 }
 
 .bgcolor-branco { background-color: #fff; }
@@ -552,6 +592,11 @@ a:focus {
 	text-align:justify;
 }
 /*importacao fontes*/
+
+/*
+
+REMOVER SE FUNCIONAR O ARQUIVO FONTS
+
 @font-face {
  font-family: MyriadPro-Cond;
  src: url("../fonte/MyriadPro-Cond.otf") format("opentype");
@@ -563,7 +608,7 @@ a:focus {
 @font-face {
  font-family: Nexa Light;
  src: url("../fonte/Nexa Light.otf") format("opentype");
-}
+}*/
 /*fim importacao fontes*/
 
 #footer {
@@ -1447,4 +1492,8 @@ a:focus {
 
 .media-materia .alturaDescricaoCensoVolei {
 	width: auto;
+}
+
+.form-title-msgshow {
+	font-family: 'Nexa Bold';
 }
