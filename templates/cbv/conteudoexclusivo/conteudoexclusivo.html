@@ -35,7 +35,8 @@
 {% for conteudo in conteudos_exibir %}
     <div class="col-xs-12 col-lg-6 paddingBottom">
         <div class="barraTituloCategoria">
-            <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/" class="tituloCategoria" >{{ conteudo.Categoria.Nome }}</a>
+            <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/" 
+                class="tituloCategoria" >{{ conteudo.Categoria.Nome|upper }}</a>
         </div>
         <div class="media">
             <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1">
@@ -56,7 +57,7 @@
 </div>
 <div class="space"></div>
 <div align="center">
-    <a type="button" href="/conteudoexclusivo/mais/" class="btn btn-success">
+    <a type="button" href="/conteudoexclusivo/mais/" class="btn btn-success fonteMyriadGr">
     MAIS CONTEÚDOS</a>
 </div>
 <div class="space"></div>
