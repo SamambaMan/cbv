@@ -182,6 +182,7 @@ class GroupedSelectTime(Select):
         return rendergroupedselect(self, False, name, value, attrs, choices)
 
 class CadastroComplementar(forms.ModelForm):
+    error_css_class = 'has-error'
     firstname = forms.CharField(
         label="Nome",
         max_length=100,
