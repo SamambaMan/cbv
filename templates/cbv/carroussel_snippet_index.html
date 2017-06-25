@@ -7,7 +7,7 @@
 {% else %}
     {% set carroussel = "myCarouselNaoLogada"%}
 {% endif %}
-<div id="{{ carroussel }}" class="carousel slide" data-ride="carousel">
+<div id="{{ carroussel }}" class="carousel {% if mostrarcompleto %}carousel-exclusive{% else %}carousel-cbv{% endif %} slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         {% for conteudo in conteudos_carrossel %} {% if forloop.counter == 1 %}
@@ -22,7 +22,6 @@
             style="background-image: url('{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}')">
                 <div class="carousel-captionIndex">             
                     <div class="fundoBannerTransparente">   
-                    {% if user.is_authenticated or mostrarcompleto%}
                     <div class="tamanhoTitBanner">
                         <h1 class="fonteBrancaLogadaNaoLogada">
                             <a  href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
@@ -33,18 +32,6 @@
                     <div class="tamanhoTxtBanner hidden-xs hidden-sm">
                         <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
                     </div>
-                    {% else %}
-                        <div class="tamanhoTitBanner">
-                            <h1 class="fonteBrancaLogadaNaoLogada">
-                            <a href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
-                                {{ conteudo.Titulo }}
-                            </a>
-                            </h1>
-                        </div>
-                        <div class="tamanhoTxtBanner hidden-xs hidden-sm">
-                            <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
-                        </div>
-                    {% endif %}
                     </div>
                 </div>
         </div>
