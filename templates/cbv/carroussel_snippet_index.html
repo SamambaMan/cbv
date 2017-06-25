@@ -16,10 +16,10 @@
         <li data-target="#{{ carroussel }}" data-slide-to="{{ forloop.counter|add:"-1" }}"></li>
         {% endif %} {% endfor %}
     </ol>
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner carousel-inner-cbv" role="listbox">
         {% for conteudo in conteudos_carrossel %}
-        <div class="item {% if forloop.counter == 1 %}active{% endif %} "> 
-            <img class="first-slide" src="{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}" alt="First slide">
+        <div class="item {% if forloop.counter == 1 %}active{% endif %}"
+            style="background-image: url('{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}')">
                 <div class="carousel-captionIndex">             
                     <div class="fundoBannerTransparente">   
                     {% if user.is_authenticated or mostrarcompleto%}
