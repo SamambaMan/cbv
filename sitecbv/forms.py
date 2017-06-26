@@ -202,21 +202,21 @@ class CadastroComplementar(forms.ModelForm):
         max_length=16,
         required=False,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha'}))
+            attrs={'placeholder': 'Senha', 'style':'width:175px;'}))
 
     senhanova = forms.CharField(
         label="Senha Nova",
         max_length=16,
         required=False,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha'}))
+            attrs={'placeholder': 'Senha', 'style':'width:175px;'}))
     
     confirmacaosenha = forms.CharField(
-        label="Confirmacao de Senha",
+        label="Confirmação de Senha",
         max_length=16,
         required=False,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha'}))
+            attrs={'placeholder': 'Senha', 'style':'width:175px;'}))
 
     class Meta:
         model = InfosAdicionaisUsuario
