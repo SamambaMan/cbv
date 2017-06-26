@@ -32,11 +32,11 @@ class CadastroUsuarioBasicoForm(forms.Form):
         widget=forms.TextInput(
             attrs={'placeholder': 'Nome', 'class':'box1'}))
     email = forms.EmailField(
-        label="E-Mail",
+        label="E-mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail', 'class':'box1'}))
+            attrs={'placeholder': 'E-mail', 'class':'box1'}))
     cpfpassaporte = forms.CharField(
         label="CPF|Passaporte",
         max_length=16,
@@ -60,12 +60,12 @@ class CadastroUsuarioBasicoForm(forms.Form):
         required=True,
         widget=forms.PasswordInput(
             attrs={'placeholder': u'Confirmação de Senha', 'class':'box2'}))
-
     def clean_email(self):
         from django.contrib.auth.models import User
         data = self.cleaned_data['email']
         if User.objects.filter(email=data).count() > 0:
             raise forms.ValidationError(
+
                 u'Já existe um cadastro com esse email.')
 
         return data
