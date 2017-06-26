@@ -66,7 +66,7 @@ class CadastroUsuarioBasicoForm(forms.Form):
         if User.objects.filter(email=data).count() > 0:
             raise forms.ValidationError(
 
-                u'Já existe um cadastro com esse email.')
+                u'Já existe um cadastro com esse e-mail.')
 
         return data
 

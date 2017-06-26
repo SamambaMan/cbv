@@ -42,8 +42,20 @@ def torcidometro_modalidades():
 @obrigar_cadastro_complementar
 def index(request):
     from .forms import CadastroUsuarioBasicoForm, LoginForm
+    from itertools import chain
+
     conteudos_carrossel = conteudospublicados().filter(
         Destaque=True)[:5]
+
+    conteudos_experiencias = experienciaspublicadas().filter(Destaque=True)[:5]
+
+    conteudos_censo = censosvoleipublicados().filter(Destaque=True)[:5]
+
+    lista_total = sorted(
+            chain(conteudos_carrossel,  conteudos_experiencias, conteudos_censo),
+            key= lambda cont: cont.DataPublicacao, reverse=True)
+
+    conteudos_carrossel = lista_total[:5]
 
 
     return render(request, 'cbv/index.html',
@@ -348,12 +360,8 @@ def experienciaspublicadas():
 def experiencias(request):
     from .models import BannerExperiencia
     from .forms import FormBuscaSimples
-    from itertools import chain
 
-    experiencias_ativas = experienciaspublicadas().filter(Ativo=True)[:3]
-    experiencias_inativas = experienciaspublicadas().filter(Ativo=False)[:3]
-
-    experiencias_exibir = list(chain(experiencias_ativas, experiencias_inativas))
+    experiencias_exibir = experienciaspublicadas().order_by('-Ativo', '-DataPublicacao')[:6]
 
     bannerexperiencia = BannerExperiencia.objects.filter(Ativo=True).first()
 

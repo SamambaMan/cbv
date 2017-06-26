@@ -45,6 +45,14 @@ body {
 	font-family: 'MyriadPro-Cond';
 }
 
+a:hover {
+	text-decoration: none !important;
+}
+
+a:active {
+	text-decoration: none !important;
+}
+
 .bgcolor-branco {
 	padding-bottom: 170px;
 	background-color: #fff;
@@ -402,7 +410,7 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 1.5;
 }
 
@@ -590,6 +598,10 @@ a:focus {
 }
 .errorlist ul {
 	list-style:inside;
+}
+
+.errorlist li {
+	list-style-type:none;
 }
 .bordaBox {
 	border:1px solid #CCC;
