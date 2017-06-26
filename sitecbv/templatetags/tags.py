@@ -13,3 +13,9 @@ def contexto(value):
         return 'censosvolei'
     return None
 
+@register.filter
+def primeironome(value):
+    if not value:
+        return ""
+
+    return value.split(" ")[0]

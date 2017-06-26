@@ -1,3 +1,4 @@
+{% load tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,6 +96,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li><a href="/cadastrocomplementar/">MINHA CONTA</a></li>
               {% endif %} 
               <li><a href="/faleconosco/">FALE CONOSCO</a></li>
+              <li>
+                <ul class="menuRedeSociais">
+                <li> <a href="https://pt-br.facebook.com/confederacaobrasileiradevoleibol/" target="_blank"><img src="/static/cbv/img/facebook.png" alt="Facebook" border=""></a> </li>
+                <li> <a href="https://twitter.com/volei?lang=pt" target="_blank"><img src="/static/cbv/img/twitter.png" alt="Twitter" border=""></a> </li>
+                <li> <a href="https://www.instagram.com/cbvolei/" target="_blank"><img src="/static/cbv/img/instagram.png" alt="Instagram" border=""></a> </li>
+                <li><a href="https://www.youtube.com/user/VoleiBrasil1" target="_blank"><img src="/static/cbv/img/youtube.png" alt="YouTube" border=""></a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
@@ -106,7 +115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="col-md-8 col-md-offset-4">
           <div class="boxuser">
             {% if user.is_authenticated %}
-            <span class="loginuser fonteMyriad">{{user.first_name|truncatewords:1}}<a href="/logout/" title="Sair">SAIR</a></span>
+            <span class="loginuser fonteMyriad">{{user.first_name|primeironome}}<a href="/logout/" title="Sair">SAIR</a></span>
             {% endif %}
             <ul class="menuRedeSociais">
               <li>

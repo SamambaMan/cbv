@@ -45,6 +45,8 @@ body {
 	font-family: 'MyriadPro-Cond';
 }
 
+label { font-weight: normal; }
+
 a:hover {
 	text-decoration: none !important;
 }
@@ -188,7 +190,16 @@ a:active {
 
 .menu-mobile .btn i { font-size: 25px; }
 
+
+.menu-mobile .collapse {
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+}
+
 .menu-mobile .well {
+	padding-left: 0;
+	padding-right: 0;
 	background: #232f54;
 	border-color: transparent;
 	border-top: solid 1px #000;
@@ -201,6 +212,14 @@ a:active {
 }
 
 .menu-mobile ul li:first-child { margin-top: 0; }
+
+.menu-mobile .menuRedeSociais { margin-right: 15px; }
+
+.menu-mobile .menuRedeSociais li {
+	display: inline-block;
+	margin-right: 10px;
+} 
+
 
 
 .alinhaRedeSociais {

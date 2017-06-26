@@ -335,6 +335,10 @@ class CensoDoVolei(Publicavel):
     Destaque = models.BooleanField(default=False)
     Ativo = models.BooleanField(default=False)
 
+    def __init__(self, *args, **kwargs):
+        super(CensoDoVolei, self).__init__(*args, **kwargs)
+        self._meta.get_field('Thumb').help_text = "230x200 px, PNG ou JPG"
+
     class Meta:
         verbose_name = u"Censo do Volei"
         verbose_name_plural = u"Censos do Volei"
