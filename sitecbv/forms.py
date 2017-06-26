@@ -198,21 +198,21 @@ class CadastroComplementar(forms.ModelForm):
             attrs={'placeholder': 'E-mail'}))
 
     senhaantiga = forms.CharField(
-        label="Senha Antiga",
+        label="Senha antiga",
         max_length=16,
         required=False,
         widget=forms.PasswordInput(
             attrs={'placeholder': 'Senha', 'style':'width:175px;'}))
 
     senhanova = forms.CharField(
-        label="Senha Nova",
+        label="Nova senha",
         max_length=16,
         required=False,
         widget=forms.PasswordInput(
             attrs={'placeholder': 'Senha', 'style':'width:175px;'}))
     
     confirmacaosenha = forms.CharField(
-        label="Confirmação de Senha",
+        label="Confirmação de senha",
         max_length=16,
         required=False,
         widget=forms.PasswordInput(
