@@ -1609,6 +1609,50 @@ a:focus {
 
 /* media body cbv */
 
-.media-body-cbv {
+
+@media (max-width:480px){
+	.media-cbv {
+		text-align: center;
+	}
+
+	.media-cbv img {
+		float: none !important;
+		display: inline-block;
+	}
+
+	.media-body-cbv {
+		display: block;
+		padding-top: 20px;
+		width: auto;
+		text-align: center;
+
+	}
+
+	.media-body-cbv .alturaDescricaoContExclusivo {
+		width: auto;
+		height: auto;
+	}
+
+	.media-materia .media-body.media-body-cbv {
+		width: auto;
+	}
+}
+
+/* media cupom */
+
+.media-cupom img {
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+@media (max-width:480px) {
+	.media-cupom img {
+		margin-bottom: 0;
+	}
+
+}
+
+.fontHelvitica {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }

@@ -53,11 +53,11 @@
                 <div class="col-lg-1"></div>
                 <div class="col-xs-12 col-lg-10">
                   {% if user.is_authenticated %}
-                    <div class="row" style="text-align:left;">
+                    <div class="row fontHelvitica" style="text-align:left;" >
                         {{conteudo.Conteudo|safe}}
                     </div>
                     {% else %}
-                    <div class="row" style="text-align:left;">
+                    <div class="row fontHelvitica" style="text-align:left;">
                         {{conteudo.Conteudo|safe|truncatewords:40}}
                     </div>
                     <div class="row">

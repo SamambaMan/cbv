@@ -66,6 +66,9 @@ INSTALLED_APPS = [
     'password_reset',
 ]
 
+#TINYMCE_JS_URL = '/static/cbv/tinymce/tinymce.min.js'
+
+
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
     'theme': "advanced",
@@ -74,6 +77,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'height': 500,
     'width': 750,
     'resize': True,
+    'selector': "lero",
 }
 
 SITE_ID = 1
@@ -209,4 +213,5 @@ MEDIA_ROOT = BASE_DIR + '/media/'
 MEDIA_URL = '/media/'
 
 
-
+#TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "cbv/tinymce/")
+#TINYMCE_INCLUDE_JQUERY = False

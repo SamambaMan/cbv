@@ -38,9 +38,9 @@
             <a href="/conteudoexclusivo/listas/{{ conteudo.Categoria.slug }}/" 
                 class="tituloCategoria" >{{ conteudo.Categoria.Nome|upper }}</a>
         </div>
-        <div class="media">
+        <div class="media media-cbv">
             <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo1">
-        <div class="media-body" align="left">
+        <div class="media-body media-body-cbv" align="left">
             <div class="alturaDescricaoContExclusivo fonteMyriad">
                 <h3 class="media-heading fonteMyriadBold">{{ conteudo.Titulo }}</h3>
                 <h4>{{ conteudo.Detalhe|default_if_none:"" }}</h4>

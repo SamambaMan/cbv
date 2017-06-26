@@ -55,7 +55,9 @@
                 <div class="col-xs-12 col-lg-10">
                   {% if user.is_authenticated %}
                     <div class="row" style="text-align:left;">
-                           {{conteudo.Conteudo|safe}}
+                           <div class="fontHelvitica">
+                             {{conteudo.Conteudo|safe}}
+                           </div>
                             <h4>
                               {% if conteudo.Ativo %}
                               <a type="button" class="btn btn-success" 
@@ -65,7 +67,9 @@
                     </div>
                     {% else %}
                     <div class="row" style="text-align:left;">
+                      <div class="fontHelvitica">
                         {{conteudo.Conteudo|safe|truncatewords:40}}
+                      </div>
                     </div>
                     <div class="row">
                     <h1 class="form-title-msgshow"> Para acessar o conteúdo completo<br />faça seu login</h1>
