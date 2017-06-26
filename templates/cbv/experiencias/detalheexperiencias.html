@@ -55,7 +55,7 @@
                 <div class="col-xs-12 col-lg-10">
                   {% if user.is_authenticated %}
                     <div class="row" style="text-align:left;">
-                        <div  class="fontHelvitica" >
+                        <div class="fontHelvitica" >
                            {{conteudo.Conteudo|safe}}
                         </div>
                             <h4>
@@ -75,7 +75,7 @@
                             </h4>
                     </div>
                     {% else %}
-                    <div class="row" style="text-align:left;"  class="fontHelvitica">
+                    <div class="row fontHelvitica" style="text-align:left;"  >
                         {{conteudo.Conteudo|safe|truncatewords:40}}
                     </div>
                     <div class="row">

@@ -30,36 +30,36 @@ class CadastroUsuarioBasicoForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'Nome', 'class':'box1'}))
+            attrs={'placeholder': 'Nome', 'class':'box1 fontHelvitica'}))
     email = forms.EmailField(
         label="E-mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-mail', 'class':'box1'}))
+            attrs={'placeholder': 'E-mail', 'class':'box1 fontHelvitica'}))
     cpfpassaporte = forms.CharField(
         label="CPF|Passaporte",
         max_length=16,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'CPF|Passaporte', 'class':'box2'}))
+            attrs={'placeholder': 'CPF|Passaporte', 'class':'box2 fontHelvitica'}))
     unidadefederativa = forms.CharField(
         label="UF",
         max_length=2,
         required=True,
-        widget=forms.Select(choices=UF_CHOICES, attrs={'class':'box2'}))
+        widget=forms.Select(choices=UF_CHOICES, attrs={'class':'box2 fontHelvitica'}))
     password = forms.CharField(
         label="Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha', 'class':'box2'}))
+            attrs={'placeholder': 'Senha', 'class':'box2 fontHelvitica'}))
     passwordconfirm = forms.CharField(
         label="Confirmar Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': u'Confirmação de Senha', 'class':'box2'}))
+            attrs={'placeholder': u'Confirmação de Senha', 'class':'box2 fontHelvitica'}))
     def clean_email(self):
         from django.contrib.auth.models import User
         data = self.cleaned_data['email']
@@ -107,14 +107,14 @@ class LoginForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail', 'class':'box1', 'autocomplete':'off'}))
+            attrs={'placeholder': 'E-Mail', 'class':'box1 fontHelvitica', 'autocomplete':'off'}))
 
     password = forms.CharField(
         label="Senha",
         max_length=16,
         required=True,
         widget=forms.PasswordInput(
-            attrs={'placeholder': 'Senha', 'class':'box1', 'autocomplete':'off'}))
+            attrs={'placeholder': 'Senha', 'class':'box1 fontHelvitica', 'autocomplete':'off'}))
 
     def clean(self):
         from django.contrib.auth.models import User
@@ -145,7 +145,7 @@ def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
     if value is None:
         value = ''
     final_attrs = self.build_attrs(attrs, extraattrs)
-    output = [format_html('<select{0} class="form-control">', flatatt(final_attrs))]
+    output = [format_html('<select{0} class="form-control fontHelvitica">', flatatt(final_attrs))]
 
     grupo_inicial = ""
 
@@ -316,7 +316,7 @@ class CadastroComplementar(forms.ModelForm):
             if field and field_name != "receberinformacoesprograma":
                 field.widget.attrs.update({
                     'placeholder': field.label,
-                    'class': 'form-control',
+                    'class': 'form-control fontHelvitica',
                 })
 
         #if self.instance and self.instance.cadastrocompleto:
@@ -359,7 +359,7 @@ class FormComplementarEndereco(forms.ModelForm):
             if field:
                 field.widget.attrs.update({
                     'placeholder': field.label,
-                    'class': 'form-control',
+                    'class': 'form-control fontHelvitica',
                 })
 
 class FaleConoscoForm(forms.Form):
@@ -368,16 +368,16 @@ class FaleConoscoForm(forms.Form):
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'class':'form-control'}))
+            attrs={'class':'form-control fontHelvitica'}))
     email = forms.EmailField(
         label="E-Mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'class':'form-control'}))
+            attrs={'class':'form-control fontHelvitica'}))
     mensagem = forms.CharField(
         label="Mensagem",
         max_length=4000,
         required=True,
         widget=forms.Textarea(
-            attrs={'class':'form-control'}))
+            attrs={'class':'form-control fontHelvitica'}))
