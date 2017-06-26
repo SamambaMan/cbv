@@ -58,7 +58,7 @@
             <div class="media media-materia media-cbv">
                 <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
               <div class="media-body fonteMyriad media-body-cbv" align="left">
-                <h3 class="media-heading alturaTituloDesconto">{{conteudo.Titulo|upper}}</h3>
+                <h3 class="media-heading alturaTituloDesconto">{{conteudo.Titulo}}</h3>
                 <div class="alturaDescricaoCensoVolei ">
                 <h4>{{conteudo.Detalhe|default_if_none:""}}</h4></div>
                 <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 

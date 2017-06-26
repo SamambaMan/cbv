@@ -331,10 +331,11 @@ body {
 .alturaTituloDesconto {
 	height:50px;
 	padding-top:10px;
+	font-weight: bold;
 }
 .alturaDescricaoContExclusivo {
 	width:70%;
-	height: 130px;
+	height: 90	px;
 }
 .fonteMyriad{
 	font-family: MyriadPro-Cond;
@@ -449,8 +450,11 @@ a:focus {
 	color: #666;
 	font-size:20px;
 }
+
 .tabs-menu ul li a:hover {
-	text-decoration:underline;
+	text-decoration:none;
+	background: #407BBD;
+	color:#ffffff;
 }
 .tabs-menu ul li a.active-tab-menu {
 	background: #225388;
@@ -1651,6 +1655,14 @@ a:focus {
 	}
 
 }
+
+@media (min-width: 1200px) {
+
+	.media.media-cupom > .pull-left {
+    	padding-right: 0px;
+	}
+}
+
 
 .fontHelvitica {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;

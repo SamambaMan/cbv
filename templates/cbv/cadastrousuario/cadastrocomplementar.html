@@ -128,15 +128,16 @@
                 </div>
                 <div class="col-xs-12 col-lg-12"><br></div>
                 <div id="divAlterarSenha" class="col-xs-12 col-lg-12 escondeDiv">
+                    {{formulario.senhaantiga.errors}}
+                    {{formulario.senhanova.errors}}
+                    <a name="errossenha"></a>
                 <div class="col-xs-12 col-lg-4 form-group alinhaCamposLeft">
 	            <label for="senhaAntiga">Senha antiga:<span class="required">*</span></label>
                     {{formulario.senhaantiga}}
-                    {{formulario.senhaantiga.errors}}
                 </div>
                 <div class="col-xs-12 col-lg-4 form-group alinhaCamposLeft">
                     <label for="novaSenha">Nova senha:<span class="required">*</span></label>
                     {{formulario.senhanova}}
-                    {{formulario.senhanova.errors}}
                 </div>
                 <div class="col-xs-12 col-lg-4 form-group alinhaCamposLeft">
                     <label for="confirmaSenha">Confirmar senha:<span class="required">*</span></label>
@@ -173,6 +174,7 @@
 
 	if ( $('#divAlterarSenha').find('ul').length > 0 )
 		$('#divAlterarSenha').show();
+        location.hash = "#errossenha";
     });
 
     function trocarModalidadeFavorita() {
@@ -222,7 +224,6 @@ $(function(){
    <script type="text/javascript">
     $(document).ready(function() { 
         $("#msgSucesso").on("dialogclose", function(event, ui) {
-            alert('fechei');
             window.location="../";
         });
     });
