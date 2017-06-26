@@ -103,11 +103,11 @@ class CadastroUsuarioBasicoForm(forms.Form):
 
 class LoginForm(forms.Form):
     email = forms.EmailField(
-        label="E-Mail",
+        label="E-mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail', 'class':'box1 fontHelvitica', 'autocomplete':'off'}))
+            attrs={'placeholder': 'E-mail', 'class':'box1 fontHelvitica', 'autocomplete':'off'}))
 
     password = forms.CharField(
         label="Senha",
@@ -191,11 +191,11 @@ class CadastroComplementar(forms.ModelForm):
             attrs={'placeholder': 'Nome'}))
 
     email = forms.EmailField(
-        label="E-Mail",
+        label="E-mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
-            attrs={'placeholder': 'E-Mail'}))
+            attrs={'placeholder': 'E-mail'}))
 
     senhaantiga = forms.CharField(
         label="Senha Antiga",
@@ -370,7 +370,7 @@ class FaleConoscoForm(forms.Form):
         widget=forms.TextInput(
             attrs={'class':'form-control fontHelvitica'}))
     email = forms.EmailField(
-        label="E-Mail",
+        label="E-mail",
         max_length=100,
         required=True,
         widget=forms.TextInput(
