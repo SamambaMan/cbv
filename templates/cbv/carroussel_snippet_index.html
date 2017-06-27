@@ -7,7 +7,7 @@
 {% else %}
     {% set carroussel = "myCarouselNaoLogada"%}
 {% endif %}
-<div id="{{ carroussel }}" class="carousel {% if mostrarcompleto %}carousel-exclusive{% else %}carousel-cbv{% endif %} slide" data-ride="carousel">
+<div id="{{ carroussel }}" class="carousel carousel-cbv slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         {% for conteudo in conteudos_carrossel %} {% if forloop.counter == 1 %}
