@@ -292,6 +292,14 @@ a:active {
 	border-left:2px solid #1E4370;
 	text-align:left;
 }
+
+@media (max-width:480px) {
+	.barraTituloCategoria {
+		border-left: none;
+		text-align: center;
+	}
+}
+
 .tituloCategoria {
 	font-family:Nexa Bold;
 	font-size:20px;
@@ -299,6 +307,11 @@ a:active {
 	text-align:left;
 	padding-left:3px;
 }
+
+@media (max-width:480px) {
+	.tituloCategoria { padding-left: 0; }
+}
+
 .imgPrincipal {
 	width:945px;
 	height:365px;
@@ -340,21 +353,33 @@ a:active {
 .alturaDescricaoDesconto {
 	height:80px;
 	width:70%;
-	text-align:justify;
+	text-align:left;
 }
 .alturaDescricaoCensoVolei{
 	height:80px;
 	width:87%;
-	text-align:justify;
+	text-align:left;
 }
+
+@media (max-width:480px) {
+	.alturaDescricaoCensoVolei { text-align: center; }
+}
+
 .alturaDescricaoRedeDeDesconto {
 	height:80px;
-	text-align:justify;
+	text-align:left;
 }
+
 .alturaDescricaoExperiencia {
 	height:80px;
-	text-align:justify;
+	text-align:left;
 }
+
+@media(max-width:480px){
+	.alturaDescricaoExperiencia { text-align:center; }
+}
+
+
 .alturaTituloDesconto {
 	height:50px;
 	padding-top:10px;
@@ -1688,9 +1713,14 @@ a:focus {
 }
 
 @media (min-width: 1200px) {
-
-	.media.media-cupom > .pull-left {
+	.media.media-cupom > .pull-left{
     	padding-right: 0px;
+	}
+}
+
+@media (max-width:480px) {
+	.media.media-cbv > .pull-left {
+		padding-right: 0;
 	}
 }
 

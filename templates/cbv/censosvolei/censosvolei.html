@@ -2,7 +2,7 @@
 
 {% block content %}
  <div class="space"></div>
-    <div class="tituloBold">{{ banner.Titulo }}</div>
+    <div class="tituloBold">{{ banner.Titulo|upper }}</div>
     <div class="subTitulo">{{ banner.Subtitulo|default_if_none:"" }}</div>
     
     <!--início carrossel-->
@@ -27,7 +27,8 @@
                 <h3 class="media-heading alturaTituloDesconto ">{{conteudo.Titulo}}</h3>
                 <div class="alturaDescricaoCensoVolei">
                   <h4>{{conteudo.Detalhe|default_if_none:""}}</h4></div>
-                <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" type="button" class="btn btn-success fonteMyriad">SAIBA MAIS</a>
+                <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                  type="button" class="btn btn-success fonteMyriad">SAIBA MAIS</a>
               </div>
             </div>
           </div>

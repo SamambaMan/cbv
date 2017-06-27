@@ -31,15 +31,19 @@
         <div class="col-xs-12 col-lg-12">
 {% for conteudo in conteudos %}
           <div class="col-xs-12 col-lg-6 paddingBottom">
-            <div class="media media-materia">
-                <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" 
-                class="media-object pull-left tamanhoFixo2" alt="">
-              <div class="media-body fonteMyriad" align="left">
-		        <a style="color:#5a5a5a" 
-                    href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id}}">
-                <h3 class="media-heading">{{ conteudo.Titulo }}</h3>
-                <h4>{{ conteudo.Detalhe|default_if_none:"" }}</h4>
-		        </a>
+            <div class="media media-materia media-cbv">
+                <img src="{{ MEDIA_URL}}{{conteudo.Thumb}}" class="media-object pull-left tamanhoFixo2" alt="">
+              <div class="media-body fonteMyriad media-body-cbv" align="left">
+                <h3 class="media-heading alturaTituloDesconto">{{conteudo.Titulo}}</h3>
+                <div class="alturaDescricaoCensoVolei ">
+                <h4>{{conteudo.Detalhe|default_if_none:""}}</h4></div>
+                {% if conteudo.Ativo %}
+                  <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                    type="button" class="btn btn-success fonteMyriad">SAIBA MAIS</a>
+                {% else %}
+                  <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                    type="button" class="btn btn-default letraVerde fonteMyriad">VEJA COMO FOI</a>
+                {% endif %}
               </div>
             </div>
             <div class="space"></div>
