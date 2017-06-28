@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseForbidden
@@ -286,7 +287,7 @@ def enviaremailcadastrocomplementar(request):
     html = get_template('cbv/cadastrousuario/email_cadcomplementar.html')
     text = get_template('cbv/cadastrousuario/email_cadcomplementar.txt')
 
-    subject, from_email, to = 'Bem Vindo CBV', settings.EMAIL_HOST_USER, [request.user.email]
+    subject, from_email, to = u'Bem Vindo ao Eu Sou do Vôlei', settings.EMAIL_HOST_USER, [request.user.email]
     html_content = html.render(corpo)
     text_content = text.render(corpo)
 

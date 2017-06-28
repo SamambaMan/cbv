@@ -1,4 +1,10 @@
-Olá, {{nome}}!
-Você completou o seu cadastro no site da Confederação Brasileira de Vôlei!
+Parabéns! Você acaba de se tornar membro do Programa Eu Sou do Vôlei! 
 
-Acesse {{endereco}} para conferir nosso conteúdo!<br>
+Agora você terá acesso a uma série de benefícios:
+- Descontos em ingressos
+- Participação em experiências
+- Conteúdos exclusivos
+
+Sua participação é muito importante na construção do futuro do Vôlei do Brasil! É um prazer tê-lo conosco!
+
+Conheça melhor o programa: {{ endereco }}
