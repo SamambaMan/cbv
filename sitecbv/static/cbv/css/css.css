@@ -256,6 +256,7 @@ a:active {
 	font-size:25px;
 	color:#1E4370;
 	float:left !important;
+	text-align:left;
 }
 .tituloLightPequeno {
 	font-family:MyriadPro-Cond;
