@@ -53,7 +53,7 @@ class InfosAdicionaisUsuarioAdmin(admin.ModelAdmin):
     empty_value_display = '---'
     list_display = ['get_email', 'get_firstname',
                     'get_active', 'sexo', 'ufed', 'cadastrocompleto']
-    search_fields = ('user__email', 'user_first_name',)
+    search_fields = ('user__email', 'user__first_name',)
     list_filter = ('user__is_active', 'cadastrocompleto')
 
     def get_email(self, obj):
