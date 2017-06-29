@@ -125,7 +125,7 @@ class LoginForm(forms.Form):
 
             if usuarios.count() == 0 or \
                 not usuarios[0].check_password(self.cleaned_data['password']):
-                raise forms.ValidationError(u"Email ou senha invalido")
+                raise forms.ValidationError(u"E-mail ou senha inválidos")
 
 def rendergroupedselect(self, multiple, name, value, attrs=None, choices=()):
     from django.utils.html import format_html, escape

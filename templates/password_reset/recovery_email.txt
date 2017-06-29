@@ -1,9 +1,9 @@
-{% load i18n %}Olá!
+Olá!
 
-{% blocktrans with domain=site.domain %}You -- or someone pretending to be you -- has requested a password reset on {{ domain }}.{% endblocktrans %}
+Você pediu a redefinição da senha em eusoudovolei.com.br.
 
-{% trans "You can set your new password by following this link:" %}
-
+Você pode redefinir sua senha seguindo este link:
 http{% if secure %}s{% endif %}://{{ site.domain }}{% url "password_reset_reset" token %}
 
-{% trans "If you don't want to reset your password, simply ignore this email and it will stay unchanged." %}
+
+Caso não tenha solicitado a troca de senha ou não queira redefinir sua senha, ignore este e-mail e ela será mantida.
