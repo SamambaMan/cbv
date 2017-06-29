@@ -16,12 +16,12 @@ def torcidometro_times():
     somatimes = somatimes.annotate(qtd_feminino=Count('infos_time_favorito_feminino'))
     somatimes = somatimes.annotate(soma=F('qtd_masculino') + F('qtd_feminino')).order_by('-soma')
 
-    valortotal = 0
+    valortotal = 0.0
     for atual in somatimes.values_list('soma'):
         valortotal = valortotal + atual[0]
 
-    if valortotal != 0:
-        somatimes = somatimes.annotate(percentual=(F('soma') * 100)/valortotal)
+    if valortotal != 0.0:
+        somatimes = somatimes.annotate(percentual=(F('soma') * 100.0)/valortotal)
     else:
         somatimes = somatimes.annotate(percentual=F('soma'))
 
@@ -32,13 +32,13 @@ def torcidometro_modalidades():
     qtd_quadra = InfosAdicionaisUsuario.objects.filter(modalidade_favorita='VQ').count()
     qtd_praia = InfosAdicionaisUsuario.objects.filter(modalidade_favorita='VP').count()
     qtd_ambos = InfosAdicionaisUsuario.objects.filter(modalidade_favorita='AM').count()
-    total = qtd_quadra + qtd_praia + qtd_ambos
+    total = float(qtd_quadra + qtd_praia + qtd_ambos)
 
-    qtd_quadra = qtd_quadra * 100 / total
-    qtd_praia = qtd_praia * 100 / total
-    qtd_ambos = qtd_ambos * 100 / total
+    qtd_quadra = round(qtd_quadra * 100.0 / total)
+    qtd_praia = round(qtd_praia * 100.0 / total)
+    qtd_ambos = round(qtd_ambos * 100.0 / total)
 
-    return {'quadra': qtd_quadra, 'praia': qtd_praia, 'ambos': qtd_ambos}
+    return {'quadra': int(qtd_quadra), 'praia': int(qtd_praia), 'ambos': int(qtd_ambos)}
 
 @obrigar_cadastro_complementar
 def index(request):
