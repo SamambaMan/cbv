@@ -35,6 +35,7 @@ SUPERLIGA_CHOICE = (
 )
 
 UF_CHOICES = (
+    ('', '--------------'),
     ('FO', u'Fora do Brasil'),
     ('AC', u'Acre'),
     ('AL', u'Alagoas'),
