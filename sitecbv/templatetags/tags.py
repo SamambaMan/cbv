@@ -19,3 +19,10 @@ def primeironome(value):
         return ""
 
     return value.split(" ")[0]
+
+
+@register.simple_tag
+def idfacebook():
+    from allauth.socialaccount.models import SocialApp
+
+    return SocialApp.objects.get(provider='facebook').client_id

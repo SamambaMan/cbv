@@ -3,7 +3,8 @@
 {% block extrameta %}
 <meta property="og:type" content="article"/>
 {% if conteudo.Topo %}
-<meta property="og:image" content="{{conteudo.Topo.url}}" />
+<meta property="og:image" content="http://www.eusoudovolei.com.br{{conteudo.Topo.url}}" />
+<meta property="og:image:url" content="http://www.eusoudovolei.com.br{{conteudo.Topo.url}}" />
 {% endif %}
 <meta property="og:title" content="{{conteudo.Titulo}}" />
 <meta property="og:description" content="{{conteudo.Conteudo|striptags|truncatewords:40}}" />

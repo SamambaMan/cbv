@@ -1,5 +1,15 @@
 {% extends "cbv/master.html" %}
 
+{% block extrameta %}
+<meta property="og:type" content="article"/>
+{% if conteudo.Topo %}
+<meta property="og:image" content="http://www.eusoudovolei.com.br{{programa.Topo.url}}" />
+<meta property="og:image:url" content="http://www.eusoudovolei.com.br{{programa.Topo.url}}" />
+{% endif %}
+<meta property="og:title" content="{{programa.Titulo|upper}}" />
+<meta property="og:description" content="{{programa.Conteudo|striptags|truncatewords:40}}" />
+{% endblock %}
+
 {% block content %}
     {% if programa %}
 
