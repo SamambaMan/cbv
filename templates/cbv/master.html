@@ -74,6 +74,24 @@ jQuery(function($){
   });
 });
 </script>
+
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "57d9f035-632a-4194-8d4d-b49f32c8550c",
+      autoRegister: false,
+      subdomainName: 'https://eusoudovolei-com.onesignal.com',
+      httpPermissionRequest: {
+        enable: true
+      },
+      notifyButton: {
+          enable: true
+      }
+    }]);
+  </script> 
+
+
 </head>
 <!-- NAVBAR
 ================================================== -->
