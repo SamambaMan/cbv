@@ -91,6 +91,8 @@ class InfosAdicionaisUsuario(models.Model):
     cidade = models.CharField(max_length=100, blank=True, null=True)
     pais = models.CharField(max_length=100, blank=True,
                             null=True, verbose_name='País')
+    legado = models.BooleanField(default=False)
+
     modalidade_favorita = models.CharField(
         max_length=2, default='VQ', choices=MODALIDADE_CHOICES)
 
@@ -374,6 +376,23 @@ class RedeDeDesconto(Publicavel):
             raise ValidationError(u"Para publicar um conteúdo todos os campos são obrigatórios")
 
 
+class BannerHome(models.Model):
+    Titulo = models.CharField(max_length=100, verbose_name=u"Título")
+    Subtitulo = models.CharField(max_length=100, verbose_name=u"Subtítulo", null=True, blank=True, default="")
+    ImagemCarrossel = models.FileField(
+        help_text=u"912x500 px, PNG ou JPG",
+        verbose_name='Imagem Carrossel')
+    Link = models.CharField(max_length=1000, default="#", help_text="Informe link completo como 'http://eusoudovolei.com.br/'")
+    Ativo = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Banner Home"
+        verbose_name_plural = "Banneres Home"
+
+    def __str__(self):
+        if self.Titulo:
+            return self.Titulo
+        return ""
 
 class BannerRedeDesconto(models.Model):
     Titulo = models.CharField(max_length=100, verbose_name=u"Título")

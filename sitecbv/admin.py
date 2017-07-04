@@ -4,6 +4,11 @@ from django import forms
 from sitecbv.models import *
 
 
+class BannerHomeAdmin(admin.ModelAdmin):
+    list_display = ['Titulo', 'Link', 'Ativo',]
+    list_filter = ('Ativo',)
+    search_fields = ('Titulo',)
+
 class BannerRedeDescontoAdmin(admin.ModelAdmin):
     list_display = ['Titulo', 'Ativo']
     list_filter = ('Ativo',)
@@ -121,5 +126,6 @@ admin.site.register(BannerCensoDoVolei, BannerCensoDoVoleiAdmin)
 admin.site.register(Programa, ProgramaAdmin)
 admin.site.register(BannerExperiencia, BannerExperienciaAdmin)
 admin.site.register(BannerConteudoExclusivo, BannerExperienciaAdmin)
+admin.site.register(BannerHome, BannerHomeAdmin)
 admin.site.site_header = u'Confederação Brasileira de Volei'
 
