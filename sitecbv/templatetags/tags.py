@@ -11,6 +11,8 @@ def contexto(value):
         return 'experiencias'
     if value.__class__.__name__ == 'CensoDoVolei':
         return 'censosvolei'
+    if value.__class__.__name__ == 'BannerHome':
+        return 'bannerhome'
     return None
 
 @register.filter

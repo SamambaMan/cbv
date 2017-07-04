@@ -24,13 +24,22 @@
                     <div class="fundoBannerTransparente">   
                     <div class="tamanhoTitBanner">
                         <h1 class="fonteBrancaLogadaNaoLogada">
+                            {% if conteudo|contexto == 'bannerhome' %}
+                            <a  href="{{ conteudo.Link }} " target="blank">
+                                {{ conteudo.Titulo }}
+                            </a>        
+                            {% else %}
                             <a  href="/{{ conteudo|contexto }}/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/">
                                 {{ conteudo.Titulo }}
                             </a>
+                            {% endif %}
                         </h1>
                     </div>
                     <div class="tamanhoTxtBanner hidden-xs hidden-sm">
-                        <p class="fonteBrancaTxt">{{ conteudo.Detalhe|default_if_none:"" }}</p>
+                        <p class="fonteBrancaTxt">
+                            {{ conteudo.Detalhe|default_if_none:"" }}
+                            {{ conteudo.Subtitulo|default_if_none:"" }}
+                        </p>
                     </div>
                     </div>
                 </div>
