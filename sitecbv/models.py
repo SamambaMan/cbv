@@ -66,6 +66,8 @@ UF_CHOICES = (
     ('TO', u'Tocantins'),
 )
 
+ORDEM_CHOICES = [(i,i) for i in range(10)]
+
 class InfosAdicionaisUsuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     cadastrocompleto = models.BooleanField(
@@ -375,6 +377,11 @@ class RedeDeDesconto(Publicavel):
                     or not self.Selo):
             raise ValidationError(u"Para publicar um conteúdo todos os campos são obrigatórios")
 
+class Beneficio(models.Model):
+    Descricao = models.CharField(max_length=100, verbose_name=u"Descrição")
+    Imagem = models.FileField(help_text="120x120 px, PNG ou JPG")
+    Ativo = models.BooleanField(default=False)
+    Ordem = models.IntegerField(choices=ORDEM_CHOICES)
 
 class BannerHome(models.Model):
     Titulo = models.CharField(max_length=100, verbose_name=u"Título")
