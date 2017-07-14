@@ -51,10 +51,10 @@ urlpatterns = [
     url(r'^rededescontos/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalherededescontos),
 
     # Censo do Volei
-    url(r'^censosvolei/$', censosvolei),
-    url(r'^censosvolei/mais/(?P<ativo>(ativos))/$', maiscensosvolei),
-    url(r'^censosvolei/mais/(?P<ativo>(inativos))/$', maiscensosvolei),
-    url(r'^censosvolei/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalhecensovolei),
+    url(r'^censodovolei/$', censosvolei),
+    url(r'^censodovolei/mais/(?P<ativo>(ativos))/$', maiscensosvolei),
+    url(r'^censodovolei/mais/(?P<ativo>(inativos))/$', maiscensosvolei),
+    url(r'^censodovolei/listas/(?P<categoria>[\w|-]+)/(?P<id>\d+)/$', detalhecensovolei),
 
     # Cadastro de Usuario
     url(r'^cadastrarusuariobasico/', cadastrarusuariobasico),

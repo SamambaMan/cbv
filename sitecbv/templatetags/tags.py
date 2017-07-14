@@ -10,7 +10,7 @@ def contexto(value):
     if value.__class__.__name__ == 'Experiencia':
         return 'experiencias'
     if value.__class__.__name__ == 'CensoDoVolei':
-        return 'censosvolei'
+        return 'censodovolei'
     if value.__class__.__name__ == 'BannerHome':
         return 'bannerhome'
     return None

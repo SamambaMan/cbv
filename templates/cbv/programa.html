@@ -15,7 +15,9 @@
 
         <div class="space"></div>
         <div class="tituloBold">{{ programa.Titulo|upper }}</div>
+        {% if programa.Subtitulo %}
         <div class="subTitulo">{{ programa.Subtitulo|default_if_none:"" }}</div>
+        {% endif %}
 
         <!--imagem programa-->
         <div class="container">

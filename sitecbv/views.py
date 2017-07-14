@@ -49,7 +49,7 @@ def index(request):
     #conteudos_carrossel = conteudospublicados().filter(
     #    Destaque=True)[:5]
 
-    conteudos_carrossel = BannerHome.objects.filter(Ativo=True)
+    conteudos_carrossel = BannerHome.objects.filter(Ativo=True).order_by('-id')
 
     #conteudos_experiencias = experienciaspublicadas().filter(Destaque=True)[:5]
 

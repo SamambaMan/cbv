@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
 
-        <form method="POST" action="/censosvolei/mais/{{ ativo }}/">
+        <form method="POST" action="/censodovolei/mais/{{ ativo }}/">
 
         {% csrf_token %}
         <div class="col-xs-12 col-lg-12 ">
@@ -38,10 +38,10 @@
                 <div class="alturaDescricaoCensoVolei ">
                 <h4>{{conteudo.Detalhe|default_if_none:""}}</h4></div>
                 {% if conteudo.Ativo %}
-                  <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                  <a href="/censodovolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
                     type="button" class="btn btn-success fonteMyriad">SAIBA MAIS</a>
                 {% else %}
-                  <a href="/censosvolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
+                  <a href="/censodovolei/listas/{{ conteudo.Categoria.slug }}/{{ conteudo.id }}/" 
                     type="button" class="btn btn-default letraVerde fonteMyriad">VEJA COMO FOI</a>
                 {% endif %}
               </div>
