@@ -43,7 +43,7 @@ def torcidometro_modalidades():
 @obrigar_cadastro_complementar
 def index(request):
     from .forms import CadastroUsuarioBasicoForm, LoginForm
-    from .models import BannerHome
+    from .models import BannerHome, Beneficio
     from itertools import chain
 
     #conteudos_carrossel = conteudospublicados().filter(
@@ -67,7 +67,8 @@ def index(request):
                    'formlogin': LoginForm(),
                    'conteudos_carrossel': conteudos_carrossel,
                    'torc_mod': torcidometro_modalidades(),
-                   'torc_times': torcidometro_times()})
+                   'torc_times': torcidometro_times(),
+                   'beneficios': Beneficio.objects.filter(Ativo=True).order_by('Ordem')})
 
 
 def cadastrousuariobasico(request):
@@ -154,14 +155,16 @@ def cadastrarusuariobasico(request):
 
 @obrigar_cadastro_complementar
 def programa(request):
-    from .models import Programa
+    from .models import Programa, Beneficio
     programas = Programa.objects.filter(Publicar=True)
 
     prg = None
     if programas.count() > 0:
         prg = programas[0]
 
-    return render(request, 'cbv/programa.html', {'programa': prg})
+    return render(request, 'cbv/programa.html', 
+                  {'programa': prg,
+                   'beneficios': Beneficio.objects.filter(Ativo=True).order_by('Ordem')})
 
 
 def conteudospublicados():
