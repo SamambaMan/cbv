@@ -6,13 +6,12 @@
    {% include 'cbv/carroussel_snippet_index.html'%} 
 {% else %}
   <div class="row">
-  <div class="span9">
-      <div class="span6" >
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 wrap-carrousel-cbv">
         {% include 'cbv/carroussel_snippet_index.html' %}
-      </div>
-      <div class="span3">
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 wrap-formcadastro">
         {% include "cbv/formcadastrobasico_snippet.html" %}
-      </div>
     </div>
   </div>
 {% endif %}
