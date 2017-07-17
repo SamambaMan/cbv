@@ -20,10 +20,14 @@
         {% for conteudo in conteudos_carrossel %}
         <div class="item {% if forloop.counter == 1 %}active{% endif %}"
             style="background-image: url('{{ MEDIA_URL }}{{ conteudo.ImagemCarrossel }}')">
-                <div class="carousel-captionIndex">             
+                {% if user.is_authenticated %}
+                <div class="carousel-captionIndex">
+                {% else %}
+                <div class="carousel-captionIndex2">
+                {% endif %}
                     <div class="fundoBannerTransparente">   
                     <div class="tamanhoTitBanner">
-                        <h1 class="fonteBrancaLogadaNaoLogada">
+                        <h1 class="carousel-inner-cbv-title">
                             {% if conteudo|contexto == 'bannerhome' %}
                             <a  href="{{ conteudo.Link }} " target="blank">
                                 {{ conteudo.Titulo }}
@@ -36,7 +40,11 @@
                         </h1>
                     </div>
                     <div class="tamanhoTxtBanner hidden-xs hidden-sm">
-                        <p class="fonteBrancaTxt">
+                        {% if user.is_authenticated %}
+                            <p class="fonteBrancaTxt">
+                        {% else %}
+                            <p class="fonteBrancaTxtNaoLogada">
+                        {% endif %}
                             {{ conteudo.Detalhe|default_if_none:"" }}
                             {{ conteudo.Subtitulo|default_if_none:"" }}
                         </p>

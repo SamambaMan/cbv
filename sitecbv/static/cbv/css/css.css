@@ -230,7 +230,7 @@ a:active {
 .menu-mobile .menuRedeSociais li {
 	display: inline-block;
 	margin-right: 10px;
-} 
+}
 
 
 
@@ -273,7 +273,6 @@ a:active {
 .tituloLightPequeno {
 	font-family:MyriadPro-Cond;
 	font-size:22px;
-	/*background-image: linear-gradient(to right, #F5F5F5, #1E4370, #1E4370, #1E4370, #1E4370, #1E4370, #1E4370, #1E4370, #1E4370, #F5F5F5);*/
 	background-color:#1E4370;
 	color:#fff;
 	width:170px;
@@ -460,7 +459,6 @@ a:active {
 	text-decoration:underline;
 	font-family:MyriadPro-Cond;
 	font-size:20px;
-	/*margin-left:-10px;*/
 }
 /*início torcidômetro abas*/
 * {
@@ -535,7 +533,7 @@ a:focus {
 }
 .backgroundPrograma {
 	text-align:left;
-	background:url(../img/bannerPrograma/banner1Programa.png);
+	background:url(../img/bannerPrograma/Estatica_Programa.jpg);
 	padding:40px;
 	color:#FFF;
 }
@@ -565,9 +563,9 @@ a:focus {
 @media (max-width: 1024px) {
 .register-box {
 	display: inline-block;
-	width: 35%;
+	width: 100%;
 	vertical-align: top;
-	margin:90px 36px 0 0;
+	margin:0px 36px 0 0;
 	text-align: center;
 }
 }
@@ -624,7 +622,7 @@ a:focus {
 	color: #666666;
 	padding: 6px 0 0 6px;
 	border-radius: 5px;
-	width:283px;
+	width: 100%;
 }
 .box2 {
 	background: #ffffff;
@@ -693,7 +691,7 @@ a:focus {
 
 
 @media (max-width: 767px){
-	.logo-rodape { 
+	.logo-rodape {
 		width: 282px;
 		background-size: contain;
 	}
@@ -740,13 +738,12 @@ a:focus {
 }
 #myCarousel{
 	width:100%;
-	/*margin:0 auto;*/
 }
 
 @media (min-width: 1025px) {
  #myCarouselNaoLogada {
  float:left;
- width:63%;
+ width:100%;
   margin:0 0 0 15px;
 }
 }
@@ -895,7 +892,7 @@ a:focus {
 
 
 @media (min-width: 768px){
-	
+
 	.tamanhoTitBanner {
 		width: 95%;
 	}
@@ -903,7 +900,7 @@ a:focus {
 }
 
 @media (min-width: 1024px){
-	
+
 	.tamanhoTitBanner {
 		width: 100%;
 	}
@@ -912,7 +909,7 @@ a:focus {
 
 
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
 	.carousel-captionIndex {
 	position: absolute;
 	z-index: 10;
@@ -1031,7 +1028,7 @@ a:focus {
 	.carousel-captionIndex2 {
 	position: absolute;
 	z-index: 10;
-	padding: 170px 0;
+	padding: 130px 0;
 	color: #fff;
 	text-align: left;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
@@ -1132,22 +1129,57 @@ a:focus {
 	}
 }
 
-@media (max-width:767px) {
+.carousel.carousel-cbv .item {
+	/* height: 435px; antingo tamanho antes do acerto responsivo */
+	/* height: 200px; */
+}
 
+@media (max-width: 767px) {
 	.carousel.carousel-cbv .item {
-		height: 435px;
+		/* height: 435px; antingo tamanho antes do acerto responsivo */
+		/* height: 200px; */
+		height: 55vw;
 	}
+}
 
-	.carousel-captionIndex,
-	.carousel-captionIndex2 {
-		position: absolute;
-		z-index: 10;
-		bottom: 20px;
-		color: #fff;
-		text-align: left;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-		width:100%;
+@media (max-width: 480px) {
+	.carousel.carousel-cbv .item {
+		/* height: 435px; antingo tamanho antes do acerto responsivo */
+		/* height: 200px; */
+		height: 60vw;
+		min-height: 200px;
 	}
+}
+
+.carousel-captionIndex,
+.carousel-captionIndex2 {
+	position: absolute;
+	z-index: 10;
+	bottom: -76px;
+	color: #fff;
+	text-align: left;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	width:100%;
+}
+
+.carousel-captionIndex2 { bottom: -60px; }
+
+@media (min-width:768px) {
+	.carousel-captionIndex {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.carousel-captionIndex2 {
+		bottom: -50px;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@media (max-width:767px) {
 
 	.tamanhoTxtBanner{
 		width:100%;
@@ -1165,9 +1197,9 @@ a:focus {
 
 	.fundoBannerTransparente {
 		padding-left: 0;
-		padding-bottom: 30px;
 		height: auto;
 		text-align: center;
+		background-color: transparent;
 	}
 
 	.fonteBrancaTxt {
@@ -1202,7 +1234,7 @@ a:focus {
 		font-size:24px;
 		text-shadow: black 0.1em 0.1em 0.2em;
 		padding-top:15px;
-		text-align:center;
+		text-align:left;
 	}
 	.fonteBrancaLogadaNaoLogada a{
 		color:#fff !important;
@@ -1514,7 +1546,7 @@ a:focus {
 
 	.carousel-indicators {
 		position: absolute;
-		bottom: 10px;
+		bottom: 0px;
 		left: 50%;
 		z-index: 15;
 		width: 60%;
@@ -1597,9 +1629,49 @@ a:focus {
 
 /*carrousel cbv */
 
+.wrap-carrousel-cbv {
+	padding: 0;
+}
+
+@media (min-width: 1025px) {
+	.wrap-carrousel-cbv {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+#myCarouselNaoLogada.carousel-cbv,
+#myCarousel.carousel-cbv,
 .carousel-cbv {
-	margin-top: 0;
-	margin-bottom: 0;
+	width: 100%;
+	margin-left: 0;
+	min-height: 330px;
+}
+
+
+@media (max-width:767px) {
+	#myCarouselNaoLogada.carousel-cbv,
+	#myCarousel.carousel-cbv,
+	.carousel-cbv {
+		height: 72vw;
+		max-height: 500px;
+	}
+}
+
+@media (max-width:480px) {
+	#myCarouselNaoLogada.carousel-cbv,
+	#myCarousel.carousel-cbv,
+	.carousel-cbv {
+		height: 87vw;
+	}
+}
+
+@media (max-width:400px) {
+	#myCarouselNaoLogada.carousel-cbv,
+	#myCarousel.carousel-cbv,
+	.carousel-cbv {
+		height: 93vw;
+	}
 }
 
 .carousel-inner-cbv .item,
@@ -1610,7 +1682,61 @@ a:focus {
 }
 
 .carousel-inner-cbv {
-	height: 435px;
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.carousel-inner-cbv {
+		width: 80%;
+	}
+}
+
+@media (max-width:767px) {
+	.carousel-inner-cbv {
+		height: 64vw;
+		max-height: 480px;
+	}
+}
+
+@media (max-width:480px) {
+	.carousel-inner-cbv {
+		height: 83vw;
+	}
+}
+
+@media (max-width:400px) {
+	.carousel-inner-cbv {
+		height: 93vw;
+	}
+}
+
+.carousel-inner-cbv-title,
+.carousel-inner-cbv-title a {
+    font-family: Nexa Bold;
+    font-size: 24px;
+	color: #233055;
+    text-align: left;
+}
+
+.carousel-inner-cbv-title {
+	margin-top: 0;
+	text-shadow: none;
+}
+
+.carousel-inner-cbv-title a {
+	font-size: 24px;
+	color: #233055;
+}
+
+@media (min-width: 768px) {
+	.carousel-inner-cbv-title,
+	.carousel-inner-cbv-title a  {
+		padding-top: 15px;
+		color: #fff;
+		font-size: 28px;
+		line-height: 32px;
+		text-shadow: 0px 4px 0px black;
+	}
 }
 
 @media (min-width: 768px) {
@@ -1626,7 +1752,7 @@ a:focus {
 }
 
 
-@media (min-width: 1025px) {
+@media (min-width: 992px) {
 
 	.carousel-cbv { height: 470px; }
 	.carousel-inner-cbv {
@@ -1704,8 +1830,8 @@ a:focus {
 }
 
 @media (max-width: 767px){
-
 	.carousel-control {
+		height: 60vw;
 		color: #fff;
 		opacity: .85;
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
@@ -1716,11 +1842,24 @@ a:focus {
 	}
 
 	.carousel-control.left {
-		left: 10vw;
+		left: 0;
 	}
 
 	.carousel-control.right {
-		right: 12vw;
+		right: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.carousel-control {
+		height: 412px;
+	}
+	.carousel-control .glyphicon { font-size: 50px; }
+}
+
+@media (min-width: 992px) {
+	.carousel-control {
+		height: 100%;
 	}
 }
 
@@ -1794,4 +1933,24 @@ a:focus {
 		height: auto;
 	}
 }
+
+
+@media (min-width: 992px) {
+	.wrap-formcadastro .caixa {
+		margin-top: 0;
+	}
+}
+
+@media (min-width: 1025px) {
+	.wrap-formcadastro .caixa {
+		margin-top: 10px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.wrap-formcadastro {
+		padding: 0;
+	}
+}
+
 
