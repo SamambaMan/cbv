@@ -5,6 +5,7 @@
 {% if user.is_authenticated %}
    {% include 'cbv/carroussel_snippet_index.html'%} 
 {% else %}
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 wrap-carrousel-cbv">
         {% include 'cbv/carroussel_snippet_index.html' %}
@@ -14,7 +15,9 @@
         {% include "cbv/formcadastrobasico_snippet.html" %}
     </div>
   </div>
+</div>
 {% endif %}
+
 <div style="height:100px;"></div>
 {% include 'cbv/marketing.html' %}
 <br>
