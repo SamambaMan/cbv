@@ -1166,6 +1166,7 @@ a:focus {
 
 @media (min-width:768px) {
 	.carousel-captionIndex {
+		bottom: -4px;
 		margin: 0;
 		padding: 0;
 	}
@@ -1724,7 +1725,7 @@ a:focus {
 }
 
 .carousel-inner-cbv-title a {
-	font-size: 24px;
+	font-size: 18px;
 	color: #233055;
 }
 
@@ -1732,11 +1733,16 @@ a:focus {
 	.carousel-inner-cbv-title,
 	.carousel-inner-cbv-title a  {
 		padding-top: 15px;
+		font-size: 20px;	
 		color: #fff;
-		font-size: 28px;
-		line-height: 32px;
 		text-shadow: 0px 4px 0px black;
 	}
+}
+
+
+@media (min-width: 992px) {
+	.carousel-inner-cbv-title,
+	.carousel-inner-cbv-title a  { font-size: 28px; }
 }
 
 @media (min-width: 768px) {
