@@ -45,8 +45,11 @@
                         {% else %}
                             <p class="fonteBrancaTxtNaoLogada">
                         {% endif %}
+                            {% if conteudo|contexto == 'bannerhome' %}
                             {{ conteudo.Detalhe|default_if_none:"" }}
+                            {% else %}
                             {{ conteudo.Subtitulo|default_if_none:"" }}
+                            {% endif %}
                         </p>
                     </div>
                     </div>
