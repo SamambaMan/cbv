@@ -533,10 +533,16 @@ a:focus {
 }
 .backgroundPrograma {
 	text-align:left;
-	background:url(../img/bannerPrograma/Estatica_Programa.jpg);
+	background:url(../img/bannerPrograma/Estatica_Programa.jpg) center;
+	background-size: cover;
 	padding:40px;
 	color:#FFF;
 }
+
+.backgroundPrograma p {
+	font-size: 16px;
+}
+
 /*fim abas torcidômetro*/
 /*------------------------------------*/
 /*form não logado*/
@@ -1733,7 +1739,7 @@ a:focus {
 	.carousel-inner-cbv-title,
 	.carousel-inner-cbv-title a  {
 		padding-top: 15px;
-		font-size: 20px;	
+		font-size: 20px;
 		color: #fff;
 		text-shadow: 0px 4px 0px black;
 	}

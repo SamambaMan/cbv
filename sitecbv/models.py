@@ -19,6 +19,7 @@ MF_CHOICES = (
 )
 
 MODALIDADE_CHOICES = (
+    ('', '--------------'),
     ('VQ', u'Volei de Quadra'),
     ('VP', u'Volei de Praia'),
     ('AM', u'Ambos'),
@@ -96,7 +97,7 @@ class InfosAdicionaisUsuario(models.Model):
     legado = models.BooleanField(default=False)
 
     modalidade_favorita = models.CharField(
-        max_length=2, default='VQ', choices=MODALIDADE_CHOICES)
+        max_length=2, choices=MODALIDADE_CHOICES, blank=True, null=True)
 
     jogador_favorito = models.ForeignKey(
         'Jogador', blank=True, null=True, related_name="infos_jogador_favorito")
