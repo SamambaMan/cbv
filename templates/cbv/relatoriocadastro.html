@@ -1,0 +1,202 @@
+{% extends "admin/base_site.html" %}
+{% load  static  %}
+
+{% block extrahead%}
+{{ block.super }}
+
+<script type="text/javascript">function gettext(txt){ return txt; }</script>
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+
+{% endblock %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">Início</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label='sitecbv' %}">Sitecbv</a>
+&rsaquo; Relatório de Cadastro de Usuários
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h1>Relatório de Cadastro de Usuários</h1>
+<div id="content-main">
+    <form action="{% url 'relatoriocadastro' %}" method="POST" id="formulario">
+        {% csrf_token %}
+        {{ form.page }}
+        <fieldset class="module aligned ">
+            <div class="form-row"><div>
+                <label>Nome</label>
+                {{ form.nome }}
+            </div></div>
+            <div class="form-row"><div>
+                <label>E-Mail</label>
+                {{ form.email }}
+            </div></div>
+            <div class="form-row"><div class='checkbox-row'>
+                {{ form.cadastrocompleto }} <label class="vCheckboxLabel" for='id_cadastrocompleto'>Cadastro Completo</label>
+            </div></div>
+            <div class="form-row"><div>
+                <label>CPF/Passaporte</label>
+                {{ form.cpf }}
+                </div>
+            </div>
+
+            <div class="form-row"><div>
+                <label>Celular</label>
+                {{ form.celular }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label>Nascimento</label>
+                    {{ form.nascimento_ini }}
+                    &nbsp;&nbsp;até&nbsp;&nbsp;
+                    {{ form.nascimento_fin }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>Sexo</label>
+                {{ form.sexo }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>UF</label>
+                {{ form.ufed }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>Cidade</label>
+                {{ form.cidade }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>CEP</label>
+                {{ form.cep }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>Endereço</label>
+                {{ form.endereco }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>Número</label>
+                {{ form.numero }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>Complemento</label>
+                {{ form.complemento }}
+                </div>
+            </div>
+            <div class="form-row"><div>
+                <label>Bairro</label>
+                {{ form.bairro }}
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Pesquisar">
+                {% if resultados %}
+                    <input type="button" onclick="javascript:exportar();" value="Exportar">
+                {% endif %}
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{% if resultados %}
+<table> 
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>EMail</th>
+            <th>CPF</th>
+            <th>Nascimento</th>
+            <th>Sexo</th>
+            <th>Cidade</th>
+            <th>CEP</th>
+            <th>Endereço</th>
+            <th>Número</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>UF</th>
+            <th>Cad. Completo</th>
+            <th>Ativo</th>
+            <th>Time Favorito Feminino</th>
+            <th>Time Favorito Masculino</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in resultados %}
+        <tr class="{% cycle 'row1' 'row2' %}">
+            <td>{{ result.user.first_name|default_if_none:"-" }}</td>
+            <td>{{ result.user.email|default_if_none:"-" }}</td>
+            <td>{{ result.cpf|default_if_none:"-" }}</td>
+            <td>{{ result.nascimento|default_if_none:"-" }}</td>
+            <td>{{ result.sexo|default_if_none:"-" }}</td>
+            <td>{{ result.cidade|default_if_none:"-" }}</td>
+            <td>{{ result.cep|default_if_none:"-" }}</td>
+            <td>{{ result.endereco|default_if_none:"-" }}</td>
+            <td>{{ result.numero|default_if_none:"-" }}</td>
+            <td>{{ result.complemento|default_if_none:"-" }}</td>
+            <td>{{ result.bairro|default_if_none:"-" }}</td>
+            <td>{{ result.ufed|default_if_none:"-" }}</td>
+            <td>{{ result.cadastrocompleto|default_if_none:"-" }}</td>
+            <td>{{ result.user.is_active|default_if_none:"-" }}</td>
+            <td>{{ result.time_favorito_feminino|default_if_none:"-" }}</td>
+            <td>{{ result.time_favorito_masculino|default_if_none:"-" }}</td>
+        </tr>
+        {% endfor %}
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if resultados.has_previous %}
+            <a href="javascript:paginar({{ resultados.previous_page_number }})"><</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ resultados.number }} de {{ resultados.paginator.num_pages }}.
+        </span>
+
+        {% if resultados.has_next %}
+            <a href="javascript:paginar({{ resultados.next_page_number }})">></a>
+        {% endif %}
+    </span>
+</div>
+
+{% endif %}
+
+<script type="text/javascript">
+    function paginar(page) {
+        document.getElementById('id_page').value=page;
+        document.getElementById('formulario').submit();
+    }
+
+    function exportar() {
+        document.getElementById('formulario').action='{% url 'relatoriocadastro' %}?exp=1';
+        document.getElementById('formulario').submit();
+        document.getElementById('formulario').action='{% url 'relatoriocadastro' %}';
+    }
+</script>
+
+
+{% endblock%}
+
+
+
+

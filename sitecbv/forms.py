@@ -3,6 +3,7 @@
 from django import forms
 from django.forms import SelectMultiple, Select
 from .models import InfosAdicionaisUsuario, UF_CHOICES
+from django.contrib.admin import widgets as adwig
 
 
 class FormBuscaSimples(forms.Form):
@@ -381,3 +382,64 @@ class FaleConoscoForm(forms.Form):
         required=True,
         widget=forms.Textarea(
             attrs={'class':'form-control fontHelvitica'}))
+
+class FiltroRelatorioCadastro(forms.Form):
+    from .models import SEXO_CHOICES, UF_CHOICES
+    page = forms.CharField(widget=forms.HiddenInput())
+    nome = forms.CharField(
+        label="Nome",
+        max_length=100,
+        required=False)
+    email = forms.EmailField(
+        label="E-mail",
+        max_length=100,
+        required=False)
+    cadastrocompleto = forms.BooleanField(
+        label="Cadastro Completo",
+        required=False)
+    cpf = forms.CharField(
+        label="CPF",
+        max_length=100,
+        required=False)
+    celular = forms.CharField(
+        label="Celular",
+        max_length=100,
+        required=False)
+    nascimento_ini = forms.DateField(
+        required=False,
+        widget=adwig.AdminDateWidget())
+    nascimento_fin = forms.DateField(
+        required=False,
+        widget=adwig.AdminDateWidget())
+    sexo = forms.ChoiceField(
+        label="Sexo",
+        required=False,
+        choices=(('', '----'),) + SEXO_CHOICES)
+    ufed = forms.ChoiceField(
+        label="UF",
+        required=False,
+        choices=UF_CHOICES)
+    cidade = forms.CharField(
+        label="Cidade",
+        max_length=100,
+        required=False)
+    cep = forms.CharField(
+        label="CEP",
+        max_length=100,
+        required=False)
+    endereco = forms.CharField(
+        label="Endereço",
+        max_length=100,
+        required=False)
+    numero = forms.CharField(
+        label="Número",
+        max_length=100,
+        required=False)
+    complemento = forms.CharField(
+        label="Complemento",
+        max_length=100,
+        required=False)
+    bairro = forms.CharField(
+        label="Bairro",
+        max_length=100,
+        required=False)

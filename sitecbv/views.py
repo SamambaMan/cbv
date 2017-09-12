@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from .decorators import obrigar_cadastro_complementar
+from django.contrib.auth.decorators import user_passes_test
 
 
 def torcidometro_times():
@@ -622,3 +623,96 @@ def consultacpf(request, cpf):
     usuario = get_object_or_404(InfosAdicionaisUsuario, cpf=cpf)
 
     return  JsonResponse([{'ativo': usuario.user.is_active and usuario.cadastrocompleto}], safe=False)
+
+@user_passes_test(lambda u:u.is_staff, login_url='admin:login')
+def relatoriocadastro(request):
+    from .forms import FiltroRelatorioCadastro
+    from .models import InfosAdicionaisUsuario
+    from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+    form = FiltroRelatorioCadastro(initial={'page':1})
+
+    saida = None
+
+    if request.method == 'POST':
+        form = FiltroRelatorioCadastro(request.POST, initial={'page':1})
+        if form.is_valid():
+            resultados = InfosAdicionaisUsuario.objects.filter()
+            if form.cleaned_data['nome']: resultados = resultados.filter(user__first_name__icontains=form.cleaned_data['nome'])
+            if form.cleaned_data['email']: resultados = resultados.filter(user__email__icontains=form.cleaned_data['email'])
+            if form.cleaned_data['cadastrocompleto']: resultados = resultados.filter(cadastrocompleto=True)
+            if form.cleaned_data['cpf']: resultados = resultados.filter(cpf__icontains=form.cleaned_data['cpf'])
+            if form.cleaned_data['celular']: resultados = resultados.filter(celular__icontains=form.cleaned_data['celular'])
+            if form.cleaned_data['nascimento_ini']: resultados = resultados.filter(nascimento__gte=form.cleaned_data['nascimento_ini'])
+            if form.cleaned_data['nascimento_fin']: resultados = resultados.filter(nascimento__lte=form.cleaned_data['nascimento_fin'])
+            if form.cleaned_data['sexo']: resultados = resultados.filter(sexo=form.cleaned_data['sexo'])
+            if form.cleaned_data['ufed']: resultados = resultados.filter(ufed=form.cleaned_data['ufed'])
+            if form.cleaned_data['cidade']: resultados = resultados.filter(cidade__icontains=form.cleaned_data['cidade'])
+            if form.cleaned_data['cep']: resultados = resultados.filter(cep__icontains=form.cleaned_data['cep'])
+            if form.cleaned_data['endereco']: resultados = resultados.filter(endereco__icontains=form.cleaned_data['endereco'])
+            if form.cleaned_data['numero']: resultados = resultados.filter(numero=form.cleaned_data['numero'])
+            if form.cleaned_data['bairro']: resultados = resultados.filter(bairro__icontains=form.cleaned_data['bairro'])
+
+            exp = request.GET.get('exp')
+            if exp == '1':
+                return exportarcsv(resultados)
+
+            paginator = Paginator(resultados, 25)
+            page = form.cleaned_data['page']
+
+            try:
+                saida = paginator.page(page)
+            except PageNotAnInteger:
+                # If page is not an integer, deliver first page.
+                saida = paginator.page(1)
+            except EmptyPage:
+                # If page is out of range (e.g. 9999), deliver last page of results.
+                saida = paginator.page(paginator.num_pages)
+
+
+    
+    return render(request, 
+                  'cbv/relatoriocadastro.html',
+                  {'form':form,
+                   'resultados':saida,
+                   'site_header':u"Confederação Brasileira de Volei"})
+
+def exportarcsv(resultados):
+    import csv
+    import io
+    from django.shortcuts import HttpResponse
+
+    buffer = io.BytesIO()
+    wr = csv.writer(buffer, quoting=csv.QUOTE_ALL)
+    
+    linhas = [['Nome','EMail','Ativo','Cad. Completo','CPF','Nascimento','Sexo','Cidade',
+               'CEP','Endereco','Numero','Complemento','Bairro','UF','Time Favorito Feminino',
+               'Time Favorito Masculino','Times Secundários Femininos', 'Times Secundários Masculinos']]
+    for result in resultados:
+        linhas += [[
+            result.user.first_name,
+            result.user.email,
+            result.user.is_active,
+            result.cadastrocompleto,
+            result.cpf,
+            result.nascimento,
+            result.sexo,
+            result.cidade,
+            result.cep,
+            result.endereco,
+            result.numero,
+            result.complemento,
+            result.bairro,
+            result.ufed,
+            result.time_favorito_feminino if result.time_favorito_feminino else None,
+            result.time_favorito_masculino if result.time_favorito_masculino else None,
+            ', '.join(result.times_secundarios_feminino.all().values_list('Nome', flat=True)),
+            ', '.join(result.times_secundarios_masculino.all().values_list('Nome', flat=True))
+        ]]
+
+    wr.writerows(linhas)
+    buffer.seek(0)
+    response = HttpResponse(buffer, content_type='text/csv')
+    response['Content-Disposition'] = 'attachment;  filename=usuarios.csv'
+
+    return response

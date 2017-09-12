@@ -25,11 +25,11 @@ from sitecbv.views import index, cadastrousuariobasico,\
                           detalheconteudoexclusivo, cadastrocomplementar, efetuarlogin,\
                           experiencias, maisexperiencias, detalheexperiencias, rededescontos,\
                           complementarendereco, detalherededescontos, faleconosco, censosvolei,\
-                          maiscensosvolei, detalhecensovolei, consultacpf
+                          maiscensosvolei, detalhecensovolei, consultacpf, relatoriocadastro
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='adminroot'),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^$', index),
     # Programa
@@ -70,9 +70,11 @@ urlpatterns = [
     #Esqueci minha senha
     url(r'^passwordreset/', include('password_reset.urls')),
 
-
     #API
     url(r'^api/consultacpf/(?P<cpf>\w+)/$', consultacpf),
+
+    #Relatorio
+    url(r'^admin/sitecbv/cadastros/$', relatoriocadastro, name='relatoriocadastro'),
 
 
 
